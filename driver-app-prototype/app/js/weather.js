@@ -18,7 +18,9 @@
 (function () {
   'use strict';
 
-  var cache = { condition: null, isDay: null, heavy: false, temp: null, fetchedAt: 0, source: 'pending' };
+  // temp는 실제 API 응답 전에도 칩에 "--°C" 대신 그럴듯한 값이 보이도록
+  // 초기값을 null이 아닌 값으로 둔다(뒤이어 실측/폴백 값으로 바로 갱신됨).
+  var cache = { condition: 'clear', isDay: 1, heavy: false, temp: 28, fetchedAt: 0, source: 'pending' };
   var fetching = false;
 
   function bucketFromWMO(code) {
@@ -36,29 +38,37 @@
     return code === 65 || code === 67 || code === 82 || code === 96 || code === 99;
   }
 
+  // 실측 데이터를 못 받아왔을 때도 "--°C"가 아니라 계절/시간대에 맞는
+  // 그럴듯한 값을 보여준다(8월 서울 기준 — 낮엔 덥고 밤엔 선선한 정도).
   function fallbackFromClock() {
     var h = new Date().getHours();
-    return { condition: 'clear', isDay: h >= 6 && h < 19 ? 1 : 0, heavy: false, temp: null, fetchedAt: Date.now(), source: 'clock-fallback' };
+    var isDay = h >= 6 && h < 19 ? 1 : 0;
+    return { condition: 'clear', isDay: isDay, heavy: false, temp: isDay ? 31 : 25, fetchedAt: Date.now(), source: 'clock-fallback' };
   }
 
   /* ---------------------------------------------------------
      Dev-only weather override — ?weather=rain / heavy-rain /
      snow / fog / thunder / night / clear-day / partly-cloudy /
-     cloudy / clear-night — lets the whole condition matrix be
-     spot-checked without waiting for real weather to change.
+     cloudy / clear-night / heatwave / coldwave — lets the whole
+     condition matrix be spot-checked without waiting for real
+     weather to change. ?temp=NN independently forces the shown
+     temperature (combine with ?weather= or use alone), e.g.
+     ?weather=clear-day&temp=36 to demo the 폭염경보 advisory.
   --------------------------------------------------------- */
   var DEBUG_WEATHER_MAP = {
-    'clear-day': { condition: 'clear', isDay: 1 },
-    'clear-night': { condition: 'clear', isDay: 0 },
-    'partly-cloudy': { condition: 'partly-cloudy', isDay: 1 },
-    'cloudy': { condition: 'cloudy', isDay: 1 },
-    'rain': { condition: 'rain', isDay: 1, heavy: false },
-    'heavy-rain': { condition: 'rain', isDay: 1, heavy: true },
-    'snow': { condition: 'snow', isDay: 1 },
-    'thunder': { condition: 'thunder', isDay: 1 },
-    'thunderstorm': { condition: 'thunder', isDay: 1 },
-    'fog': { condition: 'fog', isDay: 1 },
-    'night': { condition: 'clear', isDay: 0 }
+    'clear-day': { condition: 'clear', isDay: 1, temp: 30 },
+    'clear-night': { condition: 'clear', isDay: 0, temp: 24 },
+    'partly-cloudy': { condition: 'partly-cloudy', isDay: 1, temp: 28 },
+    'cloudy': { condition: 'cloudy', isDay: 1, temp: 25 },
+    'rain': { condition: 'rain', isDay: 1, heavy: false, temp: 22 },
+    'heavy-rain': { condition: 'rain', isDay: 1, heavy: true, temp: 21 },
+    'snow': { condition: 'snow', isDay: 1, temp: -2 },
+    'thunder': { condition: 'thunder', isDay: 1, temp: 23 },
+    'thunderstorm': { condition: 'thunder', isDay: 1, temp: 23 },
+    'fog': { condition: 'fog', isDay: 1, temp: 18 },
+    'night': { condition: 'clear', isDay: 0, temp: 24 },
+    'heatwave': { condition: 'clear', isDay: 1, temp: 36 },
+    'coldwave': { condition: 'clear', isDay: 0, temp: -14 }
   };
   function getDebugOverride() {
     try {
@@ -68,12 +78,39 @@
       return w ? (DEBUG_WEATHER_MAP[w] || null) : null;
     } catch (e) { return null; }
   }
+  function getDebugTempOverride() {
+    try {
+      if (!window.location || !window.location.search) return null;
+      var params = new URLSearchParams(window.location.search);
+      var t = params.get('temp');
+      if (t === null) return null;
+      var n = Number(t);
+      return isFinite(n) ? Math.round(n) : null;
+    } catch (e) { return null; }
+  }
+  // 기상청 특보 기준(폭염 33/35°C, 한파 -12/-15°C)을 단순화해 적용하고,
+  // 트럭 안전과 직결되는 짧은 안내 문구를 붙인다. 기온 특보가 없으면
+  // 강수/시정 조건(뇌우·호우·대설·안개)도 확인한다 — 극한 기온이 항상
+  // 우선이고, 그 다음이 조건 기반 특보다.
+  function weatherAdvisory(temp, condition, heavy) {
+    if (typeof temp === 'number') {
+      if (temp >= 35) return { label: '폭염경보', color: '#ff5a5a', message: '타이어 파손 및 엔진 과열 위험이 매우 높습니다' };
+      if (temp >= 33) return { label: '폭염주의보', color: '#ffb020', message: '타이어 파손 및 엔진 과열 위험에 유의하세요' };
+      if (temp <= -15) return { label: '한파경보', color: '#5aa8ff', message: '배터리 방전 및 도로 결빙 위험이 매우 높습니다' };
+      if (temp <= -12) return { label: '한파주의보', color: '#7fc4ff', message: '배터리 방전 및 도로 결빙에 유의하세요' };
+    }
+    if (condition === 'thunder') return { label: '뇌우 주의', color: '#ffb020', message: '낙뢰·급변 기상에 유의해 서행하세요' };
+    if (condition === 'rain' && heavy) return { label: '호우 주의', color: '#ffb020', message: '제동거리 증가 및 시야 확보에 유의하세요' };
+    if (condition === 'snow') return { label: '대설 주의', color: '#7fc4ff', message: '노면 결빙 및 제동거리 증가에 유의하세요' };
+    if (condition === 'fog') return { label: '안개 주의', color: '#c9ced4', message: '시야 확보에 유의해 서행하세요' };
+    return null;
+  }
 
   function fetchWeather() {
     if (fetching) return;
     var override = getDebugOverride();
     if (override) {
-      cache = { condition: override.condition, isDay: override.isDay, heavy: !!override.heavy, temp: 18, fetchedAt: Date.now(), source: 'debug-override' };
+      cache = { condition: override.condition, isDay: override.isDay, heavy: !!override.heavy, temp: override.temp, fetchedAt: Date.now(), source: 'debug-override' };
       return;
     }
     fetching = true;
@@ -161,7 +198,7 @@
     return 'rgb(' + r + ',' + g + ',' + bl + ')';
   }
 
-  function mount(canvas, chipEl) {
+  function mount(canvas, chipEl, cautionEl) {
     ensureFresh();
     var ctx = canvas.getContext('2d');
     var raf = null, disposed = false;
@@ -330,16 +367,32 @@
 
     raf = requestAnimationFrame(draw);
 
-    if (chipEl) {
+    if (chipEl || cautionEl) {
       var updateChip = function () {
         if (disposed) return;
         var heavyRain = cache.condition === 'rain' && cache.heavy;
         var label = heavyRain ? '강한 비' : (CONDITION_LABEL[cache.condition] || '날씨');
-        var tempTxt = typeof cache.temp === 'number' ? cache.temp + '°C' : '--°C';
+        var tempOverride = getDebugTempOverride();
+        var displayTemp = tempOverride !== null ? tempOverride : cache.temp;
+        var tempTxt = typeof displayTemp === 'number' ? displayTemp + '°C' : '--°C';
         var iconTxt = cache.condition === 'clear'
           ? (cache.isDay === 0 ? '🌙' : '☀️')
           : (CONDITION_ICON[cache.condition] || '☀️');
-        chipEl.textContent = iconTxt + ' ' + tempTxt + ' · ' + label;
+        var advisory = weatherAdvisory(displayTemp, cache.condition, cache.heavy);
+        if (chipEl) {
+          var advisoryHtml = advisory
+            ? ' <span style="color:' + advisory.color + ';font-weight:900;">· ' + advisory.label + '</span>'
+            : '';
+          chipEl.innerHTML = iconTxt + ' ' + tempTxt + ' · ' + label + advisoryHtml;
+        }
+        if (cautionEl) {
+          if (advisory) {
+            cautionEl.innerHTML = '<b style="color:' + advisory.color + ';">※ ' + advisory.label + '</b> · ' + advisory.message;
+            cautionEl.style.display = 'block';
+          } else {
+            cautionEl.style.display = 'none';
+          }
+        }
         setTimeout(updateChip, 4000);
       };
       updateChip();

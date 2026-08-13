@@ -193,7 +193,7 @@
   --------------------------------------------------------- */
   var driveRecord = {
     score: 0,
-    percentile: 12,
+    percentile: 35, // 상위 35% — medalTierFromPercentile() 기준 SILVER 구간(20~50%)
     tripCount: 42,
     totalKm: 3180,
     avgSpeed: 64,
@@ -319,6 +319,14 @@
     if (score >= 80) return { label: '양호', tone: 'success', medal: 'gold', medalLabel: 'GOLD' };
     if (score >= 60) return { label: '주의', tone: 'warning', medal: 'silver', medalLabel: 'SILVER' };
     return { label: '위험', tone: 'danger', medal: 'bronze', medalLabel: 'BRONZE' };
+  }
+
+  // 메달 등급은 "점수 자체가 좋은가"(scoreGrade, 절대 기준)가 아니라 "동료 대비
+  // 어디쯤인가"(percentile, 상대 기준)로 정한다 — 서로 다른 두 기준이라 함수를 분리한다.
+  function medalTierFromPercentile(percentile) {
+    if (percentile < 20) return { medal: 'gold', medalLabel: 'GOLD' };
+    if (percentile <= 50) return { medal: 'silver', medalLabel: 'SILVER' };
+    return { medal: 'bronze', medalLabel: 'BRONZE' };
   }
 
   function medalBadge(grade) {
@@ -674,7 +682,8 @@
     if (weatherUnmount) { weatherUnmount(); weatherUnmount = null; }
     var canvas = document.getElementById('home-weather-canvas');
     var chip = document.getElementById('home-weather-chip');
-    if (canvas && window.SE_Weather) weatherUnmount = window.SE_Weather.mount(canvas, chip);
+    var caution = document.getElementById('home-weather-caution');
+    if (canvas && window.SE_Weather) weatherUnmount = window.SE_Weather.mount(canvas, chip, caution);
   }
 
   function renderTireDetailTruck() {
@@ -1014,6 +1023,7 @@
     var maintIssues = [v.terminal.status, oilStats.severity, tireStatus].filter(function (s) { return s !== 'success'; }).length;
     var maintTone = maintIssues === 0 ? 'success' : (tireStatus === 'danger' || oilStats.severity === 'danger' ? 'danger' : 'warning');
     var driveGrade = scoreGrade(driveRecord.score);
+    var driveMedal = medalTierFromPercentile(driveRecord.percentile);
 
     return (
       '<div class="fade-in">' +
@@ -1023,15 +1033,15 @@
       '<div class="truck-photo-placeholder" id="home-weather-stage">' +
       '<canvas class="weather-canvas" id="home-weather-canvas"></canvas>' +
       '<span class="weather-chip" id="home-weather-chip">날씨 불러오는 중…</span>' +
-      '<span class="truck-photo-icon">' + icon('truck', 28) + '</span>' +
-      '<span class="truck-photo-text">내 트럭 사진</span>' +
+      '<img class="truck-photo-img" src="../reference/home_truck_photo.png" alt="내 트럭" />' +
+      '<div class="truck-photo-caution" id="home-weather-caution" style="display:none;"></div>' +
       '</div>' +
 
       '<div class="home-card-grid">' +
       '<button class="home-card-vertical" data-goto="drive">' +
       '<span class="item-icon tone-' + driveGrade.tone + '">' + icon('medal', 20) + '</span>' +
       '<div class="home-card-title">지난달 안전운전</div>' +
-      '<div class="home-card-value">' + driveRecord.score + '점 · ' + driveGrade.medalLabel + '</div>' +
+      '<div class="home-card-value">' + driveRecord.score + '점 · ' + driveMedal.medalLabel + '</div>' +
       '</button>' +
 
       '<button class="home-card-vertical" data-goto="dashboard">' +
@@ -1062,6 +1072,7 @@
 
   function renderDriveContent() {
     var grade = scoreGrade(driveRecord.score);
+    var medalTier = medalTierFromPercentile(driveRecord.percentile);
     var periods = tripPeriods();
     if (!selectedTripPeriod || periods.indexOf(selectedTripPeriod) === -1) selectedTripPeriod = periods[0];
     var filteredTrips = TRIP_LOG.filter(function (t) { return t.date.slice(0, 7) === selectedTripPeriod; });
@@ -1092,7 +1103,7 @@
       '</div></div>' +
       '<div class="score-divider"></div>' +
       '<div class="medal-figure">' +
-      '<img class="medal-img" src="../reference/medal_' + grade.medal + '.png" alt="' + grade.medalLabel + ' 등급" />' +
+      '<img class="medal-img" src="../reference/medal_' + medalTier.medal + '.png" alt="' + medalTier.medalLabel + ' 등급" />' +
       '<div class="medal-percentile">상위 ' + driveRecord.percentile + '%</div>' +
       '</div>' +
       '</div>' +
@@ -1246,7 +1257,7 @@
     'maintenance-history': function () { return renderHeader({ back: true, icon: 'fileText', title: '정비 이력', meta: vehicleMeta() }); },
     'maintenance-history-detail': function () { return renderHeader({ back: true, title: '정비 이력 상세', meta: vehicleMeta() }); },
     'report-detail': function () { return renderHeader({ back: true, icon: 'clipboard', title: (REPORT_TITLE[reportKind] || REPORT_TITLE.terminal) + ' 점검 리포트', meta: vehicleMeta() }); },
-    drive: function () { return renderHeader({ icon: 'compass', title: '운행', meta: driveMeta() }); },
+    drive: function () { return renderHeader({ icon: 'compass', title: '안전 운행 현황', meta: driveMeta() }); },
     notifications: function () { return renderHeader({ icon: 'bell', title: '알림', meta: homeMeta() }); },
     settings: function () { return renderHeader({ icon: 'settings', title: '설정', meta: homeMeta() }); }
   };
@@ -1357,7 +1368,13 @@
       if (document.getElementById('notice-dont-show').checked) {
         localStorage.setItem('se_notice_hide_until', new Date().toISOString().slice(0, 10));
       }
-      if (currentModalNotice) currentModalNotice.read = true;
+      if (currentModalNotice) {
+        // 회사 공지는 여기서도 반드시 확인 처리한다 — 로그인 직후 팝업으로 뜬 경우
+        // (알림 목록을 거치지 않은 경우)에도 관리자 화면의 "공지 확인" 열이 바로
+        // 초록으로 바뀌도록 하기 위함. acknowledge()는 멱등이라 두 번 불려도 안전하다.
+        if (currentModalNotice.from_company && window.SENotices) window.SENotices.acknowledge(currentModalNotice.id);
+        currentModalNotice.read = true;
+      }
       document.getElementById('notice-modal').classList.remove('show');
       return;
     }

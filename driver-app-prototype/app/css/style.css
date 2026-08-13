@@ -975,6 +975,11 @@ html[data-theme="dark"] .settings-row { border-color: rgba(45,212,191,0.14); }
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 14px;
 }
+.modal-notice-tag {
+  text-align: center;
+  font-size: 11.5px; font-weight: 800; letter-spacing: 0.02em;
+  color: var(--primary); margin-bottom: 6px;
+}
 .modal-heading-row { text-align: center; margin-bottom: 10px; }
 .modal-notice-date { font-size: 11.5px; font-weight: 700; color: var(--text-muted); margin-bottom: 4px; }
 .modal-title { font-size: 16.5px; font-weight: 900; margin-bottom: 0; }
@@ -1147,9 +1152,26 @@ html[data-theme="dark"] .home-summary-card { border-color: rgba(45,212,191,0.14)
   color: var(--text-muted);
   margin-bottom: 14px;
 }
-.truck-photo-placeholder .truck-photo-icon { position: relative; z-index: 2; color: #fff; opacity: 0.85; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.35)); }
-.truck-photo-placeholder .truck-photo-text { position: relative; z-index: 2; font-size: 12.5px; font-weight: 700; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.35); }
+/* 실제 트럭 사진 — 날씨 캔버스(z-index:1) 위, 배지/경고문(z-index:6) 아래에 오도록
+   z-index:2. 트럭 자체는 클릭·드래그를 받을 필요가 없어 pointer-events:none. */
+.truck-photo-placeholder .truck-photo-img {
+  position: relative; z-index: 2;
+  width: 68%; max-width: 300px; height: auto;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,0.38));
+  pointer-events: none;
+}
 .truck-photo-placeholder .weather-chip { position: absolute; top: 10px; right: 10px; z-index: 6; }
+.truck-photo-caution {
+  position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 6;
+  background: rgba(13, 27, 42, 0.72);
+  color: #fff;
+  font-size: 11px; font-weight: 700; line-height: 1.45;
+  text-align: center;
+  padding: 7px 12px;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.14);
+}
 
 .home-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .home-card-vertical {
