@@ -37,7 +37,7 @@ function RankStrip({ vehicle }: { vehicle: Vehicle }) {
   );
 }
 
-export function SafeScreen() {
+export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
   const [vehicles, setVehicles] = useState<Vehicle[] | null>(null);
   const [classFilter, setClassFilter] = useState<ClassFilter>('all');
   const [gradeFilter, setGradeFilter] = useState<GradeFilter>('all');
@@ -86,10 +86,11 @@ export function SafeScreen() {
           {vehicles.length}대 중 {untrustedCount}대 데이터 신뢰 불가 · 검증 커버리지 {coveragePct}%
         </p>
         <div className="flex gap-2">
-          {['데이터 업로드', '리포트 생성', '전체 공지 발송'].map((label) => (
+          {(['데이터 업로드', '리포트 생성', '전체 공지 발송'] as const).map((label) => (
             <button
               key={label}
               type="button"
+              onClick={label === '데이터 업로드' ? onOpenIngest : undefined}
               className="rounded-md border px-3 py-1.5 text-xs"
               style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
             >
