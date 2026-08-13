@@ -48,7 +48,7 @@ function manualFallback(preview: ParsedPreview): MappingResult {
   };
 }
 
-export function IngestScreen({ onBack }: { onBack: () => void }) {
+export function IngestScreen({ onBack, onOpenIntegrityDemo }: { onBack: () => void; onOpenIntegrityDemo: () => void }) {
   const [previews, setPreviews] = useState<ParsedPreview[]>([]);
   const [results, setResults] = useState<Record<string, MappingResult>>({});
   const [parseStarted, setParseStarted] = useState(false);
@@ -99,7 +99,10 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
     <div className="flex flex-col gap-4 p-6">
       <div className="flex items-center justify-between">
         <h1 className="text-sm font-medium" style={{ color: 'var(--color-paper)' }}>데이터 업로드</h1>
-        <button type="button" onClick={onBack} className="text-xs" style={{ color: 'var(--color-slate)' }}>← Safe로</button>
+        <div className="flex items-center gap-3">
+          <button type="button" onClick={onOpenIntegrityDemo} className="text-xs" style={{ color: 'var(--color-slate)' }}>조작탐지 데모 →</button>
+          <button type="button" onClick={onBack} className="text-xs" style={{ color: 'var(--color-slate)' }}>← Safe로</button>
+        </div>
       </div>
 
       <input

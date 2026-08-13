@@ -1,0 +1,2 @@
+trip_id,vehicle_id,dispatch_distance_km,origin,destination
+DISPATCH-0002,SB000214,100,부산신항,경주공장

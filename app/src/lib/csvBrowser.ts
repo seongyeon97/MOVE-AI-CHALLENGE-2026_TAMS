@@ -1,6 +1,6 @@
 // csvBrowser.ts — 브라우저에서 업로드 파일 미리보기용 초경량 CSV 파서. scripts/lib/csv.mjs와 별개(런타임/브라우저 전용).
 
-function parseLine(line: string): string[] {
+export function parseLine(line: string): string[] {
   const cells: string[] = [];
   let cur = '';
   let inQuotes = false;
@@ -45,4 +45,17 @@ export async function previewCsvFile(file: File, sampleSize = 5): Promise<Parsed
   const rawRows = lines.slice(0, scanLimit).map(parseLine);
 
   return { fileName: file.name, headerRowIndex, header, sampleRows, totalRows: lines.length - headerRowIndex - 1, rawRows };
+}
+
+/** 헤더가 1행이라고 이미 알려진 CSV 전체를 객체 배열로 — fetch(url).then(r=>r.text())와 함께 쓴다. */
+export function parseCsvText(text: string): Record<string, string>[] {
+  const lines = text.split(/\r?\n/).filter((l) => l.length > 0);
+  if (lines.length === 0) return [];
+  const header = parseLine(lines[0]);
+  return lines.slice(1).map((line) => {
+    const cells = parseLine(line);
+    const obj: Record<string, string> = {};
+    header.forEach((key, i) => { obj[key] = cells[i] ?? ''; });
+    return obj;
+  });
 }
