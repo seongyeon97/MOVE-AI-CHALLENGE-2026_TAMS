@@ -4,13 +4,31 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { rmSync } from 'node:fs';
+import { rmSync, readFileSync } from 'node:fs';
 import { readCsv, readCsvIfExists, writeCsv, num } from './lib/csv.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const FILES2 = join(ROOT, 'files2');
 const DATA_OUT = join(ROOT, 'public', 'data');
+
+/**
+ * 빌드 스크립트는 별도 프로세스로 돌아서 Vite가 읽은 .env.local이 자동으로 넘어가지 않는다.
+ * 키가 없으면 기준연비 조회가 4계층 전부 실패해 빌드가 죽고, 화면은 업로드했는데도 빈 상태가 된다 —
+ * 실제로 그 증상을 겪었다. 여기서 직접 읽어 자식 프로세스 env에 실어 보낸다.
+ */
+function buildEnv() {
+  const env = { ...process.env };
+  try {
+    for (const line of readFileSync(join(ROOT, '.env.local'), 'utf-8').split(/\r?\n/)) {
+      const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)$/);
+      if (m) env[m[1]] = m[2].trim();
+    }
+  } catch {
+    // .env.local 없으면 그대로 — 조회는 픽스처 폴백으로 간다.
+  }
+  return env;
+}
 
 const VEHICLE_MASTER_HEADER = ['vehicle_id', 'vehicle_class', 'device_model', 'maker', 'model', 'year', 'gross_weight_kg', 'displacement_cc', 'fuel_type', 'registered_kmpl'];
 const DAILY_SUMMARY_HEADER = ['vehicle_id', 'date', 'laden', 'reported_km', 'event_accel', 'event_start', 'event_decel', 'event_stop', 'event_speeding', 'fuel_l', 'idle_sec'];
@@ -152,7 +170,11 @@ export function ingestCommitPlugin() {
           let buildLog = '';
           let buildOk = true;
           try {
-            buildLog = execFileSync(process.execPath, [join(__dirname, 'build-vehicles.mjs')], { cwd: ROOT, encoding: 'utf-8' });
+            // build-vehicles → build-eco 순서. eco는 vehicles.json을 읽으므로 순서가 뒤집히면 안 된다.
+            const env = buildEnv();
+            buildLog = execFileSync(process.execPath, [join(__dirname, 'build-vehicles.mjs')], { cwd: ROOT, encoding: 'utf-8', env });
+            buildLog += execFileSync(process.execPath, [join(__dirname, 'build-eco.mjs')], { cwd: ROOT, encoding: 'utf-8', env });
+            buildLog += execFileSync(process.execPath, [join(__dirname, 'build-certificates.mjs')], { cwd: ROOT, encoding: 'utf-8', env });
           } catch (err) {
             buildOk = false;
             buildLog = String(err.stdout ?? '') + String(err.stderr ?? '') + String(err.message ?? '');

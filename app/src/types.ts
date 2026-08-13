@@ -4,7 +4,7 @@ export type VehicleClass = 'truck' | 'car';
 export type Grade = '정상' | 'A' | 'B' | 'C' | 'D';
 export type Tone = 'ok' | 'warn' | 'caution' | 'dead' | 'void';
 export type Settle = 'allow' | 'conditional' | 'block';
-export type FuelSource = 'registration' | 'public_api' | 'ai_estimate' | 'fixture';
+export type FuelSource = 'registration' | 'public_api' | 'ai_estimate' | 'fixture' | 'unavailable';
 export type Trust = 'A' | 'C';
 
 export type BaselineFuel = {

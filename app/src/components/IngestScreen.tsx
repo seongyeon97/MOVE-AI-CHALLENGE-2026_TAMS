@@ -297,15 +297,22 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
       {/* ① 업로드 */}
       <div>
         <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>① 파일 업로드</p>
-        <input
-          type="file"
-          accept=".csv,.xlsx,.xls"
-          multiple
-          disabled={readingFiles.length > 0}
-          onChange={(e) => handleFiles(e.target.files)}
-          className="text-xs disabled:opacity-40"
-          style={{ color: 'var(--color-mist)' }}
-        />
+        {/* 파일 선택칸이 배경에 묻혀 어디를 눌러야 하는지 안 보여서 테두리로 영역을 준다. */}
+        <div
+          className="inline-flex items-center gap-2 rounded-md border px-3 py-2"
+          style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)' }}
+        >
+          <input
+            type="file"
+            accept=".csv,.xlsx,.xls"
+            multiple
+            disabled={readingFiles.length > 0}
+            onChange={(e) => handleFiles(e.target.files)}
+            className="text-xs disabled:opacity-40"
+            style={{ color: 'var(--color-mist)' }}
+          />
+        </div>
+        <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>CSV · XLSX 지원 · 여러 개 한 번에 선택 가능</p>
         {readingFiles.length > 0 && (
           <p className="tone-warn-fg mt-1 text-xs">
             파일 읽는 중… ({readingFiles.join(', ')}) — 큰 xlsx는 몇 초~10초 걸립니다. 탭이 멈춘 게 아닙니다.

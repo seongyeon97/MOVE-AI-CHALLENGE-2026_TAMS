@@ -113,9 +113,22 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
   const coverage = useMemo(() => (bundle ? coverageByVehicle(bundle) : null), [bundle]);
 
   if (!vehicles || !range || !rangeDraft) {
+    const isEmpty = bundle === null && !refreshing;
     return (
-      <div className="p-6 text-sm" style={{ color: 'var(--color-dim)' }}>
-        {bundle === null && !refreshing ? '데이터가 없습니다 — 상단 "데이터 업로드"로 운행·유류 파일을 올리세요.' : '불러오는 중…'}
+      <div className="flex flex-col items-start gap-3 p-6">
+        <p className="text-sm" style={{ color: 'var(--color-dim)' }}>
+          {isEmpty ? '데이터가 없습니다 — 운행·유류 파일을 올리면 여기에 차량 목록이 나옵니다.' : '불러오는 중…'}
+        </p>
+        {/* 빈 화면에서 "어디로 가야 하나"를 찾게 만들지 않는다 — 버튼을 그 자리에 둔다. */}
+        {isEmpty && (
+          <button
+            type="button"
+            onClick={onOpenIngest}
+            className="tone-ok-bg tone-ok-fg rounded-md px-4 py-2 text-sm font-medium"
+          >
+            데이터 업로드 →
+          </button>
+        )}
       </div>
     );
   }
@@ -142,27 +155,27 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
             ({range.from} ~ {range.to} 기준)
           </span>
         </p>
-        <div className="flex gap-2">
-          {(['데이터 업로드', '리포트 생성', '전체 공지 발송'] as const).map((label) => (
-            <button
-              key={label}
-              type="button"
-              onClick={
-                label === '데이터 업로드'
-                  ? onOpenIngest
-                  : label === '전체 공지 발송'
-                    ? () => {
-                        const message = window.prompt('전체 차량에 보낼 공지 내용을 입력하세요.');
-                        if (message) sendNotice(ALL_VEHICLES, message);
-                      }
-                    : undefined
-              }
-              className="rounded-md border px-3 py-1.5 text-xs"
-              style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
-            >
-              {label}
-            </button>
-          ))}
+        {/* 업로드는 이 화면의 주 동작이라 채운 버튼 하나로 눈에 띄게 둔다.
+            "리포트 생성"은 아무 동작도 없는 버튼이라 지웠다 — 눌러도 반응이 없으면 헷갈리기만 한다. */}
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={onOpenIngest}
+            className="tone-ok-bg tone-ok-fg rounded-md px-4 py-2 text-xs font-medium"
+          >
+            데이터 업로드
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              const message = window.prompt('전체 차량에 보낼 공지 내용을 입력하세요.');
+              if (message) sendNotice(ALL_VEHICLES, message);
+            }}
+            className="rounded-md border px-3 py-1.5 text-xs"
+            style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
+          >
+            전체 공지 발송
+          </button>
         </div>
       </div>
 

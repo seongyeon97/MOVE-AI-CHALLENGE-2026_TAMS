@@ -228,20 +228,40 @@ export async function lookupBaselineFuel(vehicle, { cachePath } = {}) {
     }
   }
 
-  throw new Error(`baseline fuel lookup exhausted all layers for ${vehicle.vehicle_id}`);
+  return null; // 4계층 전부 실패 — 호출부가 "기준연비 없음"으로 처리한다.
 }
 
-/** vehicle_master.csv 전체를 순회해 baseline_fuel.json 페이로드를 만든다. */
+/**
+ * vehicle_master.csv 전체를 순회해 baseline_fuel.json 페이로드를 만든다.
+ *
+ * 기준연비를 못 구한 차량은 kmpl:0 · source:'unavailable'로 남기고 넘어간다 —
+ * 예전엔 여기서 예외를 던져 빌드 전체가 죽었고, 그 결과 화면에서 업로드하면 "업로드는 됐는데
+ * 차량 목록이 비어 있는" 상태가 됐다. 연료 기준선이 없으면 연료 교차검증만 못 하는 것이지
+ * 운행데이터 기반 판정까지 못 할 이유는 없다(§CLAUDE.md "둘 중 하나만 있어도 판단한다").
+ */
 export async function resolveBaselineFuel(vehicles, opts) {
   const result = {};
   const now = new Date().toISOString();
+  const unresolved = [];
   for (const vehicle of vehicles) {
     const entry = await lookupBaselineFuel(vehicle, opts);
-    entry.fetched_at = now;
-    if (!entry.source || !entry.trust) {
-      throw new Error(`baseline fuel entry missing source/trust for ${vehicle.vehicle_id}`);
+    if (!entry) {
+      unresolved.push(vehicle.vehicle_id);
+      result[vehicle.vehicle_id] = {
+        kmpl: 0,
+        source: 'unavailable',
+        trust: 'C',
+        kmpl_empty: 0,
+        kmpl_laden: 0,
+        fetched_at: now,
+      };
+      continue;
     }
+    entry.fetched_at = now;
     result[vehicle.vehicle_id] = entry;
+  }
+  if (unresolved.length > 0) {
+    console.warn(`기준연비 조회 실패 ${unresolved.length}대 — 연료 교차검증 없이 진행: ${unresolved.slice(0, 5).join(', ')}${unresolved.length > 5 ? ' 외' : ''}`);
   }
   return result;
 }
