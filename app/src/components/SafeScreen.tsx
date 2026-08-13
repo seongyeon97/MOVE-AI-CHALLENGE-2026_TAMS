@@ -5,6 +5,7 @@ import { FUEL_SOURCE_META } from '../lib/fuelSource';
 import { scoreOf } from '../lib/score';
 import { buildVehicleReport, signalRatioOf } from '../lib/report';
 import { aggregateRange, coverageByVehicle, type DailyBundle } from '../lib/aggregate';
+import { useSort } from '../lib/useSort';
 import { sendNotice, useLatestNoticeStatus } from '../lib/notices';
 import { useOpenDeviceRequest } from '../lib/deviceRequests';
 import { ALL_VEHICLES } from '../lib/channels';
@@ -112,6 +113,28 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
 
   const coverage = useMemo(() => (bundle ? coverageByVehicle(bundle) : null), [bundle]);
 
+  // 훅은 조건부로 호출할 수 없으므로 필터링·정렬을 이른 반환보다 먼저 계산해 둔다.
+  const filteredRows = useMemo(() => {
+    if (!vehicles) return [];
+    return vehicles
+      .filter((v) => v.grade !== 'D')
+      .filter((v) => classFilter === 'all' || v.vehicle_class === classFilter)
+      .filter((v) => gradeFilter === 'all' || v.grade === gradeFilter)
+      .filter((v) => v.vehicle_id.toLowerCase().includes(search.toLowerCase()));
+  }, [vehicles, classFilter, gradeFilter, search]);
+
+  const { toggle, sorted: ranked, indicator } = useSort(filteredRows, {
+    rank: (v) => v.fuel_rank,
+    vehicle: (v) => v.vehicle_id,
+    device: (v) => v.grade_label,
+    distance: (v) => v.reported_km,
+    events: (v) => v.core_events,
+    rate: (v) => v.rate,
+    baseline: (v) => v.baseline.kmpl,
+    measured: (v) => (v.fuel_l > 0 ? v.reported_km / v.fuel_l : null),
+    score: (v) => scoreOf(v),
+  }, { key: 'rank', dir: 'asc' }); // 기본은 순위 1등부터
+
   if (!vehicles || !range || !rangeDraft) {
     const isEmpty = bundle === null && !refreshing;
     return (
@@ -139,12 +162,6 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
     : 0;
 
   const excluded = vehicles.filter((v) => v.grade === 'D');
-  const ranked = vehicles
-    .filter((v) => v.grade !== 'D')
-    .filter((v) => classFilter === 'all' || v.vehicle_class === classFilter)
-    .filter((v) => gradeFilter === 'all' || v.grade === gradeFilter)
-    .filter((v) => v.vehicle_id.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) => (a.fuel_rank ?? 999) - (b.fuel_rank ?? 999));
 
   return (
     <div className="flex flex-col gap-4 p-6">
@@ -268,16 +285,23 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
       <table className="num w-full border-collapse text-xs">
         <thead className="sticky top-0" style={{ background: 'var(--color-ink)' }}>
           <tr className="border-b text-left" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-slate)' }}>
-            <th className="py-2 pr-2 pl-2">순위</th>
-            <th className="py-2 pr-2">차량</th>
-            <th className="py-2 pr-2">단말</th>
-            <th className="py-2 pr-2">주행거리</th>
-            <th className="py-2 pr-2">이벤트</th>
-            <th className="py-2 pr-2">발생률</th>
-            <th className="py-2 pr-2">기준연비</th>
-            <th className="py-2 pr-2">실측연비</th>
+            {([
+              ['rank', '순위'], ['vehicle', '차량'], ['device', '단말'], ['distance', '주행거리'],
+              ['events', '이벤트'], ['rate', '발생률'], ['baseline', '기준연비'], ['measured', '실측연비'],
+            ] as const).map(([key, label], i) => (
+              <th
+                key={key}
+                onClick={() => toggle(key)}
+                className={`cursor-pointer select-none py-2 pr-2 ${i === 0 ? 'pl-2' : ''}`}
+                title="클릭: 내림차순 → 한 번 더: 오름차순"
+              >
+                {label}{indicator(key)}
+              </th>
+            ))}
             <th className="py-2 pr-2">5개월</th>
-            <th className="py-2 pr-2">S&E</th>
+            <th onClick={() => toggle('score')} className="cursor-pointer select-none py-2 pr-2" title="클릭: 내림차순 → 한 번 더: 오름차순">
+              S&E{indicator('score')}
+            </th>
             <th className="py-2 pr-2">상태</th>
           </tr>
         </thead>

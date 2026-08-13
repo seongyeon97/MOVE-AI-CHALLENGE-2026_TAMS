@@ -3,6 +3,7 @@ import type { EcoRow } from '../types';
 import { GRADE_META } from '../lib/grade';
 import { FUEL_SOURCE_META } from '../lib/fuelSource';
 import { aggregateEcoRange, type DailyBundle } from '../lib/aggregate';
+import { useSort } from '../lib/useSort';
 
 function ToneBadge({ tone, label }: { tone: string; label: string }) {
   return (
@@ -35,6 +36,22 @@ export function EcoScreen() {
     if (!bundle || !range) return null;
     return aggregateEcoRange(bundle, range.from, range.to);
   }, [bundle, range]);
+
+  // 원단위는 차종마다 단위가 달라(gCO₂/ton-km vs gCO₂/km) 한 열에 섞이지만,
+  // 정렬은 화면에 보이는 그 값 기준으로 한다 — 사용자가 보는 숫자와 정렬 기준이 어긋나면 안 된다.
+  const { toggle, sorted: sortedRows, indicator } = useSort(rows ?? [], {
+    vehicle: (r) => r.vehicle_id,
+    klass: (r) => r.vehicle_class,
+    scope: (r) => r.scope,
+    tier: (r) => r.tier,
+    grade: (r) => r.grade,
+    baseline: (r) => r.baseline.kmpl,
+    measured: (r) => (r.fuel_l > 0 ? r.distance_km / r.fuel_l : null),
+    fuel: (r) => r.fuel_l,
+    co2: (r) => r.co2_kg,
+    intensity: (r) => r.g_co2_per_tonkm ?? r.g_co2_per_km,
+    headroom: (r) => r.reduction_headroom_kg,
+  });
 
   const summary = useMemo(() => {
     if (!rows) return null;
@@ -115,21 +132,24 @@ export function EcoScreen() {
       <table className="num w-full border-collapse text-xs">
         <thead className="sticky top-0" style={{ background: 'var(--color-ink)' }}>
           <tr className="border-b text-left" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-slate)' }}>
-            <th className="py-2 pr-2 pl-2">차량</th>
-            <th className="py-2 pr-2">차종</th>
-            <th className="py-2 pr-2">Scope</th>
-            <th className="py-2 pr-2">Tier</th>
-            <th className="py-2 pr-2">신뢰등급</th>
-            <th className="py-2 pr-2">기준연비</th>
-            <th className="py-2 pr-2">실측연비</th>
-            <th className="py-2 pr-2">연료(L)</th>
-            <th className="py-2 pr-2">CO₂(kg)</th>
-            <th className="py-2 pr-2">원단위</th>
-            <th className="py-2 pr-2">감축 여지(kg)</th>
+            {([
+              ['vehicle', '차량'], ['klass', '차종'], ['scope', 'Scope'], ['tier', 'Tier'],
+              ['grade', '신뢰등급'], ['baseline', '기준연비'], ['measured', '실측연비'], ['fuel', '연료(L)'],
+              ['co2', 'CO₂(kg)'], ['intensity', '원단위'], ['headroom', '감축 여지(kg)'],
+            ] as const).map(([key, label], i) => (
+              <th
+                key={key}
+                onClick={() => toggle(key)}
+                className={`cursor-pointer select-none py-2 pr-2 ${i === 0 ? 'pl-2' : ''}`}
+                title="클릭: 내림차순 → 한 번 더: 오름차순"
+              >
+                {label}{indicator(key)}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          {rows.map((r) => {
+          {sortedRows.map((r) => {
             const measuredKmpl = r.fuel_l > 0 ? r.distance_km / r.fuel_l : null;
             const sourceMeta = FUEL_SOURCE_META[r.baseline.source];
             const gradeMeta = r.grade ? GRADE_META[r.grade] : null;
