@@ -3,7 +3,7 @@ import type { Screen } from '../types';
 const MENU: { screen: Screen; label: string; hint: string }[] = [
   { screen: 'safe', label: 'Safe', hint: '안전운전 진단·검증 + 차량 관리' },
   { screen: 'eco', label: 'Eco', hint: '연비 기반 탄소 관리' },
-  { screen: 'heatmap', label: 'Heat-map', hint: '구간 위험도' },
+  { screen: 'heatmap', label: 'Heat-map 분석', hint: '구간 위험도' },
   { screen: 'certificate', label: 'S&E 증명서 발급', hint: '대외 제출 문서' },
 ];
 

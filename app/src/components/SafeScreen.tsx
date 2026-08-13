@@ -7,7 +7,6 @@ import { buildVehicleReport, signalRatioOf } from '../lib/report';
 import { aggregateRange, coverageByVehicle, type DailyBundle } from '../lib/aggregate';
 import { useSort } from '../lib/useSort';
 import { sendNotice, useLatestNoticeStatus } from '../lib/notices';
-import { useOpenDeviceRequest } from '../lib/deviceRequests';
 import { ALL_VEHICLES } from '../lib/channels';
 
 type ClassFilter = 'all' | VehicleClass;
@@ -33,8 +32,9 @@ function RankStrip({ vehicle }: { vehicle: Vehicle }) {
           <div
             key={m.month}
             title={`${m.month} · ${meta.label} · 순위 ${m.fuel_rank ?? '제외'}`}
-            className={`tone-${meta.tone}-bg h-4 w-3 rounded-sm`}
-            style={{ opacity: isLatest ? 1 : 0.45 }}
+            // -bg는 14% 반투명이라 전부 어둡게 깔린다. 상태 막대는 원색인 -rail을 쓴다.
+            className={`tone-${meta.tone}-rail h-4 w-3 rounded-sm`}
+            style={{ opacity: isLatest ? 1 : 0.35 }} // 당월 진하게 · 전월 흐리게
           />
         );
       })}
@@ -42,26 +42,20 @@ function RankStrip({ vehicle }: { vehicle: Vehicle }) {
   );
 }
 
-function StatusDots({ vehicleId }: { vehicleId: string }) {
+/**
+ * 공지 확인 여부 — 기사뷰에서 기사가 공지를 열어 확인하면 여기가 초록 "공지 확인"으로 바뀐다.
+ * 단말 상태는 왼쪽 월별 막대(RankStrip)가 이미 보여주므로 여기서 겹쳐 표시하지 않는다.
+ */
+function NoticeStatus({ vehicleId }: { vehicleId: string }) {
   const notice = useLatestNoticeStatus(vehicleId);
-  const deviceRequest = useOpenDeviceRequest(vehicleId);
 
-  const noticeColor = !notice ? 'var(--color-line)' : notice.acknowledged ? 'var(--color-teal)' : 'var(--color-rose)';
-  const deviceColor = deviceRequest ? 'var(--color-amber)' : 'var(--color-line)';
-
-  return (
-    <span className="inline-flex gap-1">
-      <span
-        className="inline-block h-1.5 w-1.5 rounded-full"
-        style={{ background: noticeColor }}
-        title={!notice ? '공지 없음' : notice.acknowledged ? '공지 확인됨' : '공지 미확인'}
-      />
-      <span
-        className="inline-block h-1.5 w-1.5 rounded-full"
-        style={{ background: deviceColor }}
-        title={deviceRequest ? '단말점검 요청 접수됨' : '단말점검 요청 없음'}
-      />
-    </span>
+  if (!notice) {
+    return <span className="text-xs" style={{ color: 'var(--color-dim)' }}>—</span>;
+  }
+  return notice.acknowledged ? (
+    <ToneBadge tone="ok" label="공지 확인" />
+  ) : (
+    <ToneBadge tone="dead" label="공지 미확인" />
   );
 }
 
@@ -298,11 +292,11 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
                 {label}{indicator(key)}
               </th>
             ))}
-            <th className="py-2 pr-2">5개월</th>
+            <th className="py-2 pr-2" title="월별 단말 상태 — 당월 진하게, 이전 달 흐리게">단말 상태(월별)</th>
             <th onClick={() => toggle('score')} className="cursor-pointer select-none py-2 pr-2" title="클릭: 내림차순 → 한 번 더: 오름차순">
               S&E{indicator('score')}
             </th>
-            <th className="py-2 pr-2">상태</th>
+            <th className="py-2 pr-2" title="기사뷰에서 공지를 확인하면 여기가 바뀝니다">공지 확인</th>
           </tr>
         </thead>
         <tbody>
@@ -338,7 +332,7 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
                   <td className="py-2 pr-2"><RankStrip vehicle={v} /></td>
                   <td className="py-2 pr-2">{score ?? '—'}</td>
                   <td className="py-2 pr-2">
-                    <StatusDots vehicleId={v.vehicle_id} />
+                    <NoticeStatus vehicleId={v.vehicle_id} />
                   </td>
                 </tr>
                 {isExpanded && (
