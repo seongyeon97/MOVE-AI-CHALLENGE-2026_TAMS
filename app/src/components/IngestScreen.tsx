@@ -267,6 +267,43 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
   const allResults = Object.values(results);
   const anyDuplicate = allResults.some(hasDuplicateMapping);
 
+  /** 어떤 표준필드에 어떤 원본 컬럼들이 겹쳤는지 — "중복을 해소하세요"만으론 어디를 고칠지 알 수 없다. */
+  function duplicateDetails(r: FileState) {
+    const byKey = new Map<string, string[]>();
+    for (const m of r.mappings) {
+      if (!m.standard_key) continue;
+      if (!byKey.has(m.standard_key)) byKey.set(m.standard_key, []);
+      byKey.get(m.standard_key)!.push(m.source_name);
+    }
+    return [...byKey.entries()]
+      .filter(([, names]) => names.length > 1)
+      .map(([key, names]) => ({
+        key,
+        label: STANDARD_SCHEMAS[r.vehicleClass].find((f) => f.key === key)?.label ?? key,
+        names,
+      }));
+  }
+
+  /** 중복된 표준필드마다 첫 컬럼만 남기고 나머지를 미매핑으로 — 어느 걸 남길지는 검토표에서 바꾸면 된다. */
+  function autoResolveDuplicates() {
+    setResults((prev) => {
+      const next = { ...prev };
+      for (const [fileName, r] of Object.entries(prev)) {
+        const seen = new Set<string>();
+        next[fileName] = {
+          ...r,
+          mappings: r.mappings.map((m) => {
+            if (!m.standard_key) return m;
+            if (seen.has(m.standard_key)) return { ...m, standard_key: '' };
+            seen.add(m.standard_key);
+            return m;
+          }),
+        };
+      }
+      return next;
+    });
+  }
+
   const allDone = parseStarted && !isParsing && queued.length > 0 && allResults.length === queued.length;
 
   return (
@@ -386,7 +423,31 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
                 {committing ? '반영 중…' : '확인 완료 — Safe 화면으로 →'}
               </button>
               {anyDuplicate && (
-                <p className="text-xs" style={{ color: 'var(--color-rose)' }}>같은 표준필드에 컬럼 2개 이상 매핑됨 — 중복을 해소하세요.</p>
+                <div className="tone-dead-bd rounded-md border p-3" style={{ background: 'var(--color-panel-2)' }}>
+                  <p className="text-xs font-medium" style={{ color: 'var(--color-rose)' }}>
+                    같은 표준필드에 컬럼이 2개 이상 매핑됐습니다 — 아래 항목에서 하나만 남기세요.
+                  </p>
+                  <ul className="mt-2 space-y-1 text-xs" style={{ color: 'var(--color-mist)' }}>
+                    {allResults.flatMap((r) =>
+                      duplicateDetails(r).map((d) => (
+                        <li key={`${r.fileName}-${d.key}`}>
+                          <span style={{ color: 'var(--color-paper)' }}>{d.label}</span>
+                          {' ← '}
+                          {d.names.join(' , ')}
+                          {allResults.length > 1 && <span style={{ color: 'var(--color-dim)' }}> ({r.fileName})</span>}
+                        </li>
+                      )),
+                    )}
+                  </ul>
+                  <button
+                    type="button"
+                    onClick={autoResolveDuplicates}
+                    className="mt-2 rounded-md border px-3 py-1.5 text-xs"
+                    style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
+                  >
+                    첫 컬럼만 남기고 자동 해소
+                  </button>
+                </div>
               )}
             </>
           )}

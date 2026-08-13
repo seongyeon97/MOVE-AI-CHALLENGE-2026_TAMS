@@ -12,8 +12,9 @@ const SYSTEM_PROMPT = `너는 이기종 운행·유류 데이터 워크북을 �
 3. 한 행이 "차량 1대(또는 개체 1개)"를 나타내고, 같은 성격의 값이 "2026년 3월 운행거리", "2026년 4월 운행거리"처럼 기간별로 반복되는 컬럼 그룹이 있으면 layout을 wide_by_period로 판단하라. 그 외 행마다 독립된 레코드 하나면 long이다.
 4. wide_by_period면: 반복되지 않는 식별 컬럼(예: 차량번호, 차종)을 id_columns로, 반복 구간마다의 컬럼들을 period_groups로 낸다. 같은 역할(예: 주행거리 vs 유류사용량)의 컬럼에는 시점이 달라도 같은 field_role 문자열을 써라 — 가능하면 표준 스키마 키(vehicle_id, odo_km, fuel_l 등)를 field_role로 직접 써라.
 5. long이면: mappings 배열에 원본 컬럼명마다 표준필드를 매핑하라. 헤더명과 표본값을 모두 근거로 삼아라. 단위 변환 필요 여부는 표본값의 크기로 판단하라. 오타·약어는 문맥으로 해석하되 source_name은 원문 그대로 보존하라. 대응되는 표준필드가 없으면 standard_key를 unmapped로 둬라.
-6. 결측된 표준필드는 하류영향(missing_impact)을 반드시 명시하라.
-7. reasoning은 한국어 한 줄 + confidence(low/medium/high)로 낸다.
+6. 하나의 표준필드에는 원본 컬럼을 하나만 배정하라. 같은 값이 여러 컬럼에 중복돼 있으면(예: "공회전(분)"과 "공회전_분", "급가속횟수"와 "급가속_n") 계산에 바로 쓸 수 있는 숫자 컬럼 하나만 매핑하고 나머지는 unmapped로 둬라.
+7. 결측된 표준필드는 하류영향(missing_impact)을 반드시 명시하라.
+8. reasoning은 한국어 한 줄 + confidence(low/medium/high)로 낸다.
 반드시 강제된 JSON 스키마로만 응답하라. wide_by_period일 때 mappings는 빈 배열로, long일 때 id_columns·period_groups는 빈 배열로 둬라.`;
 
 function buildResponseSchema(standardKeys) {
