@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { mapSchemaPlugin } from './scripts/mapSchemaPlugin.mjs'
 import { ingestCommitPlugin } from './scripts/ingestCommitPlugin.mjs'
+import { serveDataPlugin } from './scripts/serveDataPlugin.mjs'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -22,11 +23,11 @@ export default defineConfig(({ mode }) => {
   }
 
   return {
-    plugins: [react(), tailwindcss(), mapSchemaPlugin(env), ingestCommitPlugin()],
+    plugins: [react(), tailwindcss(), serveDataPlugin(), mapSchemaPlugin(env), ingestCommitPlugin()],
     // Vite dev 서버는 프로젝트 안 파일이 바뀌면(모듈 그래프 밖이라도) 브라우저를 통째로 새로고침한다.
-    // ingest-commit이 매 "확인" 클릭마다 public/data/*.json과 files2/*.csv를 직접 쓰는데, 둘 다
-    // 이 감시에 걸려서 "확인 눌렀더니 로그인 화면으로 돌아간다"가 났다. public/data만 빼고 files2를
-    // 빼먹은 게 1차 수정의 구멍이었다 — HMR 웹소켓으로 직접 재현해서 확인.
+    // ingest-commit이 매 "확인" 클릭마다 public/data/*.json과 files2/*.csv를 쓰므로 둘 다 감시에서 뺀다
+    // — 안 그러면 "확인 눌렀더니 로그인 화면으로 돌아간다"가 난다.
+    // 감시를 끄면 Vite가 재생성된 public/data 파일을 못 찾으므로, 그 경로는 serveDataPlugin이 직접 서빙한다.
     server: {
       watch: {
         ignored: ['**/public/data/**', '**/files2/**'],
