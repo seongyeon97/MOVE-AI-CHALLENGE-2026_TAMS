@@ -25,11 +25,12 @@ export type MonthlyMetric = {
   core_events: number;
   events_by_type: { accel: number; start: number; decel: number; stop: number };
   rate: number | null;
-  fuel_implied_rate: number;
+  has_fuel_data: boolean;
+  fuel_implied_rate: number | null;
   grade: Grade;
   fuel_l: number;
   fuel_per_100km: number | null;
-  fuel_excess_pct: number;
+  fuel_excess_pct: number | null;
   observed_rank: number | null;
   fuel_rank: number | null;
 };
@@ -54,10 +55,11 @@ export type Vehicle = {
   core_events: number;
   events_by_type: { accel: number; start: number; decel: number; stop: number };
   rate: number | null;
-  fuel_implied_rate: number;
+  has_fuel_data: boolean;
+  fuel_implied_rate: number | null;
   fuel_l: number;
   fuel_per_100km: number | null;
-  fuel_excess_pct: number;
+  fuel_excess_pct: number | null;
   observed_rank: number | null;
   fuel_rank: number | null;
 

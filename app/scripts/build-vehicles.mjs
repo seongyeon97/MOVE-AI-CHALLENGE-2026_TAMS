@@ -54,7 +54,12 @@ function aggregateDailySummary(rows) {
   return byVehicleMonth;
 }
 
-/** 한 달치 (empty+laden) 집계에서 §5.1~5.3 지표를 계산한다. baseline 인자 없으면(D 후보 등) 연료 지표는 0. */
+/**
+ * 한 달치 (empty+laden) 집계에서 §5.1~5.3 지표를 계산한다.
+ * 유류데이터가 없는 차량(fuel_l===0)은 fuel_implied_rate를 0이 아니라 null로 낸다 —
+ * "연료로 봐도 문제없음"과 "연료 자체가 없어 대체 신호가 없음"은 다르다. 유류데이터 업로드는
+ * 필수가 아니지만, 있으면 우선한다(§CLAUDE.md 갱신) — 그 "있으면"의 경계를 여기서 명시적으로 가른다.
+ */
 function computeMonthMetrics(bucket, baseline) {
   const reported_km = bucket.empty.km + bucket.laden.km;
   const core_events =
@@ -62,21 +67,27 @@ function computeMonthMetrics(bucket, baseline) {
     bucket.laden.accel + bucket.laden.start + bucket.laden.decel + bucket.laden.stop;
   const fuel_l = bucket.empty.fuel + bucket.laden.fuel;
   const idle_sec = bucket.empty.idle + bucket.laden.idle;
+  const has_fuel_data = fuel_l > 0;
 
   const rate = reported_km > 0 ? core_events / reported_km : null;
 
-  const baseline_fuel_l =
-    (baseline.kmpl_empty > 0 ? bucket.empty.km / baseline.kmpl_empty : 0) +
-    (baseline.kmpl_laden > 0 ? bucket.laden.km / baseline.kmpl_laden : 0);
-  const idle_fuel_l = (idle_sec / 3600) * IDLE_L_PER_HOUR;
-  const drive_fuel_l = fuel_l - idle_fuel_l;
+  let fuel_implied_rate = null;
+  let fuel_per_100km = null;
+  let fuel_excess_pct = null;
 
-  const fuel_excess = baseline_fuel_l > 0 ? drive_fuel_l / baseline_fuel_l - 1 : 0;
-  const fuel_penalty = 1 - 1 / (1 + fuel_excess);
-  const fuel_implied_rate = Math.max(0, (fuel_penalty / FUEL_PENALTY_MAX) * FUEL_PENALTY_RATE_SCALE);
+  if (has_fuel_data) {
+    const baseline_fuel_l =
+      (baseline.kmpl_empty > 0 ? bucket.empty.km / baseline.kmpl_empty : 0) +
+      (baseline.kmpl_laden > 0 ? bucket.laden.km / baseline.kmpl_laden : 0);
+    const idle_fuel_l = (idle_sec / 3600) * IDLE_L_PER_HOUR;
+    const drive_fuel_l = fuel_l - idle_fuel_l;
 
-  const fuel_per_100km = reported_km > 0 ? (drive_fuel_l / reported_km) * 100 : null;
-  const fuel_excess_pct = fuel_excess * 100;
+    const fuel_excess = baseline_fuel_l > 0 ? drive_fuel_l / baseline_fuel_l - 1 : 0;
+    const fuel_penalty = 1 - 1 / (1 + fuel_excess);
+    fuel_implied_rate = Math.max(0, (fuel_penalty / FUEL_PENALTY_MAX) * FUEL_PENALTY_RATE_SCALE);
+    fuel_per_100km = reported_km > 0 ? (drive_fuel_l / reported_km) * 100 : null;
+    fuel_excess_pct = fuel_excess * 100;
+  }
 
   const events_by_type = {
     accel: bucket.empty.accel + bucket.laden.accel,
@@ -85,16 +96,18 @@ function computeMonthMetrics(bucket, baseline) {
     stop: bucket.empty.stop + bucket.laden.stop,
   };
 
-  return { reported_km, core_events, events_by_type, rate, fuel_l, fuel_implied_rate, fuel_per_100km, fuel_excess_pct };
+  return { reported_km, core_events, events_by_type, rate, fuel_l, has_fuel_data, fuel_implied_rate, fuel_per_100km, fuel_excess_pct };
 }
 
 /** 관측 발생률·연료시사발생률 순위를 매기고 rank_inversion·signal_ratio·grade를 채운다. */
 function judgeMonth(metricsByVehicle) {
   // D 후보(주행거리 0)는 순위 계산에서 제외 — §5-2 "D등급은 순위에서 뺀다".
   const pool = [...metricsByVehicle.entries()].filter(([, m]) => m.reported_km > 0);
+  // 연료 순위는 유류데이터가 있는 차량끼리만 — 없는 차량을 0건인 것처럼 끼워 넣지 않는다.
+  const fuelPool = pool.filter(([, m]) => m.has_fuel_data);
 
   const byObserved = [...pool].sort((a, b) => a[1].rate - b[1].rate);
-  const byFuel = [...pool].sort((a, b) => a[1].fuel_implied_rate - b[1].fuel_implied_rate);
+  const byFuel = [...fuelPool].sort((a, b) => a[1].fuel_implied_rate - b[1].fuel_implied_rate);
   const observedRank = new Map(byObserved.map(([id], i) => [id, i + 1]));
   const fuelRank = new Map(byFuel.map(([id], i) => [id, i + 1]));
 
@@ -104,7 +117,7 @@ function judgeMonth(metricsByVehicle) {
     const rank_inversion = observed_rank !== null && fuel_rank !== null ? fuel_rank - observed_rank : null;
 
     let signal_ratio;
-    if (m.rate === null) signal_ratio = null;
+    if (m.rate === null || !m.has_fuel_data) signal_ratio = null;
     else if (m.rate === 0 && m.fuel_implied_rate === 0) signal_ratio = Infinity;
     else if (m.fuel_implied_rate === 0) signal_ratio = Infinity;
     else signal_ratio = m.rate / m.fuel_implied_rate;
@@ -166,6 +179,7 @@ async function main() {
         core_events: m.core_events,
         events_by_type: m.events_by_type,
         rate: m.rate,
+        has_fuel_data: m.has_fuel_data,
         fuel_implied_rate: m.fuel_implied_rate,
         grade: m.grade,
         fuel_l: m.fuel_l,
@@ -196,6 +210,7 @@ async function main() {
       core_events: latest.core_events,
       events_by_type: latest.events_by_type,
       rate: latest.rate,
+      has_fuel_data: latest.has_fuel_data,
       fuel_implied_rate: latest.fuel_implied_rate,
       fuel_l: latest.fuel_l,
       fuel_per_100km: latest.fuel_per_100km,

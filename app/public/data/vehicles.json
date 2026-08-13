@@ -12,7 +12,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "A",
     "grade_label": "센서 과민",
@@ -29,6 +29,7 @@
       "stop": 110
     },
     "rate": 1.12,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0.41079809852542476,
     "fuel_l": 190,
     "fuel_per_100km": 37.88,
@@ -47,6 +48,7 @@
           "stop": 110
         },
         "rate": 1.12,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.41079809852542476,
         "grade": "A",
         "fuel_l": 190,
@@ -66,6 +68,7 @@
           "stop": 110
         },
         "rate": 1.12,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.41079809852542476,
         "grade": "A",
         "fuel_l": 190,
@@ -85,6 +88,7 @@
           "stop": 110
         },
         "rate": 1.12,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.41079809852542476,
         "grade": "A",
         "fuel_l": 190,
@@ -104,6 +108,7 @@
           "stop": 110
         },
         "rate": 1.12,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.41079809852542476,
         "grade": "A",
         "fuel_l": 190,
@@ -123,6 +128,7 @@
           "stop": 110
         },
         "rate": 1.12,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.41079809852542476,
         "grade": "A",
         "fuel_l": 190,
@@ -146,7 +152,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "A",
     "grade_label": "센서 과민",
@@ -163,6 +169,7 @@
       "stop": 110
     },
     "rate": 1.12,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0.43691312229385665,
     "fuel_l": 190,
     "fuel_per_100km": 37.88,
@@ -181,6 +188,7 @@
           "stop": 110
         },
         "rate": 1.12,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.43691312229385665,
         "grade": "A",
         "fuel_l": 190,
@@ -200,6 +208,7 @@
           "stop": 110
         },
         "rate": 1.12,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.43691312229385665,
         "grade": "A",
         "fuel_l": 190,
@@ -219,6 +228,7 @@
           "stop": 110
         },
         "rate": 1.12,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.43691312229385665,
         "grade": "A",
         "fuel_l": 190,
@@ -238,6 +248,7 @@
           "stop": 110
         },
         "rate": 1.12,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.43691312229385665,
         "grade": "A",
         "fuel_l": 190,
@@ -257,6 +268,7 @@
           "stop": 110
         },
         "rate": 1.12,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.43691312229385665,
         "grade": "A",
         "fuel_l": 190,
@@ -280,7 +292,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "A",
     "grade_label": "센서 과민",
@@ -297,6 +309,7 @@
       "stop": 102
     },
     "rate": 1.165909090909091,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0.5095034268389004,
     "fuel_l": 175,
     "fuel_per_100km": 39.64545454545455,
@@ -315,6 +328,7 @@
           "stop": 102
         },
         "rate": 1.165909090909091,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.5095034268389004,
         "grade": "A",
         "fuel_l": 175,
@@ -334,6 +348,7 @@
           "stop": 102
         },
         "rate": 1.165909090909091,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.5095034268389004,
         "grade": "A",
         "fuel_l": 175,
@@ -353,6 +368,7 @@
           "stop": 102
         },
         "rate": 1.165909090909091,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.5095034268389004,
         "grade": "A",
         "fuel_l": 175,
@@ -372,6 +388,7 @@
           "stop": 102
         },
         "rate": 1.165909090909091,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.5095034268389004,
         "grade": "A",
         "fuel_l": 175,
@@ -391,6 +408,7 @@
           "stop": 102
         },
         "rate": 1.165909090909091,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.5095034268389004,
         "grade": "A",
         "fuel_l": 175,
@@ -414,7 +432,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "C",
     "grade_label": "센서 침묵",
@@ -431,6 +449,7 @@
       "stop": 0
     },
     "rate": 0,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0.18295074719606316,
     "fuel_l": 630,
     "fuel_per_100km": 33.08771929824561,
@@ -449,6 +468,7 @@
           "stop": 2
         },
         "rate": 0.00625,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 480,
@@ -468,6 +488,7 @@
           "stop": 2
         },
         "rate": 0.00625,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 483,
@@ -487,6 +508,7 @@
           "stop": 120
         },
         "rate": 0.9507692307692308,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.39201564967581676,
         "grade": "정상",
         "fuel_l": 240,
@@ -506,6 +528,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.15600879574381998,
         "grade": "C",
         "fuel_l": 590,
@@ -525,6 +548,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.18295074719606316,
         "grade": "C",
         "fuel_l": 630,
@@ -548,7 +572,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -565,6 +589,7 @@
       "stop": 3
     },
     "rate": 0.009333333333333334,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 445,
     "fuel_per_100km": 29.59555555555556,
@@ -583,6 +608,7 @@
           "stop": 3
         },
         "rate": 0.009333333333333334,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 445,
@@ -602,6 +628,7 @@
           "stop": 3
         },
         "rate": 0.009333333333333334,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 445,
@@ -621,6 +648,7 @@
           "stop": 3
         },
         "rate": 0.009333333333333334,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 445,
@@ -640,6 +668,7 @@
           "stop": 3
         },
         "rate": 0.009333333333333334,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 445,
@@ -659,6 +688,7 @@
           "stop": 3
         },
         "rate": 0.009333333333333334,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 445,
@@ -682,7 +712,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -699,6 +729,7 @@
       "stop": 5
     },
     "rate": 0.01,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 595,
     "fuel_per_100km": 29.683333333333334,
@@ -717,6 +748,7 @@
           "stop": 5
         },
         "rate": 0.01,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 595,
@@ -736,6 +768,7 @@
           "stop": 5
         },
         "rate": 0.01,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 595,
@@ -755,6 +788,7 @@
           "stop": 5
         },
         "rate": 0.01,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 595,
@@ -774,6 +808,7 @@
           "stop": 5
         },
         "rate": 0.01,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 595,
@@ -793,6 +828,7 @@
           "stop": 5
         },
         "rate": 0.01,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 595,
@@ -816,7 +852,7 @@
       "trust": "C",
       "kmpl_empty": 3.564,
       "kmpl_laden": 2.574,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -833,6 +869,7 @@
       "stop": 3
     },
     "rate": 0.00823529411764706,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 530,
     "fuel_per_100km": 31.10980392156863,
@@ -851,6 +888,7 @@
           "stop": 3
         },
         "rate": 0.00823529411764706,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 530,
@@ -870,6 +908,7 @@
           "stop": 3
         },
         "rate": 0.00823529411764706,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 530,
@@ -889,6 +928,7 @@
           "stop": 3
         },
         "rate": 0.00823529411764706,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 530,
@@ -908,6 +948,7 @@
           "stop": 3
         },
         "rate": 0.00823529411764706,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 530,
@@ -927,6 +968,7 @@
           "stop": 3
         },
         "rate": 0.00823529411764706,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 530,
@@ -950,7 +992,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "C",
     "grade_label": "센서 침묵",
@@ -967,6 +1009,7 @@
       "stop": 0
     },
     "rate": 0,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0.11783919387924224,
     "fuel_l": 774,
     "fuel_per_100km": 32.18333333333333,
@@ -985,6 +1028,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.11783919387924224,
         "grade": "C",
         "fuel_l": 774,
@@ -1004,6 +1048,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.11783919387924224,
         "grade": "C",
         "fuel_l": 774,
@@ -1023,6 +1068,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.11783919387924224,
         "grade": "C",
         "fuel_l": 774,
@@ -1042,6 +1088,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.11783919387924224,
         "grade": "C",
         "fuel_l": 774,
@@ -1061,6 +1108,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.11783919387924224,
         "grade": "C",
         "fuel_l": 774,
@@ -1084,7 +1132,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "C",
     "grade_label": "센서 침묵",
@@ -1101,6 +1149,7 @@
       "stop": 0
     },
     "rate": 0,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0.1362011733714366,
     "fuel_l": 715,
     "fuel_per_100km": 32.43333333333333,
@@ -1119,6 +1168,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.1362011733714366,
         "grade": "C",
         "fuel_l": 715,
@@ -1138,6 +1188,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.1362011733714366,
         "grade": "C",
         "fuel_l": 715,
@@ -1157,6 +1208,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.1362011733714366,
         "grade": "C",
         "fuel_l": 715,
@@ -1176,6 +1228,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.1362011733714366,
         "grade": "C",
         "fuel_l": 715,
@@ -1195,6 +1248,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.1362011733714366,
         "grade": "C",
         "fuel_l": 715,
@@ -1218,7 +1272,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "C",
     "grade_label": "센서 침묵",
@@ -1235,6 +1289,7 @@
       "stop": 0
     },
     "rate": 0,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0.1457521329661543,
     "fuel_l": 620,
     "fuel_per_100km": 32.564912280701755,
@@ -1253,6 +1308,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.1457521329661543,
         "grade": "C",
         "fuel_l": 620,
@@ -1272,6 +1328,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.1457521329661543,
         "grade": "C",
         "fuel_l": 620,
@@ -1291,6 +1348,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.1457521329661543,
         "grade": "C",
         "fuel_l": 620,
@@ -1310,6 +1368,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.1457521329661543,
         "grade": "C",
         "fuel_l": 620,
@@ -1329,6 +1388,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.1457521329661543,
         "grade": "C",
         "fuel_l": 620,
@@ -1352,7 +1412,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "C",
     "grade_label": "센서 침묵",
@@ -1369,6 +1429,7 @@
       "stop": 0
     },
     "rate": 0,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0.10783331802346613,
     "fuel_l": 835,
     "fuel_per_100km": 32.04871794871795,
@@ -1387,6 +1448,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.10783331802346613,
         "grade": "C",
         "fuel_l": 835,
@@ -1406,6 +1468,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.10783331802346613,
         "grade": "C",
         "fuel_l": 835,
@@ -1425,6 +1488,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.10783331802346613,
         "grade": "C",
         "fuel_l": 835,
@@ -1444,6 +1508,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.10783331802346613,
         "grade": "C",
         "fuel_l": 835,
@@ -1463,6 +1528,7 @@
           "stop": 0
         },
         "rate": 0,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0.10783331802346613,
         "grade": "C",
         "fuel_l": 835,
@@ -1486,7 +1552,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "D",
     "grade_label": "측정 불가",
@@ -1503,10 +1569,11 @@
       "stop": 0
     },
     "rate": null,
-    "fuel_implied_rate": 0,
+    "has_fuel_data": false,
+    "fuel_implied_rate": null,
     "fuel_l": 0,
     "fuel_per_100km": null,
-    "fuel_excess_pct": 0,
+    "fuel_excess_pct": null,
     "observed_rank": null,
     "fuel_rank": null,
     "monthly": [
@@ -1521,11 +1588,12 @@
           "stop": 0
         },
         "rate": null,
-        "fuel_implied_rate": 0,
+        "has_fuel_data": false,
+        "fuel_implied_rate": null,
         "grade": "D",
         "fuel_l": 0,
         "fuel_per_100km": null,
-        "fuel_excess_pct": 0,
+        "fuel_excess_pct": null,
         "observed_rank": null,
         "fuel_rank": null
       },
@@ -1540,11 +1608,12 @@
           "stop": 0
         },
         "rate": null,
-        "fuel_implied_rate": 0,
+        "has_fuel_data": false,
+        "fuel_implied_rate": null,
         "grade": "D",
         "fuel_l": 0,
         "fuel_per_100km": null,
-        "fuel_excess_pct": 0,
+        "fuel_excess_pct": null,
         "observed_rank": null,
         "fuel_rank": null
       },
@@ -1559,11 +1628,12 @@
           "stop": 0
         },
         "rate": null,
-        "fuel_implied_rate": 0,
+        "has_fuel_data": false,
+        "fuel_implied_rate": null,
         "grade": "D",
         "fuel_l": 0,
         "fuel_per_100km": null,
-        "fuel_excess_pct": 0,
+        "fuel_excess_pct": null,
         "observed_rank": null,
         "fuel_rank": null
       },
@@ -1578,11 +1648,12 @@
           "stop": 0
         },
         "rate": null,
-        "fuel_implied_rate": 0,
+        "has_fuel_data": false,
+        "fuel_implied_rate": null,
         "grade": "D",
         "fuel_l": 0,
         "fuel_per_100km": null,
-        "fuel_excess_pct": 0,
+        "fuel_excess_pct": null,
         "observed_rank": null,
         "fuel_rank": null
       },
@@ -1597,11 +1668,12 @@
           "stop": 0
         },
         "rate": null,
-        "fuel_implied_rate": 0,
+        "has_fuel_data": false,
+        "fuel_implied_rate": null,
         "grade": "D",
         "fuel_l": 0,
         "fuel_per_100km": null,
-        "fuel_excess_pct": 0,
+        "fuel_excess_pct": null,
         "observed_rank": null,
         "fuel_rank": null
       }
@@ -1620,7 +1692,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "D",
     "grade_label": "측정 불가",
@@ -1637,10 +1709,11 @@
       "stop": 0
     },
     "rate": null,
-    "fuel_implied_rate": 0,
+    "has_fuel_data": false,
+    "fuel_implied_rate": null,
     "fuel_l": 0,
     "fuel_per_100km": null,
-    "fuel_excess_pct": 0,
+    "fuel_excess_pct": null,
     "observed_rank": null,
     "fuel_rank": null,
     "monthly": [
@@ -1655,11 +1728,12 @@
           "stop": 0
         },
         "rate": null,
-        "fuel_implied_rate": 0,
+        "has_fuel_data": false,
+        "fuel_implied_rate": null,
         "grade": "D",
         "fuel_l": 0,
         "fuel_per_100km": null,
-        "fuel_excess_pct": 0,
+        "fuel_excess_pct": null,
         "observed_rank": null,
         "fuel_rank": null
       },
@@ -1674,11 +1748,12 @@
           "stop": 0
         },
         "rate": null,
-        "fuel_implied_rate": 0,
+        "has_fuel_data": false,
+        "fuel_implied_rate": null,
         "grade": "D",
         "fuel_l": 0,
         "fuel_per_100km": null,
-        "fuel_excess_pct": 0,
+        "fuel_excess_pct": null,
         "observed_rank": null,
         "fuel_rank": null
       },
@@ -1693,11 +1768,12 @@
           "stop": 0
         },
         "rate": null,
-        "fuel_implied_rate": 0,
+        "has_fuel_data": false,
+        "fuel_implied_rate": null,
         "grade": "D",
         "fuel_l": 0,
         "fuel_per_100km": null,
-        "fuel_excess_pct": 0,
+        "fuel_excess_pct": null,
         "observed_rank": null,
         "fuel_rank": null
       },
@@ -1712,11 +1788,12 @@
           "stop": 0
         },
         "rate": null,
-        "fuel_implied_rate": 0,
+        "has_fuel_data": false,
+        "fuel_implied_rate": null,
         "grade": "D",
         "fuel_l": 0,
         "fuel_per_100km": null,
-        "fuel_excess_pct": 0,
+        "fuel_excess_pct": null,
         "observed_rank": null,
         "fuel_rank": null
       },
@@ -1731,11 +1808,12 @@
           "stop": 0
         },
         "rate": null,
-        "fuel_implied_rate": 0,
+        "has_fuel_data": false,
+        "fuel_implied_rate": null,
         "grade": "D",
         "fuel_l": 0,
         "fuel_per_100km": null,
-        "fuel_excess_pct": 0,
+        "fuel_excess_pct": null,
         "observed_rank": null,
         "fuel_rank": null
       }
@@ -1754,7 +1832,7 @@
       "trust": "C",
       "kmpl_empty": 14,
       "kmpl_laden": 14,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -1771,6 +1849,7 @@
       "stop": 1
     },
     "rate": 0.006666666666666667,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 40,
     "fuel_per_100km": 6.6000000000000005,
@@ -1789,6 +1868,7 @@
           "stop": 1
         },
         "rate": 0.006666666666666667,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 40,
@@ -1808,6 +1888,7 @@
           "stop": 1
         },
         "rate": 0.006666666666666667,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 40,
@@ -1827,6 +1908,7 @@
           "stop": 1
         },
         "rate": 0.006666666666666667,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 40,
@@ -1846,6 +1928,7 @@
           "stop": 1
         },
         "rate": 0.006666666666666667,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 40,
@@ -1865,6 +1948,7 @@
           "stop": 1
         },
         "rate": 0.006666666666666667,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 40,
@@ -1888,7 +1972,7 @@
       "trust": "C",
       "kmpl_empty": 13.2,
       "kmpl_laden": 13.2,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -1905,6 +1989,7 @@
       "stop": 0
     },
     "rate": 0.005454545454545455,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 38,
     "fuel_per_100km": 6.848484848484848,
@@ -1923,6 +2008,7 @@
           "stop": 0
         },
         "rate": 0.005454545454545455,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 38,
@@ -1942,6 +2028,7 @@
           "stop": 0
         },
         "rate": 0.005454545454545455,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 38,
@@ -1961,6 +2048,7 @@
           "stop": 0
         },
         "rate": 0.005454545454545455,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 38,
@@ -1980,6 +2068,7 @@
           "stop": 0
         },
         "rate": 0.005454545454545455,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 38,
@@ -1999,6 +2088,7 @@
           "stop": 0
         },
         "rate": 0.005454545454545455,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 38,
@@ -2022,7 +2112,7 @@
       "trust": "C",
       "kmpl_empty": 12.8,
       "kmpl_laden": 12.8,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2039,6 +2129,7 @@
       "stop": 1
     },
     "rate": 0.006896551724137931,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 42,
     "fuel_per_100km": 7.17816091954023,
@@ -2057,6 +2148,7 @@
           "stop": 1
         },
         "rate": 0.006896551724137931,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 42,
@@ -2076,6 +2168,7 @@
           "stop": 1
         },
         "rate": 0.006896551724137931,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 42,
@@ -2095,6 +2188,7 @@
           "stop": 1
         },
         "rate": 0.006896551724137931,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 42,
@@ -2114,6 +2208,7 @@
           "stop": 1
         },
         "rate": 0.006896551724137931,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 42,
@@ -2133,6 +2228,7 @@
           "stop": 1
         },
         "rate": 0.006896551724137931,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 42,
@@ -2156,7 +2252,7 @@
       "trust": "C",
       "kmpl_empty": 12.1,
       "kmpl_laden": 12.1,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2173,6 +2269,7 @@
       "stop": 1
     },
     "rate": 0.006,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 39,
     "fuel_per_100km": 7.736,
@@ -2191,6 +2288,7 @@
           "stop": 1
         },
         "rate": 0.006,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 39,
@@ -2210,6 +2308,7 @@
           "stop": 1
         },
         "rate": 0.006,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 39,
@@ -2229,6 +2328,7 @@
           "stop": 1
         },
         "rate": 0.006,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 39,
@@ -2248,6 +2348,7 @@
           "stop": 1
         },
         "rate": 0.006,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 39,
@@ -2267,6 +2368,7 @@
           "stop": 1
         },
         "rate": 0.006,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 39,
@@ -2290,7 +2392,7 @@
       "trust": "C",
       "kmpl_empty": 11.4,
       "kmpl_laden": 11.4,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2307,6 +2409,7 @@
       "stop": 1
     },
     "rate": 0.008064516129032258,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 48,
     "fuel_per_100km": 7.67741935483871,
@@ -2325,6 +2428,7 @@
           "stop": 1
         },
         "rate": 0.008064516129032258,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 48,
@@ -2344,6 +2448,7 @@
           "stop": 1
         },
         "rate": 0.008064516129032258,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 48,
@@ -2363,6 +2468,7 @@
           "stop": 1
         },
         "rate": 0.008064516129032258,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 48,
@@ -2382,6 +2488,7 @@
           "stop": 1
         },
         "rate": 0.008064516129032258,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 48,
@@ -2401,6 +2508,7 @@
           "stop": 1
         },
         "rate": 0.008064516129032258,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 48,
@@ -2424,7 +2532,7 @@
       "trust": "C",
       "kmpl_empty": 9.6,
       "kmpl_laden": 9.6,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2441,6 +2549,7 @@
       "stop": 1
     },
     "rate": 0.008571428571428572,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 60,
     "fuel_per_100km": 8.50952380952381,
@@ -2459,6 +2568,7 @@
           "stop": 1
         },
         "rate": 0.008571428571428572,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 60,
@@ -2478,6 +2588,7 @@
           "stop": 1
         },
         "rate": 0.008571428571428572,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 60,
@@ -2497,6 +2608,7 @@
           "stop": 1
         },
         "rate": 0.008571428571428572,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 60,
@@ -2516,6 +2628,7 @@
           "stop": 1
         },
         "rate": 0.008571428571428572,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 60,
@@ -2535,6 +2648,7 @@
           "stop": 1
         },
         "rate": 0.008571428571428572,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 60,
@@ -2558,7 +2672,7 @@
       "trust": "C",
       "kmpl_empty": 12.6,
       "kmpl_laden": 12.6,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2575,6 +2689,7 @@
       "stop": 1
     },
     "rate": 0.00625,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 37,
     "fuel_per_100km": 7.645833333333334,
@@ -2593,6 +2708,7 @@
           "stop": 1
         },
         "rate": 0.00625,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 37,
@@ -2612,6 +2728,7 @@
           "stop": 1
         },
         "rate": 0.00625,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 37,
@@ -2631,6 +2748,7 @@
           "stop": 1
         },
         "rate": 0.00625,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 37,
@@ -2650,6 +2768,7 @@
           "stop": 1
         },
         "rate": 0.00625,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 37,
@@ -2669,6 +2788,7 @@
           "stop": 1
         },
         "rate": 0.00625,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 37,
@@ -2692,7 +2812,7 @@
       "trust": "C",
       "kmpl_empty": 17.6,
       "kmpl_laden": 17.6,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2709,6 +2829,7 @@
       "stop": 0
     },
     "rate": 0.005660377358490566,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 30,
     "fuel_per_100km": 5.59748427672956,
@@ -2727,6 +2848,7 @@
           "stop": 0
         },
         "rate": 0.005660377358490566,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 30,
@@ -2746,6 +2868,7 @@
           "stop": 0
         },
         "rate": 0.005660377358490566,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 30,
@@ -2765,6 +2888,7 @@
           "stop": 0
         },
         "rate": 0.005660377358490566,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 30,
@@ -2784,6 +2908,7 @@
           "stop": 0
         },
         "rate": 0.005660377358490566,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 30,
@@ -2803,6 +2928,7 @@
           "stop": 0
         },
         "rate": 0.005660377358490566,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 30,
@@ -2826,7 +2952,7 @@
       "trust": "C",
       "kmpl_empty": 5,
       "kmpl_laden": 5,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2843,6 +2969,7 @@
       "stop": 1
     },
     "rate": 0.007142857142857143,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 18,
     "fuel_per_100km": 3.166666666666667,
@@ -2861,6 +2988,7 @@
           "stop": 1
         },
         "rate": 0.007142857142857143,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 18,
@@ -2880,6 +3008,7 @@
           "stop": 1
         },
         "rate": 0.007142857142857143,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 18,
@@ -2899,6 +3028,7 @@
           "stop": 1
         },
         "rate": 0.007142857142857143,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 18,
@@ -2918,6 +3048,7 @@
           "stop": 1
         },
         "rate": 0.007142857142857143,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 18,
@@ -2937,6 +3068,7 @@
           "stop": 1
         },
         "rate": 0.007142857142857143,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 18,
@@ -2960,7 +3092,7 @@
       "trust": "C",
       "kmpl_empty": 13.6,
       "kmpl_laden": 13.6,
-      "fetched_at": "2026-08-13T01:41:52.002Z"
+      "fetched_at": "2026-08-13T02:30:06.963Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2977,6 +3109,7 @@
       "stop": 1
     },
     "rate": 0.0075,
+    "has_fuel_data": true,
     "fuel_implied_rate": 0,
     "fuel_l": 27,
     "fuel_per_100km": 6.686666666666667,
@@ -2995,6 +3128,7 @@
           "stop": 1
         },
         "rate": 0.0075,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 27,
@@ -3014,6 +3148,7 @@
           "stop": 1
         },
         "rate": 0.0075,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 27,
@@ -3033,6 +3168,7 @@
           "stop": 1
         },
         "rate": 0.0075,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 27,
@@ -3052,6 +3188,7 @@
           "stop": 1
         },
         "rate": 0.0075,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 27,
@@ -3071,6 +3208,7 @@
           "stop": 1
         },
         "rate": 0.0075,
+        "has_fuel_data": true,
         "fuel_implied_rate": 0,
         "grade": "정상",
         "fuel_l": 27,

@@ -4,7 +4,7 @@ import { FUEL_SOURCE_META } from './fuelSource';
 
 export function signalRatioOf(v: Pick<Vehicle, 'rate' | 'fuel_implied_rate'>): number {
   if (v.rate === null) return Infinity;
-  if (v.fuel_implied_rate === 0) return Infinity;
+  if (v.fuel_implied_rate === null || v.fuel_implied_rate === 0) return Infinity;
   return v.rate / v.fuel_implied_rate;
 }
 

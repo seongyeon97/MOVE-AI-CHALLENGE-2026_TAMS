@@ -275,8 +275,13 @@ function VehicleDetailPanel({ vehicle }: { vehicle: Vehicle }) {
         <p className="mt-1 text-xs" style={{ color: 'var(--color-mist)' }}>{vehicle.verdict}</p>
         <ul className="num mt-2 space-y-0.5 text-xs" style={{ color: 'var(--color-slate)' }}>
           <li>관측 발생률: {vehicle.rate !== null ? (vehicle.rate * 100).toFixed(1) : '—'}건/100km</li>
-          <li>연료가 시사하는 발생률: {(vehicle.fuel_implied_rate * 100).toFixed(1)}건/100km</li>
-          <li>두 신호의 비율: {Number.isFinite(signalRatio) ? signalRatio.toFixed(2) : '∞'}</li>
+          <li>
+            연료가 시사하는 발생률:{' '}
+            {vehicle.has_fuel_data && vehicle.fuel_implied_rate !== null
+              ? `${(vehicle.fuel_implied_rate * 100).toFixed(1)}건/100km`
+              : '유류데이터 없음 — 대체신호 없음'}
+          </li>
+          <li>두 신호의 비율: {vehicle.has_fuel_data ? (Number.isFinite(signalRatio) ? signalRatio.toFixed(2) : '∞') : '—'}</li>
         </ul>
       </div>
 
@@ -303,7 +308,7 @@ function VehicleDetailPanel({ vehicle }: { vehicle: Vehicle }) {
         <ul className="num space-y-0.5 text-xs" style={{ color: 'var(--color-mist)' }}>
           <li>기준연비: {vehicle.baseline.kmpl.toFixed(1)}km/L <ToneBadge tone={sourceMeta.tone} label={sourceMeta.label} /></li>
           <li>실측연비: {measuredKmpl !== null ? measuredKmpl.toFixed(2) : '—'}km/L</li>
-          <li>초과율: {vehicle.fuel_excess_pct.toFixed(1)}%</li>
+          <li>초과율: {vehicle.fuel_excess_pct !== null ? `${vehicle.fuel_excess_pct.toFixed(1)}%` : '유류데이터 없음'}</li>
         </ul>
       </div>
 

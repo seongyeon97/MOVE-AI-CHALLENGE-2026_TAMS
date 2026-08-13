@@ -1,4 +1,6 @@
-// csvBrowser.ts — 브라우저에서 업로드 파일 미리보기용 초경량 CSV 파서. scripts/lib/csv.mjs와 별개(런타임/브라우저 전용).
+// csvBrowser.ts — 브라우저에서 업로드 파일을 미리보기/전체파싱하는 파서. CSV뿐 아니라 XLSX(멀티시트)도 받는다 —
+// "어떤 형태의 운행·유류 데이터를 던져도 파싱한다"가 이 플랫폼의 전제다. scripts/lib/csv.mjs와는 별개(런타임/브라우저 전용).
+// xlsx 라이브러리(~500KB)는 실제로 xlsx 파일을 올릴 때만 동적 import한다.
 
 export function parseLine(line: string): string[] {
   const cells: string[] = [];
@@ -18,36 +20,38 @@ export function parseLine(line: string): string[] {
   return cells;
 }
 
-export type ParsedPreview = {
-  fileName: string;
-  headerRowIndex: number;
-  header: string[];
-  sampleRows: string[][];
-  totalRows: number;
-  rawRows: string[][]; // 헤더 위치를 모델이 스스로 찾도록 보내는 원본 앞부분(가정 없음)
-};
-
-/** 헤더 행이 1행이 아닐 수 있다고 가정 — 셀 개수가 가장 많은 초반 행을 헤더로 추정한다(모델이 최종 확정). */
-export async function previewCsvFile(file: File, sampleSize = 5): Promise<ParsedPreview> {
-  const text = await file.text();
-  const lines = text.split(/\r?\n/).filter((l) => l.length > 0);
-
-  let headerRowIndex = 0;
-  let bestCellCount = 0;
-  const scanLimit = Math.min(lines.length, 10);
-  for (let i = 0; i < scanLimit; i++) {
-    const count = parseLine(lines[i]).length;
-    if (count > bestCellCount) { bestCellCount = count; headerRowIndex = i; }
-  }
-
-  const header = parseLine(lines[headerRowIndex]);
-  const sampleRows = lines.slice(headerRowIndex + 1, headerRowIndex + 1 + sampleSize).map(parseLine);
-  const rawRows = lines.slice(0, scanLimit).map(parseLine);
-
-  return { fileName: file.name, headerRowIndex, header, sampleRows, totalRows: lines.length - headerRowIndex - 1, rawRows };
+function rowsFromCsvText(text: string): string[][] {
+  return text.split(/\r?\n/).filter((l) => l.length > 0).map(parseLine);
 }
 
-/** 헤더가 1행이라고 이미 알려진 CSV 전체를 객체 배열로 — fetch(url).then(r=>r.text())와 함께 쓴다. */
+function isXlsx(fileName: string): boolean {
+  return /\.xlsx?$/i.test(fileName);
+}
+
+export type SheetData = { name: string; rows: string[][] };
+
+/** 파일 전체를 시트 단위로 읽는다(CSV는 시트 1개짜리로 취급). 큰 파일이라도 전체를 들고 있어야 확정 후 리셰이프가 가능하다. */
+export async function loadFileSheets(file: File): Promise<SheetData[]> {
+  if (isXlsx(file.name)) {
+    const XLSX = await import('xlsx');
+    const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
+    return wb.SheetNames.map((name) => {
+      const rows = XLSX.utils.sheet_to_json<string[]>(wb.Sheets[name], { header: 1, defval: '', raw: false }) as unknown as string[][];
+      return { name, rows: rows.map((r) => r.map((c) => String(c ?? ''))) };
+    });
+  }
+  const text = await file.text();
+  return [{ name: file.name, rows: rowsFromCsvText(text) }];
+}
+
+export type SheetPreview = { name: string; rowCount: number; rawRows: string[][] };
+
+/** 시트별 미리보기(앞 최대 10행) — LLM에게 "어느 시트가 데이터인지" 직접 판단시킬 근거. */
+export function previewSheets(sheets: SheetData[], scanLimit = 10): SheetPreview[] {
+  return sheets.map((s) => ({ name: s.name, rowCount: s.rows.length, rawRows: s.rows.slice(0, scanLimit) }));
+}
+
+/** 헤더가 1행이라고 이미 알려진 CSV 전체를 객체 배열로 — fetch(url).then(r=>r.text())와 함께 쓴다(고정 스키마 파일 전용). */
 export function parseCsvText(text: string): Record<string, string>[] {
   const lines = text.split(/\r?\n/).filter((l) => l.length > 0);
   if (lines.length === 0) return [];
