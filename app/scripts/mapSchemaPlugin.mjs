@@ -101,11 +101,14 @@ export function mapSchemaPlugin(env) {
           const controller = new AbortController();
           const timeout = setTimeout(() => controller.abort(), 30000);
           const res2 = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${key}`,
+            'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent',
             {
               method: 'POST',
               signal: controller.signal,
-              headers: { 'Content-Type': 'application/json' },
+              // 키는 헤더로 보낸다(?key= 아님) — data.go.kr와 달리 구글 권장 방식이기도 하고,
+              // vite.config.ts에서 .env.local 값을 강제하기 전에는 이 환경의 스테일 시스템
+              // GEMINI_API_KEY가 조용히 우선돼 401(ACCESS_TOKEN_TYPE_UNSUPPORTED)이 났었다.
+              headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
               body: JSON.stringify({
                 systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
                 contents: [{ parts: [{ text: userPrompt }] }],

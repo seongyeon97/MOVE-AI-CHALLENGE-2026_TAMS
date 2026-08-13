@@ -103,11 +103,12 @@ async function tryAiEstimate(vehicle) {
     const controller = new AbortController();
     const t = setTimeout(() => controller.abort(), 30000);
     const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${key}`,
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent',
       {
         method: 'POST',
         signal: controller.signal,
-        headers: { 'Content-Type': 'application/json' },
+        // 키는 헤더로 — 일부 환경에서 ?key= 쿼리스트링이 보안 소프트웨어에 가로채여 401을 유발했다.
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: systemPrompt }] },
           contents: [{ parts: [{ text: userPrompt }] }],
