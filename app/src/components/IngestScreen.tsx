@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { loadFileSheets, previewSheets, type SheetData } from '../lib/csvBrowser';
 import { unpivotWideByPeriod, type PeriodGroup } from '../lib/reshape';
-import { STANDARD_SCHEMA } from '../lib/standardSchema';
+import { STANDARD_SCHEMAS, type SchemaVehicleClass, type StandardField } from '../lib/standardSchema';
 
 type MappingRow = { source_name: string; standard_key: string; confidence?: string; reasoning?: string };
+
+type QueuedFile = { fileName: string; sheets: SheetData[]; vehicleClass: SchemaVehicleClass };
 
 type FileState = {
   fileName: string;
   sheets: SheetData[];
+  vehicleClass: SchemaVehicleClass;
   targetSheetName: string;
   headerRowIndex: number;
   layout: 'long' | 'wide_by_period';
@@ -15,8 +18,6 @@ type FileState = {
   mappings: MappingRow[];
   source: 'llm' | 'manual';
 };
-
-const STANDARD_KEYS = STANDARD_SCHEMA.map((f) => f.key);
 
 type LlmPlan = {
   target_sheet_index: number;
@@ -28,7 +29,7 @@ type LlmPlan = {
   unmapped_standard_fields: { key: string; missing_impact: string }[];
 };
 
-async function attemptLlmPlan(sheets: SheetData[], onSlow: () => void): Promise<LlmPlan | null> {
+async function attemptLlmPlan(sheets: SheetData[], standardKeys: string[], onSlow: () => void): Promise<LlmPlan | null> {
   const slowTimer = setTimeout(onSlow, 8000);
   try {
     const controller = new AbortController();
@@ -37,7 +38,7 @@ async function attemptLlmPlan(sheets: SheetData[], onSlow: () => void): Promise<
       method: 'POST',
       signal: controller.signal,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ standardKeys: STANDARD_KEYS, sheets: previewSheets(sheets) }),
+      body: JSON.stringify({ standardKeys, sheets: previewSheets(sheets) }),
     });
     clearTimeout(timeout);
     if (!res.ok) return null;
@@ -58,15 +59,17 @@ function guessHeaderRowIndex(rows: string[][]): number {
   return best;
 }
 
-function buildFileState(fileName: string, sheets: SheetData[], plan: LlmPlan | null): FileState {
+function buildFileState(q: QueuedFile, plan: LlmPlan | null): FileState {
+  const { fileName, sheets, vehicleClass } = q;
+  const standardKeys = STANDARD_SCHEMAS[vehicleClass].map((f) => f.key);
+
   if (!plan) {
     // 수동 폴백 — 시트 선택·와이드 리셰이프는 LLM 없이는 못 한다(설계상 한계). 행이 가장 많은 시트를 데이터로 가정.
     const targetSheet = sheets.reduce((a, b) => (b.rows.length > a.rows.length ? b : a), sheets[0]);
     const headerRowIndex = guessHeaderRowIndex(targetSheet.rows);
     const header = targetSheet.rows[headerRowIndex] ?? [];
     return {
-      fileName,
-      sheets,
+      fileName, sheets, vehicleClass,
       targetSheetName: targetSheet.name,
       headerRowIndex,
       layout: 'long',
@@ -85,8 +88,7 @@ function buildFileState(fileName: string, sheets: SheetData[], plan: LlmPlan | n
       period_groups: plan.period_groups,
     });
     return {
-      fileName,
-      sheets,
+      fileName, sheets, vehicleClass,
       targetSheetName: targetSheet.name,
       headerRowIndex: plan.header_row_index,
       layout: 'wide_by_period',
@@ -95,14 +97,13 @@ function buildFileState(fileName: string, sheets: SheetData[], plan: LlmPlan | n
         longRows: reshaped.rows.length,
         periodGroupCount: plan.period_groups.length,
       },
-      mappings: reshaped.header.map((h) => ({ source_name: h, standard_key: STANDARD_KEYS.includes(h) ? h : '' })),
+      mappings: reshaped.header.map((h) => ({ source_name: h, standard_key: standardKeys.includes(h) ? h : '' })),
       source: 'llm',
     };
   }
 
   return {
-    fileName,
-    sheets,
+    fileName, sheets, vehicleClass,
     targetSheetName: targetSheet.name,
     headerRowIndex: plan.header_row_index,
     layout: 'long',
@@ -113,7 +114,7 @@ function buildFileState(fileName: string, sheets: SheetData[], plan: LlmPlan | n
 }
 
 export function IngestScreen({ onBack }: { onBack: () => void }) {
-  const [queued, setQueued] = useState<{ fileName: string; sheets: SheetData[] }[]>([]);
+  const [queued, setQueued] = useState<QueuedFile[]>([]);
   const [results, setResults] = useState<Record<string, FileState>>({});
   const [parseStarted, setParseStarted] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -123,9 +124,13 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
   async function handleFiles(fileList: FileList | null) {
     if (!fileList) return;
     const loaded = await Promise.all(
-      [...fileList].map(async (f) => ({ fileName: f.name, sheets: await loadFileSheets(f) })),
+      [...fileList].map(async (f) => ({ fileName: f.name, sheets: await loadFileSheets(f), vehicleClass: 'truck' as SchemaVehicleClass })),
     );
     setQueued((prev) => [...prev, ...loaded]);
+  }
+
+  function setFileVehicleClass(fileName: string, vehicleClass: SchemaVehicleClass) {
+    setQueued((prev) => prev.map((q) => (q.fileName === fileName ? { ...q, vehicleClass } : q)));
   }
 
   async function handleParse() {
@@ -133,8 +138,9 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
     setConfirmed(false);
     await Promise.all(
       queued.map(async (q) => {
-        const plan = await attemptLlmPlan(q.sheets, () => setSlowFiles((s) => ({ ...s, [q.fileName]: true })));
-        setResults((prev) => ({ ...prev, [q.fileName]: buildFileState(q.fileName, q.sheets, plan) }));
+        const standardKeys = STANDARD_SCHEMAS[q.vehicleClass].map((f) => f.key);
+        const plan = await attemptLlmPlan(q.sheets, standardKeys, () => setSlowFiles((s) => ({ ...s, [q.fileName]: true })));
+        setResults((prev) => ({ ...prev, [q.fileName]: buildFileState(q, plan) }));
       }),
     );
   }
@@ -178,12 +184,21 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
       />
 
       {queued.length > 0 && (
-        <ul className="text-xs" style={{ color: 'var(--color-mist)' }}>
+        <ul className="flex flex-col gap-1 text-xs" style={{ color: 'var(--color-mist)' }}>
           {queued.map((q) => (
-            <li key={q.fileName}>
-              {q.fileName} — 시트 {q.sheets.length}개({q.sheets.map((s) => s.name).join(', ')})
+            <li key={q.fileName} className="flex items-center gap-2">
+              <span>{q.fileName} — 시트 {q.sheets.length}개({q.sheets.map((s) => s.name).join(', ')})</span>
+              <select
+                value={q.vehicleClass}
+                onChange={(e) => setFileVehicleClass(q.fileName, e.target.value as SchemaVehicleClass)}
+                className="rounded border px-1.5 py-0.5"
+                style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
+              >
+                <option value="truck">화물차 스키마</option>
+                <option value="car">승용차 스키마</option>
+              </select>
               {slowFiles[q.fileName] && !results[q.fileName] && (
-                <span className="tone-warn-fg ml-2">오래 걸리는 중…</span>
+                <span className="tone-warn-fg">오래 걸리는 중…</span>
               )}
             </li>
           ))}
@@ -212,61 +227,64 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
 
       {showResults && allResults.length > 0 && (
         <div className="flex flex-col gap-4">
-          {allResults.map((r) => (
-            <div key={r.fileName} className="rounded-md border p-3" style={{ borderColor: 'var(--color-line)' }}>
-              <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>
-                {r.fileName} — {r.source === 'llm' ? 'AI 매핑' : '수동 매핑'}
-              </p>
-              <p className="mb-2 text-xs" style={{ color: 'var(--color-dim)' }}>
-                시트 "{r.targetSheetName}" 선택 · 헤더 {r.headerRowIndex + 1}행
-                {r.sheets.length > 1 && ` (워크북 내 시트 ${r.sheets.length}개 중 선택)`}
-              </p>
-              {r.reshapeInfo && (
-                <p className="mb-2 text-xs" style={{ color: 'var(--color-mist)' }}>
-                  와이드(피벗) 포맷 감지 — 기간 컬럼그룹 {r.reshapeInfo.periodGroupCount}개를 롱포맷으로 펼침:
-                  원본 {r.reshapeInfo.originalRows}행 → {r.reshapeInfo.longRows}행
+          {allResults.map((r) => {
+            const schema: StandardField[] = STANDARD_SCHEMAS[r.vehicleClass];
+            return (
+              <div key={r.fileName} className="rounded-md border p-3" style={{ borderColor: 'var(--color-line)' }}>
+                <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>
+                  {r.fileName} — {r.vehicleClass === 'truck' ? '화물차' : '승용차'} 스키마 · {r.source === 'llm' ? 'AI 매핑' : '수동 매핑'}
                 </p>
-              )}
-              {r.source === 'manual' && r.sheets.length > 1 && (
-                <p className="mb-2 text-xs" style={{ color: 'var(--color-rose)' }}>
-                  AI 매핑 실패 — 시트 자동 선택·와이드 포맷 해체는 수동으로 할 수 없습니다. 행이 가장 많은 시트를 임의로 골랐으니 확인하세요.
+                <p className="mb-2 text-xs" style={{ color: 'var(--color-dim)' }}>
+                  시트 "{r.targetSheetName}" 선택 · 헤더 {r.headerRowIndex + 1}행
+                  {r.sheets.length > 1 && ` (워크북 내 시트 ${r.sheets.length}개 중 선택)`}
                 </p>
-              )}
-              <table className="w-full border-collapse text-xs">
-                <thead>
-                  <tr className="border-b text-left" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-slate)' }}>
-                    <th className="py-1 pr-2">{r.reshapeInfo ? '필드(리셰이프 후)' : '원본 컬럼'}</th>
-                    <th className="py-1 pr-2">표준 필드</th>
-                    {r.source === 'llm' && <th className="py-1 pr-2">신뢰도</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {r.mappings.map((m) => {
-                    const isDup = m.standard_key && r.mappings.filter((x) => x.standard_key === m.standard_key).length > 1;
-                    return (
-                      <tr key={m.source_name} className="border-b" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-mist)' }}>
-                        <td className="py-1 pr-2">{m.source_name}</td>
-                        <td className="py-1 pr-2">
-                          <select
-                            value={m.standard_key}
-                            onChange={(e) => updateMapping(r.fileName, m.source_name, e.target.value)}
-                            className="rounded border px-1.5 py-0.5"
-                            style={{ borderColor: isDup ? 'var(--color-rose)' : 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
-                          >
-                            <option value="">미매핑</option>
-                            {STANDARD_SCHEMA.map((f) => <option key={f.key} value={f.key}>{f.label}</option>)}
-                          </select>
-                        </td>
-                        {r.source === 'llm' && <td className="py-1 pr-2">{m.confidence ?? '—'}</td>}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                {r.reshapeInfo && (
+                  <p className="mb-2 text-xs" style={{ color: 'var(--color-mist)' }}>
+                    와이드(피벗) 포맷 감지 — 기간 컬럼그룹 {r.reshapeInfo.periodGroupCount}개를 롱포맷으로 펼침:
+                    원본 {r.reshapeInfo.originalRows}행 → {r.reshapeInfo.longRows}행
+                  </p>
+                )}
+                {r.source === 'manual' && r.sheets.length > 1 && (
+                  <p className="mb-2 text-xs" style={{ color: 'var(--color-rose)' }}>
+                    AI 매핑 실패 — 시트 자동 선택·와이드 포맷 해체는 수동으로 할 수 없습니다. 행이 가장 많은 시트를 임의로 골랐으니 확인하세요.
+                  </p>
+                )}
+                <table className="w-full border-collapse text-xs">
+                  <thead>
+                    <tr className="border-b text-left" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-slate)' }}>
+                      <th className="py-1 pr-2">{r.reshapeInfo ? '필드(리셰이프 후)' : '원본 컬럼'}</th>
+                      <th className="py-1 pr-2">표준 필드</th>
+                      {r.source === 'llm' && <th className="py-1 pr-2">신뢰도</th>}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {r.mappings.map((m) => {
+                      const isDup = m.standard_key && r.mappings.filter((x) => x.standard_key === m.standard_key).length > 1;
+                      return (
+                        <tr key={m.source_name} className="border-b" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-mist)' }}>
+                          <td className="py-1 pr-2">{m.source_name}</td>
+                          <td className="py-1 pr-2">
+                            <select
+                              value={m.standard_key}
+                              onChange={(e) => updateMapping(r.fileName, m.source_name, e.target.value)}
+                              className="rounded border px-1.5 py-0.5"
+                              style={{ borderColor: isDup ? 'var(--color-rose)' : 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
+                            >
+                              <option value="">미매핑</option>
+                              {schema.map((f) => <option key={f.key} value={f.key}>{f.label}</option>)}
+                            </select>
+                          </td>
+                          {r.source === 'llm' && <td className="py-1 pr-2">{m.confidence ?? '—'}</td>}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
 
-              <UnmappedFields mappedKeys={r.mappings.map((m) => m.standard_key)} />
-            </div>
-          ))}
+                <UnmappedFields schema={schema} mappedKeys={r.mappings.map((m) => m.standard_key)} />
+              </div>
+            );
+          })}
 
           <button
             type="button"
@@ -290,8 +308,8 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
   );
 }
 
-function UnmappedFields({ mappedKeys }: { mappedKeys: string[] }) {
-  const unmapped = STANDARD_SCHEMA.filter((f) => !mappedKeys.includes(f.key));
+function UnmappedFields({ schema, mappedKeys }: { schema: StandardField[]; mappedKeys: string[] }) {
+  const unmapped = schema.filter((f) => !mappedKeys.includes(f.key));
   if (unmapped.length === 0) return null;
   return (
     <div className="mt-2 text-xs" style={{ color: 'var(--color-dim)' }}>
