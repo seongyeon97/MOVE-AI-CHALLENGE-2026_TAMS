@@ -1,0 +1,876 @@
+[
+  {
+    "trip_id": "TRIP-GLV-T01-01",
+    "vehicle_id": "GLV-T01",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T01",
+    "container_type": "40ft",
+    "grade": "A",
+    "verifiable": false,
+    "settle": "conditional",
+    "safety": {
+      "event_counts": {
+        "accel": 170,
+        "start": 140,
+        "decel": 140,
+        "stop": 110
+      },
+      "core_events": 560,
+      "continuous": {
+        "max_block_sec": 15420,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 500,
+      "fuel_l": 190,
+      "idle_l": 0.6,
+      "co2_kg": 495.14,
+      "g_co2_per_tonkm": 54.113661202185796,
+      "g_co2_per_km": null,
+      "empty_share": 0.4
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T02-01",
+    "vehicle_id": "GLV-T02",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T02",
+    "container_type": "40ft",
+    "grade": "A",
+    "verifiable": false,
+    "settle": "conditional",
+    "safety": {
+      "event_counts": {
+        "accel": 170,
+        "start": 142,
+        "decel": 138,
+        "stop": 110
+      },
+      "core_events": 560,
+      "continuous": {
+        "max_block_sec": 14400,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 500,
+      "fuel_l": 190,
+      "idle_l": 0.6,
+      "co2_kg": 495.14,
+      "g_co2_per_tonkm": 57.978922716627636,
+      "g_co2_per_km": null,
+      "empty_share": 0.44
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T03-01",
+    "vehicle_id": "GLV-T03",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T03",
+    "container_type": "40ft",
+    "grade": "A",
+    "verifiable": false,
+    "settle": "conditional",
+    "safety": {
+      "event_counts": {
+        "accel": 155,
+        "start": 130,
+        "decel": 126,
+        "stop": 102
+      },
+      "core_events": 513,
+      "continuous": {
+        "max_block_sec": 13380,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 440,
+      "fuel_l": 175,
+      "idle_l": 0.5599999999999999,
+      "co2_kg": 456.04999999999995,
+      "g_co2_per_tonkm": 57.509457755359385,
+      "g_co2_per_km": null,
+      "empty_share": 0.4090909090909091
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T04-01",
+    "vehicle_id": "GLV-T04",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T04",
+    "container_type": "40ft",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 48840,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 1900,
+      "fuel_l": 630,
+      "idle_l": 1.3333333333333333,
+      "co2_kg": 1641.78,
+      "g_co2_per_tonkm": 56.66194995685936,
+      "g_co2_per_km": null,
+      "empty_share": 0.5
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T05-01",
+    "vehicle_id": "GLV-T05",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T05",
+    "container_type": "40ft",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 5,
+        "start": 3,
+        "decel": 3,
+        "stop": 3
+      },
+      "core_events": 14,
+      "continuous": {
+        "max_block_sec": 38580,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 1500,
+      "fuel_l": 445,
+      "idle_l": 1.0666666666666667,
+      "co2_kg": 1159.6699999999998,
+      "g_co2_per_tonkm": 50.695956284153,
+      "g_co2_per_km": null,
+      "empty_share": 0.5
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T06-01",
+    "vehicle_id": "GLV-T06",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T06",
+    "container_type": "40ft",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 6,
+        "start": 5,
+        "decel": 4,
+        "stop": 5
+      },
+      "core_events": 20,
+      "continuous": {
+        "max_block_sec": 51420,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 2000,
+      "fuel_l": 595,
+      "idle_l": 1.3333333333333333,
+      "co2_kg": 1550.57,
+      "g_co2_per_tonkm": 50.8383606557377,
+      "g_co2_per_km": null,
+      "empty_share": 0.5
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T07-01",
+    "vehicle_id": "GLV-T07",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T07",
+    "container_type": "40ft",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 5,
+        "start": 3,
+        "decel": 3,
+        "stop": 3
+      },
+      "core_events": 14,
+      "continuous": {
+        "max_block_sec": 43740,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 1700,
+      "fuel_l": 530,
+      "idle_l": 1.1333333333333333,
+      "co2_kg": 1381.1799999999998,
+      "g_co2_per_tonkm": 53.275988428158136,
+      "g_co2_per_km": null,
+      "empty_share": 0.5
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T08-01",
+    "vehicle_id": "GLV-T08",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T08",
+    "container_type": "40ft",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 61740,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 2400,
+      "fuel_l": 774,
+      "idle_l": 1.5999999999999999,
+      "co2_kg": 2017.0439999999999,
+      "g_co2_per_tonkm": 55.110491803278684,
+      "g_co2_per_km": null,
+      "empty_share": 0.5
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T09-01",
+    "vehicle_id": "GLV-T09",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T09",
+    "container_type": "40ft",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 56580,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 2200,
+      "fuel_l": 715,
+      "idle_l": 1.4666666666666668,
+      "co2_kg": 1863.29,
+      "g_co2_per_tonkm": 55.53770491803279,
+      "g_co2_per_km": null,
+      "empty_share": 0.5
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T10-01",
+    "vehicle_id": "GLV-T10",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T10",
+    "container_type": "40ft",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 48840,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 1900,
+      "fuel_l": 620,
+      "idle_l": 1.2666666666666666,
+      "co2_kg": 1615.72,
+      "g_co2_per_tonkm": 55.7625539257981,
+      "g_co2_per_km": null,
+      "empty_share": 0.5
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T11-01",
+    "vehicle_id": "GLV-T11",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T11",
+    "container_type": "40ft",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 66840,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 2600,
+      "fuel_l": 835,
+      "idle_l": 1.7333333333333332,
+      "co2_kg": 2176.0099999999998,
+      "g_co2_per_tonkm": 54.880453972257236,
+      "g_co2_per_km": null,
+      "empty_share": 0.5
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T12-01",
+    "vehicle_id": "GLV-T12",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T12",
+    "container_type": "40ft",
+    "grade": "D",
+    "verifiable": false,
+    "settle": "block",
+    "safety": {
+      "event_counts": {
+        "accel": 1,
+        "start": 1,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 2,
+      "continuous": {
+        "max_block_sec": 1200,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 0,
+      "fuel_l": 0,
+      "idle_l": 0,
+      "co2_kg": 0,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 0
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-T13-01",
+    "vehicle_id": "GLV-T13",
+    "vehicle_class": "truck",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "부산신항",
+    "order_no": "ORD-GLV-T13",
+    "container_type": "40ft",
+    "grade": "D",
+    "verifiable": false,
+    "settle": "block",
+    "safety": {
+      "event_counts": {
+        "accel": 1,
+        "start": 1,
+        "decel": 1,
+        "stop": 0
+      },
+      "core_events": 3,
+      "continuous": {
+        "max_block_sec": 1200,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 0,
+      "fuel_l": 0,
+      "idle_l": 0,
+      "co2_kg": 0,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 0
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-C01-01",
+    "vehicle_id": "GLV-C01",
+    "vehicle_class": "car",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "경주공장",
+    "order_no": "ORD-GLV-C01",
+    "container_type": "",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 1,
+        "start": 1,
+        "decel": 1,
+        "stop": 1
+      },
+      "core_events": 4,
+      "continuous": {
+        "max_block_sec": 30840,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 600,
+      "fuel_l": 40,
+      "idle_l": 0.39999999999999997,
+      "co2_kg": 104.24,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": 173.73333333333332,
+      "empty_share": 1
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-C02-01",
+    "vehicle_id": "GLV-C02",
+    "vehicle_class": "car",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "경주공장",
+    "order_no": "ORD-GLV-C02",
+    "container_type": "",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 1,
+        "start": 1,
+        "decel": 1,
+        "stop": 0
+      },
+      "core_events": 3,
+      "continuous": {
+        "max_block_sec": 28260,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 550,
+      "fuel_l": 38,
+      "idle_l": 0.3333333333333333,
+      "co2_kg": 99.02799999999999,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": 180.05090909090907,
+      "empty_share": 1
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-C03-01",
+    "vehicle_id": "GLV-C03",
+    "vehicle_class": "car",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "경주공장",
+    "order_no": "ORD-GLV-C03",
+    "container_type": "",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 1,
+        "start": 1,
+        "decel": 1,
+        "stop": 1
+      },
+      "core_events": 4,
+      "continuous": {
+        "max_block_sec": 29820,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 580,
+      "fuel_l": 42,
+      "idle_l": 0.3666666666666667,
+      "co2_kg": 109.452,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": 188.7103448275862,
+      "empty_share": 1
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-C04-01",
+    "vehicle_id": "GLV-C04",
+    "vehicle_class": "car",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "경주공장",
+    "order_no": "ORD-GLV-C04",
+    "container_type": "",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 1,
+        "start": 0,
+        "decel": 1,
+        "stop": 1
+      },
+      "core_events": 3,
+      "continuous": {
+        "max_block_sec": 25740,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 500,
+      "fuel_l": 39,
+      "idle_l": 0.32,
+      "co2_kg": 101.634,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": 203.268,
+      "empty_share": 1
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-C05-01",
+    "vehicle_id": "GLV-C05",
+    "vehicle_class": "car",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "경주공장",
+    "order_no": "ORD-GLV-C05",
+    "container_type": "",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 2,
+        "start": 1,
+        "decel": 1,
+        "stop": 1
+      },
+      "core_events": 5,
+      "continuous": {
+        "max_block_sec": 31860,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 620,
+      "fuel_l": 48,
+      "idle_l": 0.39999999999999997,
+      "co2_kg": 125.088,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": 201.75483870967741,
+      "empty_share": 1
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-C06-01",
+    "vehicle_id": "GLV-C06",
+    "vehicle_class": "car",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "경주공장",
+    "order_no": "ORD-GLV-C06",
+    "container_type": "",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 2,
+        "start": 1,
+        "decel": 2,
+        "stop": 1
+      },
+      "core_events": 6,
+      "continuous": {
+        "max_block_sec": 36000,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 700,
+      "fuel_l": 60,
+      "idle_l": 0.4333333333333333,
+      "co2_kg": 156.35999999999999,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": 223.37142857142854,
+      "empty_share": 1
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-C07-01",
+    "vehicle_id": "GLV-C07",
+    "vehicle_class": "car",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "경주공장",
+    "order_no": "ORD-GLV-C07",
+    "container_type": "",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 1,
+        "start": 1,
+        "decel": 0,
+        "stop": 1
+      },
+      "core_events": 3,
+      "continuous": {
+        "max_block_sec": 24660,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 480,
+      "fuel_l": 37,
+      "idle_l": 0.3,
+      "co2_kg": 96.422,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": 200.87916666666666,
+      "empty_share": 1
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-C08-01",
+    "vehicle_id": "GLV-C08",
+    "vehicle_class": "car",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "경주공장",
+    "order_no": "ORD-GLV-C08",
+    "container_type": "",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 1,
+        "start": 1,
+        "decel": 1,
+        "stop": 0
+      },
+      "core_events": 3,
+      "continuous": {
+        "max_block_sec": 27240,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 530,
+      "fuel_l": 30,
+      "idle_l": 0.3333333333333333,
+      "co2_kg": 78.17999999999999,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": 147.50943396226413,
+      "empty_share": 1
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-C09-01",
+    "vehicle_id": "GLV-C09",
+    "vehicle_class": "car",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "경주공장",
+    "order_no": "ORD-GLV-C09",
+    "container_type": "",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 1,
+        "start": 1,
+        "decel": 1,
+        "stop": 1
+      },
+      "core_events": 4,
+      "continuous": {
+        "max_block_sec": 28800,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 560,
+      "fuel_l": 18,
+      "idle_l": 0.26666666666666666,
+      "co2_kg": 46.908,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": 83.76428571428572,
+      "empty_share": 1
+    },
+    "attribution": null
+  },
+  {
+    "trip_id": "TRIP-GLV-C10-01",
+    "vehicle_id": "GLV-C10",
+    "vehicle_class": "car",
+    "date": "2026-08-01",
+    "month": "2026-08",
+    "origin_site": "부산신항",
+    "destination_site": "경주공장",
+    "order_no": "ORD-GLV-C10",
+    "container_type": "",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "safety": {
+      "event_counts": {
+        "accel": 1,
+        "start": 0,
+        "decel": 1,
+        "stop": 1
+      },
+      "core_events": 3,
+      "continuous": {
+        "max_block_sec": 20580,
+        "limit_sec": 14400,
+        "compliant": false
+      }
+    },
+    "eco": {
+      "distance_km": 400,
+      "fuel_l": 27,
+      "idle_l": 0.2533333333333333,
+      "co2_kg": 70.362,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": 175.905,
+      "empty_share": 1
+    },
+    "attribution": null
+  }
+]

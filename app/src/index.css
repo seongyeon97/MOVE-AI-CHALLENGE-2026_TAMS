@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/*
+  S&E Driving Platform — design tokens (PRD §8)
+  색은 신뢰등급 전용, 장식 목적 금지.
+  컴포넌트에 hex 하드코딩 금지 — 이 파일 토큰과 .tone-* 클래스만 쓴다.
+*/
+
+:root {
+  --color-ink: #06121f;
+  --color-ink-deep: #040d17;
+  --color-panel: #0c1e2e;
+  --color-panel-2: #0a1826;
+  --color-line: #193347;
+  --color-rule: #12293a;
+  --color-paper: #e9f2f7;
+  --color-slate: #6f8ea6;
+  --color-dim: #4a6b82;
+  --color-steel: #42627c;
+  --color-mist: #93aec2;
+  --color-chalk: #b9cedc;
+  --color-teal: #22c4af;
+  --color-amber: #e9a13b;
+  --color-rose: #e8556d;
+
+  --tone-ok-fg: var(--color-teal);
+  --tone-ok-bd: color-mix(in srgb, var(--color-teal) 45%, transparent);
+  --tone-ok-bg: color-mix(in srgb, var(--color-teal) 14%, transparent);
+  --tone-ok-rail: var(--color-teal);
+
+  --tone-warn-fg: var(--color-amber);
+  --tone-warn-bd: color-mix(in srgb, var(--color-amber) 45%, transparent);
+  --tone-warn-bg: color-mix(in srgb, var(--color-amber) 14%, transparent);
+  --tone-warn-rail: var(--color-amber);
+
+  --tone-caution-fg: var(--color-amber);
+  --tone-caution-bd: color-mix(in srgb, var(--color-amber) 60%, transparent);
+  --tone-caution-bg: color-mix(in srgb, var(--color-amber) 22%, transparent);
+  --tone-caution-rail: var(--color-amber);
+
+  --tone-dead-fg: var(--color-rose);
+  --tone-dead-bd: color-mix(in srgb, var(--color-rose) 45%, transparent);
+  --tone-dead-bg: color-mix(in srgb, var(--color-rose) 14%, transparent);
+  --tone-dead-rail: var(--color-rose);
+
+  --tone-void-fg: var(--color-steel);
+  --tone-void-bd: color-mix(in srgb, var(--color-steel) 55%, transparent);
+  --tone-void-bg: color-mix(in srgb, var(--color-steel) 16%, transparent);
+  --tone-void-rail: var(--color-steel);
+
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  color-scheme: dark;
+}
+
+/* v2는 다크가 기본. 라이트는 명시적 오버라이드로만 전환한다. */
+:root[data-theme='light'] {
+  --color-ink: #e9f2f7;
+  --color-ink-deep: #dbe8ef;
+  --color-panel: #ffffff;
+  --color-panel-2: #f3f8fa;
+  --color-line: #cddce4;
+  --color-rule: #dbe6ec;
+  --color-paper: #06121f;
+  --color-slate: #3c556a;
+  --color-dim: #5b7488;
+  --color-steel: #5c7b91;
+  --color-mist: #46617a;
+  --color-chalk: #24384a;
+  --color-teal: #0e9683;
+  --color-amber: #b5730c;
+  --color-rose: #c93752;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* tone-* — 신뢰등급 색 전용. -fg(텍스트) / -bd(테두리) / -bg(배경) / -rail(강조바) */
+.tone-ok-fg { color: var(--tone-ok-fg); }
+.tone-ok-bd { border-color: var(--tone-ok-bd); }
+.tone-ok-bg { background-color: var(--tone-ok-bg); }
+.tone-ok-rail { background-color: var(--tone-ok-rail); }
+
+.tone-warn-fg { color: var(--tone-warn-fg); }
+.tone-warn-bd { border-color: var(--tone-warn-bd); }
+.tone-warn-bg { background-color: var(--tone-warn-bg); }
+.tone-warn-rail { background-color: var(--tone-warn-rail); }
+
+.tone-caution-fg { color: var(--tone-caution-fg); }
+.tone-caution-bd { border-color: var(--tone-caution-bd); }
+.tone-caution-bg { background-color: var(--tone-caution-bg); }
+.tone-caution-rail { background-color: var(--tone-caution-rail); }
+
+.tone-dead-fg { color: var(--tone-dead-fg); }
+.tone-dead-bd { border-color: var(--tone-dead-bd); }
+.tone-dead-bg { background-color: var(--tone-dead-bg); }
+.tone-dead-rail { background-color: var(--tone-dead-rail); }
+
+.tone-void-fg { color: var(--tone-void-fg); }
+.tone-void-bd { border-color: var(--tone-void-bd); }
+.tone-void-bg { background-color: var(--tone-void-bg); }
+.tone-void-rail { background-color: var(--tone-void-rail); }

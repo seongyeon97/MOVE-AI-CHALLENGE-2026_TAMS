@@ -1,0 +1,16 @@
+{
+  "note": "공공API/AI추정 실패 시 최후 폴백. 대회 당일 아침 실제 조회 결과로 npm run cache:fuel이 덮어쓴다. 승용차는 원래 ②공공API 경로가 주 경로이지만, 키 미발급/네트워크 차단 시 이 캐시로 대체된다.",
+  "entries": [
+    { "maker": "볼보트럭", "model": "FH", "year": 2020, "kmpl": 3.3 },
+    { "maker": "현대자동차", "model": "아반떼", "year": 2022, "kmpl": 14.0 },
+    { "maker": "기아", "model": "K5", "year": 2021, "kmpl": 13.2 },
+    { "maker": "현대자동차", "model": "쏘나타", "year": 2022, "kmpl": 12.8 },
+    { "maker": "기아", "model": "스포티지", "year": 2023, "kmpl": 12.1 },
+    { "maker": "현대자동차", "model": "그랜저", "year": 2022, "kmpl": 11.4 },
+    { "maker": "기아", "model": "카니발", "year": 2021, "kmpl": 9.6 },
+    { "maker": "현대자동차", "model": "투싼", "year": 2023, "kmpl": 12.6 },
+    { "maker": "기아", "model": "니로", "year": 2022, "kmpl": 17.6 },
+    { "maker": "현대자동차", "model": "아이오닉5", "year": 2023, "kmpl": 5.0 },
+    { "maker": "기아", "model": "레이", "year": 2021, "kmpl": 13.6 }
+  ]
+}

@@ -1,0 +1,3084 @@
+[
+  {
+    "vehicle_id": "GLV-T01",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2021,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "A",
+    "grade_label": "센서 과민",
+    "tone": "warn",
+    "verifiable": false,
+    "settle": "conditional",
+    "verdict": "발생률이 물리적 상한(100km당 100회)을 초과 — 단말 임계값 문제로 판단, 연료 기준 대체",
+    "reported_km": 500,
+    "core_events": 560,
+    "events_by_type": {
+      "accel": 170,
+      "start": 140,
+      "decel": 140,
+      "stop": 110
+    },
+    "rate": 1.12,
+    "fuel_implied_rate": 0.41079809852542476,
+    "fuel_l": 190,
+    "fuel_per_100km": 37.88,
+    "fuel_excess_pct": 19.662920000000007,
+    "observed_rank": 19,
+    "fuel_rank": 19,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 500,
+        "core_events": 560,
+        "events_by_type": {
+          "accel": 170,
+          "start": 140,
+          "decel": 140,
+          "stop": 110
+        },
+        "rate": 1.12,
+        "fuel_implied_rate": 0.41079809852542476,
+        "grade": "A",
+        "fuel_l": 190,
+        "fuel_per_100km": 37.88,
+        "fuel_excess_pct": 19.662920000000007,
+        "observed_rank": 19,
+        "fuel_rank": 19
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 500,
+        "core_events": 560,
+        "events_by_type": {
+          "accel": 170,
+          "start": 140,
+          "decel": 140,
+          "stop": 110
+        },
+        "rate": 1.12,
+        "fuel_implied_rate": 0.41079809852542476,
+        "grade": "A",
+        "fuel_l": 190,
+        "fuel_per_100km": 37.88,
+        "fuel_excess_pct": 19.662920000000007,
+        "observed_rank": 19,
+        "fuel_rank": 19
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 500,
+        "core_events": 560,
+        "events_by_type": {
+          "accel": 170,
+          "start": 140,
+          "decel": 140,
+          "stop": 110
+        },
+        "rate": 1.12,
+        "fuel_implied_rate": 0.41079809852542476,
+        "grade": "A",
+        "fuel_l": 190,
+        "fuel_per_100km": 37.88,
+        "fuel_excess_pct": 19.662920000000007,
+        "observed_rank": 19,
+        "fuel_rank": 19
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 500,
+        "core_events": 560,
+        "events_by_type": {
+          "accel": 170,
+          "start": 140,
+          "decel": 140,
+          "stop": 110
+        },
+        "rate": 1.12,
+        "fuel_implied_rate": 0.41079809852542476,
+        "grade": "A",
+        "fuel_l": 190,
+        "fuel_per_100km": 37.88,
+        "fuel_excess_pct": 19.662920000000007,
+        "observed_rank": 19,
+        "fuel_rank": 19
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 500,
+        "core_events": 560,
+        "events_by_type": {
+          "accel": 170,
+          "start": 140,
+          "decel": 140,
+          "stop": 110
+        },
+        "rate": 1.12,
+        "fuel_implied_rate": 0.41079809852542476,
+        "grade": "A",
+        "fuel_l": 190,
+        "fuel_per_100km": 37.88,
+        "fuel_excess_pct": 19.662920000000007,
+        "observed_rank": 19,
+        "fuel_rank": 19
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T02",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2022,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "A",
+    "grade_label": "센서 과민",
+    "tone": "warn",
+    "verifiable": false,
+    "settle": "conditional",
+    "verdict": "발생률이 물리적 상한(100km당 100회)을 초과 — 단말 임계값 문제로 판단, 연료 기준 대체",
+    "reported_km": 500,
+    "core_events": 560,
+    "events_by_type": {
+      "accel": 170,
+      "start": 142,
+      "decel": 138,
+      "stop": 110
+    },
+    "rate": 1.12,
+    "fuel_implied_rate": 0.43691312229385665,
+    "fuel_l": 190,
+    "fuel_per_100km": 37.88,
+    "fuel_excess_pct": 21.17764050632911,
+    "observed_rank": 20,
+    "fuel_rank": 20,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 500,
+        "core_events": 560,
+        "events_by_type": {
+          "accel": 170,
+          "start": 142,
+          "decel": 138,
+          "stop": 110
+        },
+        "rate": 1.12,
+        "fuel_implied_rate": 0.43691312229385665,
+        "grade": "A",
+        "fuel_l": 190,
+        "fuel_per_100km": 37.88,
+        "fuel_excess_pct": 21.17764050632911,
+        "observed_rank": 20,
+        "fuel_rank": 20
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 500,
+        "core_events": 560,
+        "events_by_type": {
+          "accel": 170,
+          "start": 142,
+          "decel": 138,
+          "stop": 110
+        },
+        "rate": 1.12,
+        "fuel_implied_rate": 0.43691312229385665,
+        "grade": "A",
+        "fuel_l": 190,
+        "fuel_per_100km": 37.88,
+        "fuel_excess_pct": 21.17764050632911,
+        "observed_rank": 20,
+        "fuel_rank": 20
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 500,
+        "core_events": 560,
+        "events_by_type": {
+          "accel": 170,
+          "start": 142,
+          "decel": 138,
+          "stop": 110
+        },
+        "rate": 1.12,
+        "fuel_implied_rate": 0.43691312229385665,
+        "grade": "A",
+        "fuel_l": 190,
+        "fuel_per_100km": 37.88,
+        "fuel_excess_pct": 21.17764050632911,
+        "observed_rank": 20,
+        "fuel_rank": 20
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 500,
+        "core_events": 560,
+        "events_by_type": {
+          "accel": 170,
+          "start": 142,
+          "decel": 138,
+          "stop": 110
+        },
+        "rate": 1.12,
+        "fuel_implied_rate": 0.43691312229385665,
+        "grade": "A",
+        "fuel_l": 190,
+        "fuel_per_100km": 37.88,
+        "fuel_excess_pct": 21.17764050632911,
+        "observed_rank": 20,
+        "fuel_rank": 20
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 500,
+        "core_events": 560,
+        "events_by_type": {
+          "accel": 170,
+          "start": 142,
+          "decel": 138,
+          "stop": 110
+        },
+        "rate": 1.12,
+        "fuel_implied_rate": 0.43691312229385665,
+        "grade": "A",
+        "fuel_l": 190,
+        "fuel_per_100km": 37.88,
+        "fuel_excess_pct": 21.17764050632911,
+        "observed_rank": 20,
+        "fuel_rank": 20
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T03",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2020,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "A",
+    "grade_label": "센서 과민",
+    "tone": "warn",
+    "verifiable": false,
+    "settle": "conditional",
+    "verdict": "발생률이 물리적 상한(100km당 100회)을 초과 — 단말 임계값 문제로 판단, 연료 기준 대체",
+    "reported_km": 440,
+    "core_events": 513,
+    "events_by_type": {
+      "accel": 155,
+      "start": 130,
+      "decel": 126,
+      "stop": 102
+    },
+    "rate": 1.165909090909091,
+    "fuel_implied_rate": 0.5095034268389004,
+    "fuel_l": 175,
+    "fuel_per_100km": 39.64545454545455,
+    "fuel_excess_pct": 25.596799999999998,
+    "observed_rank": 21,
+    "fuel_rank": 21,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 440,
+        "core_events": 513,
+        "events_by_type": {
+          "accel": 155,
+          "start": 130,
+          "decel": 126,
+          "stop": 102
+        },
+        "rate": 1.165909090909091,
+        "fuel_implied_rate": 0.5095034268389004,
+        "grade": "A",
+        "fuel_l": 175,
+        "fuel_per_100km": 39.64545454545455,
+        "fuel_excess_pct": 25.596799999999998,
+        "observed_rank": 21,
+        "fuel_rank": 21
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 440,
+        "core_events": 513,
+        "events_by_type": {
+          "accel": 155,
+          "start": 130,
+          "decel": 126,
+          "stop": 102
+        },
+        "rate": 1.165909090909091,
+        "fuel_implied_rate": 0.5095034268389004,
+        "grade": "A",
+        "fuel_l": 175,
+        "fuel_per_100km": 39.64545454545455,
+        "fuel_excess_pct": 25.596799999999998,
+        "observed_rank": 21,
+        "fuel_rank": 21
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 440,
+        "core_events": 513,
+        "events_by_type": {
+          "accel": 155,
+          "start": 130,
+          "decel": 126,
+          "stop": 102
+        },
+        "rate": 1.165909090909091,
+        "fuel_implied_rate": 0.5095034268389004,
+        "grade": "A",
+        "fuel_l": 175,
+        "fuel_per_100km": 39.64545454545455,
+        "fuel_excess_pct": 25.596799999999998,
+        "observed_rank": 21,
+        "fuel_rank": 21
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 440,
+        "core_events": 513,
+        "events_by_type": {
+          "accel": 155,
+          "start": 130,
+          "decel": 126,
+          "stop": 102
+        },
+        "rate": 1.165909090909091,
+        "fuel_implied_rate": 0.5095034268389004,
+        "grade": "A",
+        "fuel_l": 175,
+        "fuel_per_100km": 39.64545454545455,
+        "fuel_excess_pct": 25.596799999999998,
+        "observed_rank": 21,
+        "fuel_rank": 21
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 440,
+        "core_events": 513,
+        "events_by_type": {
+          "accel": 155,
+          "start": 130,
+          "decel": 126,
+          "stop": 102
+        },
+        "rate": 1.165909090909091,
+        "fuel_implied_rate": 0.5095034268389004,
+        "grade": "A",
+        "fuel_l": 175,
+        "fuel_per_100km": 39.64545454545455,
+        "fuel_excess_pct": 25.596799999999998,
+        "observed_rank": 21,
+        "fuel_rank": 21
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T04",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2021,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "C",
+    "grade_label": "센서 침묵",
+    "tone": "dead",
+    "verifiable": false,
+    "settle": "block",
+    "verdict": "발생률 0건 + 주행거리 100km 초과 — 계측 실패 의심, 연료 기준 대체",
+    "reported_km": 1900,
+    "core_events": 0,
+    "events_by_type": {
+      "accel": 0,
+      "start": 0,
+      "decel": 0,
+      "stop": 0
+    },
+    "rate": 0,
+    "fuel_implied_rate": 0.18295074719606316,
+    "fuel_l": 630,
+    "fuel_per_100km": 33.08771929824561,
+    "fuel_excess_pct": 7.895850594227483,
+    "observed_rank": 1,
+    "fuel_rank": 18,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 1600,
+        "core_events": 10,
+        "events_by_type": {
+          "accel": 3,
+          "start": 2,
+          "decel": 3,
+          "stop": 2
+        },
+        "rate": 0.00625,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 480,
+        "fuel_per_100km": 29.925,
+        "fuel_excess_pct": -2.4174709677419415,
+        "observed_rank": 8,
+        "fuel_rank": 1
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 1600,
+        "core_events": 10,
+        "events_by_type": {
+          "accel": 3,
+          "start": 3,
+          "decel": 2,
+          "stop": 2
+        },
+        "rate": 0.00625,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 483,
+        "fuel_per_100km": 30.11333333333333,
+        "fuel_excess_pct": -2.197698313253016,
+        "observed_rank": 8,
+        "fuel_rank": 1
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 650,
+        "core_events": 618,
+        "events_by_type": {
+          "accel": 190,
+          "start": 155,
+          "decel": 153,
+          "stop": 120
+        },
+        "rate": 0.9507692307692308,
+        "fuel_implied_rate": 0.39201564967581676,
+        "grade": "정상",
+        "fuel_l": 240,
+        "fuel_per_100km": 36.820512820512825,
+        "fuel_excess_pct": 18.596705882352936,
+        "observed_rank": 18,
+        "fuel_rank": 18
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 1800,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.15600879574381998,
+        "grade": "C",
+        "fuel_l": 590,
+        "fuel_per_100km": 32.70740740740741,
+        "fuel_excess_pct": 6.655690322580643,
+        "observed_rank": 1,
+        "fuel_rank": 18
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 1900,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.18295074719606316,
+        "grade": "C",
+        "fuel_l": 630,
+        "fuel_per_100km": 33.08771929824561,
+        "fuel_excess_pct": 7.895850594227483,
+        "observed_rank": 1,
+        "fuel_rank": 18
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T05",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2022,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 1500,
+    "core_events": 14,
+    "events_by_type": {
+      "accel": 5,
+      "start": 3,
+      "decel": 3,
+      "stop": 3
+    },
+    "rate": 0.009333333333333334,
+    "fuel_implied_rate": 0,
+    "fuel_l": 445,
+    "fuel_per_100km": 29.59555555555556,
+    "fuel_excess_pct": -3.491757419354846,
+    "observed_rank": 17,
+    "fuel_rank": 1,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 1500,
+        "core_events": 14,
+        "events_by_type": {
+          "accel": 5,
+          "start": 3,
+          "decel": 3,
+          "stop": 3
+        },
+        "rate": 0.009333333333333334,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 445,
+        "fuel_per_100km": 29.59555555555556,
+        "fuel_excess_pct": -3.491757419354846,
+        "observed_rank": 17,
+        "fuel_rank": 2
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 1500,
+        "core_events": 14,
+        "events_by_type": {
+          "accel": 5,
+          "start": 3,
+          "decel": 3,
+          "stop": 3
+        },
+        "rate": 0.009333333333333334,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 445,
+        "fuel_per_100km": 29.59555555555556,
+        "fuel_excess_pct": -3.491757419354846,
+        "observed_rank": 17,
+        "fuel_rank": 2
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 1500,
+        "core_events": 14,
+        "events_by_type": {
+          "accel": 5,
+          "start": 3,
+          "decel": 3,
+          "stop": 3
+        },
+        "rate": 0.009333333333333334,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 445,
+        "fuel_per_100km": 29.59555555555556,
+        "fuel_excess_pct": -3.491757419354846,
+        "observed_rank": 16,
+        "fuel_rank": 1
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 1500,
+        "core_events": 14,
+        "events_by_type": {
+          "accel": 5,
+          "start": 3,
+          "decel": 3,
+          "stop": 3
+        },
+        "rate": 0.009333333333333334,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 445,
+        "fuel_per_100km": 29.59555555555556,
+        "fuel_excess_pct": -3.491757419354846,
+        "observed_rank": 17,
+        "fuel_rank": 1
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 1500,
+        "core_events": 14,
+        "events_by_type": {
+          "accel": 5,
+          "start": 3,
+          "decel": 3,
+          "stop": 3
+        },
+        "rate": 0.009333333333333334,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 445,
+        "fuel_per_100km": 29.59555555555556,
+        "fuel_excess_pct": -3.491757419354846,
+        "observed_rank": 17,
+        "fuel_rank": 1
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T06",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2023,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 2000,
+    "core_events": 20,
+    "events_by_type": {
+      "accel": 6,
+      "start": 5,
+      "decel": 4,
+      "stop": 5
+    },
+    "rate": 0.01,
+    "fuel_implied_rate": 0,
+    "fuel_l": 595,
+    "fuel_per_100km": 29.683333333333334,
+    "fuel_excess_pct": -3.2055225806451593,
+    "observed_rank": 18,
+    "fuel_rank": 2,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 2000,
+        "core_events": 20,
+        "events_by_type": {
+          "accel": 6,
+          "start": 5,
+          "decel": 4,
+          "stop": 5
+        },
+        "rate": 0.01,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 595,
+        "fuel_per_100km": 29.683333333333334,
+        "fuel_excess_pct": -3.2055225806451593,
+        "observed_rank": 18,
+        "fuel_rank": 3
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 2000,
+        "core_events": 20,
+        "events_by_type": {
+          "accel": 6,
+          "start": 5,
+          "decel": 4,
+          "stop": 5
+        },
+        "rate": 0.01,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 595,
+        "fuel_per_100km": 29.683333333333334,
+        "fuel_excess_pct": -3.2055225806451593,
+        "observed_rank": 18,
+        "fuel_rank": 3
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 2000,
+        "core_events": 20,
+        "events_by_type": {
+          "accel": 6,
+          "start": 5,
+          "decel": 4,
+          "stop": 5
+        },
+        "rate": 0.01,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 595,
+        "fuel_per_100km": 29.683333333333334,
+        "fuel_excess_pct": -3.2055225806451593,
+        "observed_rank": 17,
+        "fuel_rank": 2
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 2000,
+        "core_events": 20,
+        "events_by_type": {
+          "accel": 6,
+          "start": 5,
+          "decel": 4,
+          "stop": 5
+        },
+        "rate": 0.01,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 595,
+        "fuel_per_100km": 29.683333333333334,
+        "fuel_excess_pct": -3.2055225806451593,
+        "observed_rank": 18,
+        "fuel_rank": 2
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 2000,
+        "core_events": 20,
+        "events_by_type": {
+          "accel": 6,
+          "start": 5,
+          "decel": 4,
+          "stop": 5
+        },
+        "rate": 0.01,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 595,
+        "fuel_per_100km": 29.683333333333334,
+        "fuel_excess_pct": -3.2055225806451593,
+        "observed_rank": 18,
+        "fuel_rank": 2
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T07",
+    "vehicle_class": "truck",
+    "device_model": "DTG-200",
+    "maker": "볼보트럭",
+    "model": "FH",
+    "year": 2020,
+    "baseline": {
+      "kmpl": 3.3,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 3.564,
+      "kmpl_laden": 2.574,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 1700,
+    "core_events": 14,
+    "events_by_type": {
+      "accel": 5,
+      "start": 3,
+      "decel": 3,
+      "stop": 3
+    },
+    "rate": 0.00823529411764706,
+    "fuel_implied_rate": 0,
+    "fuel_l": 530,
+    "fuel_per_100km": 31.10980392156863,
+    "fuel_excess_pct": -7.007778368121453,
+    "observed_rank": 15,
+    "fuel_rank": 3,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 1700,
+        "core_events": 14,
+        "events_by_type": {
+          "accel": 5,
+          "start": 3,
+          "decel": 3,
+          "stop": 3
+        },
+        "rate": 0.00823529411764706,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 530,
+        "fuel_per_100km": 31.10980392156863,
+        "fuel_excess_pct": -7.007778368121453,
+        "observed_rank": 15,
+        "fuel_rank": 4
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 1700,
+        "core_events": 14,
+        "events_by_type": {
+          "accel": 5,
+          "start": 3,
+          "decel": 3,
+          "stop": 3
+        },
+        "rate": 0.00823529411764706,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 530,
+        "fuel_per_100km": 31.10980392156863,
+        "fuel_excess_pct": -7.007778368121453,
+        "observed_rank": 15,
+        "fuel_rank": 4
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 1700,
+        "core_events": 14,
+        "events_by_type": {
+          "accel": 5,
+          "start": 3,
+          "decel": 3,
+          "stop": 3
+        },
+        "rate": 0.00823529411764706,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 530,
+        "fuel_per_100km": 31.10980392156863,
+        "fuel_excess_pct": -7.007778368121453,
+        "observed_rank": 14,
+        "fuel_rank": 3
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 1700,
+        "core_events": 14,
+        "events_by_type": {
+          "accel": 5,
+          "start": 3,
+          "decel": 3,
+          "stop": 3
+        },
+        "rate": 0.00823529411764706,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 530,
+        "fuel_per_100km": 31.10980392156863,
+        "fuel_excess_pct": -7.007778368121453,
+        "observed_rank": 15,
+        "fuel_rank": 3
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 1700,
+        "core_events": 14,
+        "events_by_type": {
+          "accel": 5,
+          "start": 3,
+          "decel": 3,
+          "stop": 3
+        },
+        "rate": 0.00823529411764706,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 530,
+        "fuel_per_100km": 31.10980392156863,
+        "fuel_excess_pct": -7.007778368121453,
+        "observed_rank": 15,
+        "fuel_rank": 3
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T08",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2021,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "C",
+    "grade_label": "센서 침묵",
+    "tone": "dead",
+    "verifiable": false,
+    "settle": "block",
+    "verdict": "발생률 0건 + 주행거리 100km 초과 — 계측 실패 의심, 연료 기준 대체",
+    "reported_km": 2400,
+    "core_events": 0,
+    "events_by_type": {
+      "accel": 0,
+      "start": 0,
+      "decel": 0,
+      "stop": 0
+    },
+    "rate": 0,
+    "fuel_implied_rate": 0.11783919387924224,
+    "fuel_l": 774,
+    "fuel_per_100km": 32.18333333333333,
+    "fuel_excess_pct": 4.946735483870968,
+    "observed_rank": 2,
+    "fuel_rank": 15,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 2400,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.11783919387924224,
+        "grade": "C",
+        "fuel_l": 774,
+        "fuel_per_100km": 32.18333333333333,
+        "fuel_excess_pct": 4.946735483870968,
+        "observed_rank": 1,
+        "fuel_rank": 16
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 2400,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.11783919387924224,
+        "grade": "C",
+        "fuel_l": 774,
+        "fuel_per_100km": 32.18333333333333,
+        "fuel_excess_pct": 4.946735483870968,
+        "observed_rank": 1,
+        "fuel_rank": 16
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 2400,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.11783919387924224,
+        "grade": "C",
+        "fuel_l": 774,
+        "fuel_per_100km": 32.18333333333333,
+        "fuel_excess_pct": 4.946735483870968,
+        "observed_rank": 1,
+        "fuel_rank": 15
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 2400,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.11783919387924224,
+        "grade": "C",
+        "fuel_l": 774,
+        "fuel_per_100km": 32.18333333333333,
+        "fuel_excess_pct": 4.946735483870968,
+        "observed_rank": 2,
+        "fuel_rank": 15
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 2400,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.11783919387924224,
+        "grade": "C",
+        "fuel_l": 774,
+        "fuel_per_100km": 32.18333333333333,
+        "fuel_excess_pct": 4.946735483870968,
+        "observed_rank": 2,
+        "fuel_rank": 15
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T09",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2021,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "C",
+    "grade_label": "센서 침묵",
+    "tone": "dead",
+    "verifiable": false,
+    "settle": "block",
+    "verdict": "발생률 0건 + 주행거리 100km 초과 — 계측 실패 의심, 연료 기준 대체",
+    "reported_km": 2200,
+    "core_events": 0,
+    "events_by_type": {
+      "accel": 0,
+      "start": 0,
+      "decel": 0,
+      "stop": 0
+    },
+    "rate": 0,
+    "fuel_implied_rate": 0.1362011733714366,
+    "fuel_l": 715,
+    "fuel_per_100km": 32.43333333333333,
+    "fuel_excess_pct": 5.761961290322559,
+    "observed_rank": 3,
+    "fuel_rank": 16,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 2200,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.1362011733714366,
+        "grade": "C",
+        "fuel_l": 715,
+        "fuel_per_100km": 32.43333333333333,
+        "fuel_excess_pct": 5.761961290322559,
+        "observed_rank": 2,
+        "fuel_rank": 17
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 2200,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.1362011733714366,
+        "grade": "C",
+        "fuel_l": 715,
+        "fuel_per_100km": 32.43333333333333,
+        "fuel_excess_pct": 5.761961290322559,
+        "observed_rank": 2,
+        "fuel_rank": 17
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 2200,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.1362011733714366,
+        "grade": "C",
+        "fuel_l": 715,
+        "fuel_per_100km": 32.43333333333333,
+        "fuel_excess_pct": 5.761961290322559,
+        "observed_rank": 2,
+        "fuel_rank": 16
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 2200,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.1362011733714366,
+        "grade": "C",
+        "fuel_l": 715,
+        "fuel_per_100km": 32.43333333333333,
+        "fuel_excess_pct": 5.761961290322559,
+        "observed_rank": 3,
+        "fuel_rank": 16
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 2200,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.1362011733714366,
+        "grade": "C",
+        "fuel_l": 715,
+        "fuel_per_100km": 32.43333333333333,
+        "fuel_excess_pct": 5.761961290322559,
+        "observed_rank": 3,
+        "fuel_rank": 16
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T10",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2022,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "C",
+    "grade_label": "센서 침묵",
+    "tone": "dead",
+    "verifiable": false,
+    "settle": "block",
+    "verdict": "발생률 0건 + 주행거리 100km 초과 — 계측 실패 의심, 연료 기준 대체",
+    "reported_km": 1900,
+    "core_events": 0,
+    "events_by_type": {
+      "accel": 0,
+      "start": 0,
+      "decel": 0,
+      "stop": 0
+    },
+    "rate": 0,
+    "fuel_implied_rate": 0.1457521329661543,
+    "fuel_l": 620,
+    "fuel_per_100km": 32.564912280701755,
+    "fuel_excess_pct": 6.191027504244473,
+    "observed_rank": 4,
+    "fuel_rank": 17,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 1900,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.1457521329661543,
+        "grade": "C",
+        "fuel_l": 620,
+        "fuel_per_100km": 32.564912280701755,
+        "fuel_excess_pct": 6.191027504244473,
+        "observed_rank": 3,
+        "fuel_rank": 18
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 1900,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.1457521329661543,
+        "grade": "C",
+        "fuel_l": 620,
+        "fuel_per_100km": 32.564912280701755,
+        "fuel_excess_pct": 6.191027504244473,
+        "observed_rank": 3,
+        "fuel_rank": 18
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 1900,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.1457521329661543,
+        "grade": "C",
+        "fuel_l": 620,
+        "fuel_per_100km": 32.564912280701755,
+        "fuel_excess_pct": 6.191027504244473,
+        "observed_rank": 3,
+        "fuel_rank": 17
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 1900,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.1457521329661543,
+        "grade": "C",
+        "fuel_l": 620,
+        "fuel_per_100km": 32.564912280701755,
+        "fuel_excess_pct": 6.191027504244473,
+        "observed_rank": 4,
+        "fuel_rank": 17
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 1900,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.1457521329661543,
+        "grade": "C",
+        "fuel_l": 620,
+        "fuel_per_100km": 32.564912280701755,
+        "fuel_excess_pct": 6.191027504244473,
+        "observed_rank": 4,
+        "fuel_rank": 17
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T11",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2020,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "C",
+    "grade_label": "센서 침묵",
+    "tone": "dead",
+    "verifiable": false,
+    "settle": "block",
+    "verdict": "발생률 0건 + 주행거리 100km 초과 — 계측 실패 의심, 연료 기준 대체",
+    "reported_km": 2600,
+    "core_events": 0,
+    "events_by_type": {
+      "accel": 0,
+      "start": 0,
+      "decel": 0,
+      "stop": 0
+    },
+    "rate": 0,
+    "fuel_implied_rate": 0.10783331802346613,
+    "fuel_l": 835,
+    "fuel_per_100km": 32.04871794871795,
+    "fuel_excess_pct": 4.5077677419354645,
+    "observed_rank": 5,
+    "fuel_rank": 14,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 2600,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.10783331802346613,
+        "grade": "C",
+        "fuel_l": 835,
+        "fuel_per_100km": 32.04871794871795,
+        "fuel_excess_pct": 4.5077677419354645,
+        "observed_rank": 4,
+        "fuel_rank": 15
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 2600,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.10783331802346613,
+        "grade": "C",
+        "fuel_l": 835,
+        "fuel_per_100km": 32.04871794871795,
+        "fuel_excess_pct": 4.5077677419354645,
+        "observed_rank": 4,
+        "fuel_rank": 15
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 2600,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.10783331802346613,
+        "grade": "C",
+        "fuel_l": 835,
+        "fuel_per_100km": 32.04871794871795,
+        "fuel_excess_pct": 4.5077677419354645,
+        "observed_rank": 4,
+        "fuel_rank": 14
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 2600,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.10783331802346613,
+        "grade": "C",
+        "fuel_l": 835,
+        "fuel_per_100km": 32.04871794871795,
+        "fuel_excess_pct": 4.5077677419354645,
+        "observed_rank": 5,
+        "fuel_rank": 14
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 2600,
+        "core_events": 0,
+        "events_by_type": {
+          "accel": 0,
+          "start": 0,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": 0,
+        "fuel_implied_rate": 0.10783331802346613,
+        "grade": "C",
+        "fuel_l": 835,
+        "fuel_per_100km": 32.04871794871795,
+        "fuel_excess_pct": 4.5077677419354645,
+        "observed_rank": 5,
+        "fuel_rank": 14
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T12",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2019,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "D",
+    "grade_label": "측정 불가",
+    "tone": "void",
+    "verifiable": false,
+    "settle": "block",
+    "verdict": "주행거리 산출 불가(0km) — 정규화 분모 없음, 평가 제외",
+    "reported_km": 0,
+    "core_events": 2,
+    "events_by_type": {
+      "accel": 1,
+      "start": 1,
+      "decel": 0,
+      "stop": 0
+    },
+    "rate": null,
+    "fuel_implied_rate": 0,
+    "fuel_l": 0,
+    "fuel_per_100km": null,
+    "fuel_excess_pct": 0,
+    "observed_rank": null,
+    "fuel_rank": null,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 0,
+        "core_events": 2,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": null,
+        "fuel_implied_rate": 0,
+        "grade": "D",
+        "fuel_l": 0,
+        "fuel_per_100km": null,
+        "fuel_excess_pct": 0,
+        "observed_rank": null,
+        "fuel_rank": null
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 0,
+        "core_events": 2,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": null,
+        "fuel_implied_rate": 0,
+        "grade": "D",
+        "fuel_l": 0,
+        "fuel_per_100km": null,
+        "fuel_excess_pct": 0,
+        "observed_rank": null,
+        "fuel_rank": null
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 0,
+        "core_events": 2,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": null,
+        "fuel_implied_rate": 0,
+        "grade": "D",
+        "fuel_l": 0,
+        "fuel_per_100km": null,
+        "fuel_excess_pct": 0,
+        "observed_rank": null,
+        "fuel_rank": null
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 0,
+        "core_events": 2,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": null,
+        "fuel_implied_rate": 0,
+        "grade": "D",
+        "fuel_l": 0,
+        "fuel_per_100km": null,
+        "fuel_excess_pct": 0,
+        "observed_rank": null,
+        "fuel_rank": null
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 0,
+        "core_events": 2,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 0,
+          "stop": 0
+        },
+        "rate": null,
+        "fuel_implied_rate": 0,
+        "grade": "D",
+        "fuel_l": 0,
+        "fuel_per_100km": null,
+        "fuel_excess_pct": 0,
+        "observed_rank": null,
+        "fuel_rank": null
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-T13",
+    "vehicle_class": "truck",
+    "device_model": "DTG-100",
+    "maker": "현대자동차",
+    "model": "엑시언트",
+    "year": 2019,
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "D",
+    "grade_label": "측정 불가",
+    "tone": "void",
+    "verifiable": false,
+    "settle": "block",
+    "verdict": "주행거리 산출 불가(0km) — 정규화 분모 없음, 평가 제외",
+    "reported_km": 0,
+    "core_events": 3,
+    "events_by_type": {
+      "accel": 1,
+      "start": 1,
+      "decel": 1,
+      "stop": 0
+    },
+    "rate": null,
+    "fuel_implied_rate": 0,
+    "fuel_l": 0,
+    "fuel_per_100km": null,
+    "fuel_excess_pct": 0,
+    "observed_rank": null,
+    "fuel_rank": null,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 0,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": null,
+        "fuel_implied_rate": 0,
+        "grade": "D",
+        "fuel_l": 0,
+        "fuel_per_100km": null,
+        "fuel_excess_pct": 0,
+        "observed_rank": null,
+        "fuel_rank": null
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 0,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": null,
+        "fuel_implied_rate": 0,
+        "grade": "D",
+        "fuel_l": 0,
+        "fuel_per_100km": null,
+        "fuel_excess_pct": 0,
+        "observed_rank": null,
+        "fuel_rank": null
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 0,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": null,
+        "fuel_implied_rate": 0,
+        "grade": "D",
+        "fuel_l": 0,
+        "fuel_per_100km": null,
+        "fuel_excess_pct": 0,
+        "observed_rank": null,
+        "fuel_rank": null
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 0,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": null,
+        "fuel_implied_rate": 0,
+        "grade": "D",
+        "fuel_l": 0,
+        "fuel_per_100km": null,
+        "fuel_excess_pct": 0,
+        "observed_rank": null,
+        "fuel_rank": null
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 0,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": null,
+        "fuel_implied_rate": 0,
+        "grade": "D",
+        "fuel_l": 0,
+        "fuel_per_100km": null,
+        "fuel_excess_pct": 0,
+        "observed_rank": null,
+        "fuel_rank": null
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-C01",
+    "vehicle_class": "car",
+    "device_model": "OBD-DONGLE-1",
+    "maker": "현대자동차",
+    "model": "아반떼",
+    "year": 2022,
+    "baseline": {
+      "kmpl": 14,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 14,
+      "kmpl_laden": 14,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 600,
+    "core_events": 4,
+    "events_by_type": {
+      "accel": 1,
+      "start": 1,
+      "decel": 1,
+      "stop": 1
+    },
+    "rate": 0.006666666666666667,
+    "fuel_implied_rate": 0,
+    "fuel_l": 40,
+    "fuel_per_100km": 6.6000000000000005,
+    "fuel_excess_pct": -7.599999999999996,
+    "observed_rank": 10,
+    "fuel_rank": 4,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 600,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006666666666666667,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 40,
+        "fuel_per_100km": 6.6000000000000005,
+        "fuel_excess_pct": -7.599999999999996,
+        "observed_rank": 10,
+        "fuel_rank": 5
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 600,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006666666666666667,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 40,
+        "fuel_per_100km": 6.6000000000000005,
+        "fuel_excess_pct": -7.599999999999996,
+        "observed_rank": 10,
+        "fuel_rank": 5
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 600,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006666666666666667,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 40,
+        "fuel_per_100km": 6.6000000000000005,
+        "fuel_excess_pct": -7.599999999999996,
+        "observed_rank": 9,
+        "fuel_rank": 4
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 600,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006666666666666667,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 40,
+        "fuel_per_100km": 6.6000000000000005,
+        "fuel_excess_pct": -7.599999999999996,
+        "observed_rank": 10,
+        "fuel_rank": 4
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 600,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006666666666666667,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 40,
+        "fuel_per_100km": 6.6000000000000005,
+        "fuel_excess_pct": -7.599999999999996,
+        "observed_rank": 10,
+        "fuel_rank": 4
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-C02",
+    "vehicle_class": "car",
+    "device_model": "OBD-DONGLE-1",
+    "maker": "기아",
+    "model": "K5",
+    "year": 2021,
+    "baseline": {
+      "kmpl": 13.2,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 13.2,
+      "kmpl_laden": 13.2,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 550,
+    "core_events": 3,
+    "events_by_type": {
+      "accel": 1,
+      "start": 1,
+      "decel": 1,
+      "stop": 0
+    },
+    "rate": 0.005454545454545455,
+    "fuel_implied_rate": 0,
+    "fuel_l": 38,
+    "fuel_per_100km": 6.848484848484848,
+    "fuel_excess_pct": -9.60000000000002,
+    "observed_rank": 6,
+    "fuel_rank": 5,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 550,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": 0.005454545454545455,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 38,
+        "fuel_per_100km": 6.848484848484848,
+        "fuel_excess_pct": -9.60000000000002,
+        "observed_rank": 5,
+        "fuel_rank": 6
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 550,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": 0.005454545454545455,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 38,
+        "fuel_per_100km": 6.848484848484848,
+        "fuel_excess_pct": -9.60000000000002,
+        "observed_rank": 5,
+        "fuel_rank": 6
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 550,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": 0.005454545454545455,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 38,
+        "fuel_per_100km": 6.848484848484848,
+        "fuel_excess_pct": -9.60000000000002,
+        "observed_rank": 5,
+        "fuel_rank": 5
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 550,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": 0.005454545454545455,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 38,
+        "fuel_per_100km": 6.848484848484848,
+        "fuel_excess_pct": -9.60000000000002,
+        "observed_rank": 6,
+        "fuel_rank": 5
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 550,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": 0.005454545454545455,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 38,
+        "fuel_per_100km": 6.848484848484848,
+        "fuel_excess_pct": -9.60000000000002,
+        "observed_rank": 6,
+        "fuel_rank": 5
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-C03",
+    "vehicle_class": "car",
+    "device_model": "OBD-DONGLE-1",
+    "maker": "현대자동차",
+    "model": "쏘나타",
+    "year": 2022,
+    "baseline": {
+      "kmpl": 12.8,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 12.8,
+      "kmpl_laden": 12.8,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 580,
+    "core_events": 4,
+    "events_by_type": {
+      "accel": 1,
+      "start": 1,
+      "decel": 1,
+      "stop": 1
+    },
+    "rate": 0.006896551724137931,
+    "fuel_implied_rate": 0,
+    "fuel_l": 42,
+    "fuel_per_100km": 7.17816091954023,
+    "fuel_excess_pct": -8.119540229885057,
+    "observed_rank": 11,
+    "fuel_rank": 6,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 580,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006896551724137931,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 42,
+        "fuel_per_100km": 7.17816091954023,
+        "fuel_excess_pct": -8.119540229885057,
+        "observed_rank": 11,
+        "fuel_rank": 7
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 580,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006896551724137931,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 42,
+        "fuel_per_100km": 7.17816091954023,
+        "fuel_excess_pct": -8.119540229885057,
+        "observed_rank": 11,
+        "fuel_rank": 7
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 580,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006896551724137931,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 42,
+        "fuel_per_100km": 7.17816091954023,
+        "fuel_excess_pct": -8.119540229885057,
+        "observed_rank": 10,
+        "fuel_rank": 6
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 580,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006896551724137931,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 42,
+        "fuel_per_100km": 7.17816091954023,
+        "fuel_excess_pct": -8.119540229885057,
+        "observed_rank": 11,
+        "fuel_rank": 6
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 580,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006896551724137931,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 42,
+        "fuel_per_100km": 7.17816091954023,
+        "fuel_excess_pct": -8.119540229885057,
+        "observed_rank": 11,
+        "fuel_rank": 6
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-C04",
+    "vehicle_class": "car",
+    "device_model": "OBD-DONGLE-1",
+    "maker": "기아",
+    "model": "스포티지",
+    "year": 2023,
+    "baseline": {
+      "kmpl": 12.1,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 12.1,
+      "kmpl_laden": 12.1,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 500,
+    "core_events": 3,
+    "events_by_type": {
+      "accel": 1,
+      "start": 0,
+      "decel": 1,
+      "stop": 1
+    },
+    "rate": 0.006,
+    "fuel_implied_rate": 0,
+    "fuel_l": 39,
+    "fuel_per_100km": 7.736,
+    "fuel_excess_pct": -6.394400000000012,
+    "observed_rank": 8,
+    "fuel_rank": 7,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 500,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 0,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 39,
+        "fuel_per_100km": 7.736,
+        "fuel_excess_pct": -6.394400000000012,
+        "observed_rank": 7,
+        "fuel_rank": 8
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 500,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 0,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 39,
+        "fuel_per_100km": 7.736,
+        "fuel_excess_pct": -6.394400000000012,
+        "observed_rank": 7,
+        "fuel_rank": 8
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 500,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 0,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 39,
+        "fuel_per_100km": 7.736,
+        "fuel_excess_pct": -6.394400000000012,
+        "observed_rank": 7,
+        "fuel_rank": 7
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 500,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 0,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 39,
+        "fuel_per_100km": 7.736,
+        "fuel_excess_pct": -6.394400000000012,
+        "observed_rank": 8,
+        "fuel_rank": 7
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 500,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 0,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.006,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 39,
+        "fuel_per_100km": 7.736,
+        "fuel_excess_pct": -6.394400000000012,
+        "observed_rank": 8,
+        "fuel_rank": 7
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-C05",
+    "vehicle_class": "car",
+    "device_model": "OBD-DONGLE-1",
+    "maker": "현대자동차",
+    "model": "그랜저",
+    "year": 2022,
+    "baseline": {
+      "kmpl": 11.4,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 11.4,
+      "kmpl_laden": 11.4,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 620,
+    "core_events": 5,
+    "events_by_type": {
+      "accel": 2,
+      "start": 1,
+      "decel": 1,
+      "stop": 1
+    },
+    "rate": 0.008064516129032258,
+    "fuel_implied_rate": 0,
+    "fuel_l": 48,
+    "fuel_per_100km": 7.67741935483871,
+    "fuel_excess_pct": -12.477419354838704,
+    "observed_rank": 14,
+    "fuel_rank": 8,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 620,
+        "core_events": 5,
+        "events_by_type": {
+          "accel": 2,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.008064516129032258,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 48,
+        "fuel_per_100km": 7.67741935483871,
+        "fuel_excess_pct": -12.477419354838704,
+        "observed_rank": 14,
+        "fuel_rank": 9
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 620,
+        "core_events": 5,
+        "events_by_type": {
+          "accel": 2,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.008064516129032258,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 48,
+        "fuel_per_100km": 7.67741935483871,
+        "fuel_excess_pct": -12.477419354838704,
+        "observed_rank": 14,
+        "fuel_rank": 9
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 620,
+        "core_events": 5,
+        "events_by_type": {
+          "accel": 2,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.008064516129032258,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 48,
+        "fuel_per_100km": 7.67741935483871,
+        "fuel_excess_pct": -12.477419354838704,
+        "observed_rank": 13,
+        "fuel_rank": 8
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 620,
+        "core_events": 5,
+        "events_by_type": {
+          "accel": 2,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.008064516129032258,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 48,
+        "fuel_per_100km": 7.67741935483871,
+        "fuel_excess_pct": -12.477419354838704,
+        "observed_rank": 14,
+        "fuel_rank": 8
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 620,
+        "core_events": 5,
+        "events_by_type": {
+          "accel": 2,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.008064516129032258,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 48,
+        "fuel_per_100km": 7.67741935483871,
+        "fuel_excess_pct": -12.477419354838704,
+        "observed_rank": 14,
+        "fuel_rank": 8
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-C06",
+    "vehicle_class": "car",
+    "device_model": "OBD-DONGLE-1",
+    "maker": "기아",
+    "model": "카니발",
+    "year": 2021,
+    "baseline": {
+      "kmpl": 9.6,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 9.6,
+      "kmpl_laden": 9.6,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 700,
+    "core_events": 6,
+    "events_by_type": {
+      "accel": 2,
+      "start": 1,
+      "decel": 2,
+      "stop": 1
+    },
+    "rate": 0.008571428571428572,
+    "fuel_implied_rate": 0,
+    "fuel_l": 60,
+    "fuel_per_100km": 8.50952380952381,
+    "fuel_excess_pct": -18.30857142857143,
+    "observed_rank": 16,
+    "fuel_rank": 9,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 700,
+        "core_events": 6,
+        "events_by_type": {
+          "accel": 2,
+          "start": 1,
+          "decel": 2,
+          "stop": 1
+        },
+        "rate": 0.008571428571428572,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 60,
+        "fuel_per_100km": 8.50952380952381,
+        "fuel_excess_pct": -18.30857142857143,
+        "observed_rank": 16,
+        "fuel_rank": 10
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 700,
+        "core_events": 6,
+        "events_by_type": {
+          "accel": 2,
+          "start": 1,
+          "decel": 2,
+          "stop": 1
+        },
+        "rate": 0.008571428571428572,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 60,
+        "fuel_per_100km": 8.50952380952381,
+        "fuel_excess_pct": -18.30857142857143,
+        "observed_rank": 16,
+        "fuel_rank": 10
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 700,
+        "core_events": 6,
+        "events_by_type": {
+          "accel": 2,
+          "start": 1,
+          "decel": 2,
+          "stop": 1
+        },
+        "rate": 0.008571428571428572,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 60,
+        "fuel_per_100km": 8.50952380952381,
+        "fuel_excess_pct": -18.30857142857143,
+        "observed_rank": 15,
+        "fuel_rank": 9
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 700,
+        "core_events": 6,
+        "events_by_type": {
+          "accel": 2,
+          "start": 1,
+          "decel": 2,
+          "stop": 1
+        },
+        "rate": 0.008571428571428572,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 60,
+        "fuel_per_100km": 8.50952380952381,
+        "fuel_excess_pct": -18.30857142857143,
+        "observed_rank": 16,
+        "fuel_rank": 9
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 700,
+        "core_events": 6,
+        "events_by_type": {
+          "accel": 2,
+          "start": 1,
+          "decel": 2,
+          "stop": 1
+        },
+        "rate": 0.008571428571428572,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 60,
+        "fuel_per_100km": 8.50952380952381,
+        "fuel_excess_pct": -18.30857142857143,
+        "observed_rank": 16,
+        "fuel_rank": 9
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-C07",
+    "vehicle_class": "car",
+    "device_model": "OBD-DONGLE-1",
+    "maker": "현대자동차",
+    "model": "투싼",
+    "year": 2023,
+    "baseline": {
+      "kmpl": 12.6,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 12.6,
+      "kmpl_laden": 12.6,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 480,
+    "core_events": 3,
+    "events_by_type": {
+      "accel": 1,
+      "start": 1,
+      "decel": 0,
+      "stop": 1
+    },
+    "rate": 0.00625,
+    "fuel_implied_rate": 0,
+    "fuel_l": 37,
+    "fuel_per_100km": 7.645833333333334,
+    "fuel_excess_pct": -3.6624999999999908,
+    "observed_rank": 9,
+    "fuel_rank": 10,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 480,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 0,
+          "stop": 1
+        },
+        "rate": 0.00625,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 37,
+        "fuel_per_100km": 7.645833333333334,
+        "fuel_excess_pct": -3.6624999999999908,
+        "observed_rank": 9,
+        "fuel_rank": 11
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 480,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 0,
+          "stop": 1
+        },
+        "rate": 0.00625,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 37,
+        "fuel_per_100km": 7.645833333333334,
+        "fuel_excess_pct": -3.6624999999999908,
+        "observed_rank": 9,
+        "fuel_rank": 11
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 480,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 0,
+          "stop": 1
+        },
+        "rate": 0.00625,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 37,
+        "fuel_per_100km": 7.645833333333334,
+        "fuel_excess_pct": -3.6624999999999908,
+        "observed_rank": 8,
+        "fuel_rank": 10
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 480,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 0,
+          "stop": 1
+        },
+        "rate": 0.00625,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 37,
+        "fuel_per_100km": 7.645833333333334,
+        "fuel_excess_pct": -3.6624999999999908,
+        "observed_rank": 9,
+        "fuel_rank": 10
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 480,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 0,
+          "stop": 1
+        },
+        "rate": 0.00625,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 37,
+        "fuel_per_100km": 7.645833333333334,
+        "fuel_excess_pct": -3.6624999999999908,
+        "observed_rank": 9,
+        "fuel_rank": 10
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-C08",
+    "vehicle_class": "car",
+    "device_model": "OBD-DONGLE-1",
+    "maker": "기아",
+    "model": "니로",
+    "year": 2022,
+    "baseline": {
+      "kmpl": 17.6,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 17.6,
+      "kmpl_laden": 17.6,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 530,
+    "core_events": 3,
+    "events_by_type": {
+      "accel": 1,
+      "start": 1,
+      "decel": 1,
+      "stop": 0
+    },
+    "rate": 0.005660377358490566,
+    "fuel_implied_rate": 0,
+    "fuel_l": 30,
+    "fuel_per_100km": 5.59748427672956,
+    "fuel_excess_pct": -1.4842767295597303,
+    "observed_rank": 7,
+    "fuel_rank": 11,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 530,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": 0.005660377358490566,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 30,
+        "fuel_per_100km": 5.59748427672956,
+        "fuel_excess_pct": -1.4842767295597303,
+        "observed_rank": 6,
+        "fuel_rank": 12
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 530,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": 0.005660377358490566,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 30,
+        "fuel_per_100km": 5.59748427672956,
+        "fuel_excess_pct": -1.4842767295597303,
+        "observed_rank": 6,
+        "fuel_rank": 12
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 530,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": 0.005660377358490566,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 30,
+        "fuel_per_100km": 5.59748427672956,
+        "fuel_excess_pct": -1.4842767295597303,
+        "observed_rank": 6,
+        "fuel_rank": 11
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 530,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": 0.005660377358490566,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 30,
+        "fuel_per_100km": 5.59748427672956,
+        "fuel_excess_pct": -1.4842767295597303,
+        "observed_rank": 7,
+        "fuel_rank": 11
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 530,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 0
+        },
+        "rate": 0.005660377358490566,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 30,
+        "fuel_per_100km": 5.59748427672956,
+        "fuel_excess_pct": -1.4842767295597303,
+        "observed_rank": 7,
+        "fuel_rank": 11
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-C09",
+    "vehicle_class": "car",
+    "device_model": "OBD-DONGLE-1",
+    "maker": "현대자동차",
+    "model": "아이오닉5",
+    "year": 2023,
+    "baseline": {
+      "kmpl": 5,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 5,
+      "kmpl_laden": 5,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 560,
+    "core_events": 4,
+    "events_by_type": {
+      "accel": 1,
+      "start": 1,
+      "decel": 1,
+      "stop": 1
+    },
+    "rate": 0.007142857142857143,
+    "fuel_implied_rate": 0,
+    "fuel_l": 18,
+    "fuel_per_100km": 3.166666666666667,
+    "fuel_excess_pct": -84.16666666666667,
+    "observed_rank": 12,
+    "fuel_rank": 12,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 560,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.007142857142857143,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 18,
+        "fuel_per_100km": 3.166666666666667,
+        "fuel_excess_pct": -84.16666666666667,
+        "observed_rank": 12,
+        "fuel_rank": 13
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 560,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.007142857142857143,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 18,
+        "fuel_per_100km": 3.166666666666667,
+        "fuel_excess_pct": -84.16666666666667,
+        "observed_rank": 12,
+        "fuel_rank": 13
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 560,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.007142857142857143,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 18,
+        "fuel_per_100km": 3.166666666666667,
+        "fuel_excess_pct": -84.16666666666667,
+        "observed_rank": 11,
+        "fuel_rank": 12
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 560,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.007142857142857143,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 18,
+        "fuel_per_100km": 3.166666666666667,
+        "fuel_excess_pct": -84.16666666666667,
+        "observed_rank": 12,
+        "fuel_rank": 12
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 560,
+        "core_events": 4,
+        "events_by_type": {
+          "accel": 1,
+          "start": 1,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.007142857142857143,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 18,
+        "fuel_per_100km": 3.166666666666667,
+        "fuel_excess_pct": -84.16666666666667,
+        "observed_rank": 12,
+        "fuel_rank": 12
+      }
+    ]
+  },
+  {
+    "vehicle_id": "GLV-C10",
+    "vehicle_class": "car",
+    "device_model": "OBD-DONGLE-1",
+    "maker": "기아",
+    "model": "레이",
+    "year": 2021,
+    "baseline": {
+      "kmpl": 13.6,
+      "source": "fixture",
+      "trust": "C",
+      "kmpl_empty": 13.6,
+      "kmpl_laden": 13.6,
+      "fetched_at": "2026-08-13T01:18:11.443Z"
+    },
+    "grade": "정상",
+    "grade_label": "정상",
+    "tone": "ok",
+    "verifiable": true,
+    "settle": "allow",
+    "verdict": "이벤트 신호와 연료 신호가 일치 — 신뢰 가능",
+    "reported_km": 400,
+    "core_events": 3,
+    "events_by_type": {
+      "accel": 1,
+      "start": 0,
+      "decel": 1,
+      "stop": 1
+    },
+    "rate": 0.0075,
+    "fuel_implied_rate": 0,
+    "fuel_l": 27,
+    "fuel_per_100km": 6.686666666666667,
+    "fuel_excess_pct": -9.061333333333344,
+    "observed_rank": 13,
+    "fuel_rank": 13,
+    "monthly": [
+      {
+        "month": "2026-04",
+        "reported_km": 400,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 0,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.0075,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 27,
+        "fuel_per_100km": 6.686666666666667,
+        "fuel_excess_pct": -9.061333333333344,
+        "observed_rank": 13,
+        "fuel_rank": 14
+      },
+      {
+        "month": "2026-05",
+        "reported_km": 400,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 0,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.0075,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 27,
+        "fuel_per_100km": 6.686666666666667,
+        "fuel_excess_pct": -9.061333333333344,
+        "observed_rank": 13,
+        "fuel_rank": 14
+      },
+      {
+        "month": "2026-06",
+        "reported_km": 400,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 0,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.0075,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 27,
+        "fuel_per_100km": 6.686666666666667,
+        "fuel_excess_pct": -9.061333333333344,
+        "observed_rank": 12,
+        "fuel_rank": 13
+      },
+      {
+        "month": "2026-07",
+        "reported_km": 400,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 0,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.0075,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 27,
+        "fuel_per_100km": 6.686666666666667,
+        "fuel_excess_pct": -9.061333333333344,
+        "observed_rank": 13,
+        "fuel_rank": 13
+      },
+      {
+        "month": "2026-08",
+        "reported_km": 400,
+        "core_events": 3,
+        "events_by_type": {
+          "accel": 1,
+          "start": 0,
+          "decel": 1,
+          "stop": 1
+        },
+        "rate": 0.0075,
+        "fuel_implied_rate": 0,
+        "grade": "정상",
+        "fuel_l": 27,
+        "fuel_per_100km": 6.686666666666667,
+        "fuel_excess_pct": -9.061333333333344,
+        "observed_rank": 13,
+        "fuel_rank": 13
+      }
+    ]
+  }
+]
