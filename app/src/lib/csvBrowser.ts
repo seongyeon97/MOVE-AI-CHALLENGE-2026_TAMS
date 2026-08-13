@@ -30,15 +30,26 @@ function isXlsx(fileName: string): boolean {
 
 export type SheetData = { name: string; rows: string[][] };
 
+/** 실제 파일(86,896행짜리) 기준 파싱에 8~10초 걸린다 — 메인 스레드에서 돌리면 그동안 탭이 멈춘다. Worker로 뺀다. */
+function parseXlsxInWorker(buffer: ArrayBuffer): Promise<SheetData[]> {
+  return new Promise((resolve, reject) => {
+    const worker = new Worker(new URL('./xlsxWorker.ts', import.meta.url), { type: 'module' });
+    worker.onmessage = (e: MessageEvent<{ sheets: SheetData[] }>) => {
+      resolve(e.data.sheets);
+      worker.terminate();
+    };
+    worker.onerror = (e) => {
+      reject(e.error ?? new Error('xlsx worker failed'));
+      worker.terminate();
+    };
+    worker.postMessage({ buffer }, [buffer]);
+  });
+}
+
 /** 파일 전체를 시트 단위로 읽는다(CSV는 시트 1개짜리로 취급). 큰 파일이라도 전체를 들고 있어야 확정 후 리셰이프가 가능하다. */
 export async function loadFileSheets(file: File): Promise<SheetData[]> {
   if (isXlsx(file.name)) {
-    const XLSX = await import('xlsx');
-    const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
-    return wb.SheetNames.map((name) => {
-      const rows = XLSX.utils.sheet_to_json<string[]>(wb.Sheets[name], { header: 1, defval: '', raw: false }) as unknown as string[][];
-      return { name, rows: rows.map((r) => r.map((c) => String(c ?? ''))) };
-    });
+    return parseXlsxInWorker(await file.arrayBuffer());
   }
   const text = await file.text();
   return [{ name: file.name, rows: rowsFromCsvText(text) }];

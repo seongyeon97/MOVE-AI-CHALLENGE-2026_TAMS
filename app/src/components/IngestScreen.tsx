@@ -120,13 +120,17 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
   const [showResults, setShowResults] = useState(false);
   const [slowFiles, setSlowFiles] = useState<Record<string, boolean>>({});
   const [confirmed, setConfirmed] = useState(false);
+  const [readingFiles, setReadingFiles] = useState<string[]>([]);
 
   async function handleFiles(fileList: FileList | null) {
     if (!fileList) return;
+    const names = [...fileList].map((f) => f.name);
+    setReadingFiles((prev) => [...prev, ...names]);
     const loaded = await Promise.all(
       [...fileList].map(async (f) => ({ fileName: f.name, sheets: await loadFileSheets(f), vehicleClass: 'truck' as SchemaVehicleClass })),
     );
     setQueued((prev) => [...prev, ...loaded]);
+    setReadingFiles((prev) => prev.filter((n) => !names.includes(n)));
   }
 
   function setFileVehicleClass(fileName: string, vehicleClass: SchemaVehicleClass) {
@@ -178,10 +182,17 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
         type="file"
         accept=".csv,.xlsx,.xls"
         multiple
+        disabled={readingFiles.length > 0}
         onChange={(e) => handleFiles(e.target.files)}
-        className="text-xs"
+        className="text-xs disabled:opacity-40"
         style={{ color: 'var(--color-mist)' }}
       />
+
+      {readingFiles.length > 0 && (
+        <p className="tone-warn-fg text-xs">
+          파일 읽는 중… ({readingFiles.join(', ')}) — 큰 xlsx는 시간이 좀 걸립니다. 탭이 멈춘 게 아닙니다.
+        </p>
+      )}
 
       {queued.length > 0 && (
         <ul className="flex flex-col gap-1 text-xs" style={{ color: 'var(--color-mist)' }}>
