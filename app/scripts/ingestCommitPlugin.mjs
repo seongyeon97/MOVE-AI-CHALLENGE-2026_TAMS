@@ -4,11 +4,13 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { rmSync } from 'node:fs';
 import { readCsv, readCsvIfExists, writeCsv, num } from './lib/csv.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const FILES2 = join(ROOT, 'files2');
+const DATA_OUT = join(ROOT, 'public', 'data');
 
 const VEHICLE_MASTER_HEADER = ['vehicle_id', 'vehicle_class', 'device_model', 'maker', 'model', 'year', 'gross_weight_kg', 'displacement_cc', 'fuel_type', 'registered_kmpl'];
 const DAILY_SUMMARY_HEADER = ['vehicle_id', 'date', 'laden', 'reported_km', 'event_accel', 'event_start', 'event_decel', 'event_stop', 'event_speeding', 'fuel_l', 'idle_sec'];
@@ -98,6 +100,23 @@ export function ingestCommitPlugin() {
   return {
     name: 'ingest-commit-middleware',
     configureServer(server) {
+      // 테스트 재현용 — 업로드 반영분을 전부 지우고 "실제 데이터 없음" 상태로 되돌린다.
+      server.middlewares.use('/api/ingest-reset', (req, res) => {
+        if (req.method !== 'POST') { res.statusCode = 405; res.end(); return; }
+        res.setHeader('Content-Type', 'application/json');
+        try {
+          writeCsv(join(FILES2, 'vehicle_master.csv'), VEHICLE_MASTER_HEADER, []);
+          writeCsv(join(FILES2, 'daily_summary.csv'), DAILY_SUMMARY_HEADER, []);
+          for (const file of ['vehicles.json', 'eco.json', 'certificates.json', 'baseline_fuel.json']) {
+            rmSync(join(DATA_OUT, file), { force: true });
+          }
+          res.end(JSON.stringify({ ok: true }));
+        } catch (err) {
+          res.statusCode = 500;
+          res.end(JSON.stringify({ error: 'reset_failed', message: String(err) }));
+        }
+      });
+
       server.middlewares.use('/api/ingest-commit', async (req, res) => {
         if (req.method !== 'POST') { res.statusCode = 405; res.end(); return; }
 

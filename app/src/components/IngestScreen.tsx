@@ -149,6 +149,30 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
   const [readingFiles, setReadingFiles] = useState<string[]>([]);
   const [committing, setCommitting] = useState(false);
   const [commitResults, setCommitResults] = useState<{ fileName: string; ok: boolean; message: string }[]>([]);
+  const [resetting, setResetting] = useState(false);
+  const [resetMessage, setResetMessage] = useState<string | null>(null);
+
+  async function handleReset() {
+    if (!window.confirm('업로드로 반영된 files2/ 데이터를 전부 지웁니다. 계속할까요?')) return;
+    setResetting(true);
+    setResetMessage(null);
+    try {
+      const res = await fetch('/api/ingest-reset', { method: 'POST' });
+      const json = await res.json();
+      if (!res.ok || !json.ok) throw new Error(json.message ?? `HTTP ${res.status}`);
+      setResetMessage('초기화 완료 — files2/ 데이터가 비었습니다. 다시 업로드해서 테스트하세요.');
+    } catch (err) {
+      setResetMessage(`초기화 실패: ${String(err)}`);
+    } finally {
+      setResetting(false);
+      // 화면 상태도 처음으로 — 방금 지운 매핑 결과가 화면에 남아있으면 헷갈린다.
+      setQueued([]);
+      setResults({});
+      setParseStarted(false);
+      setConfirmed(false);
+      setCommitResults([]);
+    }
+  }
 
   async function handleFiles(fileList: FileList | null) {
     if (!fileList) return;
@@ -244,8 +268,22 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
     <div className="flex flex-col gap-4 p-6">
       <div className="flex items-center justify-between">
         <h1 className="text-sm font-medium" style={{ color: 'var(--color-paper)' }}>데이터 업로드</h1>
-        <button type="button" onClick={onBack} className="text-xs" style={{ color: 'var(--color-slate)' }}>← Safe로 (저장 없이 나가기)</button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={handleReset}
+            disabled={resetting}
+            className="tone-dead-fg text-xs disabled:opacity-40"
+          >
+            {resetting ? '초기화 중…' : '업로드 데이터 초기화'}
+          </button>
+          <button type="button" onClick={onBack} className="text-xs" style={{ color: 'var(--color-slate)' }}>← Safe로 (저장 없이 나가기)</button>
+        </div>
       </div>
+
+      {resetMessage && (
+        <p className="text-xs" style={{ color: 'var(--color-dim)' }}>{resetMessage}</p>
+      )}
 
       <StepBar
         step={confirmed ? 4 : allDone ? 3 : parseStarted ? 2 : 1}
