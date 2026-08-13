@@ -226,6 +226,38 @@ function findSegment(routes: CorridorRoute[], key: string | null) {
   return null;
 }
 
+/**
+ * 마커 좌표 계산 + 라벨 겹침 해소.
+ * 핫스팟은 상하차지·게이트에 몰려 나오므로 화면에서도 몇 픽셀 안에 붙는다 —
+ * 글자를 그대로 두면 서로 덮어써서 둘 다 못 읽는다. 이미 놓은 라벨과 겹치면 아래로 밀어낸다.
+ */
+function placeMarkers(
+  routes: CorridorRoute[],
+  px: (pt: [number, number]) => [number, number],
+  selectedKey: string | null,
+) {
+  const LINE_H = 15; // 글자 높이 + 여백
+  const NEAR_X = 170; // 이 안에서 x가 겹치면 같은 줄로 본다
+  const placed: { x: number; y: number }[] = [];
+
+  return routes.flatMap((route) =>
+    route.segments
+      .filter((s) => s.tone !== 'ok')
+      .map((seg) => {
+        const [cx, cy] = px(seg.centroid);
+        const key = segKey(route.route_id, seg);
+        const isSelected = selectedKey === key;
+        const x = cx + (isSelected ? 20 : 15);
+        let y = cy + 4;
+        while (placed.some((p) => Math.abs(p.y - y) < LINE_H && Math.abs(p.x - x) < NEAR_X)) {
+          y += LINE_H;
+        }
+        placed.push({ x, y });
+        return { route, seg, key, cx, cy, labelY: y, isSelected };
+      }),
+  );
+}
+
 /* ── 오프라인 SVG 폴백 — 등거리 원통 투영, 위경도 종횡비 보정 ── */
 function SvgFallbackMap({ routes, selectedKey, onSelect }: Props) {
   const projected = useMemo(() => {
@@ -267,41 +299,39 @@ function SvgFallbackMap({ routes, selectedKey, onSelect }: Props) {
           );
         }),
       )}
-      {routes.map((route) =>
-        route.segments
-          .filter((s) => s.tone !== 'ok')
-          .map((seg) => {
-            const key = segKey(route.route_id, seg);
-            const [cx, cy] = px(seg.centroid);
-            const isSelected = selectedKey === key;
-            const label = dominantLabel(seg);
-            return (
-              <g key={key} style={{ cursor: 'pointer' }} onClick={() => onSelect(isSelected ? null : key)}>
-                <circle
-                  cx={cx}
-                  cy={cy}
-                  r={isSelected ? 15 : 10}
-                  fill={`var(${TONE_VAR[seg.tone]})`}
-                  fillOpacity={isSelected ? 0.95 : 0.8}
-                  stroke="var(--color-paper)"
-                  strokeWidth={2}
-                >
-                  <title>{`${route.route_name} ${seg.km_from}~${seg.km_to}km · ${seg.grade_label} · ${seg.event_count}건`}</title>
-                </circle>
-                <text
-                  x={cx + (isSelected ? 20 : 15)}
-                  y={cy + 4}
-                  fontSize={13}
-                  fill="var(--color-paper)"
-                  style={{ paintOrder: 'stroke', stroke: 'var(--color-panel-2)', strokeWidth: 4 }}
-                >
-                  {seg.grade_label}
-                  {label ? ` · ${label}` : ''}
-                </text>
-              </g>
-            );
-          }),
-      )}
+      {placeMarkers(routes, px, selectedKey).map(({ route, seg, key, cx, cy, labelY, isSelected }) => {
+        const label = dominantLabel(seg);
+        const labelX = cx + (isSelected ? 20 : 15);
+        return (
+          <g key={key} style={{ cursor: 'pointer' }} onClick={() => onSelect(isSelected ? null : key)}>
+            <circle
+              cx={cx}
+              cy={cy}
+              r={isSelected ? 15 : 10}
+              fill={`var(${TONE_VAR[seg.tone]})`}
+              fillOpacity={isSelected ? 0.95 : 0.8}
+              stroke="var(--color-paper)"
+              strokeWidth={2}
+            >
+              <title>{`${route.route_name} ${seg.km_from}~${seg.km_to}km · ${seg.grade_label} · ${seg.event_count}건`}</title>
+            </circle>
+            {/* 글자를 밀어냈으면 어느 점의 글자인지 이어 준다 */}
+            {Math.abs(labelY - (cy + 4)) > 2 && (
+              <line x1={cx} y1={cy} x2={labelX - 3} y2={labelY - 4} stroke="var(--color-line)" strokeWidth={1} />
+            )}
+            <text
+              x={labelX}
+              y={labelY}
+              fontSize={13}
+              fill="var(--color-paper)"
+              style={{ paintOrder: 'stroke', stroke: 'var(--color-panel-2)', strokeWidth: 4 }}
+            >
+              {seg.grade_label}
+              {label ? ` · ${label}` : ''}
+            </text>
+          </g>
+        );
+      })}
     </svg>
   );
 }

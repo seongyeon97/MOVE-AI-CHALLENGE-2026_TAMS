@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useMemo, useState } from 'react';
-import type { Grade, Vehicle, VehicleClass } from '../types';
+import type { CorridorBundle, Grade, Vehicle, VehicleClass } from '../types';
 import { GRADE_META, GRADE_ORDER } from '../lib/grade';
 import { FUEL_SOURCE_META } from '../lib/fuelSource';
 import { scoreOf } from '../lib/score';
@@ -8,6 +8,7 @@ import { aggregateRange, coverageByVehicle, type DailyBundle } from '../lib/aggr
 import { useSort } from '../lib/useSort';
 import { sendNotice, useLatestNoticeStatus } from '../lib/notices';
 import { ALL_VEHICLES } from '../lib/channels';
+import { buildNoticeDraft } from '../lib/noticeDraft';
 
 type ClassFilter = 'all' | VehicleClass;
 type GradeFilter = 'all' | Grade;
@@ -73,6 +74,11 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
   const [rangeDraft, setRangeDraft] = useState<{ from: string; to: string } | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  // 공지 초안 — 보내기 전에 무엇이 나가는지 먼저 펼쳐 본다.
+  const [showDraft, setShowDraft] = useState(false);
+  const [draftText, setDraftText] = useState('');
+  const [sentAt, setSentAt] = useState<string | null>(null);
+  const [corridor, setCorridor] = useState<CorridorBundle | null>(null);
 
   function loadData() {
     setRefreshing(true);
@@ -90,6 +96,11 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
 
   useEffect(() => {
     loadData();
+    // 공지 초안에 위험구간을 넣으려면 Heat-map 집계가 필요하다. 없으면 그 항목만 빠진다.
+    fetch('/data/corridor.json')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((c: CorridorBundle | null) => setCorridor(c?.routes ? c : null))
+      .catch(() => setCorridor(null));
   }, []);
 
   function applyFilters() {
@@ -157,6 +168,18 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
 
   const excluded = vehicles.filter((v) => v.grade === 'D');
 
+  // 공지 초안 — 지금 조회기간의 판정 결과 + Heat-map 집계에서 그대로 뽑는다.
+  const draft = buildNoticeDraft(vehicles, corridor);
+
+  /** 패널을 열 때 초안을 최신 판정으로 다시 채운다 — 기간을 바꾸고 열면 그 기간 기준이어야 한다. */
+  function openDraft(open: boolean) {
+    if (open) {
+      setDraftText(draft.text);
+      setSentAt(null);
+    }
+    setShowDraft(open);
+  }
+
   return (
     <div className="flex flex-col gap-4 p-6">
       <div className="flex items-center justify-between">
@@ -176,12 +199,19 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
           >
             데이터 업로드
           </button>
+          {/* 보내기 전에 무엇이 나가는지 먼저 본다 — 공지는 되돌릴 수 없다.
+              발송도 이 패널 안에서 한다. 브라우저 prompt는 여러 줄 초안을 담지 못한다. */}
           <button
             type="button"
-            onClick={() => {
-              const message = window.prompt('전체 차량에 보낼 공지 내용을 입력하세요.');
-              if (message) sendNotice(ALL_VEHICLES, message);
-            }}
+            onClick={() => openDraft(!showDraft)}
+            className="rounded-md border px-3 py-1.5 text-xs"
+            style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
+          >
+            {showDraft ? '발송 내용 닫기' : '발송 내용 보기'}
+          </button>
+          <button
+            type="button"
+            onClick={() => openDraft(true)}
             className="rounded-md border px-3 py-1.5 text-xs"
             style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
           >
@@ -189,6 +219,59 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
           </button>
         </div>
       </div>
+
+      {showDraft && (
+        <div className="rounded-md border p-4" style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)' }}>
+          <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+            <p className="text-xs font-medium" style={{ color: 'var(--color-paper)' }}>
+              발송 예정 내용
+              <span className="ml-2 font-normal" style={{ color: 'var(--color-slate)' }}>
+                지금 판정 결과에서 자동 작성 · 전체 차량 동일 발송
+              </span>
+            </p>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                disabled={draftText.trim() === '' || sentAt !== null}
+                onClick={() => {
+                  // 프로토타입 — 전체 발송은 차량 구분 없이 같은 내용이 모든 기사에게 간다.
+                  sendNotice(ALL_VEHICLES, draftText);
+                  setSentAt(new Date().toLocaleTimeString('ko-KR'));
+                }}
+                className="tone-ok-bg tone-ok-fg rounded-md px-3 py-1.5 text-xs font-medium disabled:opacity-40"
+              >
+                {sentAt ? `발송됨 ${sentAt}` : '전체 차량에 발송'}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setDraftText(draft.text);
+                  setSentAt(null);
+                }}
+                className="rounded-md border px-3 py-1.5 text-xs"
+                style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
+              >
+                초안 다시 만들기
+              </button>
+            </div>
+          </div>
+          {/* 초안은 그대로 보내도 되고 고쳐서 보내도 된다 — 판정 결과는 재료일 뿐 최종 문안은 사람이 정한다. */}
+          <textarea
+            value={draftText}
+            onChange={(e) => {
+              setDraftText(e.target.value);
+              setSentAt(null);
+            }}
+            rows={14}
+            className="num w-full resize-y rounded border p-3 text-xs leading-relaxed"
+            style={{ borderColor: 'var(--color-rule)', background: 'var(--color-panel)', color: 'var(--color-mist)' }}
+          />
+          <p className="mt-2 text-xs" style={{ color: 'var(--color-dim)' }}>
+            단말 점검 {draft.deviceCheck.length}대 · 이벤트 경고 {draft.heavyEvents.length}대 · 위험구간 {draft.segments.length}곳
+            {sentAt && ' · 기사뷰 알림 목록 최상단에 올라갔습니다'}
+          </p>
+        </div>
+      )}
 
       {/* 차종별 관리수준 — 특정 차량 순위가 아니라 "지금 어느 수준인가"를 먼저 보여준다. */}
       <div className="grid gap-3 sm:grid-cols-2">

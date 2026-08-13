@@ -1596,12 +1596,25 @@
   applyTheme();
   showAuth('screen-login');
 
-  // 회사뷰에서 공지를 발송하면(다른 창) 알림 목록을 다시 그린다 — 새로고침 없이 뜨게.
+  /* 회사뷰 연동 — 상단 차량번호를 회사뷰 차량ID로 맞춘다.
+     확인 기록이 그 차량으로 남아야 Safe의 "공지 확인" 열이 같은 줄에서 바뀐다.
+     공지 발송·차량 선택이 바뀌면(다른 창 포함) 지금 화면을 다시 그린다. */
   if (window.SENotices) {
+    var syncVehicle = function () {
+      var id = window.SENotices.vehicleId();
+      if (id && id !== state.vehicle.plate) {
+        state.vehicle.plate = id;
+        return true;
+      }
+      return false;
+    };
     window.SENotices.subscribe(function () {
-      if (currentMainView === 'notifications') {
+      var changed = syncVehicle();
+      if (changed && currentMainView) navigateMain(currentMainView); // 로그인 전이면 다시 그릴 화면이 없다
+      else if (currentMainView === 'notifications') {
         document.getElementById('app-content').innerHTML = renderNotificationsContent();
       }
     });
+    syncVehicle();
   }
 })();

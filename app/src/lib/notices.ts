@@ -15,8 +15,11 @@ export type Notice = {
   vehicle_id: string | typeof ALL_VEHICLES;
   message: string;
   created_at: string;
+  /** 한 대라도 확인했는가 — 기사뷰의 읽음 표시가 쓰는 값. */
   acknowledged: boolean;
   acknowledged_at?: string;
+  /** 확인한 차량들. 전체 발송이라도 확인은 차량별로 남아야 Safe에서 누가 봤는지 구분된다. */
+  acknowledged_by?: string[];
 };
 
 const store = createStore<Notice>(NOTICE_STORAGE_KEY);
@@ -36,11 +39,27 @@ export function sendNotice(vehicleId: string | typeof ALL_VEHICLES, message: str
   });
 }
 
-export function acknowledgeNotice(id: string) {
+export function acknowledgeNotice(id: string, vehicleId?: string) {
   store.update(
     (n) => n.id === id,
-    (n) => ({ ...n, acknowledged: true, acknowledged_at: new Date().toISOString() }),
+    (n) => ({
+      ...n,
+      acknowledged: true,
+      acknowledged_at: n.acknowledged_at ?? new Date().toISOString(),
+      acknowledged_by: vehicleId
+        ? [...new Set([...(n.acknowledged_by ?? []), vehicleId])]
+        : n.acknowledged_by,
+    }),
   );
+}
+
+/** 이 차량이 이 공지를 확인했는가. 전체 발송은 확인한 차량만 확인으로 본다. */
+export function isAcknowledgedBy(notice: Notice, vehicleId: string): boolean {
+  if (notice.acknowledged_by && notice.acknowledged_by.length > 0) {
+    return notice.acknowledged_by.includes(vehicleId);
+  }
+  // 차량 지정 발송은 받는 차량이 하나뿐이라 acknowledged 하나로 충분하다.
+  return notice.vehicle_id !== ALL_VEHICLES && notice.acknowledged;
 }
 
 /** 시연 초기화용 — 발송 이력을 비운다. */
@@ -57,8 +76,16 @@ export function useNoticesFor(vehicleId: string): Notice[] {
   );
 }
 
-/** Safe 화면에서 차량별 최신 공지 확인 상태를 볼 때 쓴다. */
+/**
+ * Safe 화면에서 차량별 최신 공지 확인 상태를 볼 때 쓴다.
+ * acknowledged는 "이 차량이 확인했는가"로 바꿔 돌려준다 — 전체 발송을 옆 차량이 확인했다고
+ * 이 차량까지 확인으로 뜨면 쌍방 확인이 아니라 그냥 발송 표시가 된다.
+ */
 export function useLatestNoticeStatus(vehicleId: string): Notice | null {
   const notices = useNoticesFor(vehicleId);
-  return notices.length > 0 ? notices[notices.length - 1] : null;
+  return useMemo(() => {
+    if (notices.length === 0) return null;
+    const latest = notices[notices.length - 1];
+    return { ...latest, acknowledged: isAcknowledgedBy(latest, vehicleId) };
+  }, [notices, vehicleId]);
 }
