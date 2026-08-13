@@ -55,12 +55,12 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
             </button>
             <button
               type="button"
-              onClick={() => setStep('driver-method')}
+              onClick={() => { window.location.href = '/driver-app.html'; }}
               className="rounded-md border px-4 py-3 text-left"
               style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
             >
               기사
-              <div className="text-xs" style={{ color: 'var(--color-slate)' }}>차량 기사</div>
+              <div className="text-xs" style={{ color: 'var(--color-slate)' }}>차량 기사 — S&E Driving 앱 로그인으로 이동</div>
             </button>
           </div>
         )}
