@@ -17,7 +17,26 @@ type FileState = {
   reshapeInfo: { originalRows: number; longRows: number; periodGroupCount: number } | null;
   mappings: MappingRow[];
   source: 'llm' | 'manual';
+  finalHeader: string[]; // mappings[].source_name과 같은 순서 — 커밋 시 이 헤더로 데이터 행을 객체화한다
+  finalRows: string[][];
 };
+
+/** 확정된 매핑으로 원본 행 전체를 표준필드 객체로 바꾼다 — 미리보기 10행이 아니라 전체 데이터.
+ *  컬럼 위치가 아니라 이름(finalHeader)으로 찾는다 — LLM 응답 mappings 순서가 원본 헤더 순서와
+ *  같다고 보장할 수 없다. */
+function buildMappedObjects(r: FileState): Record<string, string>[] {
+  const colIndexBySourceName = new Map(r.finalHeader.map((name, i) => [name, i]));
+  const targets = r.mappings
+    .filter((m) => m.standard_key)
+    .map((m) => ({ standard_key: m.standard_key, colIndex: colIndexBySourceName.get(m.source_name) }))
+    .filter((t): t is { standard_key: string; colIndex: number } => t.colIndex !== undefined);
+
+  return r.finalRows.map((row) => {
+    const obj: Record<string, string> = {};
+    for (const t of targets) obj[t.standard_key] = row[t.colIndex] ?? '';
+    return obj;
+  });
+}
 
 type LlmPlan = {
   target_sheet_index: number;
@@ -76,6 +95,8 @@ function buildFileState(q: QueuedFile, plan: LlmPlan | null): FileState {
       reshapeInfo: null,
       mappings: header.map((h) => ({ source_name: h, standard_key: '' })),
       source: 'manual',
+      finalHeader: header,
+      finalRows: targetSheet.rows.slice(headerRowIndex + 1),
     };
   }
 
@@ -99,9 +120,12 @@ function buildFileState(q: QueuedFile, plan: LlmPlan | null): FileState {
       },
       mappings: reshaped.header.map((h) => ({ source_name: h, standard_key: standardKeys.includes(h) ? h : '' })),
       source: 'llm',
+      finalHeader: reshaped.header,
+      finalRows: reshaped.rows,
     };
   }
 
+  const longHeader = targetSheet.rows[plan.header_row_index] ?? [];
   return {
     fileName, sheets, vehicleClass,
     targetSheetName: targetSheet.name,
@@ -110,6 +134,8 @@ function buildFileState(q: QueuedFile, plan: LlmPlan | null): FileState {
     reshapeInfo: null,
     mappings: plan.mappings.map((m) => ({ ...m, standard_key: m.standard_key === 'unmapped' ? '' : m.standard_key })),
     source: 'llm',
+    finalHeader: longHeader,
+    finalRows: targetSheet.rows.slice(plan.header_row_index + 1),
   };
 }
 
@@ -121,6 +147,8 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
   const [slowFiles, setSlowFiles] = useState<Record<string, boolean>>({});
   const [confirmed, setConfirmed] = useState(false);
   const [readingFiles, setReadingFiles] = useState<string[]>([]);
+  const [committing, setCommitting] = useState(false);
+  const [commitResults, setCommitResults] = useState<{ fileName: string; ok: boolean; message: string }[]>([]);
 
   async function handleFiles(fileList: FileList | null) {
     if (!fileList) return;
@@ -164,6 +192,42 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
         },
       };
     });
+  }
+
+  async function handleConfirm() {
+    setCommitting(true);
+    const outcomes: { fileName: string; ok: boolean; message: string }[] = [];
+    for (const r of Object.values(results)) {
+      if (r.vehicleClass !== 'car') {
+        outcomes.push({ fileName: r.fileName, ok: false, message: '화물차 원시 로그 반영은 아직 지원되지 않습니다 — 매핑만 검토했습니다.' });
+        continue;
+      }
+      try {
+        const rows = buildMappedObjects(r);
+        const res = await fetch('/api/ingest-commit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ vehicleClass: r.vehicleClass, rows }),
+        });
+        const json = await res.json();
+        if (!res.ok || !json.ok) {
+          outcomes.push({ fileName: r.fileName, ok: false, message: json.message ?? `반영 실패 (HTTP ${res.status})` });
+        } else {
+          outcomes.push({
+            fileName: r.fileName,
+            ok: json.buildOk,
+            message: json.buildOk
+              ? `차량 ${json.vehiclesWritten}대, 일별 요약 ${json.dailySummaryRowsWritten}행 반영 완료 (건너뜀 ${json.skippedRows}행)`
+              : `files2/에는 반영됐지만 build:data가 실패했습니다 — ${json.buildLog?.slice(0, 300) ?? ''}`,
+          });
+        }
+      } catch (err) {
+        outcomes.push({ fileName: r.fileName, ok: false, message: String(err) });
+      }
+    }
+    setCommitResults(outcomes);
+    setCommitting(false);
+    setConfirmed(true);
   }
 
   function hasDuplicateMapping(r: FileState): boolean {
@@ -261,15 +325,15 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
             return <FileMappingCard key={q.fileName} r={r} onUpdateMapping={updateMapping} />;
           })}
 
-          {allDone && (
+          {allDone && !confirmed && (
             <>
               <button
                 type="button"
-                disabled={anyDuplicate}
-                onClick={() => setConfirmed(true)}
+                disabled={anyDuplicate || committing}
+                onClick={handleConfirm}
                 className="tone-ok-bg tone-ok-fg w-fit rounded-md px-3 py-1.5 text-xs font-medium disabled:opacity-40"
               >
-                확인
+                {committing ? '반영 중…' : '확인 — files2/에 반영'}
               </button>
               {anyDuplicate && (
                 <p className="text-xs" style={{ color: 'var(--color-rose)' }}>같은 표준필드에 컬럼 2개 이상 매핑됨 — 중복을 해소하세요.</p>
@@ -278,14 +342,19 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
           )}
 
           {confirmed && (
-            <div className="tone-ok-bg tone-ok-bd flex flex-col items-start gap-2 rounded-md border p-4">
-              <p className="text-xs" style={{ color: 'var(--color-paper)' }}>
-                ④ 매핑 확정 완료 — 전체 파일을 이 매핑으로 재파싱해 files2/ 표준 스키마로 반영합니다.
-              </p>
+            <div className="flex flex-col items-start gap-2 rounded-md border p-4" style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)' }}>
+              <p className="text-xs font-medium" style={{ color: 'var(--color-paper)' }}>④ 반영 결과</p>
+              <ul className="flex flex-col gap-1 text-xs">
+                {commitResults.map((c) => (
+                  <li key={c.fileName} className={c.ok ? 'tone-ok-fg' : 'tone-dead-fg'}>
+                    {c.ok ? '✓' : '✗'} {c.fileName} — {c.message}
+                  </li>
+                ))}
+              </ul>
               <button
                 type="button"
                 onClick={onBack}
-                className="tone-ok-bg tone-ok-fg rounded-md px-4 py-2 text-sm font-medium"
+                className="tone-ok-bg tone-ok-fg mt-1 rounded-md px-4 py-2 text-sm font-medium"
               >
                 Safe 화면으로 이동 →
               </button>

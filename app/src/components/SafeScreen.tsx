@@ -68,14 +68,31 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
   const [classFilter, setClassFilter] = useState<ClassFilter>('all');
   const [gradeFilter, setGradeFilter] = useState<GradeFilter>('all');
   const [search, setSearch] = useState('');
+  // 입력칸은 이 draft 상태에 바로 반영되고, 실제 필터링은 확인을 눌러야 적용된다(타이핑마다 표 안 흔들리게).
+  const [classFilterDraft, setClassFilterDraft] = useState<ClassFilter>('all');
+  const [gradeFilterDraft, setGradeFilterDraft] = useState<GradeFilter>('all');
+  const [searchDraft, setSearchDraft] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
 
-  useEffect(() => {
-    fetch('/data/vehicles.json')
+  function loadVehicles() {
+    setRefreshing(true);
+    return fetch('/data/vehicles.json')
       .then((r) => r.json())
       .then(setVehicles)
-      .catch(() => setVehicles([]));
+      .catch(() => setVehicles([]))
+      .finally(() => setRefreshing(false));
+  }
+
+  useEffect(() => {
+    loadVehicles();
   }, []);
+
+  function applyFilters() {
+    setClassFilter(classFilterDraft);
+    setGradeFilter(gradeFilterDraft);
+    setSearch(searchDraft);
+  }
 
   const banner = useMemo(() => {
     if (!vehicles) return null;
@@ -144,10 +161,10 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
         </div>
       )}
 
-      <div className="flex gap-2 text-xs">
+      <div className="flex items-center gap-2 text-xs">
         <select
-          value={classFilter}
-          onChange={(e) => setClassFilter(e.target.value as ClassFilter)}
+          value={classFilterDraft}
+          onChange={(e) => setClassFilterDraft(e.target.value as ClassFilter)}
           className="rounded-md border px-2 py-1"
           style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
         >
@@ -156,8 +173,8 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
           <option value="car">승용</option>
         </select>
         <select
-          value={gradeFilter}
-          onChange={(e) => setGradeFilter(e.target.value as GradeFilter)}
+          value={gradeFilterDraft}
+          onChange={(e) => setGradeFilterDraft(e.target.value as GradeFilter)}
           className="rounded-md border px-2 py-1"
           style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
         >
@@ -167,12 +184,29 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
           ))}
         </select>
         <input
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={searchDraft}
+          onChange={(e) => setSearchDraft(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter') applyFilters(); }}
           placeholder="차량ID 검색"
           className="rounded-md border px-2 py-1"
           style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
         />
+        <button
+          type="button"
+          onClick={applyFilters}
+          className="tone-ok-bg tone-ok-fg rounded-md px-3 py-1.5 font-medium"
+        >
+          확인
+        </button>
+        <button
+          type="button"
+          onClick={loadVehicles}
+          disabled={refreshing}
+          className="rounded-md border px-3 py-1.5 disabled:opacity-40"
+          style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
+        >
+          {refreshing ? '새로고침 중…' : '새로고침'}
+        </button>
       </div>
 
       <table className="num w-full border-collapse text-xs">

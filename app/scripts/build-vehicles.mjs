@@ -21,10 +21,14 @@ const FILES2 = join(ROOT, 'files2');
 const DATA_OUT = join(ROOT, 'public', 'data');
 const FUEL_CACHE = join(ROOT, 'public', 'fixtures', 'fuel_economy_cache.json');
 
-export const MONTHS = ['2026-04', '2026-05', '2026-06', '2026-07', '2026-08'];
-
 function monthOf(dateStr) {
   return dateStr.slice(0, 7);
+}
+
+/** daily_summary.csv에 실제로 있는 월 중 최근 5개(부족하면 있는 만큼) — 실측 데이터 기간에 맞춘다. */
+function deriveMonths(dailySummary) {
+  const months = [...new Set(dailySummary.map((r) => monthOf(r.date)))].sort();
+  return months.slice(-5);
 }
 
 /** daily_summary 행들을 vehicle_id → month → laden 으로 묶어 합산한다. */
@@ -148,6 +152,8 @@ async function main() {
   writeJson(join(DATA_OUT, 'baseline_fuel.json'), baselineFuel);
 
   const byVehicleMonth = aggregateDailySummary(dailySummary);
+  const MONTHS = deriveMonths(dailySummary);
+  if (MONTHS.length === 0) throw new Error('daily_summary.csv에 유효한 날짜가 없습니다.');
 
   // 월별로 전체 차량 지표를 먼저 계산해야 그 달의 순위(관측↔연료)를 매길 수 있다.
   const metricsByMonth = new Map(); // month -> Map<vehicle_id, metrics>

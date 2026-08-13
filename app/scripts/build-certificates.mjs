@@ -5,7 +5,7 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
-import { readCsv, writeJson, num } from './lib/csv.mjs';
+import { readCsv, readCsvIfExists, writeJson, num } from './lib/csv.mjs';
 import { CO2_KG_PER_L, CONTINUOUS_DRIVE_LIMIT_SEC, IDLE_L_PER_HOUR } from './lib/constants.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -30,9 +30,11 @@ function monthOf(dateStr) {
 }
 
 function main() {
-  const trips = readCsv(join(FILES2, 'trip.csv'));
-  const legs = readCsv(join(FILES2, 'leg.csv'));
-  const events = readCsv(join(FILES2, 'event.csv'));
+  // trip/leg/event.csv는 화물차 증명서 원자료다 — 승용차만 있는 상태(트럭 데이터 아직 없음)에서도
+  // 파이프라인 전체가 죽으면 안 된다(§CLAUDE.md "둘 중 하나만 있어도 판단한다"). 없으면 빈 증명서로.
+  const trips = readCsvIfExists(join(FILES2, 'trip.csv'));
+  const legs = readCsvIfExists(join(FILES2, 'leg.csv'));
+  const events = readCsvIfExists(join(FILES2, 'event.csv'));
   const vehicles = readCsv(join(FILES2, 'vehicle_master.csv'));
   const vehiclesJson = JSON.parse(
     // build-vehicles.mjs가 먼저 실행되어 있어야 한다(build-all.mjs가 순서 보장).

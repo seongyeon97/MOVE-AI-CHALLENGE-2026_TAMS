@@ -36,30 +36,71 @@ function tryRegistration(vehicle) {
   return { kmpl, source: 'registration', trust: 'A' };
 }
 
-// ② 공공데이터포털 — DATA_GO_KR_KEY 없으면 조용히 스킵(에러 아님).
+// ② 공공데이터포털 — 한국에너지공단 자동차 표시연비(B553530/CAREFF/CAREFF_LIST).
+// 이 오퍼레이션은 서버 쪽 모델명 검색을 지원하지 않는다(q1/MODEL_NM 파라미터 다 무시하고 전체를 돌려준다) —
+// 그래서 전체 목록(3천여 건)을 빌드당 한 번만 받아 메모리에 캐싱하고 로컬에서 매칭한다.
+// serviceKey는 data.go.kr이 이미 퍼센트인코딩한 값 그대로 온다 — URLSearchParams에 넣으면
+// 다시 인코딩돼(%2F→%252F) 인증이 깨지므로 문자열에 직접 붙인다.
+const CAREFF_ENDPOINT = 'https://apis.data.go.kr/B553530/CAREFF/CAREFF_LIST';
+
+let careffListPromise = null;
+async function loadCareffList(key) {
+  if (careffListPromise) return careffListPromise;
+  careffListPromise = (async () => {
+    const numOfRows = 100;
+    let page = 1;
+    const all = [];
+    for (;;) {
+      const url = `${CAREFF_ENDPOINT}?serviceKey=${key}&pageNo=${page}&numOfRows=${numOfRows}&apiType=json`;
+      const controller = new AbortController();
+      const t = setTimeout(() => controller.abort(), 30000);
+      let json;
+      try {
+        const res = await fetch(url, { signal: controller.signal });
+        if (!res.ok) break;
+        json = await res.json();
+      } finally {
+        clearTimeout(t);
+      }
+      const items = json?.response?.body?.items?.item ?? [];
+      const batch = Array.isArray(items) ? items : [items];
+      all.push(...batch);
+      const totalCount = Number(json?.response?.body?.totalCount ?? 0);
+      if (batch.length === 0 || all.length >= totalCount) break;
+      page += 1;
+    }
+    return all;
+  })();
+  return careffListPromise;
+}
+
+function normalizeForMatch(s) {
+  return String(s ?? '').replace(/\s+/g, '').toLowerCase();
+}
+
 async function tryPublicApi(vehicle) {
   const key = process.env.DATA_GO_KR_KEY;
   if (!key) return null;
-
-  const endpoint = 'https://apis.data.go.kr/B552584/EfficiencyClassAvgInfoService/getRenewalCompareAvgEfficiency';
-  const params = new URLSearchParams({
-    serviceKey: key,
-    manufacturerNm: vehicle.maker ?? '',
-    modelNm: vehicle.model ?? '',
-    year: vehicle.year ?? '',
-    _type: 'json',
-    numOfRows: '5',
-  });
+  const modelNorm = normalizeForMatch(vehicle.model);
+  if (!modelNorm) return null;
 
   try {
-    const controller = new AbortController();
-    const t = setTimeout(() => controller.abort(), 30000);
-    const res = await fetch(`${endpoint}?${params}`, { signal: controller.signal });
-    clearTimeout(t);
-    if (!res.ok) return null;
-    const json = await res.json();
-    const item = json?.response?.body?.items?.item?.[0];
-    const kmpl = Number(item?.복합연비 ?? item?.avgEfficiency);
+    const list = await loadCareffList(key);
+    const makerNorm = normalizeForMatch(vehicle.maker);
+    const fuelNorm = normalizeForMatch(vehicle.fuel_type);
+    const candidates = list.filter((item) => {
+      const itemModel = normalizeForMatch(item.MODEL_NM);
+      return itemModel && (itemModel.includes(modelNorm) || modelNorm.includes(itemModel));
+    });
+    // 같은 모델명이라도 트림별로 연료가 갈린다("포터"만 해도 경유/LPG/전기 변형 5-60개) — 제조사보다
+    // 연료종류가 먼저 좁혀야 엉뚱한 트림(예: EV 변형)이 첫 매치로 잡히지 않는다.
+    const best =
+      (makerNorm && fuelNorm && candidates.find((item) => normalizeForMatch(item.COMP_NM).includes(makerNorm) && normalizeForMatch(item.FUEL_NM) === fuelNorm)) ||
+      (fuelNorm && candidates.find((item) => normalizeForMatch(item.FUEL_NM) === fuelNorm)) ||
+      (makerNorm && candidates.find((item) => normalizeForMatch(item.COMP_NM).includes(makerNorm))) ||
+      candidates[0];
+    if (!best) return null;
+    const kmpl = Number(best.DISPLAY_EFF); // 표시연비(복합연비)
     if (!Number.isFinite(kmpl) || kmpl <= 0) return null;
     return { kmpl, source: 'public_api', trust: 'A' };
   } catch {

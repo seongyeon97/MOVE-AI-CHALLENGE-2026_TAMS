@@ -7,7 +7,7 @@
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
-import { readCsv, writeJson } from './lib/csv.mjs';
+import { readCsvIfExists, writeJson } from './lib/csv.mjs';
 import { findCrossing } from './lib/geofence.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -68,12 +68,19 @@ function judgeLeg(leg, points, settings) {
 }
 
 function main() {
-  const settings = JSON.parse(readFileSync(join(ROOT, 'public', 'fixtures', 'settings.json'), 'utf-8'));
+  // settings.json 시드는 없앴다(더미 데이터 정리) — 설정 화면에서 실제 등록한 것만 쓴다. 빌드 시점엔
+  // 아직 아무것도 없을 수 있으므로 빈 값으로 시작해도 죽지 않게 한다(구간귀속은 전부 failed 처리됨).
+  let settings = { sites: [], corridors: [] };
+  try {
+    settings = JSON.parse(readFileSync(join(ROOT, 'public', 'fixtures', 'settings.json'), 'utf-8'));
+  } catch {
+    // 파일 없으면 빈 설정 그대로 — 정상 동작.
+  }
 
-  const legs = readCsv(join(FILES2, 'leg.csv'));
+  const legs = readCsvIfExists(join(FILES2, 'leg.csv'));
   const legsByTrip = groupBy(legs, 'trip_id');
 
-  const dtgTrack = readCsv(join(FILES2, 'dtg_track.csv'));
+  const dtgTrack = readCsvIfExists(join(FILES2, 'dtg_track.csv'));
   const pointsByTrip = groupBy(dtgTrack, 'trip_id');
   for (const [tripId, rows] of pointsByTrip) {
     const sorted = rows

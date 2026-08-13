@@ -34,6 +34,7 @@ export const TRUCK_SCHEMA: StandardField[] = [
 /** 승용차 — 주행(trip) 1건당 이미 집계된 안전·연비 지표 기준. 원시 GPS 스트림이 아니다. */
 export const CAR_SCHEMA: StandardField[] = [
   { key: 'vehicle_id', label: '차량ID', type: 'string', missing_impact: '차량 식별 불가 — 이 파일 전체가 매칭 대상에서 제외됨' },
+  { key: 'model', label: '모델명', type: 'string', missing_impact: '기준연비 공공API 조회 불가 — AI추정/픽스처 경로로만 진행' },
   { key: 'driver_id', label: '운전자/사번', type: 'string', missing_impact: '기사뷰 개인화 불가(차량 단위로만 표시)' },
   { key: 'trip_start', label: '주행시작시각', type: 'timestamp', missing_impact: '월별 집계·5개월 순위 이력 구성 불가' },
   { key: 'trip_end', label: '주행종료시각', type: 'timestamp', missing_impact: '운행시간 기반 검증(연속운전 등) 불가' },

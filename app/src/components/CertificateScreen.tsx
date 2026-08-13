@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { Certificate, Grade, VehicleClass } from '../types';
+import type { Certificate, Grade } from '../types';
 import { GRADE_META, GRADE_ORDER } from '../lib/grade';
 import { aggregateCertificates } from '../lib/certificateAggregate';
 import { loadSettings, type Settings } from '../lib/settings';
@@ -17,12 +17,11 @@ function ToneBadge({ tone, label }: { tone: string; label: string }) {
 const ATTRIBUTION_LABEL: Record<string, string> = { verified: '검증됨', partial: '부분 검증', failed: '검증 불가' };
 const ATTRIBUTION_TONE: Record<string, string> = { verified: 'ok', partial: 'warn', failed: 'dead' };
 
+// 증명서는 화물차(트랙터)만 대상이다 — 승용차는 화물 운송을 하지 않으므로 대상 아님(PRD §3.4).
 export function CertificateScreen() {
   const [certs, setCerts] = useState<Certificate[] | null>(null);
   const [settings, setSettings] = useState<Settings | null>(null);
-  const [vehicleClass, setVehicleClass] = useState<VehicleClass>('truck');
   const [corridorId, setCorridorId] = useState<string>('');
-  const [vehicleId, setVehicleId] = useState<string>('');
   const [monthFrom, setMonthFrom] = useState<string>('');
   const [monthTo, setMonthTo] = useState<string>('');
   const [gradeFilter, setGradeFilter] = useState<GradeFilter>('all');
@@ -32,7 +31,7 @@ export function CertificateScreen() {
     loadSettings().then(setSettings);
   }, []);
 
-  const pool = useMemo(() => (certs ?? []).filter((c) => c.vehicle_class === vehicleClass), [certs, vehicleClass]);
+  const pool = useMemo(() => (certs ?? []).filter((c) => c.vehicle_class === 'truck'), [certs]);
 
   const corridorOptions = useMemo(() => {
     const ids = new Set(
@@ -43,26 +42,18 @@ export function CertificateScreen() {
     return [...ids].map((id) => ({ id, name: settings?.corridors.find((c) => c.corridor_id === id)?.name ?? id }));
   }, [pool, settings]);
 
-  const vehicleOptions = useMemo(() => [...new Set(pool.map((c) => c.vehicle_id))], [pool]);
-
   const months = useMemo(() => [...new Set((certs ?? []).map((c) => c.month))].sort(), [certs]);
 
-  const selected = vehicleClass === 'truck' ? corridorId : vehicleId;
-
   const filtered = useMemo(() => {
-    if (!selected) return [];
+    if (!corridorId) return [];
     return pool.filter((c) => {
-      if (vehicleClass === 'truck') {
-        if (!c.attribution.applicable || c.attribution.corridor_id !== corridorId) return false;
-      } else if (c.vehicle_id !== vehicleId) {
-        return false;
-      }
+      if (!c.attribution.applicable || c.attribution.corridor_id !== corridorId) return false;
       if (monthFrom && c.month < monthFrom) return false;
       if (monthTo && c.month > monthTo) return false;
       if (gradeFilter !== 'all' && c.grade !== gradeFilter) return false;
       return true;
     });
-  }, [pool, vehicleClass, corridorId, vehicleId, monthFrom, monthTo, gradeFilter, selected]);
+  }, [pool, corridorId, monthFrom, monthTo, gradeFilter]);
 
   const aggregate = useMemo(() => aggregateCertificates(filtered), [filtered]);
 
@@ -74,45 +65,17 @@ export function CertificateScreen() {
     <div className="flex flex-col gap-4 p-6">
       <h1 className="text-sm font-medium" style={{ color: 'var(--color-paper)' }}>증명서 발급</h1>
       <p className="text-xs" style={{ color: 'var(--color-dim)' }}>
-        데이터가 업로드된 차량은 화물·승용 구분 없이 전부 발급 대상입니다. 화물차는 지오펜스 구간귀속이 있고, 승용차는 없습니다.
+        화물차(트랙터)만 발급 대상입니다 — 승용차는 화물 운송을 하지 않으므로 대상이 아닙니다.
       </p>
 
-      <div className="flex gap-2 text-xs">
-        {(['truck', 'car'] as const).map((cls) => (
-          <button
-            key={cls}
-            type="button"
-            onClick={() => { setVehicleClass(cls); setCorridorId(''); setVehicleId(''); }}
-            className="rounded-md border px-3 py-1.5"
-            style={{
-              borderColor: vehicleClass === cls ? 'var(--color-teal)' : 'var(--color-line)',
-              color: 'var(--color-paper)',
-              background: vehicleClass === cls ? 'var(--color-panel-2)' : 'transparent',
-            }}
-          >
-            {cls === 'truck' ? '화물차' : '승용차'}
-          </button>
-        ))}
-      </div>
-
       <div className="flex flex-wrap items-end gap-2 text-xs">
-        {vehicleClass === 'truck' ? (
-          <label className="flex flex-col gap-1">
-            <span style={{ color: 'var(--color-slate)' }}>운송구간</span>
-            <select value={corridorId} onChange={(e) => setCorridorId(e.target.value)} className="rounded-md border px-2 py-1" style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}>
-              <option value="">선택</option>
-              {corridorOptions.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
-            </select>
-          </label>
-        ) : (
-          <label className="flex flex-col gap-1">
-            <span style={{ color: 'var(--color-slate)' }}>차량번호</span>
-            <select value={vehicleId} onChange={(e) => setVehicleId(e.target.value)} className="rounded-md border px-2 py-1" style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}>
-              <option value="">선택</option>
-              {vehicleOptions.map((id) => <option key={id} value={id}>{id}</option>)}
-            </select>
-          </label>
-        )}
+        <label className="flex flex-col gap-1">
+          <span style={{ color: 'var(--color-slate)' }}>운송구간</span>
+          <select value={corridorId} onChange={(e) => setCorridorId(e.target.value)} className="rounded-md border px-2 py-1" style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}>
+            <option value="">선택</option>
+            {corridorOptions.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+          </select>
+        </label>
 
         <label className="flex flex-col gap-1">
           <span style={{ color: 'var(--color-slate)' }}>기간(부터)</span>
@@ -137,28 +100,20 @@ export function CertificateScreen() {
         </label>
       </div>
 
-      {!selected && (
-        <p className="text-xs" style={{ color: 'var(--color-dim)' }}>
-          {vehicleClass === 'truck' ? '운송구간을' : '차량번호를'} 먼저 선택하세요.
-        </p>
+      {!corridorId && (
+        <p className="text-xs" style={{ color: 'var(--color-dim)' }}>운송구간을 먼저 선택하세요.</p>
       )}
 
-      {selected && filtered.length === 0 && (
+      {corridorId && filtered.length === 0 && (
         <p className="text-xs" style={{ color: 'var(--color-dim)' }}>선택한 조건에 해당하는 운송건이 없습니다.</p>
       )}
 
-      {aggregate && <CertificateDocument aggregate={aggregate} vehicleClass={vehicleClass} />}
+      {aggregate && <CertificateDocument aggregate={aggregate} />}
     </div>
   );
 }
 
-function CertificateDocument({
-  aggregate,
-  vehicleClass,
-}: {
-  aggregate: NonNullable<ReturnType<typeof aggregateCertificates>>;
-  vehicleClass: VehicleClass;
-}) {
+function CertificateDocument({ aggregate }: { aggregate: NonNullable<ReturnType<typeof aggregateCertificates>> }) {
   const { trips, data_tier_counts, attribution_counts, safety, eco } = aggregate;
   const first = trips[0];
 
@@ -168,7 +123,7 @@ function CertificateDocument({
       <div>
         <p className="text-sm font-medium" style={{ color: 'var(--color-paper)' }}>운송 안전·친환경 증명서</p>
         <p className="num mt-1 text-xs" style={{ color: 'var(--color-slate)' }}>
-          {first.vehicle_class === 'truck' ? first.origin_site + ' ↔ ' + first.destination_site : first.vehicle_id} ·
+          {first.origin_site} ↔ {first.destination_site} ·
           {' '}운송건 {trips.length}건 · 신뢰등급 배지 {[...new Set(trips.map((t) => t.grade))].join('/')}
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>
@@ -177,33 +132,26 @@ function CertificateDocument({
         </p>
       </div>
 
-      {/* ② 구간 귀속 검증 — 화물만 */}
-      {vehicleClass === 'truck' ? (
-        <section>
-          <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>구간 귀속 검증</p>
-          {attribution_counts ? (
-            <div className="flex gap-3 text-xs">
-              {(['verified', 'partial', 'failed'] as const).map((s) => (
-                attribution_counts[s] > 0 && (
-                  <span key={s}>
-                    <ToneBadge tone={ATTRIBUTION_TONE[s]} label={ATTRIBUTION_LABEL[s]} /> {attribution_counts[s]}건
-                  </span>
-                )
-              ))}
-            </div>
-          ) : (
-            <p className="text-xs" style={{ color: 'var(--color-dim)' }}>구간귀속 판정 없음</p>
-          )}
-          <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>
-            판정 오차는 ±샘플링간격/2로 함께 표기됩니다. verified는 출발·도착 사업장 모두 지오펜스 교차 검출, partial은 한쪽만, failed는 둘 다 미검출입니다.
-          </p>
-        </section>
-      ) : (
-        <section>
-          <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>구간 귀속 검증</p>
-          <p className="text-xs" style={{ color: 'var(--color-dim)' }}>승용차는 구간귀속 검증 대상이 아닙니다(고정 운송구간 없음).</p>
-        </section>
-      )}
+      {/* ② 구간 귀속 검증 */}
+      <section>
+        <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>구간 귀속 검증</p>
+        {attribution_counts ? (
+          <div className="flex gap-3 text-xs">
+            {(['verified', 'partial', 'failed'] as const).map((s) => (
+              attribution_counts[s] > 0 && (
+                <span key={s}>
+                  <ToneBadge tone={ATTRIBUTION_TONE[s]} label={ATTRIBUTION_LABEL[s]} /> {attribution_counts[s]}건
+                </span>
+              )
+            ))}
+          </div>
+        ) : (
+          <p className="text-xs" style={{ color: 'var(--color-dim)' }}>구간귀속 판정 없음</p>
+        )}
+        <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>
+          판정 오차는 ±샘플링간격/2로 함께 표기됩니다. verified는 출발·도착 사업장 모두 지오펜스 교차 검출, partial은 한쪽만, failed는 둘 다 미검출입니다.
+        </p>
+      </section>
 
       {/* ③ 안전 */}
       <section>
@@ -223,8 +171,7 @@ function CertificateDocument({
         <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>친환경(Eco)</p>
         <ul className="num space-y-0.5 text-xs" style={{ color: 'var(--color-mist)' }}>
           <li>CO₂ {eco.co2_kg.toFixed(1)}kg</li>
-          {eco.g_co2_per_tonkm !== null && <li>원단위 {eco.g_co2_per_tonkm.toFixed(1)} gCO₂/ton-km (Scope 1, 트랙터)</li>}
-          {eco.g_co2_per_km !== null && <li>원단위 {eco.g_co2_per_km.toFixed(1)} gCO₂/km (Scope 1, 승용 — 톤킬로 산정 불가)</li>}
+          {eco.g_co2_per_tonkm !== null && <li>원단위 {eco.g_co2_per_tonkm.toFixed(1)} gCO₂/ton-km (Scope 1)</li>}
           <li>공차 구간 비중 {(eco.empty_share * 100).toFixed(0)}%</li>
         </ul>
       </section>

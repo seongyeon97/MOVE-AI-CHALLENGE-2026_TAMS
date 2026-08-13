@@ -97,6 +97,28 @@ export function writeJson(path, data) {
   writeFileSync(path, JSON.stringify(data, null, 2), 'utf-8');
 }
 
+function escCsvCell(value) {
+  const s = String(value ?? '');
+  return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+
+/** 객체 배열을 CSV로 쓴다(header 순서 그대로). ingest-commit처럼 실제 데이터를 files2/에 반영할 때 쓴다. */
+export function writeCsv(path, header, rows) {
+  assertNotForbidden(path);
+  const text = [header.join(','), ...rows.map((r) => header.map((h) => escCsvCell(r[h])).join(','))].join('\n') + '\n';
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, text, 'utf-8');
+}
+
+/** 이미 있으면 읽고, 없으면 빈 배열 — ingest-commit이 기존 files2/*.csv에 병합할 때 쓴다. */
+export function readCsvIfExists(path) {
+  try {
+    return readCsv(path);
+  } catch {
+    return [];
+  }
+}
+
 /** 문자열/undefined를 숫자로. 빈 값·NaN은 fallback(기본 0). */
 export function num(value, fallback = 0) {
   if (value === undefined || value === null || value === '') return fallback;
