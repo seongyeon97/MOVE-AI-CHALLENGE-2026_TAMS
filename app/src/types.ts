@@ -143,6 +143,25 @@ export type Certificate = {
   attribution: Attribution;
 };
 
+export type EcoRow = {
+  vehicle_id: string;
+  vehicle_class: VehicleClass;
+  scope: 1 | 3;
+  grade: Grade | null;
+  tone: Tone | null;
+  tier: 1 | 3;
+  baseline: BaselineFuel;
+  distance_km: number;
+  fuel_l: number;
+  co2_kg: number;
+  ton_km: number | null;
+  g_co2_per_tonkm: number | null;
+  g_co2_per_km: number | null;
+  measurement_gap_kg: number | null;
+  reduction_headroom_kg: number;
+  empty_share: number;
+};
+
 export type Role = 'company' | 'driver';
 
 export type Screen = 'safe' | 'eco' | 'heatmap' | 'certificate' | 'settings';

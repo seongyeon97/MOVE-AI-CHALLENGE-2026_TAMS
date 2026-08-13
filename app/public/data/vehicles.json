@@ -12,7 +12,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "A",
     "grade_label": "센서 과민",
@@ -146,7 +146,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "A",
     "grade_label": "센서 과민",
@@ -280,7 +280,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "A",
     "grade_label": "센서 과민",
@@ -414,7 +414,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "C",
     "grade_label": "센서 침묵",
@@ -548,7 +548,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -682,7 +682,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -816,7 +816,7 @@
       "trust": "C",
       "kmpl_empty": 3.564,
       "kmpl_laden": 2.574,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -950,7 +950,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "C",
     "grade_label": "센서 침묵",
@@ -1084,7 +1084,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "C",
     "grade_label": "센서 침묵",
@@ -1218,7 +1218,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "C",
     "grade_label": "센서 침묵",
@@ -1352,7 +1352,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "C",
     "grade_label": "센서 침묵",
@@ -1486,7 +1486,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "D",
     "grade_label": "측정 불가",
@@ -1620,7 +1620,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "D",
     "grade_label": "측정 불가",
@@ -1754,7 +1754,7 @@
       "trust": "C",
       "kmpl_empty": 14,
       "kmpl_laden": 14,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -1888,7 +1888,7 @@
       "trust": "C",
       "kmpl_empty": 13.2,
       "kmpl_laden": 13.2,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2022,7 +2022,7 @@
       "trust": "C",
       "kmpl_empty": 12.8,
       "kmpl_laden": 12.8,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2156,7 +2156,7 @@
       "trust": "C",
       "kmpl_empty": 12.1,
       "kmpl_laden": 12.1,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2290,7 +2290,7 @@
       "trust": "C",
       "kmpl_empty": 11.4,
       "kmpl_laden": 11.4,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2424,7 +2424,7 @@
       "trust": "C",
       "kmpl_empty": 9.6,
       "kmpl_laden": 9.6,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2558,7 +2558,7 @@
       "trust": "C",
       "kmpl_empty": 12.6,
       "kmpl_laden": 12.6,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2692,7 +2692,7 @@
       "trust": "C",
       "kmpl_empty": 17.6,
       "kmpl_laden": 17.6,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2826,7 +2826,7 @@
       "trust": "C",
       "kmpl_empty": 5,
       "kmpl_laden": 5,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",
@@ -2960,7 +2960,7 @@
       "trust": "C",
       "kmpl_empty": 13.6,
       "kmpl_laden": 13.6,
-      "fetched_at": "2026-08-13T01:31:51.360Z"
+      "fetched_at": "2026-08-13T01:41:52.002Z"
     },
     "grade": "정상",
     "grade_label": "정상",

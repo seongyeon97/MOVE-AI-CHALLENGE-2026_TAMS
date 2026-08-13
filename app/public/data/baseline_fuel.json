@@ -5,7 +5,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T02": {
     "kmpl": 3.6,
@@ -13,7 +13,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T03": {
     "kmpl": 3.6,
@@ -21,7 +21,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T04": {
     "kmpl": 3.6,
@@ -29,7 +29,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T05": {
     "kmpl": 3.6,
@@ -37,7 +37,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T06": {
     "kmpl": 3.6,
@@ -45,7 +45,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T07": {
     "kmpl": 3.3,
@@ -53,7 +53,7 @@
     "trust": "C",
     "kmpl_empty": 3.564,
     "kmpl_laden": 2.574,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T08": {
     "kmpl": 3.6,
@@ -61,7 +61,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T09": {
     "kmpl": 3.6,
@@ -69,7 +69,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T10": {
     "kmpl": 3.6,
@@ -77,7 +77,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T11": {
     "kmpl": 3.6,
@@ -85,7 +85,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T12": {
     "kmpl": 3.6,
@@ -93,7 +93,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-T13": {
     "kmpl": 3.6,
@@ -101,7 +101,7 @@
     "trust": "A",
     "kmpl_empty": 3.888,
     "kmpl_laden": 2.808,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-C01": {
     "kmpl": 14,
@@ -109,7 +109,7 @@
     "trust": "C",
     "kmpl_empty": 14,
     "kmpl_laden": 14,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-C02": {
     "kmpl": 13.2,
@@ -117,7 +117,7 @@
     "trust": "C",
     "kmpl_empty": 13.2,
     "kmpl_laden": 13.2,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-C03": {
     "kmpl": 12.8,
@@ -125,7 +125,7 @@
     "trust": "C",
     "kmpl_empty": 12.8,
     "kmpl_laden": 12.8,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-C04": {
     "kmpl": 12.1,
@@ -133,7 +133,7 @@
     "trust": "C",
     "kmpl_empty": 12.1,
     "kmpl_laden": 12.1,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-C05": {
     "kmpl": 11.4,
@@ -141,7 +141,7 @@
     "trust": "C",
     "kmpl_empty": 11.4,
     "kmpl_laden": 11.4,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-C06": {
     "kmpl": 9.6,
@@ -149,7 +149,7 @@
     "trust": "C",
     "kmpl_empty": 9.6,
     "kmpl_laden": 9.6,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-C07": {
     "kmpl": 12.6,
@@ -157,7 +157,7 @@
     "trust": "C",
     "kmpl_empty": 12.6,
     "kmpl_laden": 12.6,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-C08": {
     "kmpl": 17.6,
@@ -165,7 +165,7 @@
     "trust": "C",
     "kmpl_empty": 17.6,
     "kmpl_laden": 17.6,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-C09": {
     "kmpl": 5,
@@ -173,7 +173,7 @@
     "trust": "C",
     "kmpl_empty": 5,
     "kmpl_laden": 5,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   },
   "GLV-C10": {
     "kmpl": 13.6,
@@ -181,6 +181,6 @@
     "trust": "C",
     "kmpl_empty": 13.6,
     "kmpl_laden": 13.6,
-    "fetched_at": "2026-08-13T01:31:51.360Z"
+    "fetched_at": "2026-08-13T01:41:52.002Z"
   }
 }
