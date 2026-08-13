@@ -8,8 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "build:data": "node scripts/build-all.mjs",
-    "dev:sample-data": "node scripts/dev/generate-sample-files2.mjs"
+    "build:data": "node scripts/build-all.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",

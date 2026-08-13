@@ -166,4 +166,4 @@ export type EcoRow = {
 
 export type Role = 'company' | 'driver';
 
-export type Screen = 'safe' | 'eco' | 'heatmap' | 'certificate' | 'settings' | 'ingest' | 'integrity-demo';
+export type Screen = 'safe' | 'eco' | 'heatmap' | 'certificate' | 'settings' | 'ingest';

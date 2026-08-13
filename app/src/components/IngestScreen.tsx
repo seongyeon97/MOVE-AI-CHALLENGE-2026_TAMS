@@ -112,7 +112,7 @@ function buildFileState(fileName: string, sheets: SheetData[], plan: LlmPlan | n
   };
 }
 
-export function IngestScreen({ onBack, onOpenIntegrityDemo }: { onBack: () => void; onOpenIntegrityDemo: () => void }) {
+export function IngestScreen({ onBack }: { onBack: () => void }) {
   const [queued, setQueued] = useState<{ fileName: string; sheets: SheetData[] }[]>([]);
   const [results, setResults] = useState<Record<string, FileState>>({});
   const [parseStarted, setParseStarted] = useState(false);
@@ -165,10 +165,7 @@ export function IngestScreen({ onBack, onOpenIntegrityDemo }: { onBack: () => vo
     <div className="flex flex-col gap-4 p-6">
       <div className="flex items-center justify-between">
         <h1 className="text-sm font-medium" style={{ color: 'var(--color-paper)' }}>데이터 업로드</h1>
-        <div className="flex items-center gap-3">
-          <button type="button" onClick={onOpenIntegrityDemo} className="text-xs" style={{ color: 'var(--color-slate)' }}>조작탐지 데모 →</button>
-          <button type="button" onClick={onBack} className="text-xs" style={{ color: 'var(--color-slate)' }}>← Safe로</button>
-        </div>
+        <button type="button" onClick={onBack} className="text-xs" style={{ color: 'var(--color-slate)' }}>← Safe로</button>
       </div>
 
       <input
@@ -284,7 +281,7 @@ export function IngestScreen({ onBack, onOpenIntegrityDemo }: { onBack: () => vo
           )}
           {confirmed && (
             <p className="text-xs" style={{ color: 'var(--color-dim)' }}>
-              매핑 확정 — 전체 파일 재파싱 + 진단(runDiagnosis) + 정합성 검사(runIntegrityCheck)를 동시 실행합니다. (트랙12에서 실제 판정 로직 연결)
+              매핑 확정 — 전체 파일을 이 매핑으로 재파싱해 files2/ 표준 스키마로 반영합니다.
             </p>
           )}
         </div>

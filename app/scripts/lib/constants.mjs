@@ -15,17 +15,6 @@ export const RANK_INVERSION_MIN = 2;
 export const LADEN_FACTOR = 0.78;
 export const EMPTY_FACTOR = 1.08;
 
-// 위변조 정합성 검사 임계값 — 출처 등급: 설정값 (미확정). §산출기준서 1-4.
-export const R2_MAX_AVG_SPEED_KMH = 110;
-export const R3_MAX_INTEGRAL_DEVIATION = 0.15;
-export const R4_MIN_DUPLICATE_RUN = 5;
-export const R5_MAX_ODO_JUMP_SPEED_KMH = 150;
-export const R5_MIN_ODO_REGRESSION = -0.05;
-export const SAMPLING_INTERVAL_HOLD_SEC = 120; // 이 이상이면 R3·R4 "판정 보류"
-
-// 조작탐지 F1/F2 — §BUILD_SEQUENCE 12.
-export const DISPATCH_DISTANCE_TOLERANCE = 0.1;
-
 // 신뢰등급 5단계. tone 값은 index.css의 .tone-* 클래스와 1:1 대응.
 // 등급→톤 매핑은 이 객체 하나에서만 나온다 — 다른 곳에서 새로 매핑하지 않는다.
 export const GRADE_META = {

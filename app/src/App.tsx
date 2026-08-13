@@ -6,7 +6,6 @@ import { SafeScreen } from './components/SafeScreen';
 import { CertificateScreen } from './components/CertificateScreen';
 import { EcoScreen } from './components/EcoScreen';
 import { IngestScreen } from './components/IngestScreen';
-import { IntegrityCompareScreen } from './components/IntegrityCompareScreen';
 import { SettingsScreen } from './components/SettingsScreen';
 import { Placeholder } from './components/Placeholder';
 import { useAnyOpenDeviceRequest } from './lib/deviceRequests';
@@ -52,8 +51,7 @@ function CompanyShell({
         {screen === 'heatmap' && <Placeholder title="Heat-map" />}
         {screen === 'certificate' && <CertificateScreen />}
         {screen === 'settings' && <SettingsScreen />}
-        {screen === 'ingest' && <IngestScreen onBack={() => setScreen('safe')} onOpenIntegrityDemo={() => setScreen('integrity-demo')} />}
-        {screen === 'integrity-demo' && <IntegrityCompareScreen />}
+        {screen === 'ingest' && <IngestScreen onBack={() => setScreen('safe')} />}
       </main>
     </div>
   );
