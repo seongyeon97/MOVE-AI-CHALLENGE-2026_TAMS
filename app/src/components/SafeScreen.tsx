@@ -4,6 +4,9 @@ import { GRADE_META, GRADE_ORDER } from '../lib/grade';
 import { FUEL_SOURCE_META } from '../lib/fuelSource';
 import { scoreOf } from '../lib/score';
 import { buildVehicleReport, signalRatioOf } from '../lib/report';
+import { sendNotice, useLatestNoticeStatus } from '../lib/notices';
+import { useOpenDeviceRequest } from '../lib/deviceRequests';
+import { ALL_VEHICLES } from '../lib/channels';
 
 type ClassFilter = 'all' | VehicleClass;
 type GradeFilter = 'all' | Grade;
@@ -34,6 +37,29 @@ function RankStrip({ vehicle }: { vehicle: Vehicle }) {
         );
       })}
     </div>
+  );
+}
+
+function StatusDots({ vehicleId }: { vehicleId: string }) {
+  const notice = useLatestNoticeStatus(vehicleId);
+  const deviceRequest = useOpenDeviceRequest(vehicleId);
+
+  const noticeColor = !notice ? 'var(--color-line)' : notice.acknowledged ? 'var(--color-teal)' : 'var(--color-rose)';
+  const deviceColor = deviceRequest ? 'var(--color-amber)' : 'var(--color-line)';
+
+  return (
+    <span className="inline-flex gap-1">
+      <span
+        className="inline-block h-1.5 w-1.5 rounded-full"
+        style={{ background: noticeColor }}
+        title={!notice ? '공지 없음' : notice.acknowledged ? '공지 확인됨' : '공지 미확인'}
+      />
+      <span
+        className="inline-block h-1.5 w-1.5 rounded-full"
+        style={{ background: deviceColor }}
+        title={deviceRequest ? '단말점검 요청 접수됨' : '단말점검 요청 없음'}
+      />
+    </span>
   );
 }
 
@@ -90,7 +116,16 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
             <button
               key={label}
               type="button"
-              onClick={label === '데이터 업로드' ? onOpenIngest : undefined}
+              onClick={
+                label === '데이터 업로드'
+                  ? onOpenIngest
+                  : label === '전체 공지 발송'
+                    ? () => {
+                        const message = window.prompt('전체 차량에 보낼 공지 내용을 입력하세요.');
+                        if (message) sendNotice(ALL_VEHICLES, message);
+                      }
+                    : undefined
+              }
               className="rounded-md border px-3 py-1.5 text-xs"
               style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
             >
@@ -189,8 +224,7 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
                   <td className="py-2 pr-2"><RankStrip vehicle={v} /></td>
                   <td className="py-2 pr-2">{score ?? '—'}</td>
                   <td className="py-2 pr-2">
-                    <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: 'var(--color-line)' }} />{' '}
-                    <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: 'var(--color-line)' }} />
+                    <StatusDots vehicleId={v.vehicle_id} />
                   </td>
                 </tr>
                 {isExpanded && (
@@ -278,6 +312,10 @@ function VehicleDetailPanel({ vehicle }: { vehicle: Vehicle }) {
         <p className="text-xs" style={{ color: 'var(--color-mist)' }}>{buildVehicleReport(vehicle)}</p>
         <button
           type="button"
+          onClick={() => {
+            const message = window.prompt(`${vehicle.vehicle_id}에 보낼 공지 내용을 입력하세요.`);
+            if (message) sendNotice(vehicle.vehicle_id, message);
+          }}
           className="tone-ok-bg tone-ok-fg mt-3 rounded-md px-3 py-1.5 text-xs font-medium"
         >
           공지사항 발송
