@@ -112,19 +112,6 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
 
   const coverage = useMemo(() => (bundle ? coverageByVehicle(bundle) : null), [bundle]);
 
-  const banner = useMemo(() => {
-    if (!vehicles) return null;
-    let best: { vehicle: Vehicle; delta: number } | null = null;
-    for (const v of vehicles) {
-      const first = v.monthly[0];
-      const last = v.monthly[v.monthly.length - 1];
-      if (first.fuel_rank === null || last.fuel_rank === null) continue;
-      const delta = first.fuel_rank - last.fuel_rank;
-      if (!best || Math.abs(delta) > Math.abs(best.delta)) best = { vehicle: v, delta };
-    }
-    return best;
-  }, [vehicles]);
-
   if (!vehicles || !range || !rangeDraft) {
     return (
       <div className="p-6 text-sm" style={{ color: 'var(--color-dim)' }}>
@@ -179,14 +166,11 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
         </div>
       </div>
 
-      {banner && banner.delta !== 0 && (
-        <div className="tone-warn-bg tone-warn-bd rounded-md border px-4 py-2 text-sm">
-          <span className="tone-warn-fg font-medium">{banner.vehicle.vehicle_id}</span>
-          {' — 4월 대비 8월 순위 '}
-          <span className="num">{Math.abs(banner.delta)}</span>
-          {`단계 ${banner.delta > 0 ? '상승' : '하락'} (연료 기준)`}
-        </div>
-      )}
+      {/* 차종별 관리수준 — 특정 차량 순위가 아니라 "지금 어느 수준인가"를 먼저 보여준다. */}
+      <div className="grid gap-3 sm:grid-cols-2">
+        <ManagementLevel title="승용차" vehicles={vehicles.filter((v) => v.vehicle_class === 'car')} />
+        <ManagementLevel title="화물차" vehicles={vehicles.filter((v) => v.vehicle_class === 'truck')} />
+      </div>
 
       <div className="flex flex-wrap items-center gap-2 text-xs">
         <label className="flex items-center gap-1" style={{ color: 'var(--color-slate)' }}>
@@ -359,6 +343,35 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
             </table>
           </div>
         </div>
+      )}
+    </div>
+  );
+}
+
+/** 차종별 관리수준 — 정상/점검필요 대수와 검증 커버리지. 개별 차량 순위는 표에서 보면 된다. */
+function ManagementLevel({ title, vehicles }: { title: string; vehicles: Vehicle[] }) {
+  const total = vehicles.length;
+  const normal = vehicles.filter((v) => v.grade === '정상').length;
+  const needsCheck = total - normal;
+  const coveragePct = total > 0 ? Math.round((vehicles.filter((v) => v.verifiable).length / total) * 100) : 0;
+  const tone = total === 0 ? 'void' : needsCheck === 0 ? 'ok' : needsCheck / total > 0.3 ? 'dead' : 'warn';
+
+  return (
+    <div className={`tone-${tone}-bd rounded-md border px-4 py-3`} style={{ background: 'var(--color-panel-2)' }}>
+      <p className="text-xs" style={{ color: 'var(--color-slate)' }}>{title} 관리수준</p>
+      {total === 0 ? (
+        <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>해당 차종 데이터 없음</p>
+      ) : (
+        <>
+          <p className="num mt-1 text-sm" style={{ color: 'var(--color-paper)' }}>
+            {total}대 중 <span className="tone-ok-fg font-semibold">{normal}대 정상</span>
+            {' · '}
+            <span className={`tone-${tone}-fg font-semibold`}>{needsCheck}대 점검 필요</span>
+          </p>
+          <p className="num mt-0.5 text-xs" style={{ color: 'var(--color-mist)' }}>
+            검증 커버리지 {coveragePct}%
+          </p>
+        </>
       )}
     </div>
   );
