@@ -47,15 +47,18 @@ export function HeatmapScreen() {
   if (!corridor || corridor.routes.length === 0) {
     return (
       <div className="p-6">
-        <h2 className="mb-2 text-lg font-semibold" style={{ color: 'var(--color-paper)' }}>Heat-map — 구간 위험도</h2>
+        <h2 className="mb-2 text-lg font-semibold" style={{ color: 'var(--color-paper)' }}>Heat-map 분석 — 구간 위험도</h2>
         <div className="rounded-md border p-4 text-sm leading-relaxed" style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}>
-          <p className="mb-2">집계된 구간 데이터가 없습니다. 실측 CSV 투입 전의 의도된 빈 상태입니다(오류 아님).</p>
-          <ol className="num list-decimal pl-5 text-xs" style={{ color: 'var(--color-slate)' }}>
-            <li>files2/에 실측 CSV(leg·event·dtg_track 등)를 넣는다</li>
-            <li>node scripts/build-routes.mjs — 노선 기준선 생성(카카오 길찾기, 네트워크 필요)</li>
-            <li>npm run build:data — 구간 집계(corridor.json)</li>
-            <li>(선택) npm run build:data:insights — AI 도로환경 해설 생성</li>
-          </ol>
+          <p className="mb-2">
+            Heat-map 분석은 <b>별도 구동으로 시연</b>합니다. 이 화면은 그 산출물이 들어올 자리이며,
+            Safe·Eco·증명서와 데이터를 주고받지 않습니다 — 빈 상태가 정상입니다(오류 아님).
+          </p>
+          <p className="text-xs" style={{ color: 'var(--color-slate)' }}>
+            연동 규약: <span className="num">/data/corridor.json</span>(구간 집계) ·
+            {' '}<span className="num">/data/segment_insights.json</span>(AI 도로환경 해설, 선택).
+            두 파일을 <span className="num">app/public/data/</span>에 두면 이 화면이 그대로 렌더합니다.
+            위험 판정은 빌드 타임 결정론적 통계이고, AI는 확정된 구간의 해설만 답니다.
+          </p>
         </div>
       </div>
     );
