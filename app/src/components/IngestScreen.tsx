@@ -252,6 +252,11 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
     setCommitResults(outcomes);
     setCommitting(false);
     setConfirmed(true);
+
+    // 확인 버튼 클릭 자체가 반영+이동이다 — 성공하면 그 클릭으로 바로 Safe로 넘어간다(별도 지연/버튼 없음).
+    if (outcomes.some((o) => o.ok)) {
+      onBack();
+    }
   }
 
   function hasDuplicateMapping(r: FileState): boolean {

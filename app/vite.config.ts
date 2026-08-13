@@ -23,5 +23,13 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), tailwindcss(), mapSchemaPlugin(env), ingestCommitPlugin()],
+    // Vite는 public/ 안이 바뀌면 브라우저를 통째로 새로고침한다(정적 자산 갱신용 기본 동작).
+    // ingest-commit이 public/data/*.json을 직접 써서 반영하는데, 그때마다 강제 새로고침이 걸려서
+    // "확인 눌렀더니 로그인 화면으로 돌아간다"처럼 보였다 — 이 경로만 감시 대상에서 뺀다.
+    server: {
+      watch: {
+        ignored: ['**/public/data/**'],
+      },
+    },
   }
 })
