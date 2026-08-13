@@ -5,15 +5,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4214.5999999999985,
     "fuel_l": 410.80000000000007,
     "co2_kg": 1070.5448000000001,
@@ -22,7 +22,17 @@
     "g_co2_per_km": 254.008636644047,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 190.488,
+      "drive_fuel_l": 220.31200000000007,
+      "baseline_fuel_l": 468.2888888888887,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "810무1916",
@@ -30,15 +40,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 8931.299999999997,
     "fuel_l": 2564.3000000000015,
     "co2_kg": 6682.565800000004,
@@ -47,7 +57,17 @@
     "g_co2_per_km": 748.2187139610141,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 1364.628,
+      "drive_fuel_l": 1199.6720000000016,
+      "baseline_fuel_l": 1395.5156249999995,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "82서0561",
@@ -55,15 +75,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 7847.900000000002,
     "fuel_l": 946.6999999999996,
     "co2_kg": 2467.100199999999,
@@ -72,7 +92,17 @@
     "g_co2_per_km": 314.3643777316222,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 752.36,
+      "drive_fuel_l": 194.33999999999958,
+      "baseline_fuel_l": 871.9888888888892,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "826저5454",
@@ -80,15 +110,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2012.2000000000003,
     "fuel_l": 727.9000000000001,
     "co2_kg": 1896.9074,
@@ -97,7 +127,17 @@
     "g_co2_per_km": 942.7032104164596,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 634.7520000000001,
+      "drive_fuel_l": 93.14800000000002,
+      "baseline_fuel_l": 314.40625,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "223호3214",
@@ -105,15 +145,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 6676.9,
     "fuel_l": 446.9000000000001,
     "co2_kg": 1164.6214000000002,
@@ -122,7 +162,17 @@
     "g_co2_per_km": 174.4254669082958,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 113.336,
+      "drive_fuel_l": 333.5640000000001,
+      "baseline_fuel_l": 542.8373983739837,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "815러1522",
@@ -130,15 +180,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 1355.3000000000004,
     "fuel_l": 245.6,
     "co2_kg": 640.0336,
@@ -147,7 +197,17 @@
     "g_co2_per_km": 472.2449642145649,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 307.168,
+      "drive_fuel_l": -61.56800000000001,
+      "baseline_fuel_l": 150.58888888888893,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "175허4122",
@@ -155,15 +215,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.7,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.7,
       "kmpl_laden": 12.7,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3912.3,
     "fuel_l": 367.79999999999984,
     "co2_kg": 958.4867999999996,
@@ -172,7 +232,17 @@
     "g_co2_per_km": 244.99317536998686,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 246.152,
+      "drive_fuel_l": 121.64799999999985,
+      "baseline_fuel_l": 308.05511811023626,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "90거1046",
@@ -180,15 +250,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 1146.6000000000004,
     "fuel_l": 142.20000000000002,
     "co2_kg": 370.57320000000004,
@@ -197,7 +267,17 @@
     "g_co2_per_km": 323.193092621664,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 117.81199999999998,
+      "drive_fuel_l": 24.388000000000034,
+      "baseline_fuel_l": 127.40000000000003,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "86수5121",
@@ -205,15 +285,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 1,
     "baseline": {
       "kmpl": 2.8,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 2.8,
       "kmpl_laden": 2.8,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 1,
     "distance_km": 3957.8000000000006,
     "fuel_l": 0,
     "co2_kg": 3683.5810000000006,
@@ -222,7 +302,17 @@
     "g_co2_per_km": 930.7142857142857,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 0,
+      "drive_fuel_l": 0,
+      "baseline_fuel_l": 1413.5000000000002,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84어5948",
@@ -230,15 +320,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 5592.7,
     "fuel_l": 622.7000000000002,
     "co2_kg": 1622.7562000000003,
@@ -247,7 +337,17 @@
     "g_co2_per_km": 290.15613210077424,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 508.67599999999993,
+      "drive_fuel_l": 114.02400000000023,
+      "baseline_fuel_l": 621.411111111111,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84도5761",
@@ -255,15 +355,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 9599,
     "fuel_l": 994.1,
     "co2_kg": 2590.6246,
@@ -272,7 +372,17 @@
     "g_co2_per_km": 269.8848421710595,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 432.504,
+      "drive_fuel_l": 561.596,
+      "baseline_fuel_l": 1066.5555555555557,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "07버0446",
@@ -280,15 +390,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 14.1,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 14.1,
       "kmpl_laden": 14.1,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 1462.1,
     "fuel_l": 220.10000000000002,
     "co2_kg": 573.5806,
@@ -297,7 +407,17 @@
     "g_co2_per_km": 392.29915874427195,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 418.97599999999994,
+      "drive_fuel_l": -198.87599999999992,
+      "baseline_fuel_l": 103.6950354609929,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "28도8142",
@@ -305,15 +425,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4839.300000000001,
     "fuel_l": 621.8999999999999,
     "co2_kg": 1620.6713999999995,
@@ -322,7 +442,17 @@
     "g_co2_per_km": 334.89789845638813,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 549.66,
+      "drive_fuel_l": 72.2399999999999,
+      "baseline_fuel_l": 393.43902439024396,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "815러1543",
@@ -330,15 +460,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3582.9,
     "fuel_l": 419.79999999999995,
     "co2_kg": 1093.9987999999998,
@@ -347,7 +477,17 @@
     "g_co2_per_km": 305.3389154037232,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 141.32399999999998,
+      "drive_fuel_l": 278.476,
+      "baseline_fuel_l": 398.1,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "846부9793",
@@ -355,15 +495,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 11.8,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 11.8,
       "kmpl_laden": 11.8,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 5184.700000000004,
     "fuel_l": 444.09999999999997,
     "co2_kg": 1157.3246,
@@ -372,7 +512,17 @@
     "g_co2_per_km": 223.2192026539624,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 250.60399999999998,
+      "drive_fuel_l": 193.49599999999998,
+      "baseline_fuel_l": 439.38135593220375,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "91너0128",
@@ -380,15 +530,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 9360.299999999997,
     "fuel_l": 925.9000000000002,
     "co2_kg": 2412.8954000000003,
@@ -397,7 +547,17 @@
     "g_co2_per_km": 257.7797079153447,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 464.372,
+      "drive_fuel_l": 461.5280000000002,
+      "baseline_fuel_l": 1040.033333333333,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84머5043",
@@ -405,15 +565,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3475.6000000000004,
     "fuel_l": 359.29999999999984,
     "co2_kg": 936.3357999999995,
@@ -422,7 +582,17 @@
     "g_co2_per_km": 269.4026355161697,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 159.04399999999998,
+      "drive_fuel_l": 200.25599999999986,
+      "baseline_fuel_l": 386.1777777777778,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192허7246",
@@ -430,15 +600,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 6377.999999999996,
     "fuel_l": 449.6,
     "co2_kg": 1171.6576,
@@ -447,7 +617,17 @@
     "g_co2_per_km": 183.7029789902792,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 81.40400000000001,
+      "drive_fuel_l": 368.196,
+      "baseline_fuel_l": 518.5365853658533,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "806무1508",
@@ -455,15 +635,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3894.399999999999,
     "fuel_l": 869.0999999999998,
     "co2_kg": 2264.874599999999,
@@ -472,7 +652,17 @@
     "g_co2_per_km": 581.5721548890714,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 490.168,
+      "drive_fuel_l": 378.9319999999998,
+      "baseline_fuel_l": 608.4999999999999,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "27조2240",
@@ -480,15 +670,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 17.8,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 17.8,
       "kmpl_laden": 17.8,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3480.4999999999995,
     "fuel_l": 248.29999999999998,
     "co2_kg": 647.0697999999999,
@@ -497,7 +687,17 @@
     "g_co2_per_km": 185.91288607958626,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 187.428,
+      "drive_fuel_l": 60.871999999999986,
+      "baseline_fuel_l": 195.5337078651685,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "82서0541",
@@ -505,15 +705,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3676.0999999999985,
     "fuel_l": 709.0999999999997,
     "co2_kg": 1847.9145999999992,
@@ -522,7 +722,17 @@
     "g_co2_per_km": 502.6834416909224,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 1028.028,
+      "drive_fuel_l": -318.92800000000034,
+      "baseline_fuel_l": 408.4555555555554,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84모6043",
@@ -530,15 +740,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3193.500000000001,
     "fuel_l": 355.3999999999998,
     "co2_kg": 926.1723999999995,
@@ -547,7 +757,17 @@
     "g_co2_per_km": 290.01797400970696,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 280.08799999999997,
+      "drive_fuel_l": 75.31199999999984,
+      "baseline_fuel_l": 354.8333333333334,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "805주7174",
@@ -555,15 +775,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3510.9,
     "fuel_l": 420.29999999999967,
     "co2_kg": 1095.301799999999,
@@ -572,7 +792,17 @@
     "g_co2_per_km": 311.97180210202487,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 318.24399999999997,
+      "drive_fuel_l": 102.0559999999997,
+      "baseline_fuel_l": 390.1,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "816어3537",
@@ -580,15 +810,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 8133.9,
     "fuel_l": 1473.0999999999997,
     "co2_kg": 3838.898599999999,
@@ -597,7 +827,17 @@
     "g_co2_per_km": 471.96284685083407,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 328.78000000000003,
+      "drive_fuel_l": 1144.3199999999997,
+      "baseline_fuel_l": 1270.9218749999998,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "811거1208",
@@ -605,15 +845,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2513.4999999999995,
     "fuel_l": 567.5,
     "co2_kg": 1478.905,
@@ -622,7 +862,17 @@
     "g_co2_per_km": 588.3847224985082,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 233.612,
+      "drive_fuel_l": 333.88800000000003,
+      "baseline_fuel_l": 392.7343749999999,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "821구5816",
@@ -630,15 +880,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3391.1000000000004,
     "fuel_l": 698.8000000000004,
     "co2_kg": 1821.072800000001,
@@ -647,7 +897,17 @@
     "g_co2_per_km": 537.0153637462772,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 1050.684,
+      "drive_fuel_l": -351.88399999999956,
+      "baseline_fuel_l": 376.78888888888895,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "85우9242",
@@ -655,15 +915,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 1696.1999999999996,
     "fuel_l": 304.7000000000001,
     "co2_kg": 794.0482000000002,
@@ -672,7 +932,17 @@
     "g_co2_per_km": 468.1335927367058,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 204.624,
+      "drive_fuel_l": 100.0760000000001,
+      "baseline_fuel_l": 188.4666666666666,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84모9146",
@@ -680,15 +950,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2242.8,
     "fuel_l": 364.1,
     "co2_kg": 948.8446,
@@ -697,7 +967,17 @@
     "g_co2_per_km": 423.06251114678076,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 32.05379999999995,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 102.6,
+      "drive_fuel_l": 261.5,
+      "baseline_fuel_l": 249.20000000000002,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "81어1416",
@@ -705,15 +985,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 244.1,
     "fuel_l": 20.900000000000002,
     "co2_kg": 54.4654,
@@ -722,7 +1002,17 @@
     "g_co2_per_km": 223.1274068004916,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 3.5999999999999996,
+      "drive_fuel_l": 17.300000000000004,
+      "baseline_fuel_l": 27.12222222222222,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84도5751",
@@ -730,15 +1020,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 9128.699999999997,
     "fuel_l": 786.0000000000001,
     "co2_kg": 2048.3160000000003,
@@ -747,7 +1037,17 @@
     "g_co2_per_km": 224.3820040093333,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 431.74,
+      "drive_fuel_l": 354.2600000000001,
+      "baseline_fuel_l": 1014.2999999999997,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "91수0563",
@@ -755,15 +1055,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 17258.50000000001,
     "fuel_l": 1686.4999999999995,
     "co2_kg": 4395.018999999998,
@@ -772,7 +1072,17 @@
     "g_co2_per_km": 254.6582263812032,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 487.336,
+      "drive_fuel_l": 1199.1639999999995,
+      "baseline_fuel_l": 1917.6111111111122,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "819저2352",
@@ -780,15 +1090,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4544.6,
     "fuel_l": 481.7000000000001,
     "co2_kg": 1255.3102000000001,
@@ -797,7 +1107,17 @@
     "g_co2_per_km": 276.2201733925978,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 186.70000000000002,
+      "drive_fuel_l": 295.0000000000001,
+      "baseline_fuel_l": 504.9555555555556,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "821구5814",
@@ -805,15 +1125,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3755.9999999999995,
     "fuel_l": 714.0999999999998,
     "co2_kg": 1860.9445999999994,
@@ -822,7 +1142,17 @@
     "g_co2_per_km": 495.4591586794461,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 929.512,
+      "drive_fuel_l": -215.41200000000015,
+      "baseline_fuel_l": 417.33333333333326,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "817더2910",
@@ -830,15 +1160,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2231.6000000000004,
     "fuel_l": 728.3000000000003,
     "co2_kg": 1897.9498000000008,
@@ -847,7 +1177,17 @@
     "g_co2_per_km": 850.4883491665175,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 487.12399999999997,
+      "drive_fuel_l": 241.17600000000033,
+      "baseline_fuel_l": 348.68750000000006,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192허4895",
@@ -855,15 +1195,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.2,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.2,
       "kmpl_laden": 12.2,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 9237.900000000003,
     "fuel_l": 578.3000000000002,
     "co2_kg": 1507.0498000000005,
@@ -872,7 +1212,17 @@
     "g_co2_per_km": 163.13770445664056,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 176.536,
+      "drive_fuel_l": 401.7640000000002,
+      "baseline_fuel_l": 757.2049180327872,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "179허9217",
@@ -880,15 +1230,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3071.700000000001,
     "fuel_l": 143.70000000000005,
     "co2_kg": 374.4822000000001,
@@ -897,7 +1247,17 @@
     "g_co2_per_km": 121.91366344369565,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 9.66,
+      "drive_fuel_l": 134.04000000000005,
+      "baseline_fuel_l": 289.7830188679246,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "87조8141",
@@ -905,15 +1265,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3725.299999999999,
     "fuel_l": 500.8000000000001,
     "co2_kg": 1305.0848000000003,
@@ -922,7 +1282,17 @@
     "g_co2_per_km": 350.33012106407557,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 20.96729688888954,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 78.832,
+      "drive_fuel_l": 421.96800000000013,
+      "baseline_fuel_l": 413.9222222222221,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "191하9840",
@@ -930,15 +1300,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 7051.400000000001,
     "fuel_l": 438.70000000000005,
     "co2_kg": 1143.2522000000001,
@@ -947,7 +1317,17 @@
     "g_co2_per_km": 162.13123635022833,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 128.968,
+      "drive_fuel_l": 309.7320000000001,
+      "baseline_fuel_l": 573.2845528455284,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "96어0364",
@@ -955,15 +1335,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 8139.199999999998,
     "fuel_l": 693.4000000000002,
     "co2_kg": 1807.0004000000004,
@@ -972,7 +1352,17 @@
     "g_co2_per_km": 222.0120404953805,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 331.636,
+      "drive_fuel_l": 361.7640000000002,
+      "baseline_fuel_l": 904.3555555555554,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "827무7454",
@@ -980,15 +1370,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 5308.100000000001,
     "fuel_l": 660.2,
     "co2_kg": 1720.4812,
@@ -997,7 +1387,17 @@
     "g_co2_per_km": 324.12373542322104,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 537.236,
+      "drive_fuel_l": 122.96400000000006,
+      "baseline_fuel_l": 589.788888888889,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "96구2906",
@@ -1005,15 +1405,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4505.899999999998,
     "fuel_l": 487.8999999999999,
     "co2_kg": 1271.4673999999998,
@@ -1022,7 +1422,17 @@
     "g_co2_per_km": 282.17834394904463,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 349.772,
+      "drive_fuel_l": 138.12799999999993,
+      "baseline_fuel_l": 500.65555555555534,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192허4896",
@@ -1030,15 +1440,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.2,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.2,
       "kmpl_laden": 12.2,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 8073.100000000003,
     "fuel_l": 560.9,
     "co2_kg": 1461.7053999999998,
@@ -1047,7 +1457,17 @@
     "g_co2_per_km": 181.05875066579125,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 134.416,
+      "drive_fuel_l": 426.484,
+      "baseline_fuel_l": 661.7295081967216,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "87로7532",
@@ -1055,15 +1475,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2771.999999999999,
     "fuel_l": 411.50000000000006,
     "co2_kg": 1072.3690000000001,
@@ -1072,7 +1492,17 @@
     "g_co2_per_km": 386.8575036075038,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 185.30800000000002,
+      "drive_fuel_l": 226.19200000000004,
+      "baseline_fuel_l": 307.9999999999999,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "230하6062",
@@ -1080,15 +1510,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 13.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 13.6,
       "kmpl_laden": 13.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 11382.399999999998,
     "fuel_l": 803.9,
     "co2_kg": 2094.9633999999996,
@@ -1097,7 +1527,17 @@
     "g_co2_per_km": 184.05287109924095,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 110.79599999999999,
+      "drive_fuel_l": 693.104,
+      "baseline_fuel_l": 836.9411764705881,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84머5049",
@@ -1105,15 +1545,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 6259.999999999999,
     "fuel_l": 664.6999999999999,
     "co2_kg": 1732.2081999999998,
@@ -1122,7 +1562,17 @@
     "g_co2_per_km": 276.7105750798722,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 404.40799999999996,
+      "drive_fuel_l": 260.292,
+      "baseline_fuel_l": 695.5555555555554,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "230하3704",
@@ -1130,15 +1580,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 8850.100000000002,
     "fuel_l": 572.3999999999996,
     "co2_kg": 1491.674399999999,
@@ -1147,7 +1597,17 @@
     "g_co2_per_km": 168.5488751539529,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 192.732,
+      "drive_fuel_l": 379.66799999999967,
+      "baseline_fuel_l": 719.5203252032521,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "87도0164",
@@ -1155,15 +1615,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2633.7,
     "fuel_l": 346.3,
     "co2_kg": 902.4578,
@@ -1172,7 +1632,17 @@
     "g_co2_per_km": 342.6577818278468,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 361.13599999999997,
+      "drive_fuel_l": -14.835999999999956,
+      "baseline_fuel_l": 292.6333333333333,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "74고9274",
@@ -1180,15 +1650,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 11,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 11,
       "kmpl_laden": 11,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 1909.6000000000008,
     "fuel_l": 273,
     "co2_kg": 711.438,
@@ -1197,7 +1667,17 @@
     "g_co2_per_km": 372.5586510263928,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 243.74,
+      "drive_fuel_l": 29.25999999999999,
+      "baseline_fuel_l": 173.60000000000008,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "82조0889",
@@ -1205,15 +1685,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3538.1,
     "fuel_l": 642.4000000000002,
     "co2_kg": 1674.0944000000004,
@@ -1222,7 +1702,17 @@
     "g_co2_per_km": 473.1619795935673,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 805.0999999999999,
+      "drive_fuel_l": -162.6999999999997,
+      "baseline_fuel_l": 393.1222222222222,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84노2622",
@@ -1230,15 +1720,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4752.300000000001,
     "fuel_l": 461.89999999999986,
     "co2_kg": 1203.7113999999997,
@@ -1247,7 +1737,17 @@
     "g_co2_per_km": 253.29028049575982,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 100.968,
+      "drive_fuel_l": 360.93199999999985,
+      "baseline_fuel_l": 528.0333333333334,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "810무1941",
@@ -1255,15 +1755,15 @@
     "scope": 1,
     "grade": "C",
     "tone": "dead",
-    "tier": 3,
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2216.8,
     "fuel_l": 326.9,
     "co2_kg": 851.9013999999999,
@@ -1272,7 +1772,17 @@
     "g_co2_per_km": 384.29330566582456,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 58.396,
+      "drive_fuel_l": 268.50399999999996,
+      "baseline_fuel_l": 346.375,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "89누4464",
@@ -1280,15 +1790,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 6183.200000000001,
     "fuel_l": 573.5999999999999,
     "co2_kg": 1494.8015999999998,
@@ -1297,7 +1807,17 @@
     "g_co2_per_km": 241.75210247121225,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 188.408,
+      "drive_fuel_l": 385.1919999999999,
+      "baseline_fuel_l": 687.0222222222224,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "91우4407",
@@ -1305,15 +1825,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 1204.6000000000006,
     "fuel_l": 231.89999999999992,
     "co2_kg": 604.3313999999998,
@@ -1322,7 +1842,17 @@
     "g_co2_per_km": 501.68636891914286,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 159.18,
+      "drive_fuel_l": 72.71999999999991,
+      "baseline_fuel_l": 133.84444444444452,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "196하1796",
@@ -1330,15 +1860,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 19.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 19.3,
       "kmpl_laden": 19.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3059.4000000000005,
     "fuel_l": 270.4000000000001,
     "co2_kg": 704.6624000000002,
@@ -1347,7 +1877,17 @@
     "g_co2_per_km": 230.32699222069687,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 127.948,
+      "drive_fuel_l": 142.4520000000001,
+      "baseline_fuel_l": 158.51813471502592,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192하7049",
@@ -1355,15 +1895,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2913.299999999999,
     "fuel_l": 253.49999999999991,
     "co2_kg": 660.6209999999998,
@@ -1372,7 +1912,17 @@
     "g_co2_per_km": 226.760374832664,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 133.568,
+      "drive_fuel_l": 119.9319999999999,
+      "baseline_fuel_l": 236.85365853658524,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192허4897",
@@ -1380,15 +1930,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.2,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.2,
       "kmpl_laden": 12.2,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 7375.8,
     "fuel_l": 514.1999999999999,
     "co2_kg": 1340.0051999999998,
@@ -1397,7 +1947,17 @@
     "g_co2_per_km": 181.6759131212885,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 132.34,
+      "drive_fuel_l": 381.8599999999999,
+      "baseline_fuel_l": 604.5737704918033,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "165호7807",
@@ -1405,15 +1965,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 13.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 13.6,
       "kmpl_laden": 13.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 7382.4,
     "fuel_l": 547.8,
     "co2_kg": 1427.5667999999998,
@@ -1422,7 +1982,17 @@
     "g_co2_per_km": 193.37434980494146,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 96.388,
+      "drive_fuel_l": 451.4119999999999,
+      "baseline_fuel_l": 542.8235294117646,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84우6684",
@@ -1430,15 +2000,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.5,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.5,
       "kmpl_laden": 10.5,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4223.700000000001,
     "fuel_l": 367.60000000000014,
     "co2_kg": 957.9656000000003,
@@ -1447,7 +2017,17 @@
     "g_co2_per_km": 226.80720695125132,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 132.26399999999998,
+      "drive_fuel_l": 235.33600000000015,
+      "baseline_fuel_l": 402.2571428571429,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "283누2515",
@@ -1455,15 +2035,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 11.8,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 11.8,
       "kmpl_laden": 11.8,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 12624.999999999995,
     "fuel_l": 1241.9999999999998,
     "co2_kg": 3236.651999999999,
@@ -1472,7 +2052,17 @@
     "g_co2_per_km": 256.36847524752477,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 681.156,
+      "drive_fuel_l": 560.8439999999998,
+      "baseline_fuel_l": 1069.9152542372876,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84노4496",
@@ -1480,15 +2070,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3700.700000000001,
     "fuel_l": 492.7999999999997,
     "co2_kg": 1284.2367999999992,
@@ -1497,7 +2087,17 @@
     "g_co2_per_km": 347.0253735779714,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 501.55199999999996,
+      "drive_fuel_l": -8.752000000000237,
+      "baseline_fuel_l": 411.18888888888904,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "231허1278",
@@ -1505,15 +2105,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 5555.200000000001,
     "fuel_l": 278.90000000000003,
     "co2_kg": 726.8134,
@@ -1522,7 +2122,17 @@
     "g_co2_per_km": 130.83478542626727,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 17.508,
+      "drive_fuel_l": 261.39200000000005,
+      "baseline_fuel_l": 524.0754716981133,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192허4064",
@@ -1530,15 +2140,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 6095.400000000001,
     "fuel_l": 449.00000000000006,
     "co2_kg": 1170.094,
@@ -1547,7 +2157,17 @@
     "g_co2_per_km": 191.96344784591656,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 71.076,
+      "drive_fuel_l": 377.9240000000001,
+      "baseline_fuel_l": 575.0377358490567,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "92수0720",
@@ -1555,15 +2175,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2917.2,
     "fuel_l": 268.7000000000001,
     "co2_kg": 700.2322000000003,
@@ -1572,7 +2192,17 @@
     "g_co2_per_km": 240.03571918277814,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 80.04,
+      "drive_fuel_l": 188.66000000000008,
+      "baseline_fuel_l": 324.1333333333333,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192허2996",
@@ -1580,15 +2210,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3542.8,
     "fuel_l": 274.8999999999999,
     "co2_kg": 716.3893999999998,
@@ -1597,7 +2227,17 @@
     "g_co2_per_km": 202.2099469346279,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 47.5,
+      "drive_fuel_l": 227.39999999999992,
+      "baseline_fuel_l": 334.22641509433964,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "71부8321",
@@ -1605,15 +2245,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 11,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 11,
       "kmpl_laden": 11,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 7012.900000000001,
     "fuel_l": 872.4000000000002,
     "co2_kg": 2273.4744000000005,
@@ -1622,7 +2262,17 @@
     "g_co2_per_km": 324.1846311796832,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 630.6,
+      "drive_fuel_l": 241.80000000000018,
+      "baseline_fuel_l": 637.5363636363637,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "20서8000",
@@ -1630,15 +2280,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 14.7,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 14.7,
       "kmpl_laden": 14.7,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 1546,
     "fuel_l": 105.99999999999999,
     "co2_kg": 276.23599999999993,
@@ -1647,7 +2297,17 @@
     "g_co2_per_km": 178.67787839586023,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 41.556000000000004,
+      "drive_fuel_l": 64.44399999999999,
+      "baseline_fuel_l": 105.17006802721089,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "169허9258",
@@ -1655,15 +2315,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 8326.6,
     "fuel_l": 765.9000000000001,
     "co2_kg": 1995.9354,
@@ -1672,7 +2332,17 @@
     "g_co2_per_km": 239.70593039175654,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 232.98399999999998,
+      "drive_fuel_l": 532.9160000000002,
+      "baseline_fuel_l": 785.5283018867925,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "231허1583",
@@ -1680,15 +2350,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 9539.599999999999,
     "fuel_l": 430.9,
     "co2_kg": 1122.9253999999999,
@@ -1697,7 +2367,17 @@
     "g_co2_per_km": 117.71200050316575,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 12.784,
+      "drive_fuel_l": 418.116,
+      "baseline_fuel_l": 899.9622641509433,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "88거5454",
@@ -1705,15 +2385,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 995.6999999999996,
     "fuel_l": 131.7,
     "co2_kg": 343.21019999999993,
@@ -1722,7 +2402,17 @@
     "g_co2_per_km": 344.6923772220549,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 18.801421333333423,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 13.851999999999999,
+      "drive_fuel_l": 117.84799999999998,
+      "baseline_fuel_l": 110.63333333333328,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "196소4245",
@@ -1730,15 +2420,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 1517.2,
     "fuel_l": 116.1,
     "co2_kg": 302.55659999999995,
@@ -1747,7 +2437,17 @@
     "g_co2_per_km": 199.41774321117842,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 36.876,
+      "drive_fuel_l": 79.22399999999999,
+      "baseline_fuel_l": 123.34959349593495,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "22거1383",
@@ -1755,15 +2455,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 1,
     "baseline": {
       "kmpl": 3.7,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 3.7,
       "kmpl_laden": 3.7,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 1,
     "distance_km": 2581.1,
     "fuel_l": 0,
     "co2_kg": 1817.9315135135134,
@@ -1772,7 +2472,17 @@
     "g_co2_per_km": 704.3243243243243,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 0,
+      "drive_fuel_l": 0,
+      "baseline_fuel_l": 697.5945945945946,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "179저8504",
@@ -1780,15 +2490,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 5773.199999999998,
     "fuel_l": 365.79999999999995,
     "co2_kg": 953.2747999999998,
@@ -1797,7 +2507,17 @@
     "g_co2_per_km": 165.12069562807457,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 110.064,
+      "drive_fuel_l": 255.73599999999996,
+      "baseline_fuel_l": 469.3658536585364,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192하6446",
@@ -1805,15 +2525,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 5154.400000000001,
     "fuel_l": 353.30000000000007,
     "co2_kg": 920.6998000000001,
@@ -1822,7 +2542,17 @@
     "g_co2_per_km": 178.6240493558901,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 110.89599999999999,
+      "drive_fuel_l": 242.40400000000008,
+      "baseline_fuel_l": 419.0569105691057,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "194나5598",
@@ -1830,15 +2560,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2908.2000000000007,
     "fuel_l": 179.60000000000002,
     "co2_kg": 468.03760000000005,
@@ -1847,7 +2577,17 @@
     "g_co2_per_km": 160.93721202118147,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 58.836,
+      "drive_fuel_l": 120.76400000000002,
+      "baseline_fuel_l": 236.43902439024396,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192하6421",
@@ -1855,15 +2595,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4289.199999999999,
     "fuel_l": 289.4,
     "co2_kg": 754.1764,
@@ -1872,7 +2612,17 @@
     "g_co2_per_km": 175.83148372656908,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 82.952,
+      "drive_fuel_l": 206.44799999999998,
+      "baseline_fuel_l": 348.71544715447146,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192하5762",
@@ -1880,15 +2630,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.2,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.2,
       "kmpl_laden": 12.2,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3542.5999999999995,
     "fuel_l": 317.39999999999986,
     "co2_kg": 827.1443999999996,
@@ -1897,7 +2647,17 @@
     "g_co2_per_km": 233.48512392028445,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 131.908,
+      "drive_fuel_l": 185.49199999999988,
+      "baseline_fuel_l": 290.37704918032784,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "91수0514",
@@ -1905,15 +2665,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 10234.5,
     "fuel_l": 999.5000000000002,
     "co2_kg": 2604.6970000000006,
@@ -1922,7 +2682,17 @@
     "g_co2_per_km": 254.50163662123217,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 556.26,
+      "drive_fuel_l": 443.24000000000024,
+      "baseline_fuel_l": 1137.1666666666667,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192하6444",
@@ -1930,15 +2700,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 8290.9,
     "fuel_l": 523.3999999999999,
     "co2_kg": 1363.9803999999997,
@@ -1947,7 +2717,17 @@
     "g_co2_per_km": 164.51536021421072,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 122.916,
+      "drive_fuel_l": 400.48399999999987,
+      "baseline_fuel_l": 674.0569105691056,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192하6420",
@@ -1955,15 +2735,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 5147.2,
     "fuel_l": 377.1000000000002,
     "co2_kg": 982.7226000000005,
@@ -1972,7 +2752,17 @@
     "g_co2_per_km": 190.92372552067155,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 243.256,
+      "drive_fuel_l": 133.8440000000002,
+      "baseline_fuel_l": 418.4715447154471,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "231허1277",
@@ -1980,15 +2770,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4816.700000000003,
     "fuel_l": 252.99999999999997,
     "co2_kg": 659.3179999999999,
@@ -1997,7 +2787,17 @@
     "g_co2_per_km": 136.88168247970592,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 16.548,
+      "drive_fuel_l": 236.45199999999997,
+      "baseline_fuel_l": 454.40566037735874,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192하5605",
@@ -2005,15 +2805,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 8141.799999999999,
     "fuel_l": 758.2999999999995,
     "co2_kg": 1976.1297999999986,
@@ -2022,7 +2822,17 @@
     "g_co2_per_km": 242.7141172713649,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 201.37199999999999,
+      "drive_fuel_l": 556.9279999999995,
+      "baseline_fuel_l": 768.0943396226414,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "93조8040",
@@ -2030,15 +2840,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 13512.9,
     "fuel_l": 1382.8000000000004,
     "co2_kg": 3603.5768000000007,
@@ -2047,7 +2857,17 @@
     "g_co2_per_km": 266.67679032628087,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 613.2719999999999,
+      "drive_fuel_l": 769.5280000000005,
+      "baseline_fuel_l": 1501.4333333333334,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "230하9636",
@@ -2055,15 +2875,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 11729.999999999995,
     "fuel_l": 549.9000000000001,
     "co2_kg": 1433.0394000000001,
@@ -2072,7 +2892,17 @@
     "g_co2_per_km": 122.16874680306913,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 21.636,
+      "drive_fuel_l": 528.2640000000001,
+      "baseline_fuel_l": 1106.6037735849052,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "223허6794",
@@ -2080,15 +2910,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4503.799999999999,
     "fuel_l": 265.59999999999997,
     "co2_kg": 692.1535999999999,
@@ -2097,7 +2927,17 @@
     "g_co2_per_km": 153.68213508592743,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 52.988,
+      "drive_fuel_l": 212.61199999999997,
+      "baseline_fuel_l": 366.16260162601617,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "96구1041",
@@ -2105,15 +2945,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 1,
     "baseline": {
       "kmpl": 2.8,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 2.8,
       "kmpl_laden": 2.8,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 1,
     "distance_km": 2724.4,
     "fuel_l": 0,
     "co2_kg": 2535.6380000000004,
@@ -2122,7 +2962,17 @@
     "g_co2_per_km": 930.7142857142859,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 0,
+      "drive_fuel_l": 0,
+      "baseline_fuel_l": 973.0000000000001,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "802나6294",
@@ -2130,15 +2980,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 592.6,
     "fuel_l": 104.49999999999999,
     "co2_kg": 272.32699999999994,
@@ -2147,7 +2997,17 @@
     "g_co2_per_km": 459.5460681741477,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 82.86800000000001,
+      "drive_fuel_l": 21.631999999999977,
+      "baseline_fuel_l": 65.84444444444445,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "84무0925",
@@ -2155,15 +3015,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4203.000000000001,
     "fuel_l": 380.9000000000001,
     "co2_kg": 992.6254000000002,
@@ -2172,7 +3032,17 @@
     "g_co2_per_km": 236.17068760409234,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 210.304,
+      "drive_fuel_l": 170.5960000000001,
+      "baseline_fuel_l": 467.0000000000001,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "223하5805",
@@ -2180,15 +3050,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3448.5000000000005,
     "fuel_l": 238.60000000000005,
     "co2_kg": 621.7916000000001,
@@ -2197,7 +3067,17 @@
     "g_co2_per_km": 180.30784399014064,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 63.467999999999996,
+      "drive_fuel_l": 175.13200000000006,
+      "baseline_fuel_l": 280.3658536585366,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "264조1056",
@@ -2205,15 +3085,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2685.099999999999,
     "fuel_l": 192.6,
     "co2_kg": 501.9156,
@@ -2222,7 +3102,17 @@
     "g_co2_per_km": 186.92622248705828,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 72.52799999999999,
+      "drive_fuel_l": 120.072,
+      "baseline_fuel_l": 218.30081300812998,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "169허8585",
@@ -2230,15 +3120,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3567.2999999999997,
     "fuel_l": 295.1999999999998,
     "co2_kg": 769.2911999999994,
@@ -2247,7 +3137,17 @@
     "g_co2_per_km": 215.65082835758125,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 58.61599999999999,
+      "drive_fuel_l": 236.58399999999983,
+      "baseline_fuel_l": 336.5377358490566,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "192허4063",
@@ -2255,15 +3155,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 3247.6000000000004,
     "fuel_l": 252.00000000000003,
     "co2_kg": 656.712,
@@ -2272,7 +3172,17 @@
     "g_co2_per_km": 202.214558443158,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 37.284,
+      "drive_fuel_l": 214.71600000000004,
+      "baseline_fuel_l": 306.3773584905661,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "165호5540",
@@ -2280,15 +3190,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 1773.3,
     "fuel_l": 140.70000000000002,
     "co2_kg": 366.66420000000005,
@@ -2297,7 +3207,17 @@
     "g_co2_per_km": 206.76941295889026,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 40.844,
+      "drive_fuel_l": 99.85600000000002,
+      "baseline_fuel_l": 167.2924528301887,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "170호1744",
@@ -2305,15 +3225,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 10.6,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 4357.0999999999985,
     "fuel_l": 393.40000000000003,
     "co2_kg": 1025.2004,
@@ -2322,7 +3242,17 @@
     "g_co2_per_km": 235.29420945124056,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 109.43199999999999,
+      "drive_fuel_l": 283.9680000000001,
+      "baseline_fuel_l": 411.04716981132066,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "96구2903",
@@ -2330,15 +3260,15 @@
     "scope": 1,
     "grade": "B",
     "tone": "caution",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2363.6,
     "fuel_l": 222.99999999999994,
     "co2_kg": 581.1379999999998,
@@ -2347,7 +3277,17 @@
     "g_co2_per_km": 245.86985953630048,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 221.476,
+      "drive_fuel_l": 1.523999999999944,
+      "baseline_fuel_l": 262.6222222222222,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "191호9105",
@@ -2355,15 +3295,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.2,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.2,
       "kmpl_laden": 12.2,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 5362.699999999999,
     "fuel_l": 343.1,
     "co2_kg": 894.1186,
@@ -2372,7 +3312,17 @@
     "g_co2_per_km": 166.72918492550397,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 47.38,
+      "drive_fuel_l": 295.72,
+      "baseline_fuel_l": 439.56557377049177,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "191하9718",
@@ -2380,15 +3330,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 6196.400000000001,
     "fuel_l": 389.9000000000001,
     "co2_kg": 1016.0794000000002,
@@ -2397,7 +3347,17 @@
     "g_co2_per_km": 163.9789877993674,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 89.32000000000001,
+      "drive_fuel_l": 300.5800000000001,
+      "baseline_fuel_l": 503.7723577235773,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "183허6863",
@@ -2405,15 +3365,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 2001.4,
     "fuel_l": 108.1,
     "co2_kg": 281.7086,
@@ -2422,7 +3382,17 @@
     "g_co2_per_km": 140.75577096032777,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 17.468,
+      "drive_fuel_l": 90.63199999999999,
+      "baseline_fuel_l": 162.71544715447155,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "87조8140",
@@ -2430,15 +3400,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 675.0000000000001,
     "fuel_l": 127.3,
     "co2_kg": 331.74379999999996,
@@ -2447,7 +3417,17 @@
     "g_co2_per_km": 491.4722962962962,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 107.712,
+      "drive_fuel_l": 19.587999999999994,
+      "baseline_fuel_l": 75.00000000000001,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   },
   {
     "vehicle_id": "814소5575",
@@ -2455,15 +3435,15 @@
     "scope": 1,
     "grade": "정상",
     "tone": "ok",
-    "tier": 3,
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:47:13.006Z"
+      "fetched_at": "2026-08-13T04:50:52.066Z"
     },
+    "tier": 3,
     "distance_km": 34.7,
     "fuel_l": 9.2,
     "co2_kg": 23.975199999999997,
@@ -2472,6 +3452,16 @@
     "g_co2_per_km": 690.9279538904898,
     "measurement_gap_kg": null,
     "reduction_headroom_kg": 0,
-    "empty_share": 1
+    "empty_share": 1,
+    "basis": {
+      "idle_fuel_l": 4.444,
+      "drive_fuel_l": 4.755999999999999,
+      "baseline_fuel_l": 5.421875,
+      "baseline_co2_kg": null,
+      "co2_factor": 2.606,
+      "idle_l_per_hour": 2.4,
+      "tonnage": null,
+      "baseline_g_co2_per_tonkm": 62
+    }
   }
 ]

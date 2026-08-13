@@ -6,14 +6,8 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv, writeJson, num } from './lib/csv.mjs';
 import { resolveBaselineFuel } from './lib/baselineFuel.mjs';
-import {
-  IDLE_L_PER_HOUR,
-  FUEL_PENALTY_MAX,
-  FUEL_PENALTY_RATE_SCALE,
-  FAINT_RATIO_THRESHOLD,
-  RANK_INVERSION_MIN,
-  GRADE_META,
-} from './lib/constants.mjs';
+import { GRADE_META } from './lib/constants.mjs';
+import { computeMetrics, judge, blankSplit, addRowToSplit } from './lib/judge.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -35,114 +29,18 @@ function deriveMonths(dailySummary) {
 function aggregateDailySummary(rows) {
   const byVehicleMonth = new Map(); // vehicle_id -> month -> { empty, laden } accumulators
 
-  const blank = () => ({ km: 0, accel: 0, start: 0, decel: 0, stop: 0, fuel: 0, idle: 0 });
-
   for (const row of rows) {
     const vehicleId = row.vehicle_id;
     const month = monthOf(row.date);
     if (!byVehicleMonth.has(vehicleId)) byVehicleMonth.set(vehicleId, new Map());
     const byMonth = byVehicleMonth.get(vehicleId);
-    if (!byMonth.has(month)) byMonth.set(month, { empty: blank(), laden: blank() });
-    const bucket = byMonth.get(month);
-    const laden = String(row.laden).toLowerCase() === 'true';
-    const target = laden ? bucket.laden : bucket.empty;
-    target.km += num(row.reported_km);
-    target.accel += num(row.event_accel);
-    target.start += num(row.event_start);
-    target.decel += num(row.event_decel);
-    target.stop += num(row.event_stop);
-    target.fuel += num(row.fuel_l);
-    target.idle += num(row.idle_sec);
+    if (!byMonth.has(month)) byMonth.set(month, blankSplit());
+    addRowToSplit(byMonth.get(month), row);
   }
 
   return byVehicleMonth;
 }
 
-/**
- * 한 달치 (empty+laden) 집계에서 §5.1~5.3 지표를 계산한다.
- * 유류데이터가 없는 차량(fuel_l===0)은 fuel_implied_rate를 0이 아니라 null로 낸다 —
- * "연료로 봐도 문제없음"과 "연료 자체가 없어 대체 신호가 없음"은 다르다. 유류데이터 업로드는
- * 필수가 아니지만, 있으면 우선한다(§CLAUDE.md 갱신) — 그 "있으면"의 경계를 여기서 명시적으로 가른다.
- */
-function computeMonthMetrics(bucket, baseline) {
-  const reported_km = bucket.empty.km + bucket.laden.km;
-  const core_events =
-    bucket.empty.accel + bucket.empty.start + bucket.empty.decel + bucket.empty.stop +
-    bucket.laden.accel + bucket.laden.start + bucket.laden.decel + bucket.laden.stop;
-  const fuel_l = bucket.empty.fuel + bucket.laden.fuel;
-  const idle_sec = bucket.empty.idle + bucket.laden.idle;
-  const has_fuel_data = fuel_l > 0;
-
-  const rate = reported_km > 0 ? core_events / reported_km : null;
-
-  let fuel_implied_rate = null;
-  let fuel_per_100km = null;
-  let fuel_excess_pct = null;
-
-  if (has_fuel_data) {
-    const baseline_fuel_l =
-      (baseline.kmpl_empty > 0 ? bucket.empty.km / baseline.kmpl_empty : 0) +
-      (baseline.kmpl_laden > 0 ? bucket.laden.km / baseline.kmpl_laden : 0);
-    const idle_fuel_l = (idle_sec / 3600) * IDLE_L_PER_HOUR;
-    const drive_fuel_l = fuel_l - idle_fuel_l;
-
-    const fuel_excess = baseline_fuel_l > 0 ? drive_fuel_l / baseline_fuel_l - 1 : 0;
-    const fuel_penalty = 1 - 1 / (1 + fuel_excess);
-    fuel_implied_rate = Math.max(0, (fuel_penalty / FUEL_PENALTY_MAX) * FUEL_PENALTY_RATE_SCALE);
-    fuel_per_100km = reported_km > 0 ? (drive_fuel_l / reported_km) * 100 : null;
-    fuel_excess_pct = fuel_excess * 100;
-  }
-
-  const events_by_type = {
-    accel: bucket.empty.accel + bucket.laden.accel,
-    start: bucket.empty.start + bucket.laden.start,
-    decel: bucket.empty.decel + bucket.laden.decel,
-    stop: bucket.empty.stop + bucket.laden.stop,
-  };
-
-  return { reported_km, core_events, events_by_type, rate, fuel_l, has_fuel_data, fuel_implied_rate, fuel_per_100km, fuel_excess_pct };
-}
-
-/** 관측 발생률·연료시사발생률 순위를 매기고 rank_inversion·signal_ratio·grade를 채운다. */
-function judgeMonth(metricsByVehicle) {
-  // D 후보(주행거리 0)는 순위 계산에서 제외 — §5-2 "D등급은 순위에서 뺀다".
-  const pool = [...metricsByVehicle.entries()].filter(([, m]) => m.reported_km > 0);
-  // 연료 순위는 유류데이터가 있는 차량끼리만 — 없는 차량을 0건인 것처럼 끼워 넣지 않는다.
-  const fuelPool = pool.filter(([, m]) => m.has_fuel_data);
-
-  const byObserved = [...pool].sort((a, b) => a[1].rate - b[1].rate);
-  const byFuel = [...fuelPool].sort((a, b) => a[1].fuel_implied_rate - b[1].fuel_implied_rate);
-  const observedRank = new Map(byObserved.map(([id], i) => [id, i + 1]));
-  const fuelRank = new Map(byFuel.map(([id], i) => [id, i + 1]));
-
-  for (const [vehicleId, m] of metricsByVehicle) {
-    const observed_rank = observedRank.get(vehicleId) ?? null;
-    const fuel_rank = fuelRank.get(vehicleId) ?? null;
-    const rank_inversion = observed_rank !== null && fuel_rank !== null ? fuel_rank - observed_rank : null;
-
-    let signal_ratio;
-    if (m.rate === null || !m.has_fuel_data) signal_ratio = null;
-    else if (m.rate === 0 && m.fuel_implied_rate === 0) signal_ratio = Infinity;
-    else if (m.fuel_implied_rate === 0) signal_ratio = Infinity;
-    else signal_ratio = m.rate / m.fuel_implied_rate;
-
-    const contradicts =
-      signal_ratio !== null &&
-      signal_ratio < FAINT_RATIO_THRESHOLD &&
-      rank_inversion !== null &&
-      rank_inversion >= RANK_INVERSION_MIN;
-
-    // if/else 순서 그대로: D → A → C → B → 정상
-    let grade;
-    if (m.reported_km === 0 && m.core_events > 0) grade = 'D';
-    else if (m.rate !== null && m.rate > 1.0) grade = 'A';
-    else if (m.rate === 0 && m.reported_km > 100) grade = 'C';
-    else if (contradicts) grade = 'B';
-    else grade = '정상';
-
-    Object.assign(m, { observed_rank, fuel_rank, rank_inversion, signal_ratio, grade });
-  }
-}
 
 async function main() {
   const vehicleMaster = readCsv(join(FILES2, 'vehicle_master.csv'));
@@ -167,12 +65,12 @@ async function main() {
         empty: { km: 0, accel: 0, start: 0, decel: 0, stop: 0, fuel: 0, idle: 0 },
         laden: { km: 0, accel: 0, start: 0, decel: 0, stop: 0, fuel: 0, idle: 0 },
       };
-      const metrics = computeMonthMetrics(bucket, baseline);
+      const metrics = computeMetrics(bucket, baseline);
       metricsByMonth.get(month).set(vehicle.vehicle_id, metrics);
     }
   }
 
-  for (const month of MONTHS) judgeMonth(metricsByMonth.get(month));
+  for (const month of MONTHS) judge(metricsByMonth.get(month));
 
   const vehicles = vehicleMaster.map((vehicle) => {
     const id = vehicle.vehicle_id;
@@ -229,11 +127,51 @@ async function main() {
 
   writeJson(join(DATA_OUT, 'vehicles.json'), vehicles);
 
+  // daily.json — 화면에서 조회 기간을 바꿔 다시 집계할 수 있게 일자별 원자료를 그대로 내보낸다.
+  // 차량마다 데이터 보유 기간이 3일~154일로 제각각이라, 전체 기간 한 덩어리로만 보여주면
+  // 짧게 찍힌 차량과 길게 찍힌 차량이 같은 표에서 비교돼버린다.
+  // 행이 1만 줄대라 배열 튜플로 압축해서 낸다(키 반복 제거).
+  const dailyRows = dailySummary
+    .filter((r) => r.date)
+    .map((r) => [
+      r.vehicle_id,
+      r.date,
+      String(r.laden).toLowerCase() === 'true' ? 1 : 0,
+      num(r.reported_km),
+      num(r.event_accel),
+      num(r.event_start),
+      num(r.event_decel),
+      num(r.event_stop),
+      num(r.fuel_l),
+      num(r.idle_sec),
+    ]);
+  const dates = dailyRows.map((r) => r[1]).sort();
+
+  writeJson(join(DATA_OUT, 'daily.json'), {
+    meta: {
+      columns: ['vehicle_id', 'date', 'laden', 'reported_km', 'event_accel', 'event_start', 'event_decel', 'event_stop', 'fuel_l', 'idle_sec'],
+      date_min: dates[0] ?? null,
+      date_max: dates[dates.length - 1] ?? null,
+      row_count: dailyRows.length,
+    },
+    vehicles: vehicleMaster.map((v) => ({
+      vehicle_id: v.vehicle_id,
+      vehicle_class: v.vehicle_class,
+      device_model: v.device_model,
+      maker: v.maker,
+      model: v.model,
+      year: num(v.year),
+      baseline: baselineFuel[v.vehicle_id],
+    })),
+    rows: dailyRows,
+  });
+
   const gradeCounts = vehicles.reduce((acc, v) => {
     acc[v.grade] = (acc[v.grade] ?? 0) + 1;
     return acc;
   }, {});
   console.log(`vehicles.json: ${vehicles.length}대`, gradeCounts);
+  console.log(`daily.json: ${dailyRows.length}행 (${dates[0]} ~ ${dates[dates.length - 1]})`);
 }
 
 main().catch((err) => {

@@ -4,6 +4,7 @@ import { GRADE_META, GRADE_ORDER } from '../lib/grade';
 import { FUEL_SOURCE_META } from '../lib/fuelSource';
 import { scoreOf } from '../lib/score';
 import { buildVehicleReport, signalRatioOf } from '../lib/report';
+import { aggregateRange, coverageByVehicle, type DailyBundle } from '../lib/aggregate';
 import { sendNotice, useLatestNoticeStatus } from '../lib/notices';
 import { useOpenDeviceRequest } from '../lib/deviceRequests';
 import { ALL_VEHICLES } from '../lib/channels';
@@ -64,7 +65,7 @@ function StatusDots({ vehicleId }: { vehicleId: string }) {
 }
 
 export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
-  const [vehicles, setVehicles] = useState<Vehicle[] | null>(null);
+  const [bundle, setBundle] = useState<DailyBundle | null>(null);
   const [classFilter, setClassFilter] = useState<ClassFilter>('all');
   const [gradeFilter, setGradeFilter] = useState<GradeFilter>('all');
   const [search, setSearch] = useState('');
@@ -72,27 +73,44 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
   const [classFilterDraft, setClassFilterDraft] = useState<ClassFilter>('all');
   const [gradeFilterDraft, setGradeFilterDraft] = useState<GradeFilter>('all');
   const [searchDraft, setSearchDraft] = useState('');
+  // 조회 기간 — 차량마다 데이터 보유 기간이 제각각이라 기간을 안 자르면 3일치와 154일치가 같은 표에서 비교된다.
+  const [range, setRange] = useState<{ from: string; to: string } | null>(null);
+  const [rangeDraft, setRangeDraft] = useState<{ from: string; to: string } | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
 
-  function loadVehicles() {
+  function loadData() {
     setRefreshing(true);
-    return fetch('/data/vehicles.json')
+    return fetch('/data/daily.json')
       .then((r) => r.json())
-      .then(setVehicles)
-      .catch(() => setVehicles([]))
+      .then((b: DailyBundle) => {
+        setBundle(b);
+        const full = { from: b.meta.date_min ?? '', to: b.meta.date_max ?? '' };
+        setRange(full);
+        setRangeDraft(full);
+      })
+      .catch(() => setBundle(null))
       .finally(() => setRefreshing(false));
   }
 
   useEffect(() => {
-    loadVehicles();
+    loadData();
   }, []);
 
   function applyFilters() {
     setClassFilter(classFilterDraft);
     setGradeFilter(gradeFilterDraft);
     setSearch(searchDraft);
+    if (rangeDraft) setRange(rangeDraft);
   }
+
+  // 기간이 바뀌면 그 구간만 잘라 전체 차량을 다시 집계·판정한다(순위도 그 기간 기준으로 다시 매겨진다).
+  const vehicles = useMemo(() => {
+    if (!bundle || !range) return null;
+    return aggregateRange(bundle, range.from, range.to);
+  }, [bundle, range]);
+
+  const coverage = useMemo(() => (bundle ? coverageByVehicle(bundle) : null), [bundle]);
 
   const banner = useMemo(() => {
     if (!vehicles) return null;
@@ -107,12 +125,18 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
     return best;
   }, [vehicles]);
 
-  if (!vehicles) {
-    return <div className="p-6 text-sm" style={{ color: 'var(--color-dim)' }}>불러오는 중…</div>;
+  if (!vehicles || !range || !rangeDraft) {
+    return (
+      <div className="p-6 text-sm" style={{ color: 'var(--color-dim)' }}>
+        {bundle === null && !refreshing ? '데이터가 없습니다 — 상단 "데이터 업로드"로 운행·유류 파일을 올리세요.' : '불러오는 중…'}
+      </div>
+    );
   }
 
   const untrustedCount = vehicles.filter((v) => v.grade !== '정상').length;
-  const coveragePct = Math.round((vehicles.filter((v) => v.verifiable).length / vehicles.length) * 100);
+  const coveragePct = vehicles.length > 0
+    ? Math.round((vehicles.filter((v) => v.verifiable).length / vehicles.length) * 100)
+    : 0;
 
   const excluded = vehicles.filter((v) => v.grade === 'D');
   const ranked = vehicles
@@ -127,6 +151,9 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
       <div className="flex items-center justify-between">
         <p className="num text-sm" style={{ color: 'var(--color-paper)' }}>
           {vehicles.length}대 중 {untrustedCount}대 데이터 신뢰 불가 · 검증 커버리지 {coveragePct}%
+          <span className="ml-2 text-xs" style={{ color: 'var(--color-slate)' }}>
+            ({range.from} ~ {range.to} 기준)
+          </span>
         </p>
         <div className="flex gap-2">
           {(['데이터 업로드', '리포트 생성', '전체 공지 발송'] as const).map((label) => (
@@ -161,7 +188,37 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
         </div>
       )}
 
-      <div className="flex items-center gap-2 text-xs">
+      <div className="flex flex-wrap items-center gap-2 text-xs">
+        <label className="flex items-center gap-1" style={{ color: 'var(--color-slate)' }}>
+          조회기간
+          <input
+            type="date"
+            value={rangeDraft.from}
+            min={bundle?.meta.date_min ?? undefined}
+            max={rangeDraft.to}
+            onChange={(e) => setRangeDraft({ ...rangeDraft, from: e.target.value })}
+            className="num rounded-md border px-2 py-1"
+            style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
+          />
+          ~
+          <input
+            type="date"
+            value={rangeDraft.to}
+            min={rangeDraft.from}
+            max={bundle?.meta.date_max ?? undefined}
+            onChange={(e) => setRangeDraft({ ...rangeDraft, to: e.target.value })}
+            className="num rounded-md border px-2 py-1"
+            style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
+          />
+        </label>
+        <button
+          type="button"
+          onClick={() => setRangeDraft({ from: bundle?.meta.date_min ?? '', to: bundle?.meta.date_max ?? '' })}
+          className="rounded-md border px-2 py-1"
+          style={{ borderColor: 'var(--color-line)', color: 'var(--color-dim)' }}
+        >
+          전체기간
+        </button>
         <select
           value={classFilterDraft}
           onChange={(e) => setClassFilterDraft(e.target.value as ClassFilter)}
@@ -200,7 +257,7 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
         </button>
         <button
           type="button"
-          onClick={loadVehicles}
+          onClick={loadData}
           disabled={refreshing}
           className="rounded-md border px-3 py-1.5 disabled:opacity-40"
           style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
@@ -209,10 +266,12 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
         </button>
       </div>
 
+      {/* 차량이 100대 가까이 되므로 표만 박스 안에서 스크롤시키고, 화면 자체는 한 눈에 들어오게 둔다. */}
+      <div className="overflow-auto rounded-md border" style={{ borderColor: 'var(--color-line)', maxHeight: '46vh' }}>
       <table className="num w-full border-collapse text-xs">
-        <thead>
+        <thead className="sticky top-0" style={{ background: 'var(--color-ink)' }}>
           <tr className="border-b text-left" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-slate)' }}>
-            <th className="py-2 pr-2">순위</th>
+            <th className="py-2 pr-2 pl-2">순위</th>
             <th className="py-2 pr-2">차량</th>
             <th className="py-2 pr-2">단말</th>
             <th className="py-2 pr-2">주행거리</th>
@@ -264,7 +323,7 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
                 {isExpanded && (
                   <tr>
                     <td colSpan={11} className="pb-4">
-                      <VehicleDetailPanel vehicle={v} />
+                      <VehicleDetailPanel vehicle={v} coverage={coverage?.get(v.vehicle_id) ?? null} />
                     </td>
                   </tr>
                 )}
@@ -273,30 +332,86 @@ export function SafeScreen({ onOpenIngest }: { onOpenIngest: () => void }) {
           })}
         </tbody>
       </table>
+      </div>
+
+      {/* 전광판 — 표를 스크롤하지 않아도 전체 수준이 한 눈에 들어오게. 차종별로 나눠 놓는다. */}
+      <div className="grid gap-3 sm:grid-cols-2">
+        <SafeScoreboard title="승용차" vehicles={vehicles.filter((v) => v.vehicle_class === 'car')} />
+        <SafeScoreboard title="화물차" vehicles={vehicles.filter((v) => v.vehicle_class === 'truck')} />
+      </div>
 
       {excluded.length > 0 && (
-        <div className="mt-4">
+        <div>
           <p className="mb-2 text-xs" style={{ color: 'var(--color-slate)' }}>
             평가 제외 ({excluded.length}대) — 주행거리 0, 정규화 분모 없음
           </p>
-          <table className="num w-full border-collapse text-xs">
-            <tbody>
-              {excluded.map((v) => (
-                <tr key={v.vehicle_id} className="border-b" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-dim)' }}>
-                  <td className="py-2 pr-2">{v.vehicle_id}</td>
-                  <td className="py-2 pr-2"><ToneBadge tone={v.tone} label={v.grade_label} /></td>
-                  <td className="py-2 pr-2">{v.core_events}건 (거리 0)</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="overflow-auto rounded-md border" style={{ borderColor: 'var(--color-line)', maxHeight: '20vh' }}>
+            <table className="num w-full border-collapse text-xs">
+              <tbody>
+                {excluded.map((v) => (
+                  <tr key={v.vehicle_id} className="border-b" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-dim)' }}>
+                    <td className="py-2 pr-2 pl-2">{v.vehicle_id}</td>
+                    <td className="py-2 pr-2"><ToneBadge tone={v.tone} label={v.grade_label} /></td>
+                    <td className="py-2 pr-2">{v.core_events}건 (거리 0)</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
   );
 }
 
-function VehicleDetailPanel({ vehicle }: { vehicle: Vehicle }) {
+/** 차종별 안전 요약 전광판 — 평균은 대수 평균이 아니라 거리 가중(총 이벤트 ÷ 총 거리)이다. */
+function SafeScoreboard({ title, vehicles }: { title: string; vehicles: Vehicle[] }) {
+  const totalKm = vehicles.reduce((s, v) => s + v.reported_km, 0);
+  const totalEvents = vehicles.reduce((s, v) => s + v.core_events, 0);
+  const ratePer100 = totalKm > 0 ? (totalEvents / totalKm) * 100 : null;
+  const untrusted = vehicles.filter((v) => v.grade !== '정상').length;
+  const scores = vehicles.map(scoreOf).filter((s): s is number => s !== null);
+  const avgScore = scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : null;
+  const tone = untrusted === 0 ? 'ok' : untrusted / Math.max(1, vehicles.length) > 0.3 ? 'dead' : 'warn';
+
+  return (
+    <div className="rounded-md border p-4" style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)' }}>
+      <p className="mb-2 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>
+        {title} <span style={{ color: 'var(--color-slate)' }}>{vehicles.length}대</span>
+      </p>
+      {vehicles.length === 0 ? (
+        <p className="text-xs" style={{ color: 'var(--color-dim)' }}>해당 차종 데이터 없음</p>
+      ) : (
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <p className="text-[10px]" style={{ color: 'var(--color-slate)' }}>평균 발생률(거리 가중)</p>
+            <p className={`num tone-${tone}-fg text-xl font-semibold`}>
+              {ratePer100 !== null ? ratePer100.toFixed(1) : '—'}
+              <span className="ml-1 text-[10px]" style={{ color: 'var(--color-slate)' }}>건/100km</span>
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px]" style={{ color: 'var(--color-slate)' }}>데이터 신뢰 불가</p>
+            <p className={`num tone-${tone}-fg text-xl font-semibold`}>
+              {untrusted}
+              <span className="ml-1 text-[10px]" style={{ color: 'var(--color-slate)' }}>/ {vehicles.length}대</span>
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px]" style={{ color: 'var(--color-slate)' }}>총 주행거리</p>
+            <p className="num text-sm" style={{ color: 'var(--color-paper)' }}>{Math.round(totalKm).toLocaleString('ko-KR')}km</p>
+          </div>
+          <div>
+            <p className="text-[10px]" style={{ color: 'var(--color-slate)' }}>평균 S&E 점수</p>
+            <p className="num text-sm" style={{ color: 'var(--color-paper)' }}>{avgScore !== null ? avgScore.toFixed(0) : '—'}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function VehicleDetailPanel({ vehicle, coverage }: { vehicle: Vehicle; coverage: { from: string; to: string; days: number } | null }) {
   const signalRatio = signalRatioOf(vehicle);
   const measuredKmpl = vehicle.fuel_l > 0 ? vehicle.reported_km / vehicle.fuel_l : null;
   const sourceMeta = FUEL_SOURCE_META[vehicle.baseline.source];
@@ -307,6 +422,11 @@ function VehicleDetailPanel({ vehicle }: { vehicle: Vehicle }) {
         <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>판정</p>
         <ToneBadge tone={vehicle.tone} label={vehicle.grade_label} />
         <p className="mt-1 text-xs" style={{ color: 'var(--color-mist)' }}>{vehicle.verdict}</p>
+        {coverage && (
+          <p className="num mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>
+            이 차량 데이터 보유: {coverage.from} ~ {coverage.to} ({coverage.days}일치)
+          </p>
+        )}
         <ul className="num mt-2 space-y-0.5 text-xs" style={{ color: 'var(--color-slate)' }}>
           <li>관측 발생률: {vehicle.rate !== null ? (vehicle.rate * 100).toFixed(1) : '—'}건/100km</li>
           <li>

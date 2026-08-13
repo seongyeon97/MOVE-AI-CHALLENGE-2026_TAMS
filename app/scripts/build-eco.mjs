@@ -5,18 +5,12 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 import { readCsv, writeJson, num } from './lib/csv.mjs';
-import { CO2_KG_PER_L, IDLE_L_PER_HOUR, BASELINE_G_CO2_PER_TONKM } from './lib/constants.mjs';
+import { computeEco } from './lib/eco.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const FILES2 = join(ROOT, 'files2');
 const DATA_OUT = join(ROOT, 'public', 'data');
-
-const TONNAGE_40FT = 30.5; // 트랙터 컨테이너 규격 가정 — vehicle_master에 규격 필드가 없어 40ft로 고정.
-
-function tierOf(fuel_l) {
-  return fuel_l > 0 ? 3 : 1;
-}
 
 function main() {
   const vehicleMaster = readCsv(join(FILES2, 'vehicle_master.csv'));
@@ -41,34 +35,7 @@ function main() {
     const id = vm.vehicle_id;
     const baseline = baselineFuel[id];
     const t = totals.get(id) ?? { empty: blank(), laden: blank() };
-    const distance_km = t.empty.km + t.laden.km;
-    const fuel_l = t.empty.fuel + t.laden.fuel;
-    const idle_sec = t.empty.idle + t.laden.idle;
-    const idle_fuel_l = (idle_sec / 3600) * IDLE_L_PER_HOUR;
-    const drive_fuel_l = fuel_l - idle_fuel_l;
-
-    const baseline_fuel_l =
-      (baseline.kmpl_empty > 0 ? t.empty.km / baseline.kmpl_empty : 0) +
-      (baseline.kmpl_laden > 0 ? t.laden.km / baseline.kmpl_laden : 0);
-
-    const tier = tierOf(fuel_l);
-    // Tier 3(실측 있음): 실측 연료로 CO2 산정. Tier 1(실측 없음): 기준연비+공회전 추정으로 대체.
-    const fuelForCo2 = tier === 3 ? fuel_l : baseline_fuel_l + idle_fuel_l;
-    const co2_kg = fuelForCo2 * CO2_KG_PER_L;
-
-    const isTruck = vm.vehicle_class === 'truck';
-    const ton_km = isTruck ? t.laden.km * TONNAGE_40FT : 0;
-    const g_co2_per_tonkm = isTruck && ton_km > 0 ? (co2_kg * 1000) / ton_km : null;
-    const g_co2_per_km = !isTruck && distance_km > 0 ? (co2_kg * 1000) / distance_km : null;
-
-    const baseline_co2_kg = isTruck && ton_km > 0 ? (ton_km * BASELINE_G_CO2_PER_TONKM) / 1000 : null;
-    const measurement_gap_kg = baseline_co2_kg !== null ? co2_kg - baseline_co2_kg : null; // "계측 오차" — 감축량 아님
-
-    const excessFuelL = Math.max(0, drive_fuel_l - baseline_fuel_l);
-    const reduction_headroom_kg = excessFuelL * CO2_KG_PER_L; // "감축 여지"(상한) — 실적 아님
-
-    const empty_share = distance_km > 0 ? t.empty.km / distance_km : 0;
-
+    const eco = computeEco(t, baseline, vm.vehicle_class);
     const vehicle = vehicleById.get(id);
 
     return {
@@ -77,17 +44,8 @@ function main() {
       scope: 1, // 전부 자가운송 가정(협력사 위탁 구분 데이터 없음) — Scope 3 Cat.4는 위탁 데이터 확보 시 분리
       grade: vehicle?.grade ?? null,
       tone: vehicle?.tone ?? null,
-      tier,
       baseline,
-      distance_km,
-      fuel_l,
-      co2_kg,
-      ton_km: isTruck ? ton_km : null,
-      g_co2_per_tonkm,
-      g_co2_per_km,
-      measurement_gap_kg,
-      reduction_headroom_kg,
-      empty_share,
+      ...eco,
     };
   });
 

@@ -119,6 +119,8 @@ export type Certificate = {
   order_no: string;
   container_type: string;
 
+  /** 기준연비와 그 출처 — 증명서 산출근거 표기에 쓴다(§4.3 3계층). */
+  baseline: BaselineFuel | null;
   grade: Grade | null;
   verifiable: boolean;
   settle: Settle;

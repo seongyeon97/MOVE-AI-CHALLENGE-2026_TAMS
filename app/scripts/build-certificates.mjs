@@ -109,6 +109,8 @@ function main() {
       order_no: trip.order_no,
       container_type: trip.container_type,
 
+      // 증명서에 "이 숫자가 어떻게 나왔는지"를 적으려면 기준연비와 그 출처가 문서에 실려야 한다.
+      baseline: vehicle?.baseline ?? null,
       grade: vehicle?.grade ?? null,
       verifiable: vehicle?.verifiable ?? false,
       settle: vehicle?.settle ?? 'block',

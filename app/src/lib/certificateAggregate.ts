@@ -20,8 +20,19 @@ export type AggregatedCertificate = {
     g_co2_per_tonkm: number | null;
     g_co2_per_km: number | null;
     empty_share: number;
+    fuel_l: number;
+    idle_l: number;
+  };
+  /** 산출근거 표기용 — 이 증명서의 숫자가 어떤 값·계수로 나왔는지 문서에 그대로 적기 위한 재료. */
+  basis: {
+    date_from: string;
+    date_to: string;
+    baseline_sources: { source: string; kmpl: number; count: number }[];
+    tonnage_per_container: number | null;
   };
 };
+
+const TONNAGE_BY_CONTAINER: Record<string, number> = { '40ft': 30.5, '20ft': 21.0 };
 
 export function aggregateCertificates(trips: Certificate[]): AggregatedCertificate | null {
   if (trips.length === 0) return null;
@@ -39,8 +50,21 @@ export function aggregateCertificates(trips: Certificate[]): AggregatedCertifica
   let ton_km = 0;
   let co2_kg = 0;
   let empty_km = 0;
+  let fuel_l = 0;
+  let idle_l = 0;
+
+  // 기준연비 출처별 집계 — 대외 문서에 "이 연비를 어디서 가져왔는지"를 밝히기 위함(§4.3 3계층).
+  const baselineByKey = new Map<string, { source: string; kmpl: number; count: number }>();
+  const dates: string[] = [];
 
   for (const t of trips) {
+    dates.push(t.date);
+    if (t.baseline) {
+      const key = `${t.baseline.source}|${t.baseline.kmpl}`;
+      const cur = baselineByKey.get(key);
+      if (cur) cur.count += 1;
+      else baselineByKey.set(key, { source: t.baseline.source, kmpl: t.baseline.kmpl, count: 1 });
+    }
     data_tier_counts[t.data_tier] += 1;
     if (t.attribution.applicable) {
       attribution_applicable = true;
@@ -59,9 +83,12 @@ export function aggregateCertificates(trips: Certificate[]): AggregatedCertifica
     ton_km += t.eco.ton_km;
     co2_kg += t.eco.co2_kg;
     empty_km += t.eco.distance_km * t.eco.empty_share;
+    fuel_l += t.eco.fuel_l;
+    idle_l += t.eco.idle_l;
   }
 
   const isCar = trips[0].vehicle_class === 'car';
+  dates.sort();
 
   return {
     trips,
@@ -82,6 +109,14 @@ export function aggregateCertificates(trips: Certificate[]): AggregatedCertifica
       g_co2_per_tonkm: !isCar && ton_km > 0 ? (co2_kg * 1000) / ton_km : null,
       g_co2_per_km: isCar && distance_km > 0 ? (co2_kg * 1000) / distance_km : null,
       empty_share: distance_km > 0 ? empty_km / distance_km : 0,
+      fuel_l,
+      idle_l,
+    },
+    basis: {
+      date_from: dates[0] ?? '',
+      date_to: dates[dates.length - 1] ?? '',
+      baseline_sources: [...baselineByKey.values()].sort((a, b) => b.count - a.count),
+      tonnage_per_container: TONNAGE_BY_CONTAINER[trips[0].container_type] ?? null,
     },
   };
 }
