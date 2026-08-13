@@ -117,7 +117,7 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
   const [queued, setQueued] = useState<QueuedFile[]>([]);
   const [results, setResults] = useState<Record<string, FileState>>({});
   const [parseStarted, setParseStarted] = useState(false);
-  const [showResults, setShowResults] = useState(false);
+  const [isParsing, setIsParsing] = useState(false);
   const [slowFiles, setSlowFiles] = useState<Record<string, boolean>>({});
   const [confirmed, setConfirmed] = useState(false);
   const [readingFiles, setReadingFiles] = useState<string[]>([]);
@@ -139,7 +139,9 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
 
   async function handleParse() {
     setParseStarted(true);
+    setIsParsing(true);
     setConfirmed(false);
+    setResults({});
     await Promise.all(
       queued.map(async (q) => {
         const standardKeys = STANDARD_SCHEMAS[q.vehicleClass].map((f) => f.key);
@@ -147,6 +149,7 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
         setResults((prev) => ({ ...prev, [q.fileName]: buildFileState(q, plan) }));
       }),
     );
+    setIsParsing(false);
   }
 
   function updateMapping(fileName: string, sourceName: string, standardKey: string) {
@@ -171,150 +174,206 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
   const allResults = Object.values(results);
   const anyDuplicate = allResults.some(hasDuplicateMapping);
 
+  const allDone = parseStarted && !isParsing && queued.length > 0 && allResults.length === queued.length;
+
   return (
     <div className="flex flex-col gap-4 p-6">
       <div className="flex items-center justify-between">
         <h1 className="text-sm font-medium" style={{ color: 'var(--color-paper)' }}>데이터 업로드</h1>
-        <button type="button" onClick={onBack} className="text-xs" style={{ color: 'var(--color-slate)' }}>← Safe로</button>
+        <button type="button" onClick={onBack} className="text-xs" style={{ color: 'var(--color-slate)' }}>← Safe로 (저장 없이 나가기)</button>
       </div>
 
-      <input
-        type="file"
-        accept=".csv,.xlsx,.xls"
-        multiple
-        disabled={readingFiles.length > 0}
-        onChange={(e) => handleFiles(e.target.files)}
-        className="text-xs disabled:opacity-40"
-        style={{ color: 'var(--color-mist)' }}
+      <StepBar
+        step={confirmed ? 4 : allDone ? 3 : parseStarted ? 2 : 1}
       />
 
-      {readingFiles.length > 0 && (
-        <p className="tone-warn-fg text-xs">
-          파일 읽는 중… ({readingFiles.join(', ')}) — 큰 xlsx는 시간이 좀 걸립니다. 탭이 멈춘 게 아닙니다.
-        </p>
-      )}
+      {/* ① 업로드 */}
+      <div>
+        <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>① 파일 업로드</p>
+        <input
+          type="file"
+          accept=".csv,.xlsx,.xls"
+          multiple
+          disabled={readingFiles.length > 0}
+          onChange={(e) => handleFiles(e.target.files)}
+          className="text-xs disabled:opacity-40"
+          style={{ color: 'var(--color-mist)' }}
+        />
+        {readingFiles.length > 0 && (
+          <p className="tone-warn-fg mt-1 text-xs">
+            파일 읽는 중… ({readingFiles.join(', ')}) — 큰 xlsx는 몇 초~10초 걸립니다. 탭이 멈춘 게 아닙니다.
+          </p>
+        )}
+        {queued.length > 0 && (
+          <ul className="mt-2 flex flex-col gap-1 text-xs" style={{ color: 'var(--color-mist)' }}>
+            {queued.map((q) => (
+              <li key={q.fileName} className="flex items-center gap-2">
+                <span className="tone-ok-fg">✓</span>
+                <span>업로드됨: {q.fileName} — 시트 {q.sheets.length}개({q.sheets.map((s) => s.name).join(', ')})</span>
+                <select
+                  value={q.vehicleClass}
+                  onChange={(e) => setFileVehicleClass(q.fileName, e.target.value as SchemaVehicleClass)}
+                  className="rounded border px-1.5 py-0.5"
+                  style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
+                >
+                  <option value="truck">화물차 스키마</option>
+                  <option value="car">승용차 스키마</option>
+                </select>
+              </li>
+            ))}
+          </ul>
+        )}
+        {queued.length === 0 && readingFiles.length === 0 && (
+          <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>파일을 선택하면 자동으로 업로드됩니다. 업로드되면 아래 ② 파싱 버튼이 켜집니다.</p>
+        )}
+      </div>
 
-      {queued.length > 0 && (
-        <ul className="flex flex-col gap-1 text-xs" style={{ color: 'var(--color-mist)' }}>
-          {queued.map((q) => (
-            <li key={q.fileName} className="flex items-center gap-2">
-              <span>{q.fileName} — 시트 {q.sheets.length}개({q.sheets.map((s) => s.name).join(', ')})</span>
-              <select
-                value={q.vehicleClass}
-                onChange={(e) => setFileVehicleClass(q.fileName, e.target.value as SchemaVehicleClass)}
-                className="rounded border px-1.5 py-0.5"
-                style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
-              >
-                <option value="truck">화물차 스키마</option>
-                <option value="car">승용차 스키마</option>
-              </select>
-              {slowFiles[q.fileName] && !results[q.fileName] && (
-                <span className="tone-warn-fg">오래 걸리는 중…</span>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <div className="flex gap-2">
+      {/* ② 파싱 */}
+      <div>
+        <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>② 스키마 분석</p>
         <button
           type="button"
-          disabled={queued.length === 0}
+          disabled={queued.length === 0 || isParsing}
           onClick={handleParse}
           className="tone-ok-bg tone-ok-fg rounded-md px-3 py-1.5 text-xs font-medium disabled:opacity-40"
         >
-          파싱
+          {isParsing ? '분석 중…' : parseStarted ? '다시 분석' : '파싱 시작'}
         </button>
-        <button
-          type="button"
-          disabled={!parseStarted}
-          onClick={() => setShowResults(true)}
-          className="rounded-md border px-3 py-1.5 text-xs disabled:opacity-40"
-          style={{ borderColor: 'var(--color-line)', color: 'var(--color-mist)' }}
-        >
-          결과
-        </button>
+        {isParsing && (
+          <span className="ml-2 text-xs" style={{ color: 'var(--color-mist)' }}>
+            파일마다 AI가 컬럼을 매핑하고 있습니다. 끝나면 아래에 자동으로 표가 뜹니다.
+          </span>
+        )}
       </div>
 
-      {showResults && allResults.length > 0 && (
+      {parseStarted && (
         <div className="flex flex-col gap-4">
-          {allResults.map((r) => {
-            const schema: StandardField[] = STANDARD_SCHEMAS[r.vehicleClass];
-            return (
-              <div key={r.fileName} className="rounded-md border p-3" style={{ borderColor: 'var(--color-line)' }}>
-                <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>
-                  {r.fileName} — {r.vehicleClass === 'truck' ? '화물차' : '승용차'} 스키마 · {r.source === 'llm' ? 'AI 매핑' : '수동 매핑'}
-                </p>
-                <p className="mb-2 text-xs" style={{ color: 'var(--color-dim)' }}>
-                  시트 "{r.targetSheetName}" 선택 · 헤더 {r.headerRowIndex + 1}행
-                  {r.sheets.length > 1 && ` (워크북 내 시트 ${r.sheets.length}개 중 선택)`}
-                </p>
-                {r.reshapeInfo && (
-                  <p className="mb-2 text-xs" style={{ color: 'var(--color-mist)' }}>
-                    와이드(피벗) 포맷 감지 — 기간 컬럼그룹 {r.reshapeInfo.periodGroupCount}개를 롱포맷으로 펼침:
-                    원본 {r.reshapeInfo.originalRows}행 → {r.reshapeInfo.longRows}행
-                  </p>
-                )}
-                {r.source === 'manual' && r.sheets.length > 1 && (
-                  <p className="mb-2 text-xs" style={{ color: 'var(--color-rose)' }}>
-                    AI 매핑 실패 — 시트 자동 선택·와이드 포맷 해체는 수동으로 할 수 없습니다. 행이 가장 많은 시트를 임의로 골랐으니 확인하세요.
-                  </p>
-                )}
-                <table className="w-full border-collapse text-xs">
-                  <thead>
-                    <tr className="border-b text-left" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-slate)' }}>
-                      <th className="py-1 pr-2">{r.reshapeInfo ? '필드(리셰이프 후)' : '원본 컬럼'}</th>
-                      <th className="py-1 pr-2">표준 필드</th>
-                      {r.source === 'llm' && <th className="py-1 pr-2">신뢰도</th>}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {r.mappings.map((m) => {
-                      const isDup = m.standard_key && r.mappings.filter((x) => x.standard_key === m.standard_key).length > 1;
-                      return (
-                        <tr key={m.source_name} className="border-b" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-mist)' }}>
-                          <td className="py-1 pr-2">{m.source_name}</td>
-                          <td className="py-1 pr-2">
-                            <select
-                              value={m.standard_key}
-                              onChange={(e) => updateMapping(r.fileName, m.source_name, e.target.value)}
-                              className="rounded border px-1.5 py-0.5"
-                              style={{ borderColor: isDup ? 'var(--color-rose)' : 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
-                            >
-                              <option value="">미매핑</option>
-                              {schema.map((f) => <option key={f.key} value={f.key}>{f.label}</option>)}
-                            </select>
-                          </td>
-                          {r.source === 'llm' && <td className="py-1 pr-2">{m.confidence ?? '—'}</td>}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-
-                <UnmappedFields schema={schema} mappedKeys={r.mappings.map((m) => m.standard_key)} />
-              </div>
-            );
+          <p className="text-xs font-medium" style={{ color: 'var(--color-paper)' }}>③ 매핑 검토{allDone ? ' — 완료' : ' (진행 중)'}</p>
+          {queued.map((q) => {
+            const r = results[q.fileName];
+            if (!r) {
+              return (
+                <div key={q.fileName} className="rounded-md border p-3 text-xs" style={{ borderColor: 'var(--color-line)', color: 'var(--color-dim)' }}>
+                  {q.fileName} — {slowFiles[q.fileName] ? '오래 걸리는 중…' : '분석 중…'}
+                </div>
+              );
+            }
+            return <FileMappingCard key={q.fileName} r={r} onUpdateMapping={updateMapping} />;
           })}
 
-          <button
-            type="button"
-            disabled={anyDuplicate}
-            onClick={() => setConfirmed(true)}
-            className="tone-ok-bg tone-ok-fg w-fit rounded-md px-3 py-1.5 text-xs font-medium disabled:opacity-40"
-          >
-            확인
-          </button>
-          {anyDuplicate && (
-            <p className="text-xs" style={{ color: 'var(--color-rose)' }}>같은 표준필드에 컬럼 2개 이상 매핑됨 — 중복을 해소하세요.</p>
+          {allDone && (
+            <>
+              <button
+                type="button"
+                disabled={anyDuplicate}
+                onClick={() => setConfirmed(true)}
+                className="tone-ok-bg tone-ok-fg w-fit rounded-md px-3 py-1.5 text-xs font-medium disabled:opacity-40"
+              >
+                확인
+              </button>
+              {anyDuplicate && (
+                <p className="text-xs" style={{ color: 'var(--color-rose)' }}>같은 표준필드에 컬럼 2개 이상 매핑됨 — 중복을 해소하세요.</p>
+              )}
+            </>
           )}
+
           {confirmed && (
-            <p className="text-xs" style={{ color: 'var(--color-dim)' }}>
-              매핑 확정 — 전체 파일을 이 매핑으로 재파싱해 files2/ 표준 스키마로 반영합니다.
-            </p>
+            <div className="tone-ok-bg tone-ok-bd flex flex-col items-start gap-2 rounded-md border p-4">
+              <p className="text-xs" style={{ color: 'var(--color-paper)' }}>
+                ④ 매핑 확정 완료 — 전체 파일을 이 매핑으로 재파싱해 files2/ 표준 스키마로 반영합니다.
+              </p>
+              <button
+                type="button"
+                onClick={onBack}
+                className="tone-ok-bg tone-ok-fg rounded-md px-4 py-2 text-sm font-medium"
+              >
+                Safe 화면으로 이동 →
+              </button>
+            </div>
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+function StepBar({ step }: { step: 1 | 2 | 3 | 4 }) {
+  const labels = ['업로드', '파싱', '매핑검토', '완료'];
+  return (
+    <div className="flex gap-2 text-xs">
+      {labels.map((label, i) => {
+        const n = i + 1;
+        const active = n === step;
+        const done = n < step;
+        return (
+          <span
+            key={label}
+            className={done ? 'tone-ok-fg' : undefined}
+            style={{ color: active ? 'var(--color-paper)' : done ? undefined : 'var(--color-dim)', fontWeight: active ? 600 : 400 }}
+          >
+            {done ? '✓ ' : `${n}. `}{label}{i < labels.length - 1 ? ' →' : ''}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+function FileMappingCard({ r, onUpdateMapping }: { r: FileState; onUpdateMapping: (fileName: string, sourceName: string, standardKey: string) => void }) {
+  const schema: StandardField[] = STANDARD_SCHEMAS[r.vehicleClass];
+  return (
+    <div className="rounded-md border p-3" style={{ borderColor: 'var(--color-line)' }}>
+      <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-paper)' }}>
+        {r.fileName} — {r.vehicleClass === 'truck' ? '화물차' : '승용차'} 스키마 · {r.source === 'llm' ? 'AI 매핑' : '수동 매핑'}
+      </p>
+      <p className="mb-2 text-xs" style={{ color: 'var(--color-dim)' }}>
+        시트 "{r.targetSheetName}" 선택 · 헤더 {r.headerRowIndex + 1}행
+        {r.sheets.length > 1 && ` (워크북 내 시트 ${r.sheets.length}개 중 선택)`}
+      </p>
+      {r.reshapeInfo && (
+        <p className="mb-2 text-xs" style={{ color: 'var(--color-mist)' }}>
+          와이드(피벗) 포맷 감지 — 기간 컬럼그룹 {r.reshapeInfo.periodGroupCount}개를 롱포맷으로 펼침:
+          원본 {r.reshapeInfo.originalRows}행 → {r.reshapeInfo.longRows}행
+        </p>
+      )}
+      {r.source === 'manual' && r.sheets.length > 1 && (
+        <p className="mb-2 text-xs" style={{ color: 'var(--color-rose)' }}>
+          AI 매핑 실패 — 시트 자동 선택·와이드 포맷 해체는 수동으로 할 수 없습니다. 행이 가장 많은 시트를 임의로 골랐으니 확인하세요.
+        </p>
+      )}
+      <table className="w-full border-collapse text-xs">
+        <thead>
+          <tr className="border-b text-left" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-slate)' }}>
+            <th className="py-1 pr-2">{r.reshapeInfo ? '필드(리셰이프 후)' : '원본 컬럼'}</th>
+            <th className="py-1 pr-2">표준 필드</th>
+            {r.source === 'llm' && <th className="py-1 pr-2">신뢰도</th>}
+          </tr>
+        </thead>
+        <tbody>
+          {r.mappings.map((m) => {
+            const isDup = m.standard_key && r.mappings.filter((x) => x.standard_key === m.standard_key).length > 1;
+            return (
+              <tr key={m.source_name} className="border-b" style={{ borderColor: 'var(--color-rule)', color: 'var(--color-mist)' }}>
+                <td className="py-1 pr-2">{m.source_name}</td>
+                <td className="py-1 pr-2">
+                  <select
+                    value={m.standard_key}
+                    onChange={(e) => onUpdateMapping(r.fileName, m.source_name, e.target.value)}
+                    className="rounded border px-1.5 py-0.5"
+                    style={{ borderColor: isDup ? 'var(--color-rose)' : 'var(--color-line)', background: 'var(--color-panel-2)', color: 'var(--color-paper)' }}
+                  >
+                    <option value="">미매핑</option>
+                    {schema.map((f) => <option key={f.key} value={f.key}>{f.label}</option>)}
+                  </select>
+                </td>
+                {r.source === 'llm' && <td className="py-1 pr-2">{m.confidence ?? '—'}</td>}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+
+      <UnmappedFields schema={schema} mappedKeys={r.mappings.map((m) => m.standard_key)} />
     </div>
   );
 }
