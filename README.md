@@ -1,4 +1,4 @@
-# S&E Driving Platform
+# MOVE-AI-CHALLENGE-2026_TAMS — S&E Driving Platform
 
 세방 운송 안전·친환경 데이터 검증 플랫폼 — "운송을 더 잘하게 만들지 않는다. 운송이 어땠는지 증명한다."
 
