@@ -1,5 +1,5 @@
-// SegmentVerdictCard.tsx — 판정 근거 카드 (★가장 중요★). AI 해설 카드와 역할이 정반대다.
-// 저쪽은 추론, 이쪽은 계산 — 배지도 '실측 통계 · AI 미개입'으로 대비시킨다.
+// SegmentVerdictCard.tsx — 판정 근거 카드 (★가장 중요★).
+// 등급이 어떤 계산으로 나왔는지를 산식 그대로 펼쳐 보인다.
 // 등급이 상대 순위이므로 컷 값·분포·산식을 화면에서 그대로 재현해 보여준다.
 
 import type { CorridorBundle, CorridorRoute, CorridorSegment } from '../types';
@@ -20,30 +20,37 @@ export function SegmentVerdictCard({ route, segment, meta }: Props) {
   const vsMedian = criteria.rate_median > 0 ? segment.rate_per_trip / criteria.rate_median : null;
 
   return (
-    <section className="rounded-md border p-4" style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel)' }}>
-      <header className="mb-3 flex items-center justify-between">
+    <details
+      className="group rounded-md border p-4"
+      style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel)' }}
+    >
+      {/* 산식 전체를 항상 펼쳐 두면 화면이 길어진다 — 접었다 펼 수 있게 한다 */}
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-2">
         <h3 className="text-sm font-semibold" style={{ color: 'var(--color-paper)' }}>
           판정 근거 — {route.route_name} {segment.km_from}~{segment.km_to}km ·{' '}
           <span className={`tone-${segment.tone}-fg`}>{segment.grade_label}</span>
         </h3>
-        <span className="rounded border px-1.5 py-0.5 text-xs" style={{ borderColor: 'var(--color-line)', color: 'var(--color-chalk)' }}>
-          실측 통계 · AI 미개입
+        <span className="num shrink-0 text-xs" style={{ color: 'var(--color-slate)' }}>
+          {segment.rate_per_trip.toFixed(2)}건/trip
+          <span className="ml-2 group-open:hidden">펼치기 ▾</span>
+          <span className="ml-2 hidden group-open:inline">접기 ▴</span>
         </span>
-      </header>
+      </summary>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="mt-3 grid gap-4 md:grid-cols-2">
         {/* ① 무엇을 셌나 */}
         <div>
           <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-chalk)' }}>① 무엇을 셌나 — 집계 대상</p>
           <p className="mb-2 text-xs leading-relaxed" style={{ color: 'var(--color-mist)' }}>
-            신뢰등급 정상(verifiable) 차량의 이벤트만 셉니다. 필터 없이 집계하면 핫스팟이 아니라
-            "센서 이상 차량이 많이 지나간 자리"가 위험구간으로 잡히기 때문입니다.
+            이 노선을 실제로 달린 화물차(트랙터) 운행의 이벤트를 셉니다. 승용 차량은 화물 노선을
+            달리지 않으므로 집계에서 빠집니다 — 섞으면 핫스팟이 아니라 "차량이 많이 지나간 자리"가
+            위험구간으로 잡히기 때문입니다.
           </p>
           <dl className="num grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs" style={{ color: 'var(--color-paper)' }}>
             <dt style={{ color: 'var(--color-slate)' }}>이 구간 이벤트</dt>
             <dd>{segment.event_count}건</dd>
             <dt style={{ color: 'var(--color-slate)' }}>분모</dt>
-            <dd>이 노선 verifiable 운행 {route.trips}건</dd>
+            <dd>이 노선 실측 운행 {route.trips}건</dd>
             <dt style={{ color: 'var(--color-slate)' }}>구간 길이</dt>
             <dd>{meta.bin_km}km ({segment.km_from}~{segment.km_to}km 지점)</dd>
           </dl>
@@ -58,7 +65,7 @@ export function SegmentVerdictCard({ route, segment, meta }: Props) {
           </p>
           <ol className="list-decimal pl-4 text-xs leading-relaxed" style={{ color: 'var(--color-mist)' }}>
             <li>이벤트 발생 시각을 앞뒤 궤적 점 사이에 놓고 누적 주행거리를 시간 비례로 복원</li>
-            <li>복귀(IN) 방향은 거리를 뒤집어 노선 기점 기준 km로 환산</li>
+            <li>복원한 주행거리를 노선 기준선 길이에 비례 환산해 기점 기준 km로 변환</li>
             <li>해당 km가 속한 {meta.bin_km}km 구간에 배정</li>
           </ol>
         </div>
@@ -67,7 +74,7 @@ export function SegmentVerdictCard({ route, segment, meta }: Props) {
         <div>
           <p className="mb-1 text-xs font-medium" style={{ color: 'var(--color-chalk)' }}>③ 발생률 산식</p>
           <div className="rounded border p-3 text-center" style={{ borderColor: 'var(--color-rule)', background: 'var(--color-panel-2)' }}>
-            <p className="text-xs" style={{ color: 'var(--color-slate)' }}>발생률 = 구간 이벤트 수 ÷ 노선 verifiable 운행 건수</p>
+            <p className="text-xs" style={{ color: 'var(--color-slate)' }}>발생률 = 구간 이벤트 수 ÷ 노선 실측 운행 건수</p>
             <p className="num mt-1 text-lg" style={{ color: 'var(--color-paper)' }}>
               {segment.event_count} ÷ {route.trips} = {segment.rate_per_trip.toFixed(2)} 건/trip
             </p>
@@ -133,6 +140,6 @@ export function SegmentVerdictCard({ route, segment, meta }: Props) {
           </p>
         </div>
       </div>
-    </section>
+    </details>
   );
 }

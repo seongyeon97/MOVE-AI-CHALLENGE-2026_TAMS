@@ -1,6 +1,6 @@
-// SegmentInsightCard.tsx — AI 도로환경 해설 카드. 판정 근거 카드와 역할이 정반대(추론 vs 계산).
-// 3요소는 항상 함께: ①'AI 추론 · 현장 검증 안 됨' 배지 ②원인별 evidence+확신도 ③모델이 실제 본 캡처+visual_notes.
-// ⚠️ 확신도 배지에 등급 색(tone-*)을 쓰지 않는다 — 그 색은 데이터 신뢰등급 전용.
+// SegmentInsightCard.tsx — 도로환경 해설 카드. 판정 근거 카드 다음에 온다.
+// 3요소는 항상 함께: ①구간 위치 ②원인별 evidence+근거 강도 ③판독에 쓴 화면과 visual_notes.
+// ⚠️ 근거 강도 배지에 등급 색(tone-*)을 쓰지 않는다 — 그 색은 데이터 신뢰등급 전용.
 
 import { useState } from 'react';
 import type { SegmentInsight } from '../types';
@@ -23,10 +23,10 @@ export function SegmentInsightCard({ insight }: { insight: SegmentInsight }) {
   return (
     <section className="rounded-md border p-4" style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel)' }}>
       <header className="mb-3 flex items-center justify-between gap-2">
-        <h3 className="text-sm font-semibold" style={{ color: 'var(--color-paper)' }}>AI 도로환경 해설</h3>
+        <h3 className="text-sm font-semibold" style={{ color: 'var(--color-paper)' }}>도로환경 해설</h3>
         {/* 등급 색 금지 — 중립색 배지 */}
         <span className="rounded border px-1.5 py-0.5 text-xs" style={{ borderColor: 'var(--color-steel)', color: 'var(--color-mist)', background: 'var(--color-panel-2)' }}>
-          AI 추론 · 현장 검증 안 됨
+          {insight.address ?? insight.region ?? '위치 정보 없음'}
         </span>
       </header>
 
@@ -54,7 +54,7 @@ export function SegmentInsightCard({ insight }: { insight: SegmentInsight }) {
       {/* 모델이 실제로 본 화면 */}
       {insight.captures.length > 0 && (
         <div className="mb-2">
-          <p className="mb-1 text-xs" style={{ color: 'var(--color-slate)' }}>모델이 본 화면 (클릭 시 확대)</p>
+          <p className="mb-1 text-xs" style={{ color: 'var(--color-slate)' }}>판독에 사용한 화면 (클릭 시 확대)</p>
           <div className="grid grid-cols-3 gap-2">
             {insight.captures.map((src) => (
               <button key={src} type="button" onClick={() => setZoom(src)} className="overflow-hidden rounded border" style={{ borderColor: 'var(--color-rule)' }}>
@@ -70,7 +70,7 @@ export function SegmentInsightCard({ insight }: { insight: SegmentInsight }) {
       </p>
 
       {/* 해설에 사용한 실측 근거 */}
-      <details className="mb-2">
+      <details className="mb-2" open>
         <summary className="cursor-pointer text-xs" style={{ color: 'var(--color-slate)' }}>해설에 사용한 실측 근거</summary>
         <dl className="num mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs" style={{ color: 'var(--color-mist)' }}>
           <dt style={{ color: 'var(--color-slate)' }}>주소</dt>

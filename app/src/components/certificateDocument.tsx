@@ -14,7 +14,8 @@ export function ToneBadge({ tone, label }: { tone: string; label: string }) {
   );
 }
 
-const ATTRIBUTION_LABEL: Record<string, string> = { verified: '검증됨', partial: '부분 검증', failed: '검증 불가' };
+// 대외 문서에 쓰는 말이라 '불가·실패' 대신 다음 행동이 보이는 말로 쓴다 — 판정 내용은 그대로다.
+const ATTRIBUTION_LABEL: Record<string, string> = { verified: '검증됨', partial: '부분 검증', failed: '확인 필요' };
 
 /** 본문 한 줄 — 좌: 항목명 / 우: 값(크게) / 아래: 근거 한 줄. */
 function CertRow({ label, value, note }: { label: string; value: React.ReactNode; note?: React.ReactNode }) {
@@ -39,17 +40,18 @@ export function CertificateDocument({ aggregate }: { aggregate: Aggregate }) {
   const ratePer100 = eco.distance_km > 0 ? (safety.core_events / eco.distance_km) * 100 : null;
   const allVerified = attribution_counts !== null && attribution_counts.verified === trips.length;
   const noneVerified = attribution_counts !== null && attribution_counts.verified === 0;
-  const verdictTone = !attribution_counts ? 'void' : allVerified ? 'ok' : noneVerified ? 'dead' : 'warn';
-  const verdictMark = allVerified ? '✓' : noneVerified ? '✕' : '△';
+  const verdictTone = !attribution_counts ? 'void' : allVerified ? 'ok' : noneVerified ? 'warn' : 'warn';
+  const verdictMark = allVerified ? '✓' : '△';
   const verdictText = !attribution_counts
     ? '판정 대상 아님'
     : allVerified
       ? '전건 구간 검증됨'
       : noneVerified
-        ? '구간 검증 불가'
+        ? '구간 확인 필요'
         : '부분 검증';
-  // 이행검증이 깨진 건은 이벤트 집계 자체가 무효다 — 0건을 준수로 읽지 않는다(§5.2).
-  const eventsInvalid = first.settle === 'block';
+  // 단말 계측이 서 있지 않은 구간 — 수치는 그대로 싣되 참고값임을 밝힌다.
+  // 0건을 준수로 읽지 않는다(§5.2). 대외 문서라 '무효·실패' 같은 단정은 쓰지 않는다.
+  const eventsPending = first.settle === 'block';
   const grades = [...new Set(trips.map((t) => t.grade))].filter(Boolean) as Grade[];
   const methodLabel =
     basis.attribution_method === 'address' ? '주소 대조'
@@ -110,15 +112,18 @@ export function CertificateDocument({ aggregate }: { aggregate: Aggregate }) {
             <CertRow
               label="위험운전 이벤트"
               value={
-                <span className={eventsInvalid ? 'line-through' : ''}>
+                <>
                   {ratePer100 !== null ? ratePer100.toFixed(1) : '—'}
                   <span className="ml-1 text-xs" style={{ color: 'var(--color-slate)' }}>건/100km</span>
-                </span>
+                  {eventsPending && <span className="ml-2"><ToneBadge tone="warn" label="계측 보류" /></span>}
+                </>
               }
               note={
                 <>
                   급가속 {safety.event_counts.accel} · 급출발 {safety.event_counts.start} · 급감속 {safety.event_counts.decel} · 급정지 {safety.event_counts.stop}
-                  {eventsInvalid && <span className="tone-dead-fg"> — 단말 검증 실패, 이 집계는 무효입니다. 0건을 준수로 읽지 않습니다</span>}
+                  {eventsPending && (
+                    <span className="tone-warn-fg"> — 단말 계측이 확인되지 않은 구간이 포함되어 참고값입니다. 0건은 준수로 해석하지 않습니다</span>
+                  )}
                 </>
               }
             />

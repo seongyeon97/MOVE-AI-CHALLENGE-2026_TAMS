@@ -1,0 +1,1035 @@
+{
+  "meta": {
+    "generated_from": [
+      "public/data/corridor.json",
+      "카카오 로컬 REST(주소·시설)",
+      "files2/dtg_track.csv·event.csv(속도·시간대)",
+      "카카오맵 캡처 3종"
+    ],
+    "note": "위험 판정·순위·발생률은 전부 실측 통계다. Gemini는 그 결과가 나온 자리의 도로 환경만 해설하며, 새 점수·등급·확률을 만들지 않는다.",
+    "model": "gemini-3.6-flash",
+    "generated_at": "2026-08-13",
+    "segment_count": 8
+  },
+  "insights": [
+    {
+      "key": "R04-1",
+      "route_id": "R04",
+      "segment_no": 1,
+      "address": "경북 경주시 외동읍 구어리 79-5",
+      "region": "경상북도 경주시 외동읍",
+      "pois": [
+        {
+          "name": "동천교",
+          "category": "교량",
+          "distance_m": 324
+        },
+        {
+          "name": "외동교차로",
+          "category": "교차로",
+          "distance_m": 383
+        },
+        {
+          "name": "모화교",
+          "category": "교량",
+          "distance_m": 546
+        },
+        {
+          "name": "문산터널",
+          "category": "터널",
+          "distance_m": 605
+        },
+        {
+          "name": "문산교",
+          "category": "교량",
+          "distance_m": 894
+        },
+        {
+          "name": "모화사거리",
+          "category": "교차로",
+          "distance_m": 1207
+        },
+        {
+          "name": "구어5교",
+          "category": "교량",
+          "distance_m": 1240
+        },
+        {
+          "name": "하나은행365 이마트24경주부성휴게소점",
+          "category": "휴게소",
+          "distance_m": 1324
+        },
+        {
+          "name": "구어사거리",
+          "category": "교차로",
+          "distance_m": 1449
+        },
+        {
+          "name": "구어교차로",
+          "category": "교차로",
+          "distance_m": 1957
+        }
+      ],
+      "geometry": {
+        "total_turn_deg": 325,
+        "max_turn_deg": 88,
+        "shape": "급곡선 연속"
+      },
+      "speed": {
+        "samples": 575,
+        "mean_kmh": 9.28,
+        "max_kmh": 25.3,
+        "min_kmh": 0,
+        "stdev_kmh": 8.43
+      },
+      "hours": {
+        "total": 39,
+        "top_hours": [
+          {
+            "hour": 6,
+            "count": 24
+          },
+          {
+            "hour": 8,
+            "count": 13
+          },
+          {
+            "hour": 7,
+            "count": 2
+          }
+        ]
+      },
+      "captures": [
+        "/segment_captures/R04_1_map.jpg",
+        "/segment_captures/R04_1_sky.jpg",
+        "/segment_captures/R04_1_roadview.jpg"
+      ],
+      "report": {
+        "headline": "경주외동농공단지 진출입로 및 급곡선 도로 구간입니다.",
+        "causes": [
+          {
+            "factor": "농공단지 진출입 및 출근 시간대 정체 해소 과정에서 급출발과 급가속이 빈번하게 발생합니다.",
+            "evidence": "전체 39건의 이벤트 중 급출발 18건과 급가속 16건이 대부분을 차지하며, 출근 시간대인 6시(24건)와 8시(13건)에 집중되어 있습니다. 구간 평균 속도 또한 9.28km/h로 매우 낮게 측정되었습니다.",
+            "confidence": "높음"
+          },
+          {
+            "factor": "도로의 급격한 굴곡으로 인해 서행 후 재출발 및 가속 조작이 자주 일어납니다.",
+            "evidence": "누적 방위변화 325°, 최대 단일 꺾임 88°의 급곡선 연속 도로 형상이며 실측 최고 속도가 25.3km/h에 불과합니다.",
+            "confidence": "높음"
+          }
+        ],
+        "driver_advice": "농공단지 진출입로에서 서행하여 시야를 확보하시고, 곡선 구간 탈출 시 급출발과 급가속을 자제하여 운행하십시오.",
+        "visual_notes": "일반 지도 및 위성 사진에서 경주외동농공단지 내부의 굴곡진 도로와 외동교차로 연결 선형이 확인됩니다. 로드뷰에서는 '현대기공공장' 건물 외벽, 단지 내 진출입 도로, 주차된 화물차 및 가드레일이 시야에 들어옵니다."
+      }
+    },
+    {
+      "key": "R04-72",
+      "route_id": "R04",
+      "segment_no": 72,
+      "address": "경북 경산시 진량읍 선화리 498-3",
+      "region": "경상북도 경산시 진량읍",
+      "pois": [
+        {
+          "name": "카페봄봄 경산IC점",
+          "category": "IC",
+          "distance_m": 110
+        },
+        {
+          "name": "IC모텔",
+          "category": "IC",
+          "distance_m": 114
+        },
+        {
+          "name": "타이어테크 경산ic점",
+          "category": "IC",
+          "distance_m": 194
+        },
+        {
+          "name": "타이어블랙홀 경산IC",
+          "category": "IC",
+          "distance_m": 195
+        },
+        {
+          "name": "경산IC부동산중개사무소",
+          "category": "IC",
+          "distance_m": 310
+        },
+        {
+          "name": "경산휴게소 충전소 서울방향",
+          "category": "휴게소",
+          "distance_m": 628
+        },
+        {
+          "name": "경산TG",
+          "category": "요금소",
+          "distance_m": 810
+        },
+        {
+          "name": "경산휴게소 주차장",
+          "category": "휴게소",
+          "distance_m": 845
+        },
+        {
+          "name": "경산휴게소 서울방향",
+          "category": "휴게소",
+          "distance_m": 854
+        },
+        {
+          "name": "엔제리너스 경산휴게소 서울방향점",
+          "category": "휴게소",
+          "distance_m": 855
+        },
+        {
+          "name": "놀부부대찌개 경산휴게소상행서울방향점",
+          "category": "휴게소",
+          "distance_m": 858
+        },
+        {
+          "name": "경산1육교",
+          "category": "교량",
+          "distance_m": 941
+        }
+      ],
+      "geometry": {
+        "total_turn_deg": 134,
+        "max_turn_deg": 34,
+        "shape": "급곡선 연속"
+      },
+      "speed": {
+        "samples": 154,
+        "mean_kmh": 32.34,
+        "max_kmh": 54.6,
+        "min_kmh": 0,
+        "stdev_kmh": 12.75
+      },
+      "hours": {
+        "total": 27,
+        "top_hours": [
+          {
+            "hour": 7,
+            "count": 19
+          },
+          {
+            "hour": 9,
+            "count": 7
+          },
+          {
+            "hour": 8,
+            "count": 1
+          }
+        ]
+      },
+      "captures": [
+        "/segment_captures/R04_72_map.jpg",
+        "/segment_captures/R04_72_sky.jpg",
+        "/segment_captures/R04_72_roadview.jpg"
+      ],
+      "report": {
+        "headline": "경산IC 및 TG 인근의 연속 곡선 도로 구간입니다.",
+        "causes": [
+          {
+            "factor": "경산IC 나들목 진출입 및 교차로 영향에 따른 서행·정체입니다.",
+            "evidence": "경산TG가 810m 거리에 있으며, 구간 평균 속도가 32.34km/h로 낮고 급정지 11건 및 급감속 9건이 집중되었습니다.",
+            "confidence": "높음"
+          },
+          {
+            "factor": "도로의 연속적인 급곡선 선형 영향입니다.",
+            "evidence": "누적 방위변화 134°, 최대 단일 꺾임 34°의 급곡선 연속 도로 형상입니다.",
+            "confidence": "높음"
+          },
+          {
+            "factor": "출근 시간대 차량 집중으로 인한 감속 유발입니다.",
+            "evidence": "전체 27건 중 7시(19건)와 9시(7건) 등 아침 시간대에 이벤트가 주로 발생하였습니다.",
+            "confidence": "보통"
+          }
+        ],
+        "driver_advice": "경산IC 진출입 차량 혼선과 연속 곡선 구간에 대비해 차간 거리를 충분히 확보하고 서행하십시오.",
+        "visual_notes": "지도 및 위성 사진에서 경산IC 나들목으로 이어지는 급곡선 도로가 확인되며, 로드뷰에서는 왕복 다차로 도로 주변의 주유소 시설 및 화물차 통행 모습이 보입니다."
+      }
+    },
+    {
+      "key": "R04-73",
+      "route_id": "R04",
+      "segment_no": 73,
+      "address": "경북 경산시 진량읍 선화리 1713",
+      "region": "경상북도 경산시 진량읍",
+      "pois": [
+        {
+          "name": "경산TG",
+          "category": "요금소",
+          "distance_m": 94
+        },
+        {
+          "name": "경산IC교",
+          "category": "IC",
+          "distance_m": 374
+        },
+        {
+          "name": "경산IC",
+          "category": "IC",
+          "distance_m": 429
+        },
+        {
+          "name": "환상천교",
+          "category": "교량",
+          "distance_m": 471
+        },
+        {
+          "name": "타이어테크 경산ic점",
+          "category": "IC",
+          "distance_m": 737
+        },
+        {
+          "name": "타이어블랙홀 경산IC",
+          "category": "IC",
+          "distance_m": 739
+        },
+        {
+          "name": "환상육교",
+          "category": "교량",
+          "distance_m": 746
+        },
+        {
+          "name": "카페봄봄 경산IC점",
+          "category": "IC",
+          "distance_m": 808
+        },
+        {
+          "name": "건흥교",
+          "category": "교량",
+          "distance_m": 1010
+        },
+        {
+          "name": "건흥2교",
+          "category": "교량",
+          "distance_m": 1083
+        },
+        {
+          "name": "경산휴게소 충전소 서울방향",
+          "category": "휴게소",
+          "distance_m": 1504
+        },
+        {
+          "name": "경산휴게소 서울방향",
+          "category": "휴게소",
+          "distance_m": 1722
+        }
+      ],
+      "geometry": {
+        "total_turn_deg": 156,
+        "max_turn_deg": 22,
+        "shape": "급곡선 연속"
+      },
+      "speed": {
+        "samples": 366,
+        "mean_kmh": 14.08,
+        "max_kmh": 29.5,
+        "min_kmh": 0,
+        "stdev_kmh": 7.25
+      },
+      "hours": {
+        "total": 48,
+        "top_hours": [
+          {
+            "hour": 7,
+            "count": 27
+          },
+          {
+            "hour": 9,
+            "count": 14
+          },
+          {
+            "hour": 8,
+            "count": 7
+          }
+        ]
+      },
+      "captures": [
+        "/segment_captures/R04_73_map.jpg",
+        "/segment_captures/R04_73_sky.jpg",
+        "/segment_captures/R04_73_roadview.jpg"
+      ],
+      "report": {
+        "headline": "경산IC 및 요금소 인근의 연속 급곡선 진출입 램프 구간입니다.",
+        "causes": [
+          {
+            "factor": "경산TG 및 IC 진입 과정의 급곡선 도로 구조가 급감속 및 급정지를 유발합니다.",
+            "evidence": "경산TG(94m) 및 경산IC(429m)가 인접해 있으며 누적 방위변화 156°의 급곡선 형상과 함께 급감속 18건 및 급정지 17건이 기록되어 있습니다.",
+            "confidence": "높음"
+          },
+          {
+            "factor": "아침 출근 시간대 차량 집중으로 인한 서행 및 주행 속도 변화가 발생합니다.",
+            "evidence": "7시(27건), 9시(14건), 8시(7건) 등 아침 시간대에 이벤트가 집중되어 있고 평균 속도가 14.08km/h로 집계됩니다.",
+            "confidence": "높음"
+          },
+          {
+            "factor": "요금소 통과 및 서행 구간 탈출 과정에서 급가속이 수반됩니다.",
+            "evidence": "구간 내 급가속 이벤트가 13건 기록되어 있으며 최고 속도는 29.5km/h입니다.",
+            "confidence": "보통"
+          }
+        ],
+        "driver_advice": "경산IC 진출입 시 급격한 곡선과 요금소 서행 구간이 연속되므로 선제적인 감속과 안전거리 확보에 유의하십시오.",
+        "visual_notes": "지도와 위성 사진에서는 경산IC 및 요금소와 연결된 복합 램프 구간의 입체적 곡선 도로가 보이며, 로드뷰에서는 제한속도 50km/h 표지판과 도로 가드레일 구조물이 확인됩니다."
+      }
+    },
+    {
+      "key": "R04-75",
+      "route_id": "R04",
+      "segment_no": 75,
+      "address": "경북 경산시 하양읍 남하리 300-1",
+      "region": "경상북도 경산시 하양읍",
+      "pois": [
+        {
+          "name": "청천육교",
+          "category": "교량",
+          "distance_m": 325
+        },
+        {
+          "name": "남하1교",
+          "category": "교량",
+          "distance_m": 452
+        },
+        {
+          "name": "금호3교",
+          "category": "교량",
+          "distance_m": 525
+        },
+        {
+          "name": "청천2교",
+          "category": "교량",
+          "distance_m": 862
+        },
+        {
+          "name": "남하교",
+          "category": "교량",
+          "distance_m": 1041
+        },
+        {
+          "name": "경산IC카서비스",
+          "category": "IC",
+          "distance_m": 1138
+        },
+        {
+          "name": "경산IC",
+          "category": "IC",
+          "distance_m": 1400
+        },
+        {
+          "name": "경산IC교",
+          "category": "IC",
+          "distance_m": 1461
+        },
+        {
+          "name": "경산TG",
+          "category": "요금소",
+          "distance_m": 1894
+        }
+      ],
+      "geometry": {
+        "total_turn_deg": 65,
+        "max_turn_deg": 8,
+        "shape": "완만한 곡선"
+      },
+      "speed": {
+        "samples": 251,
+        "mean_kmh": 20.15,
+        "max_kmh": 35.4,
+        "min_kmh": 0,
+        "stdev_kmh": 9.77
+      },
+      "hours": {
+        "total": 25,
+        "top_hours": [
+          {
+            "hour": 8,
+            "count": 13
+          },
+          {
+            "hour": 10,
+            "count": 7
+          },
+          {
+            "hour": 9,
+            "count": 5
+          }
+        ]
+      },
+      "captures": [
+        "/segment_captures/R04_75_map.jpg",
+        "/segment_captures/R04_75_sky.jpg",
+        "/segment_captures/R04_75_roadview.jpg"
+      ],
+      "report": {
+        "headline": "금호3교를 지나며 서행 정체가 빈번한 완만한 곡선 구간입니다.",
+        "causes": [
+          {
+            "factor": "출근 시간대 상습 정체 후 정차 상태에서 재출발하며 급출발이 빈번하게 발생합니다.",
+            "evidence": "오전 8시부터 10시 사이에 이벤트가 25건 중 25건 집중되어 있으며, 평균 속도가 20.15km/h로 매우 낮고 급출발이 16건으로 가장 많이 기록되었습니다.",
+            "confidence": "높음"
+          },
+          {
+            "factor": "금호3교 교량 및 완만하게 꺾이는 도로 구조로 인한 서행 구간입니다.",
+            "evidence": "누적 방위변화 65°의 완만한 곡선 도로 형상이며, 반경 525m 지점에 금호3교가 위치하고 최고 속도가 35.4km/h에 불과합니다.",
+            "confidence": "보통"
+          }
+        ],
+        "driver_advice": "오전 시간대 정체 구간 진입 및 재출발 시 급작스러운 가속을 피하시고 충분한 안전거리 확보에 유의하십시오.",
+        "visual_notes": "일반지도와 위성사진에서 금호강을 건너는 금호3교와 완만한 곡선 도로가 확인되며, 로드뷰에서는 서쪽 방향으로 진행하는 도로 위 화물차량과 가드레일, 정면의 완만한 곡선 구간이 확인됩니다."
+      }
+    },
+    {
+      "key": "R04-93",
+      "route_id": "R04",
+      "segment_no": 93,
+      "address": "경북 경산시 옥곡동 산 9-11",
+      "region": "경상북도 경산시 서부1동",
+      "pois": [
+        {
+          "name": "옥곡2교",
+          "category": "교량",
+          "distance_m": 124
+        },
+        {
+          "name": "옥곡육교",
+          "category": "교량",
+          "distance_m": 486
+        },
+        {
+          "name": "옥곡1교",
+          "category": "교량",
+          "distance_m": 638
+        },
+        {
+          "name": "욱산교",
+          "category": "교량",
+          "distance_m": 640
+        },
+        {
+          "name": "서옥교",
+          "category": "교량",
+          "distance_m": 834
+        },
+        {
+          "name": "역전사거리",
+          "category": "교차로",
+          "distance_m": 933
+        },
+        {
+          "name": "상방사거리",
+          "category": "교차로",
+          "distance_m": 1067
+        },
+        {
+          "name": "상방삼거리",
+          "category": "교차로",
+          "distance_m": 1178
+        },
+        {
+          "name": "교차로",
+          "category": "교차로",
+          "distance_m": 1225
+        },
+        {
+          "name": "백천교차로",
+          "category": "교차로",
+          "distance_m": 1328
+        },
+        {
+          "name": "나들목",
+          "category": "IC",
+          "distance_m": 1424
+        },
+        {
+          "name": "휴게소입니다 경산점",
+          "category": "휴게소",
+          "distance_m": 1676
+        }
+      ],
+      "geometry": {
+        "total_turn_deg": 22,
+        "max_turn_deg": 10,
+        "shape": "거의 직선"
+      },
+      "speed": {
+        "samples": 128,
+        "mean_kmh": 39.4,
+        "max_kmh": 79.8,
+        "min_kmh": 0,
+        "stdev_kmh": 14.69
+      },
+      "hours": {
+        "total": 31,
+        "top_hours": [
+          {
+            "hour": 9,
+            "count": 14
+          },
+          {
+            "hour": 8,
+            "count": 11
+          },
+          {
+            "hour": 11,
+            "count": 3
+          }
+        ]
+      },
+      "captures": [
+        "/segment_captures/R04_93_map.jpg",
+        "/segment_captures/R04_93_sky.jpg",
+        "/segment_captures/R04_93_roadview.jpg"
+      ],
+      "report": {
+        "headline": "산지와 도심 경계에 위치한 직선형 고속도로 구간입니다.",
+        "causes": [
+          {
+            "factor": "출근 시간대 정체 해소 후 재가속 과정에서 발생하는 급가속입니다.",
+            "evidence": "전체 31건의 이벤트 중 25건이 8시와 9시 시간대에 집중되어 있으며 주된 이벤트 유형이 급가속(20건)입니다.",
+            "confidence": "높음"
+          },
+          {
+            "factor": "서행 및 정체 구간 이후 속도 회복에 따른 속도 편차입니다.",
+            "evidence": "DTG 실측 속도의 최저값이 0km/h이고 평균 속도가 39.4km/h로 낮은 반면 최고 속도는 79.8km/h까지 관측됩니다.",
+            "confidence": "보통"
+          }
+        ],
+        "driver_advice": "오전 8시와 9시 출근 시간대 정체 해소 직후 갑작스러운 급가속을 피하고 안전거리를 확보하며 서서히 속도를 올리십시오.",
+        "visual_notes": "로드뷰상 편도 2차로의 중앙고속도로 직선 구간으로 우측에는 산지가 형성되어 있고 좌측에는 콘크리트 방음벽 및 중앙분리대가 확인됩니다."
+      }
+    },
+    {
+      "key": "R04-176",
+      "route_id": "R04",
+      "segment_no": 176,
+      "address": "경남 김해시 불암동 225-4",
+      "region": "경상남도 김해시 불암동",
+      "pois": [
+        {
+          "name": "불암교",
+          "category": "교량",
+          "distance_m": 14
+        },
+        {
+          "name": "분도교",
+          "category": "교량",
+          "distance_m": 267
+        },
+        {
+          "name": "불암1교",
+          "category": "교량",
+          "distance_m": 302
+        },
+        {
+          "name": "불암사거리",
+          "category": "교차로",
+          "distance_m": 500
+        },
+        {
+          "name": "김해JC",
+          "category": "분기점",
+          "distance_m": 544
+        },
+        {
+          "name": "김해JCT2교",
+          "category": "교량",
+          "distance_m": 552
+        },
+        {
+          "name": "불암1육교",
+          "category": "교량",
+          "distance_m": 569
+        },
+        {
+          "name": "양장골삼거리",
+          "category": "교차로",
+          "distance_m": 656
+        },
+        {
+          "name": "지내삼거리",
+          "category": "교차로",
+          "distance_m": 952
+        },
+        {
+          "name": "지내공단사거리",
+          "category": "교차로",
+          "distance_m": 1099
+        },
+        {
+          "name": "활천초교사거리",
+          "category": "교차로",
+          "distance_m": 1211
+        },
+        {
+          "name": "북부산TG",
+          "category": "요금소",
+          "distance_m": 1644
+        }
+      ],
+      "geometry": {
+        "total_turn_deg": 21,
+        "max_turn_deg": 7,
+        "shape": "거의 직선"
+      },
+      "speed": {
+        "samples": 118,
+        "mean_kmh": 42.49,
+        "max_kmh": 86.5,
+        "min_kmh": 0,
+        "stdev_kmh": 16.83
+      },
+      "hours": {
+        "total": 44,
+        "top_hours": [
+          {
+            "hour": 9,
+            "count": 15
+          },
+          {
+            "hour": 10,
+            "count": 12
+          },
+          {
+            "hour": 11,
+            "count": 9
+          }
+        ]
+      },
+      "captures": [
+        "/segment_captures/R04_176_map.jpg",
+        "/segment_captures/R04_176_sky.jpg",
+        "/segment_captures/R04_176_roadview.jpg"
+      ],
+      "report": {
+        "headline": "불암사거리 및 교차로가 인접한 서낙동강변 직선 도로 구간입니다.",
+        "causes": [
+          {
+            "factor": "불암사거리 등 인접 교차로의 신호 대기로 인한 급감속 발생입니다.",
+            "evidence": "반경 500m 내 불암사거리와 656m 내 양장골삼거리가 위치하며, 급감속 26건 및 급정지 5건이 기록되었습니다.",
+            "confidence": "높음"
+          },
+          {
+            "factor": "오전 시간대 정체 구간 통과 후 해소 과정에서의 급가속 발생입니다.",
+            "evidence": "오전 9시부터 11시 사이에 36건의 이벤트가 집중되며, 급가속 이벤트가 13건 포함되어 있습니다.",
+            "confidence": "보통"
+          }
+        ],
+        "driver_advice": "불암사거리 진입 전 신호 변화와 앞차의 정체 꼬리에 대비하여 미리 감속하고 안전거리를 유지하며 운행하십시오.",
+        "visual_notes": "일반지도 및 위성사진에서는 서낙동강변을 따라 형성된 도로와 인근 교차로 지형이 확인되며, 로드뷰에서는 교량 구조물 하부를 통과하는 도로 전경이 판독됩니다."
+      }
+    },
+    {
+      "key": "R04-194",
+      "route_id": "R04",
+      "segment_no": 194,
+      "address": "부산 강서구 송정동 1510",
+      "region": "부산광역시 강서구 녹산동",
+      "pois": [
+        {
+          "name": "녹송2호교",
+          "category": "교량",
+          "distance_m": 196
+        },
+        {
+          "name": "녹송3호교",
+          "category": "교량",
+          "distance_m": 309
+        },
+        {
+          "name": "신항입구교차로",
+          "category": "교차로",
+          "distance_m": 323
+        },
+        {
+          "name": "녹산대교",
+          "category": "교량",
+          "distance_m": 444
+        },
+        {
+          "name": "견마교",
+          "category": "교량",
+          "distance_m": 447
+        },
+        {
+          "name": "27번신호등교차로",
+          "category": "교차로",
+          "distance_m": 491
+        },
+        {
+          "name": "10번신호등교차로",
+          "category": "교차로",
+          "distance_m": 545
+        },
+        {
+          "name": "9번신호등교차로",
+          "category": "교차로",
+          "distance_m": 589
+        },
+        {
+          "name": "녹송1호교",
+          "category": "교량",
+          "distance_m": 694
+        },
+        {
+          "name": "28번신호등교차로",
+          "category": "교차로",
+          "distance_m": 698
+        },
+        {
+          "name": "선원휴게소",
+          "category": "휴게소",
+          "distance_m": 1100
+        },
+        {
+          "name": "호호명품짜장",
+          "category": "휴게소",
+          "distance_m": 1190
+        }
+      ],
+      "geometry": {
+        "total_turn_deg": 3,
+        "max_turn_deg": 2,
+        "shape": "거의 직선"
+      },
+      "speed": {
+        "samples": 150,
+        "mean_kmh": 32.56,
+        "max_kmh": 56,
+        "min_kmh": 0,
+        "stdev_kmh": 14.18
+      },
+      "hours": {
+        "total": 30,
+        "top_hours": [
+          {
+            "hour": 10,
+            "count": 13
+          },
+          {
+            "hour": 9,
+            "count": 8
+          },
+          {
+            "hour": 11,
+            "count": 5
+          }
+        ]
+      },
+      "captures": [
+        "/segment_captures/R04_194_map.jpg",
+        "/segment_captures/R04_194_sky.jpg",
+        "/segment_captures/R04_194_roadview.jpg"
+      ],
+      "report": {
+        "headline": "신항 진입로 및 교차로 밀집 직선 구간입니다.",
+        "causes": [
+          {
+            "factor": "신항입구교차로 및 연속 신호등 교차로 영향에 따른 정체 발생입니다.",
+            "evidence": "신항입구교차로(323m), 27번신호등교차로(491m), 10번신호등교차로(545m) 등이 밀집해 있으며 평균 속도가 32.56km/h로 낮게 형성되어 있습니다.",
+            "confidence": "높음"
+          },
+          {
+            "factor": "오전 물류 집중 시간대 대형 화물차 꼬리물기 및 급감속 발생입니다.",
+            "evidence": "이벤트의 대부분인 26건이 09시~11시 사이에 집중 발생하였으며, 급감속 16건 및 급정지 6건이 주를 이룹니다.",
+            "confidence": "높음"
+          }
+        ],
+        "driver_advice": "신항 진입 전 교차로 신호 변화 및 앞 차의 갑작스러운 정체에 대비하여 미리 속도를 줄이고 충분한 안전거리를 유지하십시오.",
+        "visual_notes": "지도 및 위성 사진상 산업·물류단지 인근 송정천을 따라 평행하게 달리는 도로입니다. 로드뷰 사진에서는 신항남로 도로 표기와 함께 대형 컨테이너 화물차들이 주행하는 왕복 다차선 교량 구간이 확인됩니다."
+      }
+    },
+    {
+      "key": "R04-195",
+      "route_id": "R04",
+      "segment_no": 195,
+      "address": "부산 강서구 성북동 1488-1",
+      "region": "부산광역시 강서구 가덕도동",
+      "pois": [
+        {
+          "name": "선원휴게소",
+          "category": "휴게소",
+          "distance_m": 133
+        },
+        {
+          "name": "롯데ATM 세븐일레븐 부산신항휴게소(CD)",
+          "category": "휴게소",
+          "distance_m": 338
+        },
+        {
+          "name": "세븐일레븐 부산신항휴게소점",
+          "category": "휴게소",
+          "distance_m": 339
+        },
+        {
+          "name": "9번신호등교차로",
+          "category": "교차로",
+          "distance_m": 588
+        },
+        {
+          "name": "견마교",
+          "category": "교량",
+          "distance_m": 637
+        },
+        {
+          "name": "녹송3호교",
+          "category": "교량",
+          "distance_m": 690
+        },
+        {
+          "name": "신항입구교차로",
+          "category": "교차로",
+          "distance_m": 705
+        },
+        {
+          "name": "눌차교",
+          "category": "교량",
+          "distance_m": 714
+        },
+        {
+          "name": "가덕대교",
+          "category": "교량",
+          "distance_m": 736
+        },
+        {
+          "name": "10번신호등교차로",
+          "category": "교차로",
+          "distance_m": 809
+        },
+        {
+          "name": "녹송2호교",
+          "category": "교량",
+          "distance_m": 1190
+        }
+      ],
+      "geometry": {
+        "total_turn_deg": 5,
+        "max_turn_deg": 2,
+        "shape": "거의 직선"
+      },
+      "speed": {
+        "samples": 345,
+        "mean_kmh": 15.26,
+        "max_kmh": 30.8,
+        "min_kmh": 0,
+        "stdev_kmh": 9.03
+      },
+      "hours": {
+        "total": 71,
+        "top_hours": [
+          {
+            "hour": 10,
+            "count": 38
+          },
+          {
+            "hour": 12,
+            "count": 15
+          },
+          {
+            "hour": 11,
+            "count": 11
+          }
+        ]
+      },
+      "captures": [
+        "/segment_captures/R04_195_map.jpg",
+        "/segment_captures/R04_195_sky.jpg",
+        "/segment_captures/R04_195_roadview.jpg"
+      ],
+      "report": {
+        "headline": "부산신항 터미널 인근 정체 및 신호 교차로가 위치한 직선 도로 구간입니다.",
+        "causes": [
+          {
+            "factor": "항만 터미널 진입 및 물류 차량 대기로 인한 서행 정체 구간입니다.",
+            "evidence": "구간 평균 속도가 15.26km/h로 저속이며 주변에 부산신항 국제터미널과 배후물류단지가 인접해 있습니다.",
+            "confidence": "높음"
+          },
+          {
+            "factor": "교차로 신호 대기 및 주정차 차량으로 인한 급감속 및 급정지 발생입니다.",
+            "evidence": "전체 71건의 이벤트 중 급감속 32건과 급정지 22건이 집중되어 있으며 588m 지점에 9번신호등교차로가 위치합니다.",
+            "confidence": "높음"
+          }
+        ],
+        "driver_advice": "하역 차량으로 인한 정체와 급감속이 자주 발생하는 구간이므로 앞차와의 안전거리를 충분히 확보하며 서행하십시오.",
+        "visual_notes": "지도 및 위성 사진상 부산신항 국제터미널 도로변을 따라 남북으로 뻗은 구간이며, 로드뷰에서는 신항남로 편도 다차로 도로에 대형 화물차량이 다수 운행 및 대기 중인 모습을 확인할 수 있습니다."
+      }
+    }
+  ],
+  "driver_report": {
+    "title": "경주 외동-경산 진량-부산신항 노선 안전 운행 안내문",
+    "intro": "본 안내문은 승무원 여러분의 안전한 운행을 돕기 위해 운행 기록 데이터를 바탕으로 작성되었습니다. 차주님들을 평가하거나 감시하기 위한 목적이 아니며, 도로 환경 특성상 주의가 필요한 지점을 미리 안내해 드리는 자료입니다. 운행 전 가볍게 참고하시어 오늘도 무사히 안전 운행을 마치시길 바랍니다.",
+    "key_rules": [
+      {
+        "rule": "나들목 및 요금소 진출입 전 사전 감속을 생활화해 주십시오.",
+        "why": "나들목과 요금소 주변은 급곡선 선형과 정체 현상이 겹쳐 급감속이나 급정지가 자주 일어납니다."
+      },
+      {
+        "rule": "정체 해소 지점에서는 차근차근 속도를 올려 주시기 바랍니다.",
+        "why": "서행 구간을 벗어난 후 급가속을 하게 되면 전방 유동 차량이나 도로 상황 변수에 신속히 대응하기 어렵습니다."
+      },
+      {
+        "rule": "항만 및 물류단지 진입로에서는 여유 있는 안전거리를 확보해 주십시오.",
+        "why": "대형 화물차량의 대기 줄과 신호 대기로 인해 갑작스러운 정차가 빈번하게 발생합니다."
+      },
+      {
+        "rule": "오전 시간대 교차로 및 램프 구간 서행 운행을 부탁드립니다.",
+        "why": "오전 7시부터 11시 사이는 통행량 증가로 인해 도로 선형과 관계없이 속도 변화가 크게 나타납니다."
+      }
+    ],
+    "route_notes": [
+      {
+        "route_id": "R04",
+        "summary": "경주 외동에서 경산 진량을 거쳐 부산신항으로 이어지는 R04 노선은 농공단지 진출입로, 고속도로 나들목(IC/TG), 그리고 부산신항 진입 도로에서 가감속과 급정지가 집중되는 경향을 보입니다."
+      }
+    ],
+    "spots": [
+      {
+        "key": "R04-1",
+        "nickname": "경주 외동농공단지 진출입 교차로",
+        "when_to_watch": "오전 6시~8시경 농공단지 진출입로와 연결된 급곡선 도로를 지나실 때 주의가 필요합니다.",
+        "action": "단지 진출입 차량과 급격한 굴곡으로 서행 후 재출발이 많으므로 부드럽게 가속해 주시기 바랍니다."
+      },
+      {
+        "key": "R04-72",
+        "nickname": "경산IC 나들목 진출입 구간",
+        "when_to_watch": "오전 7시~9시 사이 경산IC 나들목 인근의 연속 곡선 도로를 통과하실 때 주의가 필요합니다.",
+        "action": "나들목 진출입 정체로 인한 급정지가 잦으므로 앞차와의 간격을 충분히 유지하며 서행해 주십시오."
+      },
+      {
+        "key": "R04-73",
+        "nickname": "경산요금소(TG) 진출입 램프 구간",
+        "when_to_watch": "오전 7시~9시경 경산요금소 진출입 램프의 입체 급곡선 도로를 지나실 때 주의가 필요합니다.",
+        "action": "제한속도 50km/h를 준수하시고 요금소 통과 전후로 급감속이나 급가속이 없도록 조심스럽게 운행해 주십시오."
+      },
+      {
+        "key": "R04-75",
+        "nickname": "금호3교 및 남하리 완만 곡선 구간",
+        "when_to_watch": "오전 8시~10시 사이 금호3교를 지나며 서행 정체가 나타나는 구간을 운행하실 때 주의가 필요합니다.",
+        "action": "정차 상태에서 다시 출발할 때 급출발이 되지 않도록 가속 페달을 천천히 밟아 주시기 바랍니다."
+      },
+      {
+        "key": "R04-93",
+        "nickname": "중앙고속도로 경산 옥곡2교 인근 직선 구간",
+        "when_to_watch": "오전 8시~9시경 정체 구간 탈출 후 속도를 높이게 되는 중앙고속도로 직선 지점에서 주의가 필요합니다.",
+        "action": "서행 후 속도를 회복하는 과정에서 급가속이 발생하지 않도록 차선과 전방 상황을 살피며 서서히 속도를 올려 주십시오."
+      },
+      {
+        "key": "R04-176",
+        "nickname": "김해 불암사거리 및 불암교 인근 도로",
+        "when_to_watch": "오전 9시~11시 사이 불암사거리 신호 대기 구간에 접어들 때 주의가 필요합니다.",
+        "action": "인접 교차로 신호 변화에 따른 급감속이 많으므로 먼 전방을 주시하며 여유 있게 브레이크를 밟아 주시기 바랍니다."
+      },
+      {
+        "key": "R04-194",
+        "nickname": "부산신항 입구 교차로 및 녹송2호교 구간",
+        "when_to_watch": "오전 9시~10시경 부산신항입구 교차로와 연속 신호등이 위치한 교량 구간을 지날 때 주의가 필요합니다.",
+        "action": "컨테이너 화물차의 통행이 밀집하여 급감속이 발생하기 쉬우므로 안전거리를 확보하고 서행해 주십시오."
+      },
+      {
+        "key": "R04-195",
+        "nickname": "부산신항 터미널 앞 신항남로 구간",
+        "when_to_watch": "오전 10시~12시경 항만 터미널 진입 대기 차량이 길게 늘어서는 신항남로 도로에서 주의가 필요합니다.",
+        "action": "대기 차량 및 신호 대기로 인한 급정지 위험이 매우 높으므로 미리 속도를 줄여 정차해 주시기 바랍니다."
+      }
+    ],
+    "closing": "안내해 드린 수칙은 차주님의 안전을 돕기 위한 참고 자료일 뿐이며, 현장의 실제 기상 및 교통 상황을 최우선으로 고려해 운행해 주시기 바랍니다. 오늘도 안전하게 운행을 마치시고 무사히 귀가하시기를 진심으로 응원합니다."
+  }
+}

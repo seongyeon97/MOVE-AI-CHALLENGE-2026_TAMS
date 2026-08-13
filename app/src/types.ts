@@ -197,6 +197,8 @@ export interface CorridorSegment {
   tone: CorridorTone;
   grade_label: string;
   dominant_type: string | null;
+  /** 우세 유형이 이 구간 이벤트에서 차지하는 비율(0~1). 지도·목록의 "무엇 위주 위험인가" 표기용 */
+  dominant_share?: number;
 }
 
 export interface CorridorRoute {

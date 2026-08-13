@@ -86,13 +86,24 @@ R04 경주 외동-경산 진량-부산신항 · 195.42km · 196구간 · trips=1
 
 ---
 
-## 원천 데이터는 이 폴더에 없다
+## 원천 데이터
 
-`운행데이터/`(trip·leg·event·dtg_track CSV, `route_roads_R04.json`)는 **실차량번호가 들어 있어 커밋하지 않았다**
-(CLAUDE.md §6 — 유비칸 원본 로컬 전용, 익명화 전 커밋 금지).
+`heatmap/운행데이터/` 에 들어 있다. 빌드 스크립트는 **저장소 루트의 `운행데이터/`** 를 찾으므로
+(`app/` 기준 `../운행데이터`), 다시 구울 때는 루트로 옮기거나 복사해라.
 
-산출물(`corridor.json`·`routes.json`·`segment_insights.json`·캡처)은 포함돼 있으므로 **앱 실행·데모에는 지장이 없다.**
-원천에서 다시 굽고 싶으면 저장소 루트에 `운행데이터/`를 놓고:
+| 파일 | 내용 |
+|---|---|
+| `trip.csv` | 운행 14건 (route_id=R04) |
+| `leg.csv` | 레그 28건 (전부 OUT, 편도 2구간) |
+| `event.csv` | 위험운전 이벤트 699건 (급출발·급가속·급감속·급정지) |
+| `dtg_track.csv` | DTG 궤적 15,978점 |
+| `route_roads_R04.json` | 카카오모빌리티 길찾기 실도로 경로 1,704점 |
+| `vehicle_master.csv`, `daily_summary.csv` | 차량 제원, 일자별 집계 |
+
+⚠️ `vehicle_master.csv`에 **실차량번호가 그대로 들어 있다.** 배포본·데모 영상에서는
+CLAUDE.md §6에 따라 `SB-0000xx`로 치환해야 한다.
+
+굽는 명령:
 
 ```bash
 npm run build:data:heatmap      # 집계. 네트워크 불필요

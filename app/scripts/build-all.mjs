@@ -18,4 +18,4 @@ run('build-eco.mjs');
 run('build-truck-trips.mjs');
 run('build-certificates.mjs');
 run('build-attribution.mjs');
-run('build-corridor-hotspots.mjs'); // 트랙7 — verifiable 이벤트만 구간 집계(네트워크 불필요)
+run('build-heatmap.mjs'); // 트랙7 — 운행데이터/(화물 실측)만으로 구간 집계(네트워크 불필요)
