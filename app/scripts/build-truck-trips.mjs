@@ -63,83 +63,87 @@ function main() {
   const events = [];
   const areaCounts = new Map();
 
+  const isRealArea = (name) => /[시군구]\s/.test(name) && !/없습니다|미상|unknown/i.test(name);
+
   for (const [key, dayLegs] of byTrip) {
     const [vehicle_id, date] = key.split('|');
     dayLegs.sort((a, b) => num(a.seq) - num(b.seq));
 
-    const trip_id = `TRIP-${vehicle_id}-${date.replace(/-/g, '')}`;
-    const first = dayLegs[0];
-    const last = dayLegs[dayLegs.length - 1];
-
-    // 사업장 간 이동만 구간 운송으로 본다 — 출발·도착 지역이 다른 leg.
-    const transferLegs = dayLegs.filter((l) => addrArea(l.depart_addr) !== addrArea(l.arrive_addr));
     for (const l of dayLegs) {
       areaCounts.set(addrArea(l.depart_addr), (areaCounts.get(addrArea(l.depart_addr)) ?? 0) + 1);
     }
 
-    const dayFuel = fuelByKey.get(key);
-    const totalDistance = dayLegs.reduce((s, l) => s + num(l.distance_km), 0);
-
-    trips.push({
-      trip_id,
-      vehicle_id,
-      date,
-      origin_site: addrArea(first.depart_addr),
-      destination_site: addrArea(last.arrive_addr),
-      order_no: '',
-      container_type: '40ft', // 규격 정보가 원자료에 없어 40ft로 가정(증명서 산출근거에 표기)
+    // 운송건 = 사업장 간 편도 이동 하나. 하루에 태인동↔금호동을 6번 왕복하면 12건이다.
+    // 하루를 1건으로 뭉치면 왕복 횟수가 사라져 증명서가 실제 운송량을 못 나타낸다.
+    // 같은 사업장 안에서 맴도는 leg(구내 이동)는 구간 운송이 아니므로 운송건에서 뺀다.
+    const transferLegs = dayLegs.filter((l) => {
+      const from = addrArea(l.depart_addr);
+      const to = addrArea(l.arrive_addr);
+      return from !== to && isRealArea(from) && isRealArea(to);
     });
+    if (transferLegs.length === 0) continue;
 
-    // 연료는 하루 단위로만 오므로 거리 비율로 leg에 배분한다 — 배분 방식도 증명서에 밝힌다.
+    const dayFuel = fuelByKey.get(key);
     const dayFuelL = dayFuel ? num(dayFuel.fuel_l) : 0;
     const ladenFlag = String(dayFuel?.load_state ?? '').toLowerCase() === 'laden';
+    // 연료·이벤트는 하루 단위로만 온다. 구내 이동도 연료를 쓰므로 배분 분모는 그날 전체 거리로 둔다 —
+    // 운송건에만 나눠 담으면 구내 이동분까지 운송건에 얹혀 과대계상된다.
+    const dayDistance = dayLegs.reduce((s, l) => s + num(l.distance_km), 0);
+    const ev = eventByKey.get(key);
+    const dayEvents = ev
+      ? { accel: num(ev.hard_accel), start: num(ev.hard_start), decel: num(ev.hard_decel), stop: num(ev.hard_stop) }
+      : { accel: 0, start: 0, decel: 0, stop: 0 };
 
-    for (const l of dayLegs) {
+    transferLegs.forEach((l, idx) => {
+      const trip_id = `TRIP-${vehicle_id}-${date.replace(/-/g, '')}-${pad(idx + 1)}`;
+      const from = addrArea(l.depart_addr);
+      const to = addrArea(l.arrive_addr);
       const distance = num(l.distance_km);
-      const share = totalDistance > 0 ? distance / totalDistance : 0;
+      const share = dayDistance > 0 ? distance / dayDistance : 0;
+
+      trips.push({
+        trip_id,
+        vehicle_id,
+        date,
+        origin_site: from,
+        destination_site: to,
+        order_no: '',
+        container_type: '40ft', // 규격 정보가 원자료에 없어 40ft로 가정(증명서 산출근거에 표기)
+      });
+
       legs.push({
-        leg_id: `${trip_id}-L${l.seq}`,
+        leg_id: `${trip_id}-L1`,
         trip_id,
         vehicle_id,
         laden: String(ladenFlag),
-        origin_site: addrArea(l.depart_addr),
-        destination_site: addrArea(l.arrive_addr),
+        origin_site: from,
+        destination_site: to,
         distance_km: distance,
         fuel_l: (dayFuelL * share).toFixed(3),
         idle_sec: 0, // 원자료에 공회전 항목이 없다 — 0으로 두고 산출근거에 명시
         start_ts: `${date}T${l.depart_time || '00:00:00'}+09:00`,
         end_ts: `${date}T${l.arrive_time || l.depart_time || '00:00:00'}+09:00`,
       });
-    }
 
-    // 이벤트는 일자 합계로만 온다(유형별 건수). 시각·좌표가 없어 leg에 배분하지 않고 trip에 붙인다.
-    const ev = eventByKey.get(key);
-    if (ev) {
-      const kinds = [
-        ['accel', num(ev.hard_accel)],
-        ['start', num(ev.hard_start)],
-        ['decel', num(ev.hard_decel)],
-        ['stop', num(ev.hard_stop)],
-      ];
+      // 이벤트는 일자 합계로만 온다(시각·좌표 없음) — 거리 비율로 운송건에 배분한다.
       let n = 0;
-      for (const [type, count] of kinds) {
+      for (const [type, dayCount] of Object.entries(dayEvents)) {
+        const count = Math.round(dayCount * share);
         for (let i = 0; i < count; i++) {
           n += 1;
           events.push({
             event_id: `${trip_id}-E${pad(n, 4)}`,
             vehicle_id,
             trip_id,
-            leg_id: '',
-            ts: `${date}T12:00:00+09:00`, // 시각 미상 — 일자 대표값
+            leg_id: `${trip_id}-L1`,
+            ts: `${date}T${l.depart_time || '12:00:00'}+09:00`, // 시각 미상 — 해당 구간 출발시각으로
             lat: '',
             lon: '',
             event_type: type,
           });
         }
       }
-    }
-
-    void transferLegs; // 구간 판정은 build-attribution이 legs의 주소로 다시 본다
+    });
   }
 
   writeCsv(join(FILES2, 'trip.csv'),
