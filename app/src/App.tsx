@@ -3,6 +3,7 @@ import type { Role, Screen } from './types';
 import { Sidebar } from './components/Sidebar';
 import { LoginScreen } from './components/LoginScreen';
 import { SafeScreen } from './components/SafeScreen';
+import { CertificateScreen } from './components/CertificateScreen';
 import { Placeholder } from './components/Placeholder';
 
 // 상단 메뉴바·빵조각·홈 화면 없음. 진입점은 좌측 메뉴 하나뿐(§CLAUDE.md 1절).
@@ -30,7 +31,7 @@ function App() {
         {screen === 'safe' && <SafeScreen />}
         {screen === 'eco' && <Placeholder title="Eco" />}
         {screen === 'heatmap' && <Placeholder title="Heat-map" />}
-        {screen === 'certificate' && <Placeholder title="증명서 발급" />}
+        {screen === 'certificate' && <CertificateScreen />}
         {screen === 'settings' && <Placeholder title="설정" />}
       </main>
     </div>

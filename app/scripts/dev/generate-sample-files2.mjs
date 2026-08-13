@@ -79,11 +79,13 @@ const vehicles = [
       { laden: true, km: 950, fuel: 385, idle: 1000, events: { accel: 0, start: 0, decel: 0, stop: 0 } },
     ],
   ] },
-  { vehicle_id: 'GLV-T05', ...TRUCK_BASE, year: 2022, registered_kmpl: 3.6, monthly: flat([
+  // 유류카드 전표가 이 운송건에 아직 매칭 안 된 표본 — 증명서 데이터 tier(B: 단일출처) 시연용.
+  // daily_summary(월별 집계, Safe 화면용)는 정상대로 두고 leg.csv(증명서 원자료)만 fuel_l=0으로 낸다.
+  { vehicle_id: 'GLV-T05', ...TRUCK_BASE, year: 2022, registered_kmpl: 3.6, fuel_card_linked: false, monthly: flat([
     { laden: false, km: 750, fuel: 185, idle: 800, events: { accel: 2, start: 1, decel: 1, stop: 1 } },
     { laden: true, km: 750, fuel: 260, idle: 800, events: { accel: 3, start: 2, decel: 2, stop: 2 } },
   ]) },
-  { vehicle_id: 'GLV-T06', ...TRUCK_BASE, year: 2023, registered_kmpl: 3.6, monthly: flat([
+  { vehicle_id: 'GLV-T06', ...TRUCK_BASE, year: 2023, registered_kmpl: 3.6, fuel_card_linked: false, monthly: flat([
     { laden: false, km: 1000, fuel: 250, idle: 1000, events: { accel: 2, start: 2, decel: 1, stop: 2 } },
     { laden: true, km: 1000, fuel: 345, idle: 1000, events: { accel: 4, start: 3, decel: 3, stop: 3 } },
   ]) },
@@ -231,8 +233,10 @@ for (const v of vehicles) {
       trip_id,
       vehicle_id: v.vehicle_id,
       laden: seg.laden,
+      origin_site: from.name,
+      destination_site: to.name,
       distance_km: seg.km,
-      fuel_l: seg.fuel,
+      fuel_l: v.fuel_card_linked === false ? 0 : seg.fuel,
       idle_sec: seg.idle,
       start_ts: startTs.toISOString(),
       end_ts: endTs.toISOString(),
@@ -311,7 +315,7 @@ writeFileSync(join(OUT_DIR, 'trip.csv'), toCsv(
   tripRows,
 ));
 writeFileSync(join(OUT_DIR, 'leg.csv'), toCsv(
-  ['leg_id', 'trip_id', 'vehicle_id', 'laden', 'distance_km', 'fuel_l', 'idle_sec', 'start_ts', 'end_ts'],
+  ['leg_id', 'trip_id', 'vehicle_id', 'laden', 'origin_site', 'destination_site', 'distance_km', 'fuel_l', 'idle_sec', 'start_ts', 'end_ts'],
   legRows,
 ));
 writeFileSync(join(OUT_DIR, 'event.csv'), toCsv(

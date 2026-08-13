@@ -80,6 +80,69 @@ export type Corridor = {
   destination_site_id: string;
 };
 
+export type DataTier = 'A' | 'B' | 'none';
+export type AttributionStatus = 'verified' | 'partial' | 'failed';
+
+export type CrossingPoint = { ts: string; error_sec: number };
+
+export type LegAttribution = {
+  leg_id: string;
+  laden: boolean;
+  corridor_id: string | null;
+  status: AttributionStatus;
+  departure: CrossingPoint | null;
+  arrival: CrossingPoint | null;
+};
+
+export type Attribution =
+  | { applicable: false; note: string }
+  | {
+      applicable: true;
+      corridor_id: string | null;
+      status: AttributionStatus;
+      departure: CrossingPoint | null;
+      arrival: CrossingPoint | null;
+      legs?: LegAttribution[];
+      note?: string;
+    };
+
+export type Certificate = {
+  trip_id: string;
+  vehicle_id: string;
+  vehicle_class: VehicleClass;
+  date: string;
+  month: string;
+  origin_site: string;
+  destination_site: string;
+  order_no: string;
+  container_type: string;
+
+  grade: Grade | null;
+  verifiable: boolean;
+  settle: Settle;
+  data_tier: DataTier;
+  data_tier_note: string;
+
+  safety: {
+    event_counts: { accel: number; start: number; decel: number; stop: number };
+    core_events: number;
+    continuous: { max_block_sec: number; limit_sec: number; compliant: boolean };
+  };
+
+  eco: {
+    distance_km: number;
+    ton_km: number;
+    fuel_l: number;
+    idle_l: number;
+    co2_kg: number;
+    g_co2_per_tonkm: number | null;
+    g_co2_per_km: number | null;
+    empty_share: number;
+  };
+
+  attribution: Attribution;
+};
+
 export type Role = 'company' | 'driver';
 
 export type Screen = 'safe' | 'eco' | 'heatmap' | 'certificate' | 'settings';

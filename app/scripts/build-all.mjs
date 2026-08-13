@@ -14,3 +14,4 @@ function run(script) {
 
 run('build-vehicles.mjs');
 run('build-certificates.mjs');
+run('build-attribution.mjs');

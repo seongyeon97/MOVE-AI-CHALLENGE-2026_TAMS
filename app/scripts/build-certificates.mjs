@@ -83,6 +83,19 @@ function main() {
       ? (co2_kg * 1000) / totalDistanceKm
       : null;
 
+    // 데이터 tier — "판단"이 아니라 데이터 존재 여부 사실 표시. 신뢰등급(정상/A/B/C/D)과는 별개 축.
+    const hasOperationData = totalDistanceKm > 0;
+    const hasFuelData = totalFuelL > 0;
+    const data_tier = hasOperationData && hasFuelData ? 'A' : hasOperationData || hasFuelData ? 'B' : 'none';
+    const data_tier_note =
+      data_tier === 'A'
+        ? '운행데이터 + 유류데이터 교차검증 완료'
+        : data_tier === 'B'
+          ? hasOperationData
+            ? '운행데이터만 있음 — 유류카드 미연동, 교차검증 불가'
+            : '유류데이터만 있음 — 운행기록 미확보, 교차검증 불가'
+          : '운행·유류 데이터 모두 없음';
+
     return {
       trip_id: trip.trip_id,
       vehicle_id: trip.vehicle_id,
@@ -97,6 +110,8 @@ function main() {
       grade: vehicle?.grade ?? null,
       verifiable: vehicle?.verifiable ?? false,
       settle: vehicle?.settle ?? 'block',
+      data_tier,
+      data_tier_note,
 
       safety: {
         event_counts: eventCounts,
@@ -106,6 +121,7 @@ function main() {
 
       eco: {
         distance_km: totalDistanceKm,
+        ton_km: tonKm,
         fuel_l: totalFuelL,
         idle_l: (totalIdleSec / 3600) * IDLE_L_PER_HOUR,
         co2_kg,

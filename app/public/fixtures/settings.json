@@ -1,0 +1,10 @@
+{
+  "sites": [
+    { "site_id": "SITE-BUSAN", "name": "부산신항", "address": "부산광역시 강서구 신항만대로", "lat": 35.0879, "lon": 128.7937, "radius_m": 1000 },
+    { "site_id": "SITE-GYEONGJU", "name": "경주공장", "address": "경상북도 경주시 산업로", "lat": 35.8305, "lon": 129.2046, "radius_m": 1000 }
+  ],
+  "corridors": [
+    { "corridor_id": "COR-BUSAN-GYEONGJU", "name": "부산신항 → 경주공장", "origin_site_id": "SITE-BUSAN", "destination_site_id": "SITE-GYEONGJU" },
+    { "corridor_id": "COR-GYEONGJU-BUSAN", "name": "경주공장 → 부산신항", "origin_site_id": "SITE-GYEONGJU", "destination_site_id": "SITE-BUSAN" }
+  ]
+}
