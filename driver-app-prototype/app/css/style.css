@@ -633,6 +633,25 @@ html[data-theme="dark"] .card { border-color: rgba(45,212,191,0.14); }
 }
 @keyframes hintFade { 0%, 55% { opacity: 1; } 100% { opacity: 0; } }
 
+/* 3D 트럭 뷰의 위험/주의 부위 경고 라벨 (타이어 교체 필요, 엔진오일 점검 필요 등) —
+   truck3d.js가 매 프레임 해당 3D 파츠의 화면 좌표로 left/top을 갱신함 */
+.truck3d-warn-label {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  z-index: 6;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.3;
+  padding: 3px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+.truck3d-warn-label.tone-warning { background: var(--warning); }
+.truck3d-warn-label.tone-danger { background: var(--danger); }
+
 .hotspot {
   position: absolute;
   z-index: 3;

@@ -10,6 +10,13 @@ var animId = null, ro = null;
 var rotY = 0.55, tiltX = -0.14, velY = 0, velX = 0;
 var dragging = false, lastX = 0, lastY = 0, lastMoveT = 0, idleSince = 0;
 var mountEl = null;
+var warnLabelLayer = null, warnMarkers = [];
+
+function clearWarnLabels() {
+  if (warnLabelLayer && warnLabelLayer.parentNode) warnLabelLayer.parentNode.removeChild(warnLabelLayer);
+  warnLabelLayer = null;
+  warnMarkers = [];
+}
 
 function dispose() {
   if (animId) cancelAnimationFrame(animId);
@@ -20,6 +27,7 @@ function dispose() {
     var dom = renderer.domElement;
     if (dom && dom.parentNode) dom.parentNode.removeChild(dom);
   }
+  clearWarnLabels();
   renderer = null; scene = null; camera = null; truckGroup = null;
 }
 
@@ -37,10 +45,16 @@ function shadowTexture() {
   return tex;
 }
 
-function buildTruck(theme, wheelCount) {
+function buildTruck(theme, wheelCount, tireStatuses, oilInfo) {
   var dark = theme === 'dark';
   var is6 = wheelCount !== 8;
   var group = new THREE.Group();
+  var markers = []; // { object3D, status: 'warning'|'danger', label } — 경고 라벨 오버레이용
+  // 축 순서(axleX)와 좌/우(side) 조합을 tire-detail 화면의 위치 ID(FL/FR/RL1/RR1/...)와
+  // 맞춰서 '교체 필요' 타이어를 빨간색으로 표시하기 위한 매핑.
+  var wheelIdPairs = is6
+    ? [['FL', 'FR'], ['RL1', 'RR1'], ['RL2', 'RR2']]
+    : [['FL', 'FR'], ['RL1', 'RR1'], ['RL2', 'RR2'], ['RL3', 'RR3']];
 
   var cabColor = dark ? 0x1c2a4d : 0x16213e;
   var cargoColor = dark ? 0x232f4d : 0xf2f4f7;
@@ -56,8 +70,11 @@ function buildTruck(theme, wheelCount) {
   var matSeam = new THREE.MeshStandardMaterial({ color: cargoSeam, metalness: 0.1, roughness: 0.7 });
   var matGlass = new THREE.MeshStandardMaterial({ color: glassColor, metalness: 0.7, roughness: 0.15 });
   var matWheel = new THREE.MeshStandardMaterial({ color: wheelColor, metalness: 0.2, roughness: 0.85 });
+  var matWheelDanger = new THREE.MeshStandardMaterial({ color: 0xe0392f, metalness: 0.2, roughness: 0.75, emissive: 0x5c0f0a, emissiveIntensity: 0.5 });
   var matRim = new THREE.MeshStandardMaterial({ color: rimColor, metalness: 0.8, roughness: 0.3 });
   var matChassis = new THREE.MeshStandardMaterial({ color: chassisColor, metalness: 0.4, roughness: 0.6 });
+  var matChassisWarning = new THREE.MeshStandardMaterial({ color: 0xf2b705, metalness: 0.3, roughness: 0.6, emissive: 0x4a3900, emissiveIntensity: 0.4 });
+  var matChassisDanger = new THREE.MeshStandardMaterial({ color: 0xe0392f, metalness: 0.3, roughness: 0.6, emissive: 0x5c0f0a, emissiveIntensity: 0.5 });
   var matLight = new THREE.MeshStandardMaterial({ color: 0xfff3c4, emissive: 0xffcf6b, emissiveIntensity: dark ? 1.4 : 0.6 });
   var matTail = new THREE.MeshStandardMaterial({ color: 0xff5a4d, emissive: 0xdd2c22, emissiveIntensity: dark ? 1.2 : 0.5 });
 
@@ -67,10 +84,15 @@ function buildTruck(theme, wheelCount) {
   var cargoCenterX = cargoStartX + cargoLen / 2;
   var overallLen = cargoEndX - -3.42 + 0.3;
 
-  // ---- chassis rail ----
-  var chassis = new THREE.Mesh(new THREE.BoxGeometry(overallLen, 0.22, 1.9), matChassis);
+  // ---- chassis rail (= 엔진오일 위치) ----
+  var oilStatus = oilInfo && oilInfo.status;
+  var matChassisActive = oilStatus === 'danger' ? matChassisDanger : oilStatus === 'warning' ? matChassisWarning : matChassis;
+  var chassis = new THREE.Mesh(new THREE.BoxGeometry(overallLen, 0.22, 1.9), matChassisActive);
   chassis.position.set((cargoEndX + -3.42) / 2, 0.78, 0);
   group.add(chassis);
+  if (oilStatus === 'warning' || oilStatus === 'danger') {
+    markers.push({ object3D: chassis, status: oilStatus, label: oilInfo.label });
+  }
 
   // ---- cab ----
   var cab = new THREE.Mesh(new THREE.BoxGeometry(1.7, 1.9, 1.95), matCab);
@@ -122,13 +144,17 @@ function buildTruck(theme, wheelCount) {
   var axleX = is6 ? [-2.6, cargoEndX - 1.3, cargoEndX - 0.3] : [-2.6, -0.55, 1.0, 2.5];
   var wheelGeo = new THREE.CylinderGeometry(wheelR, wheelR, wheelW, 22);
   var rimGeo = new THREE.CylinderGeometry(wheelR * 0.52, wheelR * 0.52, wheelW + 0.03, 14);
-  axleX.forEach(function (x) {
-    [1, -1].forEach(function (side) {
+  axleX.forEach(function (x, axleIdx) {
+    [1, -1].forEach(function (side, sideIdx) {
       var z = side * 1.06;
-      var w = new THREE.Mesh(wheelGeo, matWheel);
+      var wheelId = wheelIdPairs[axleIdx][sideIdx];
+      var tireInfo = tireStatuses && tireStatuses[wheelId];
+      var isDanger = !!(tireInfo && tireInfo.status === 'danger');
+      var w = new THREE.Mesh(wheelGeo, isDanger ? matWheelDanger : matWheel);
       w.rotation.x = Math.PI / 2;
       w.position.set(x, wheelR, z);
       group.add(w);
+      if (isDanger) markers.push({ object3D: w, status: 'danger', label: tireInfo.label });
       var rim = new THREE.Mesh(rimGeo, matRim);
       rim.rotation.x = Math.PI / 2;
       rim.position.set(x, wheelR, z);
@@ -145,11 +171,18 @@ function buildTruck(theme, wheelCount) {
     var strip2 = strip.clone(); strip2.position.z = -1.02; group.add(strip2);
   }
 
-  group.position.y = -1.95; // recenter so pivot sits near vertical mid-point of the truck
-  return group;
+  // 회전축(수직선)을 캡-화물함 경계로 이동: group은 그대로 두고 -PIVOT_X만큼 안으로
+  // 밀어넣은 뒤, 바깥 pivot을 +PIVOT_X에 둔다 — 자식 메쉬 좌표는 그대로, 회전만 그
+  // 경계선 기준으로 돈다.
+  var PIVOT_X = cargoStartX;
+  group.position.x = -PIVOT_X;
+  var pivot = new THREE.Group();
+  pivot.add(group);
+  pivot.position.set(PIVOT_X, -1.95, 0); // y: 회전축 위치 유지, 세로 중심만 재조정
+  return { group: pivot, markers: markers };
 }
 
-function init(container, theme, wheelCount) {
+function init(container, theme, wheelCount, tireStatuses, oilInfo) {
   dispose();
   mountEl = container;
   var w = Math.max(container.clientWidth, 100), h = Math.max(container.clientHeight, 100);
@@ -187,8 +220,10 @@ function init(container, theme, wheelCount) {
   ground.position.y = -1.95 + 0.001;
   scene.add(ground);
 
-  truckGroup = buildTruck(theme, wheelCount);
+  var built = buildTruck(theme, wheelCount, tireStatuses, oilInfo);
+  truckGroup = built.group;
   scene.add(truckGroup);
+  setupWarnLabels(container, built.markers);
 
   rotY = 0.55; tiltX = -0.14; velY = 0;
   idleSince = performance.now();
@@ -207,6 +242,36 @@ function init(container, theme, wheelCount) {
   animate();
 }
 
+function setupWarnLabels(container, markers) {
+  clearWarnLabels();
+  if (!markers || !markers.length) return;
+  warnLabelLayer = document.createElement('div');
+  warnLabelLayer.style.position = 'absolute';
+  warnLabelLayer.style.inset = '0';
+  warnLabelLayer.style.pointerEvents = 'none';
+  container.appendChild(warnLabelLayer);
+  warnMarkers = markers.map(function (m) {
+    var el = document.createElement('div');
+    el.className = 'truck3d-warn-label tone-' + m.status;
+    el.textContent = '! ' + m.label;
+    warnLabelLayer.appendChild(el);
+    return { object3D: m.object3D, el: el };
+  });
+}
+
+function updateWarnLabels() {
+  if (!warnMarkers.length || !mountEl || !camera) return;
+  var w = mountEl.clientWidth, h = mountEl.clientHeight;
+  var v = new THREE.Vector3();
+  warnMarkers.forEach(function (m) {
+    m.object3D.getWorldPosition(v);
+    v.y += 0.5;
+    v.project(camera);
+    m.el.style.left = ((v.x * 0.5 + 0.5) * w) + 'px';
+    m.el.style.top = ((-v.y * 0.5 + 0.5) * h) + 'px';
+  });
+}
+
 function wireInteraction(dom) {
   dom.style.touchAction = 'none';
   dom.style.cursor = 'grab';
@@ -220,11 +285,10 @@ function wireInteraction(dom) {
   });
   dom.addEventListener('pointermove', function (e) {
     if (!dragging) return;
-    var dx = e.clientX - lastX, dy = e.clientY - lastY;
+    var dx = e.clientX - lastX;
     var now = performance.now();
     var dt = Math.max(now - lastMoveT, 1);
-    rotY += dx * 0.008;
-    tiltX = Math.max(-0.55, Math.min(0.28, tiltX - dy * 0.006));
+    rotY += dx * 0.008; // 좌우 드래그만 반영 — 상하 드래그로 기울이는 축은 없음(요청: 360도 좌우 회전만)
     velX = (dx * 0.008) / (dt / 16.7);
     lastX = e.clientX; lastY = e.clientY; lastMoveT = now;
     idleSince = now;
@@ -256,7 +320,9 @@ function animate() {
 
   truckGroup.rotation.y = rotY;
   truckGroup.rotation.x = tiltX;
+  truckGroup.updateMatrixWorld(true);
   renderer.render(scene, camera);
+  updateWarnLabels();
 }
 
 window.SE_Truck3D = { init: init, dispose: dispose };

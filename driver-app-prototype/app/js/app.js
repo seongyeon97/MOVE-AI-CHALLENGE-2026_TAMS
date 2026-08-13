@@ -650,7 +650,16 @@
 
   function mountTruckStageExtras() {
     var mount = document.getElementById('dash-truck3d');
-    if (mount && window.SE_Truck3D) window.SE_Truck3D.init(mount, state.theme, wheelCountFor(state.vehicle.type));
+    if (mount && window.SE_Truck3D) {
+      var tireStatuses = {};
+      state.vehicle.tire.positions.forEach(function (p) {
+        var stat = computeTireStat(p);
+        tireStatuses[p.id] = { status: stat.status, label: statusLabel('tire', stat.status) };
+      });
+      var oilStats = computeOilStats();
+      var oilInfo = { status: oilStats.severity, label: statusLabel('oil', oilStats.severity) };
+      window.SE_Truck3D.init(mount, state.theme, wheelCountFor(state.vehicle.type), tireStatuses, oilInfo);
+    }
   }
 
   function mountHomeWeather() {
