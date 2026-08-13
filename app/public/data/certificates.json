@@ -1,1 +1,4426 @@
-[]
+[
+  {
+    "trip_id": "TRIP-SB-000001-20260812",
+    "vehicle_id": "SB-000001",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 3116,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 122,
+      "ton_km": 0,
+      "fuel_l": 48.292,
+      "idle_l": 0,
+      "co2_kg": 125.848952,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:40:28+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:20:17+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L2",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L3",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:40:28+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:20:17+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L4",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L5",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L7",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L8",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L9",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:54:17+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:12:40+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:14:07+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:46:40+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L11",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:47:18+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:04:54+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L12",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:08:22+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:51:38+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L13",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-03",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:52:07+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:07:47+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L14",
+          "laden": false,
+          "corridor_id": "COR-SITE-03-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:47:49+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:29:22+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L15",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:29:46+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:41:54+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L16",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:45:02+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:12:38+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L17",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L18",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L19",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:42:11+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:54:56+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L20",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L21",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:04:38+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:19:43+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L22",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L23",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L24",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L25",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T16:11:48+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T16:27:42+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000001-20260812-L26",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000002-20260812",
+    "vehicle_id": "SB-000002",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "A",
+    "verifiable": false,
+    "settle": "conditional",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 59,
+        "start": 33,
+        "decel": 76,
+        "stop": 27
+      },
+      "core_events": 195,
+      "continuous": {
+        "max_block_sec": 2961,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 90,
+      "ton_km": 0,
+      "fuel_l": 36.754000000000005,
+      "idle_l": 0,
+      "co2_kg": 95.78092400000001,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:34:46+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:14:27+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L2",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:34:46+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:14:27+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L3",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L4",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L5",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L7",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L8",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:14:36+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:30:01+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L9",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:39:07+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:49:53+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L11",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L12",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L13",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:31:04+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:48:58+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L14",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:50:17+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:06:00+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L15",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L16",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L17",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:53:11+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:07:12+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L18",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:08:36+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:57:57+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L19",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L20",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:14:04+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:32:24+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L21",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L22",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L23",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:03:38+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:25:05+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L24",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L25",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L26",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:05:48+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:23:13+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L27",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:26:33+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:57:51+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L28",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:59:16+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T16:13:54+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000002-20260812-L29",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000003-20260812",
+    "vehicle_id": "SB-000003",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 3771,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 124,
+      "ton_km": 0,
+      "fuel_l": 38.08,
+      "idle_l": 0,
+      "co2_kg": 99.23647999999999,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:57:37+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:14:08+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L2",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:57:37+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:14:08+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L3",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L4",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L5",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:45:25+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:02:39+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L7",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L8",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L9",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:49:09+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:20:12+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L10",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L11",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L12",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:21:57+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:34:59+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L13",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L14",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:39:43+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:42:34+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L15",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:43:43+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:13:09+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L16",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:29:21+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:45:56+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L17",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L18",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L19",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:08:58+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:25:24+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L20",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:28:07+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:41:23+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L21",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L22",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L23",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:30:42+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:50:06+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L24",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000003-20260812-L25",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000004-20260812",
+    "vehicle_id": "SB-000004",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "A",
+    "verifiable": false,
+    "settle": "conditional",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 89,
+        "start": 0,
+        "decel": 79,
+        "stop": 1
+      },
+      "core_events": 169,
+      "continuous": {
+        "max_block_sec": 3040,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 75,
+      "ton_km": 0,
+      "fuel_l": 25.063999999999997,
+      "idle_l": 0,
+      "co2_kg": 65.31678399999998,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:56:47+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:41:20+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L2",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L3",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L4",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:56:47+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:41:20+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L5",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:41:22+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:59:22+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L7",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L8",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L9",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:42:12+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:16:54+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L11",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L12",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L13",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L14",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L15",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-03",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:06:53+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:52:05+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L16",
+          "laden": false,
+          "corridor_id": "COR-SITE-03-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:03:19+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:53:59+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L17",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L18",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:07:59+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:37:30+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L19",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L20",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:12:55+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:42:14+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L21",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L22",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000004-20260812-L23",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000005-20260812",
+    "vehicle_id": "SB-000005",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 5719,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 84,
+      "ton_km": 0,
+      "fuel_l": 34.312000000000005,
+      "idle_l": 0,
+      "co2_kg": 89.417072,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:21:54+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:57:13+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L1",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:21:54+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:57:13+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L2",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:57:59+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:19:47+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L3",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L4",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:03:56+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:16:13+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L5",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L7",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L8",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:57:32+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:11:35+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L9",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:32:55+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:20:01+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:20:33+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:45:48+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L11",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L12",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:56:33+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:24:33+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L13",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L14",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L15",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:44:37+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T16:03:59+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000005-20260812-L16",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000006-20260812",
+    "vehicle_id": "SB-000006",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 4374,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 88,
+      "ton_km": 0,
+      "fuel_l": 33.827,
+      "idle_l": 0,
+      "co2_kg": 88.153162,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:25:55+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:34:29+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L2",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:25:55+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:34:29+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L3",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:35:33+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:54:14+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L4",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L5",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L7",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L8",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L9",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:35:56+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:05:43+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:06:25+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:22:03+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L11",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:24:20+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:05:53+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L12",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:06:38+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:38:39+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L13",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L14",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:27:38+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:07:35+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L15",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L16",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L17",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:11:54+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:31:48+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L18",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L19",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L20",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000006-20260812-L21",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000007-20260812",
+    "vehicle_id": "SB-000007",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "B",
+    "verifiable": false,
+    "settle": "conditional",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 2,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 2,
+      "continuous": {
+        "max_block_sec": 2493,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 72,
+      "ton_km": 0,
+      "fuel_l": 30.632000000000005,
+      "idle_l": 0,
+      "co2_kg": 79.826992,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:44:16+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:12:26+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L2",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L3",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:44:16+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:12:26+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L4",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L5",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:28:14+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:44:52+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L7",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:04:41+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:18:00+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L8",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L9",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:43:03+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:57:14+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:59:28+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:24:33+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L11",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L12",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L13",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L14",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:34:20+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:52:35+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L15",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L16",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L17",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L18",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:07:22+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:30:11+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L19",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L20",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:44:35+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:59:40+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L21",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L22",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:05:41+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:34:17+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L23",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L24",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L25",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L26",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L27",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L28",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:46:42+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T16:03:20+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L29",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L30",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000007-20260812-L31",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000008-20260812",
+    "vehicle_id": "SB-000008",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 11377,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 91,
+      "ton_km": 0,
+      "fuel_l": 46.333,
+      "idle_l": 0,
+      "co2_kg": 120.74379799999998,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:46:12+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:18:57+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000008-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000008-20260812-L2",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000008-20260812-L3",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000008-20260812-L4",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:46:12+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:18:57+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000008-20260812-L5",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000008-20260812-L6",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-03",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:38:31+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:29:20+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000008-20260812-L7",
+          "laden": false,
+          "corridor_id": "COR-SITE-03-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:03:01+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T16:12:38+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000009-20260812",
+    "vehicle_id": "SB-000009",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 3090,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 84,
+      "ton_km": 0,
+      "fuel_l": 26.535000000000004,
+      "idle_l": 0,
+      "co2_kg": 69.15021,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:56:45+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:15:04+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L2",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:56:45+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:15:04+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L3",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L4",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L5",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:38:21+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:53:46+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L7",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:05:51+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:46:07+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L8",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L9",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:05:53+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:20:58+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L11",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L12",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:31:44+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:40:23+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L13",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L14",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:25:23+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:58:49+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L15",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:23:15+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:14:45+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L16",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L17",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L18",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:07:15+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:20:37+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L19",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:22:45+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:03:04+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L20",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:03:45+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:20:48+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000009-20260812-L21",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000011-20260812",
+    "vehicle_id": "SB-000011",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 0,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 0,
+      "continuous": {
+        "max_block_sec": 2614,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 101,
+      "ton_km": 0,
+      "fuel_l": 40.861000000000004,
+      "idle_l": 0,
+      "co2_kg": 106.483766,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:56:55+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:15:46+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L2",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:56:55+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:15:46+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L3",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L4",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:39:35+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:54:08+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L5",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:59:14+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:30:09+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L7",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L8",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L9",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:56:14+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:17:53+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L11",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L12",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:20:54+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:53:08+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L13",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:53:39+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:07:05+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L14",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:28:59+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:03:40+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L15",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L16",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:21:03+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:59:32+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L17",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L18",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:02:12+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:45:46+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L19",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:46:35+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:03:11+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L20",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:05:17+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:26:04+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L21",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L22",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:47:29+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T16:12:44+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L23",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000011-20260812-L24",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000012-20260812",
+    "vehicle_id": "SB-000012",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "A",
+    "verifiable": false,
+    "settle": "conditional",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 77,
+        "start": 27,
+        "decel": 81,
+        "stop": 14
+      },
+      "core_events": 199,
+      "continuous": {
+        "max_block_sec": 3191,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 85,
+      "ton_km": 0,
+      "fuel_l": 38.695,
+      "idle_l": 0,
+      "co2_kg": 100.83917,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:56:51+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:09:06+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L2",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:56:51+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:09:06+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L3",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L4",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L5",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:45:04+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:07:39+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L7",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:27:03+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:38:46+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L8",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L9",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:02:01+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:14:50+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:18:16+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:26:45+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L11",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L12",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L13",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:37:25+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:52:39+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L14",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:28:00+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:47:42+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L15",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L16",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:17:09+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:48:54+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L17",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:02:50+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:22:43+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L18",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L19",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:17:51+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:45:59+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L20",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L21",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000012-20260812-L22",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000013-20260812",
+    "vehicle_id": "SB-000013",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
+    "data_tier": "A",
+    "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
+    "safety": {
+      "event_counts": {
+        "accel": 4,
+        "start": 0,
+        "decel": 0,
+        "stop": 0
+      },
+      "core_events": 4,
+      "continuous": {
+        "max_block_sec": 3918,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 91,
+      "ton_km": 0,
+      "fuel_l": 35.109,
+      "idle_l": 0,
+      "co2_kg": 91.494054,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 1
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:57:06+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:13:40+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L1",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L2",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:57:06+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:13:40+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L3",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L4",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L5",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:52:50+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:06:28+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L6",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:10:41+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:30:23+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L7",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L8",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:44:00+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:12:34+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L9",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T10:18:27+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:23:35+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:24:53+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:43:21+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L11",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L12",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:27:52+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:49:48+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L13",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L14",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L15",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L16",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:55:31+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:23:04+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L17",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L18",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:37:13+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:06:34+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L19",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L20",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T16:13:06+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T16:28:34+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000013-20260812-L21",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  },
+  {
+    "trip_id": "TRIP-SB-000014-20260812",
+    "vehicle_id": "SB-000014",
+    "vehicle_class": "truck",
+    "date": "2026-08-12",
+    "month": "2026-08",
+    "origin_site": "전라남도 광양시 태인동",
+    "destination_site": "전라남도 광양시 태인동",
+    "order_no": "",
+    "container_type": "40ft",
+    "baseline": {
+      "kmpl": 3.6,
+      "source": "registration",
+      "trust": "A",
+      "kmpl_empty": 3.888,
+      "kmpl_laden": 2.808,
+      "fetched_at": "2026-08-13T06:25:23.106Z"
+    },
+    "grade": "D",
+    "verifiable": false,
+    "settle": "block",
+    "data_tier": "none",
+    "data_tier_note": "운행·유류 데이터 모두 없음",
+    "safety": {
+      "event_counts": {
+        "accel": 5,
+        "start": 0,
+        "decel": 7,
+        "stop": 0
+      },
+      "core_events": 12,
+      "continuous": {
+        "max_block_sec": 4622,
+        "limit_sec": 14400,
+        "compliant": true
+      }
+    },
+    "eco": {
+      "distance_km": 0,
+      "ton_km": 0,
+      "fuel_l": 0,
+      "idle_l": 0,
+      "co2_kg": 0,
+      "g_co2_per_tonkm": null,
+      "g_co2_per_km": null,
+      "empty_share": 0
+    },
+    "attribution": {
+      "applicable": true,
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "status": "verified",
+      "method": "address",
+      "departure": {
+        "ts": "2026-08-12T07:44:57+09:00",
+        "error_sec": null
+      },
+      "arrival": {
+        "ts": "2026-08-12T08:22:35+09:00",
+        "error_sec": null
+      },
+      "legs": [
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L1",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T07:44:57+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T08:22:35+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L2",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T08:32:55+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T09:49:57+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L3",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T09:52:55+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T10:11:45+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L4",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L5",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L6",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L7",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:00:28+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:30:58+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L8",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T11:36:08+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T11:48:19+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L9",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-03",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T12:01:53+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T12:46:34+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L10",
+          "laden": false,
+          "corridor_id": "COR-SITE-03-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:03:40+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T13:26:08+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L11",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L12",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T13:42:27+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T14:21:38+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L13",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L14",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L15",
+          "laden": false,
+          "corridor_id": "COR-SITE-02-SITE-01",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T14:46:32+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T15:45:51+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L16",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L17",
+          "laden": false,
+          "corridor_id": "COR-SITE-01-SITE-02",
+          "method": "address",
+          "status": "verified",
+          "departure": {
+            "ts": "2026-08-12T15:59:10+09:00",
+            "error_sec": null
+          },
+          "arrival": {
+            "ts": "2026-08-12T16:25:49+09:00",
+            "error_sec": null
+          },
+          "note": "좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)"
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L18",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L19",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        },
+        {
+          "leg_id": "TRIP-SB-000014-20260812-L20",
+          "laden": false,
+          "corridor_id": null,
+          "status": "failed",
+          "method": "none",
+          "departure": null,
+          "arrival": null,
+          "note": "등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요."
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,14 @@
+﻿vehicle_id,date,distance_km,load_state,load_state_src,fuel_l,fuel_source,alloc,confidence,grade_hint
+SB-000001,2026-08-12,122,unknown,insufficient_sample_all_empty,48.29,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000002,2026-08-12,90,unknown,insufficient_sample_all_empty,36.755,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000003,2026-08-12,124,unknown,insufficient_sample_all_empty,38.078,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000004,2026-08-12,75,unknown,insufficient_sample_all_empty,25.066,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000005,2026-08-12,84,unknown,insufficient_sample_all_empty,34.312,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000006,2026-08-12,88,unknown,insufficient_sample_all_empty,33.827,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000007,2026-08-12,72,unknown,insufficient_sample_all_empty,30.633,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000008,2026-08-12,91,unknown,insufficient_sample_all_empty,46.333,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000009,2026-08-12,84,unknown,insufficient_sample_all_empty,26.536,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000011,2026-08-12,101,unknown,insufficient_sample_all_empty,40.859,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000012,2026-08-12,85,unknown,insufficient_sample_all_empty,38.696,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000013,2026-08-12,91,unknown,insufficient_sample_all_empty,35.108,2025_inventory_prior_year_same_month,distance_proportional,B,
+SB-000014,2026-08-12,0,unknown,insufficient_sample_all_empty,,not_allocated_zero_distance,none,n/a,D

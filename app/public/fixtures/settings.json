@@ -1,0 +1,66 @@
+{
+  "sites": [
+    {
+      "site_id": "SITE-01",
+      "name": "전라남도 광양시 금호동",
+      "address": "전라남도 광양시 금호동",
+      "lat": 0,
+      "lon": 0,
+      "radius_m": 1000
+    },
+    {
+      "site_id": "SITE-02",
+      "name": "전라남도 광양시 태인동",
+      "address": "전라남도 광양시 태인동",
+      "lat": 0,
+      "lon": 0,
+      "radius_m": 1000
+    },
+    {
+      "site_id": "SITE-03",
+      "name": "전라남도 광양시 도이동",
+      "address": "전라남도 광양시 도이동",
+      "lat": 0,
+      "lon": 0,
+      "radius_m": 1000
+    }
+  ],
+  "corridors": [
+    {
+      "corridor_id": "COR-SITE-01-SITE-02",
+      "name": "전라남도 광양시 금호동 → 전라남도 광양시 태인동",
+      "origin_site_id": "SITE-01",
+      "destination_site_id": "SITE-02"
+    },
+    {
+      "corridor_id": "COR-SITE-01-SITE-03",
+      "name": "전라남도 광양시 금호동 → 전라남도 광양시 도이동",
+      "origin_site_id": "SITE-01",
+      "destination_site_id": "SITE-03"
+    },
+    {
+      "corridor_id": "COR-SITE-02-SITE-01",
+      "name": "전라남도 광양시 태인동 → 전라남도 광양시 금호동",
+      "origin_site_id": "SITE-02",
+      "destination_site_id": "SITE-01"
+    },
+    {
+      "corridor_id": "COR-SITE-02-SITE-03",
+      "name": "전라남도 광양시 태인동 → 전라남도 광양시 도이동",
+      "origin_site_id": "SITE-02",
+      "destination_site_id": "SITE-03"
+    },
+    {
+      "corridor_id": "COR-SITE-03-SITE-01",
+      "name": "전라남도 광양시 도이동 → 전라남도 광양시 금호동",
+      "origin_site_id": "SITE-03",
+      "destination_site_id": "SITE-01"
+    },
+    {
+      "corridor_id": "COR-SITE-03-SITE-02",
+      "name": "전라남도 광양시 도이동 → 전라남도 광양시 태인동",
+      "origin_site_id": "SITE-03",
+      "destination_site_id": "SITE-02"
+    }
+  ]
+}

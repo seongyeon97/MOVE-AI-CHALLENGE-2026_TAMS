@@ -33,18 +33,38 @@ function findCorridor(corridors, sites, originName, destName) {
   });
 }
 
-/** leg 하나의 지오펜스 판정. 매칭 코리도가 없으면 failed + 사유. */
+/** leg 하나의 구간귀속 판정. 매칭 코리도가 없으면 failed + 사유. */
 function judgeLeg(leg, points, settings) {
   const corridor = findCorridor(settings.corridors, settings.sites, leg.origin_site, leg.destination_site);
   if (!corridor) {
     return {
       leg_id: leg.leg_id, laden: leg.laden === 'true', corridor_id: null, status: 'failed',
+      method: 'none',
       departure: null, arrival: null, note: '등록된 운송구간과 일치하지 않음 — 설정에서 사업장·구간을 먼저 등록하세요.',
     };
   }
 
   const originSite = settings.sites.find((s) => s.site_id === corridor.origin_site_id);
   const destSite = settings.sites.find((s) => s.site_id === corridor.destination_site_id);
+
+  // 좌표가 없는 원자료(주소만 있는 화물차 운행기록)는 지오펜스 선분교차를 쓸 수 없다.
+  // 이때는 출발·도착 주소가 등록된 사업장과 일치하는지로 판정하고, 방법을 method에 남겨
+  // 증명서가 "지오펜스"가 아니라 "주소 대조"였다고 밝히게 한다 — 못 한 검증을 한 척하지 않는다.
+  const hasCoords = points.length > 0 && Number(originSite?.lat) !== 0 && Number(destSite?.lat) !== 0;
+  if (!hasCoords) {
+    const departMatch = leg.origin_site === originSite?.name;
+    const arriveMatch = leg.destination_site === destSite?.name;
+    return {
+      leg_id: leg.leg_id,
+      laden: leg.laden === 'true',
+      corridor_id: corridor.corridor_id,
+      method: 'address',
+      status: departMatch && arriveMatch ? 'verified' : departMatch || arriveMatch ? 'partial' : 'failed',
+      departure: departMatch ? { ts: leg.start_ts, error_sec: null } : null,
+      arrival: arriveMatch ? { ts: leg.end_ts, error_sec: null } : null,
+      note: '좌표 미보유 — 출발·도착 주소 대조로 판정(지오펜스 아님)',
+    };
+  }
 
   const legStart = new Date(leg.start_ts).getTime();
   const legEnd = new Date(leg.end_ts).getTime();
@@ -64,7 +84,7 @@ function judgeLeg(leg, points, settings) {
   else if (departure || arrival) status = 'partial';
   else status = 'failed';
 
-  return { leg_id: leg.leg_id, laden: leg.laden === 'true', corridor_id: corridor.corridor_id, status, departure, arrival };
+  return { leg_id: leg.leg_id, laden: leg.laden === 'true', corridor_id: corridor.corridor_id, method: 'geofence', status, departure, arrival };
 }
 
 function main() {
@@ -102,12 +122,17 @@ function main() {
     const points = pointsByTrip.get(cert.trip_id) ?? [];
     const legJudgements = tripLegs.map((leg) => judgeLeg(leg, points, settings));
 
-    // 대표 판정 = 적차(laden) leg. 적차 leg가 없으면(승용 단일세그 등) 전체 중 첫 leg로 대체.
-    const primary = legJudgements.find((j) => j.laden) ?? legJudgements[0] ?? null;
+    // 대표 판정 = 적차(laden) leg → 없으면 실제로 사업장 간을 오간 leg → 그것도 없으면 첫 leg.
+    // 첫 leg를 그냥 쓰면 구내 이동(같은 사업장 안에서 맴도는 leg)이 대표가 돼 전부 failed로 나온다.
+    const primary =
+      legJudgements.find((j) => j.laden) ??
+      legJudgements.find((j) => j.status === 'verified') ??
+      legJudgements.find((j) => j.status === 'partial') ??
+      legJudgements[0] ?? null;
 
     cert.attribution = primary
-      ? { applicable: true, corridor_id: primary.corridor_id, status: primary.status, departure: primary.departure, arrival: primary.arrival, legs: legJudgements }
-      : { applicable: true, corridor_id: null, status: 'failed', departure: null, arrival: null, legs: [] };
+      ? { applicable: true, corridor_id: primary.corridor_id, status: primary.status, method: primary.method, departure: primary.departure, arrival: primary.arrival, legs: legJudgements }
+      : { applicable: true, corridor_id: null, status: 'failed', method: 'none', departure: null, arrival: null, legs: [] };
   }
 
   writeJson(certificatesPath, certificates);

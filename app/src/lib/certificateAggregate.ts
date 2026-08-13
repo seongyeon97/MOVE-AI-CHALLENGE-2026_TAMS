@@ -1,6 +1,6 @@
 // certificateAggregate.ts — 여러 운송건(trip)을 구간+기간 단위로 합쳐 증명서 1건을 만든다.
 import { idleLperHourOf } from '../../scripts/lib/constants.mjs';
-import type { Certificate, DataTier, AttributionStatus } from '../types';
+import type { Certificate, DataTier, AttributionStatus, AttributionMethod } from '../types';
 
 export type AggregatedCertificate = {
   trips: Certificate[];
@@ -30,6 +30,8 @@ export type AggregatedCertificate = {
     date_to: string;
     baseline_sources: { source: string; kmpl: number; count: number }[];
     tonnage_per_container: number | null;
+    /** 구간귀속을 무엇으로 판정했는가 — 증명서가 방법을 밝히게 한다. */
+    attribution_method: AttributionMethod;
     /** 공회전 계수는 차종별로 다르다(승용 0.9 / 화물 2.4 L/h) — 문서에 실제 적용값을 적기 위함. */
     idle_l_per_hour: number;
   };
@@ -120,6 +122,7 @@ export function aggregateCertificates(trips: Certificate[]): AggregatedCertifica
       date_to: dates[dates.length - 1] ?? '',
       baseline_sources: [...baselineByKey.values()].sort((a, b) => b.count - a.count),
       tonnage_per_container: TONNAGE_BY_CONTAINER[trips[0].container_type] ?? null,
+      attribution_method: (trips.find((t) => t.attribution.applicable && t.attribution.method)?.attribution as { method?: AttributionMethod } | undefined)?.method ?? 'none',
       idle_l_per_hour: idleLperHourOf(trips[0].vehicle_class),
     },
   };

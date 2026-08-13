@@ -164,9 +164,19 @@ function CertificateDocument({ aggregate }: { aggregate: NonNullable<ReturnType<
         ) : (
           <p className="text-xs" style={{ color: 'var(--color-dim)' }}>구간귀속 판정 없음</p>
         )}
-        <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>
-          판정 오차는 ±샘플링간격/2로 함께 표기됩니다. verified는 출발·도착 사업장 모두 지오펜스 교차 검출, partial은 한쪽만, failed는 둘 다 미검출입니다.
-        </p>
+        {/* 무엇으로 판정했는지 밝힌다 — 좌표가 없어 주소로 맞춘 걸 지오펜스라고 쓰면 안 된다. */}
+        {basis.attribution_method === 'address' ? (
+          <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>
+            판정 방법: <span className="tone-warn-fg">주소 대조</span> — 원자료에 위경도가 없어 출발·도착 주소가 등록 사업장과
+            일치하는지로 판정했습니다. 지오펜스(선분 교차) 판정이 아니며, 좌표가 확보되면 승격됩니다.
+            verified는 출발·도착 both 일치, partial은 한쪽만, failed는 둘 다 불일치입니다.
+          </p>
+        ) : (
+          <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>
+            판정 방법: 지오펜스 선분 교차 — 진입·이탈 시각은 추정값이라 ±샘플링간격/2 오차를 함께 표기합니다.
+            verified는 출발·도착 사업장 모두 교차 검출, partial은 한쪽만, failed는 둘 다 미검출입니다.
+          </p>
+        )}
       </section>
 
       {/* ③ 안전 */}

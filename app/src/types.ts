@@ -85,13 +85,18 @@ export type Corridor = {
 export type DataTier = 'A' | 'B' | 'none';
 export type AttributionStatus = 'verified' | 'partial' | 'failed';
 
-export type CrossingPoint = { ts: string; error_sec: number };
+/** error_sec은 지오펜스 판정일 때만 있다(±샘플링간격/2). 주소 대조는 시각 오차 개념이 없어 null. */
+export type CrossingPoint = { ts: string; error_sec: number | null };
+
+/** 구간귀속을 무엇으로 판정했는가 — 좌표가 있으면 지오펜스, 주소뿐이면 주소 대조. */
+export type AttributionMethod = 'geofence' | 'address' | 'none';
 
 export type LegAttribution = {
   leg_id: string;
   laden: boolean;
   corridor_id: string | null;
   status: AttributionStatus;
+  method?: AttributionMethod;
   departure: CrossingPoint | null;
   arrival: CrossingPoint | null;
 };
@@ -102,6 +107,7 @@ export type Attribution =
       applicable: true;
       corridor_id: string | null;
       status: AttributionStatus;
+      method?: AttributionMethod;
       departure: CrossingPoint | null;
       arrival: CrossingPoint | null;
       legs?: LegAttribution[];

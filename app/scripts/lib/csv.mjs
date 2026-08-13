@@ -56,7 +56,9 @@ function rowsToObjects(header, rows) {
 /** 전체 CSV를 한 번에 읽어 객체 배열로 반환한다. */
 export function readCsv(path) {
   assertNotForbidden(path);
-  const text = readFileSync(path, 'utf-8');
+  // 엑셀이 내보낸 CSV는 BOM(﻿)으로 시작한다 — 안 떼면 첫 컬럼명이 "﻿vehicle_id"가 돼
+  // row.vehicle_id가 전부 undefined가 되고, 모든 행이 한 덩어리로 뭉친다(실제로 겪은 증상).
+  const text = readFileSync(path, 'utf-8').replace(/^﻿/, '');
   const lines = text.split(/\r?\n/).filter((l) => l.length > 0);
   if (lines.length === 0) return [];
   const header = parseCsvLine(lines[0]);
