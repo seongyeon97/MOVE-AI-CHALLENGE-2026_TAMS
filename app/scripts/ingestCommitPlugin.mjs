@@ -259,11 +259,19 @@ export function ingestCommitPlugin() {
           let buildLog = '';
           let buildOk = true;
           try {
-            // build-vehicles → build-eco 순서. eco는 vehicles.json을 읽으므로 순서가 뒤집히면 안 된다.
+            // 순서 고정. eco는 vehicles.json을, certificates는 trip/leg를, attribution은 certificates.json을 읽는다.
+            // build-attribution을 빠뜨리면 모든 증명서의 corridor_id가 null로 남아 구간 드롭다운이 비어버린다.
             const env = buildEnv();
-            buildLog = execFileSync(process.execPath, [join(__dirname, 'build-vehicles.mjs')], { cwd: ROOT, encoding: 'utf-8', env });
-            buildLog += execFileSync(process.execPath, [join(__dirname, 'build-eco.mjs')], { cwd: ROOT, encoding: 'utf-8', env });
-            buildLog += execFileSync(process.execPath, [join(__dirname, 'build-certificates.mjs')], { cwd: ROOT, encoding: 'utf-8', env });
+            const steps = [
+              'build-vehicles.mjs',
+              'build-eco.mjs',
+              'build-truck-trips.mjs', // driving_legs_*.csv → trip/leg/event + 사업장·구간 시드
+              'build-certificates.mjs',
+              'build-attribution.mjs', // 구간귀속 판정을 certificates.json에 채워 넣는다
+            ];
+            for (const step of steps) {
+              buildLog += execFileSync(process.execPath, [join(__dirname, step)], { cwd: ROOT, encoding: 'utf-8', env });
+            }
           } catch (err) {
             buildOk = false;
             buildLog = String(err.stdout ?? '') + String(err.stderr ?? '') + String(err.message ?? '');

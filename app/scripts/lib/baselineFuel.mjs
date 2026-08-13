@@ -8,6 +8,7 @@
 //
 // 우선순위대로 시도하고 처음 성공한 것을 쓴다. 실패는 에러가 아니라 다음 계층으로 폴백.
 
+import './env.mjs'; // 셸에서 단독 실행돼도 .env.local의 API 키가 실리게 한다
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -58,6 +59,8 @@ const CAREFF_ENDPOINT = 'https://apis.data.go.kr/B553530/CAREFF/CAREFF_LIST';
 // 화면에서 "확인"이 느려지고 네트워크가 한 번 흔들리면 빌드가 통째로 실패한다 — 디스크에 캐싱한다.
 const CAREFF_CACHE = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'public', 'fixtures', 'careff_list_cache.json');
 const CAREFF_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 표시연비 DB는 자주 바뀌지 않는다
+// 직전 빌드 결과 — 조회 실패가 성공한 값을 덮지 않게 하는 데만 쓴다(build-vehicles.mjs가 쓰는 경로와 같다).
+const BASELINE_OUT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'public', 'data', 'baseline_fuel.json');
 
 let careffListPromise = null;
 async function loadCareffList(key) {
@@ -281,6 +284,16 @@ export async function resolveBaselineFuel(vehicles, opts) {
   const now = new Date().toISOString();
   const unresolved = [];
 
+  // 직전 조회 결과 — 이번 조회가 실패했을 때만 쓴다. API 키가 빠진 채로 빌드가 한 번 돌면
+  // 멀쩡하던 기준연비가 전부 '조회실패'로 덮이기 때문이다. fetched_at은 옛날 값 그대로 둔다 —
+  // 이번에 조회한 게 아니라는 사실을 숨기지 않는다.
+  let previous = {};
+  try {
+    previous = JSON.parse(readFileSync(BASELINE_OUT, 'utf-8'));
+  } catch {
+    // 첫 빌드거나 파일이 없으면 그대로 빈 값.
+  }
+
   // 같은 (차종·제조사·모델·연료·연식)이면 조회 결과가 같다 — 100대를 100번 조회할 이유가 없다.
   // 실제 데이터가 포터 50대·아반떼 32대처럼 같은 모델에 몰려 있어 이 묶음만으로 조회 수가 확 준다.
   const groups = new Map();
@@ -297,6 +310,11 @@ export async function resolveBaselineFuel(vehicles, opts) {
   for (const { g, entry } of resolved) {
     for (const id of g.ids) {
       if (!entry) {
+        const prev = previous[id];
+        if (prev && prev.source !== 'unavailable' && Number(prev.kmpl) > 0) {
+          result[id] = prev; // 직전 조회값 유지 — 실패한 조회가 성공한 조회를 덮지 않는다
+          continue;
+        }
         unresolved.push(id);
         result[id] = { kmpl: 0, source: 'unavailable', trust: 'C', kmpl_empty: 0, kmpl_laden: 0, fetched_at: now };
       } else {

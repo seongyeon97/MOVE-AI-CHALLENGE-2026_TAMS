@@ -119,13 +119,13 @@ export function EcoScreen() {
         </button>
       </div>
 
-      {/* ① 상단 요약 — 차종별로 나눠 쓴다. Scope 1과 Scope 3은 합산하지 않고(§3.2),
+      {/* ① 상단 요약 — Safe와 같은 박스 형태로 차종별로 나눠 쓴다. Scope 1과 Scope 3은 합산하지 않고(§3.2),
           승용차는 톤킬로가 없어 원단위 단위 자체가 달라 한 줄에 합치면 의미가 깨진다. */}
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="grid gap-3 sm:grid-cols-2">
         <EcoHeadline title="승용차" rows={rows.filter((r) => r.vehicle_class === 'car')} isTruck={false} />
         <EcoHeadline title="화물차" rows={rows.filter((r) => r.vehicle_class === 'truck')} isTruck />
-        <span className="num text-xs" style={{ color: 'var(--color-slate)' }}>({range.from} ~ {range.to} 기준)</span>
       </div>
+      <p className="num text-xs" style={{ color: 'var(--color-slate)' }}>{range.from} ~ {range.to} 기준</p>
 
       {/* ② 차량별 표 — 100대 가까이 되므로 박스 안에서만 스크롤시킨다. */}
       <div className="overflow-auto rounded-md border" style={{ borderColor: 'var(--color-line)', maxHeight: '46vh' }}>
@@ -186,9 +186,12 @@ export function EcoScreen() {
   );
 }
 
-/** 헤드라인 한 줄 — 차종별 총 배출량·1차데이터 비율·원단위. 단위가 다르므로 합치지 않는다. */
+/**
+ * 차종별 배출수준 헤드라인 박스 — Safe의 관리수준 박스와 같은 형태.
+ * 톤은 배출량이 아니라 **1차데이터(실측 연료) 비중**으로 정한다 — 배출이 많다고 나쁜 게 아니라,
+ * 근거 없는 숫자가 많은 게 문제다. 새 등급이 아니라 데이터 커버리지 표시다.
+ */
 function EcoHeadline({ title, rows, isTruck }: { title: string; rows: EcoRow[]; isTruck: boolean }) {
-  if (rows.length === 0) return null;
   const co2Kg = rows.reduce((s, r) => s + r.co2_kg, 0);
   const tier3Co2 = rows.filter((r) => r.tier === 3).reduce((s, r) => s + r.co2_kg, 0);
   const primaryPct = co2Kg > 0 ? (tier3Co2 / co2Kg) * 100 : 0;
@@ -197,14 +200,33 @@ function EcoHeadline({ title, rows, isTruck }: { title: string; rows: EcoRow[]; 
   const intensity = isTruck
     ? (tonKm > 0 ? (co2Kg * 1000) / tonKm : null)
     : (distanceKm > 0 ? (co2Kg * 1000) / distanceKm : null);
+  const tone = rows.length === 0 ? 'void' : primaryPct >= 99 ? 'ok' : primaryPct >= 50 ? 'warn' : 'dead';
 
   return (
-    <span className="num text-sm" style={{ color: 'var(--color-paper)' }}>
-      <span style={{ color: 'var(--color-slate)' }}>{title} {rows.length}대</span>
-      {' · '}{(co2Kg / 1000).toFixed(2)} tCO₂e
-      {' · 1차데이터 '}{primaryPct.toFixed(0)}%
-      {intensity !== null && ` · ${intensity.toFixed(1)} ${isTruck ? 'gCO₂/ton-km' : 'gCO₂/km'}`}
-    </span>
+    <div className={`tone-${tone}-bd rounded-md border px-4 py-3`} style={{ background: 'var(--color-panel-2)' }}>
+      <p className="text-xs" style={{ color: 'var(--color-slate)' }}>{title} 배출수준</p>
+      {rows.length === 0 ? (
+        <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>해당 차종 데이터 없음</p>
+      ) : (
+        <>
+          <p className="num mt-1 text-sm" style={{ color: 'var(--color-paper)' }}>
+            {rows.length}대 · <span className="font-semibold">{(co2Kg / 1000).toFixed(2)} tCO₂e</span>
+            {intensity !== null && (
+              <>
+                {' · '}
+                <span className="font-semibold">
+                  {intensity.toFixed(1)} {isTruck ? 'gCO₂/ton-km' : 'gCO₂/km'}
+                </span>
+              </>
+            )}
+          </p>
+          <p className="num mt-0.5 text-xs" style={{ color: 'var(--color-mist)' }}>
+            1차데이터(실측 연료) 비중 <span className={`tone-${tone}-fg`}>{primaryPct.toFixed(0)}%</span>
+            {' · '}{[...new Set(rows.map((r) => r.scope))].map((s) => `Scope ${s}`).join('/')}
+          </p>
+        </>
+      )}
+    </div>
   );
 }
 

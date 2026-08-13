@@ -15,11 +15,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -95,11 +95,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -175,11 +175,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -255,11 +255,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -335,11 +335,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -415,11 +415,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -495,11 +495,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -575,11 +575,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -655,11 +655,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -735,11 +735,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -815,11 +815,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -895,11 +895,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -975,7 +975,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1055,7 +1055,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1135,7 +1135,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1215,7 +1215,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1295,7 +1295,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1375,7 +1375,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1455,7 +1455,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1535,7 +1535,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1615,7 +1615,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1695,7 +1695,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1775,7 +1775,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1855,7 +1855,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -1935,11 +1935,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -2015,11 +2015,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -2095,11 +2095,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -2175,11 +2175,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -2255,11 +2255,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -2335,11 +2335,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -2415,11 +2415,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -2495,11 +2495,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -2575,11 +2575,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -2655,11 +2655,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "정상",
-    "verifiable": true,
-    "settle": "allow",
+    "grade": "C",
+    "verifiable": false,
+    "settle": "block",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -2735,7 +2735,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -2815,7 +2815,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -2895,7 +2895,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -2975,7 +2975,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -3055,7 +3055,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -3135,7 +3135,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -3215,7 +3215,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -3295,11 +3295,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -3375,11 +3375,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -3455,11 +3455,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -3535,11 +3535,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -3615,11 +3615,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -3695,11 +3695,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -3775,11 +3775,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -3855,11 +3855,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -3935,7 +3935,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -4015,7 +4015,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -4095,7 +4095,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -4175,7 +4175,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -4255,7 +4255,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -4335,7 +4335,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -4415,7 +4415,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -4495,7 +4495,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -4575,11 +4575,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "B",
-    "verifiable": false,
-    "settle": "conditional",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -4655,11 +4655,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "B",
-    "verifiable": false,
-    "settle": "conditional",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -4735,11 +4735,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "B",
-    "verifiable": false,
-    "settle": "conditional",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -4815,11 +4815,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "B",
-    "verifiable": false,
-    "settle": "conditional",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -4895,11 +4895,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "B",
-    "verifiable": false,
-    "settle": "conditional",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -4975,11 +4975,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "B",
-    "verifiable": false,
-    "settle": "conditional",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -5055,11 +5055,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "B",
-    "verifiable": false,
-    "settle": "conditional",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -5135,11 +5135,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "B",
-    "verifiable": false,
-    "settle": "conditional",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -5215,11 +5215,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "B",
-    "verifiable": false,
-    "settle": "conditional",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -5295,11 +5295,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "B",
-    "verifiable": false,
-    "settle": "conditional",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -5375,11 +5375,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -5455,11 +5455,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -5535,11 +5535,11 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
-    "grade": "C",
-    "verifiable": false,
-    "settle": "block",
+    "grade": "정상",
+    "verifiable": true,
+    "settle": "allow",
     "data_tier": "A",
     "data_tier_note": "운행데이터 + 유류데이터 교차검증 완료",
     "safety": {
@@ -5615,7 +5615,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -5695,7 +5695,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -5775,7 +5775,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -5855,7 +5855,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -5935,7 +5935,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -6015,7 +6015,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -6095,7 +6095,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -6175,7 +6175,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -6255,7 +6255,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -6335,7 +6335,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -6415,7 +6415,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -6495,7 +6495,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -6575,7 +6575,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -6655,7 +6655,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -6735,7 +6735,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -6815,7 +6815,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -6895,7 +6895,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -6975,7 +6975,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -7055,7 +7055,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -7135,7 +7135,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -7215,7 +7215,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -7295,7 +7295,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "C",
     "verifiable": false,
@@ -7375,7 +7375,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -7455,7 +7455,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -7535,7 +7535,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -7615,7 +7615,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -7695,7 +7695,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -7775,7 +7775,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -7855,7 +7855,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -7935,7 +7935,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -8015,7 +8015,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -8095,7 +8095,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "A",
     "verifiable": false,
@@ -8175,7 +8175,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -8255,7 +8255,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -8335,7 +8335,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -8415,7 +8415,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -8495,7 +8495,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -8575,7 +8575,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -8655,7 +8655,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -8735,7 +8735,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -8815,7 +8815,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -8895,7 +8895,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "정상",
     "verifiable": true,
@@ -8975,7 +8975,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "D",
     "verifiable": false,
@@ -9055,7 +9055,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "D",
     "verifiable": false,
@@ -9135,7 +9135,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "D",
     "verifiable": false,
@@ -9215,7 +9215,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "D",
     "verifiable": false,
@@ -9295,7 +9295,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "D",
     "verifiable": false,
@@ -9375,7 +9375,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "D",
     "verifiable": false,
@@ -9455,7 +9455,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "D",
     "verifiable": false,
@@ -9535,7 +9535,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "D",
     "verifiable": false,
@@ -9615,7 +9615,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "D",
     "verifiable": false,
@@ -9695,7 +9695,7 @@
       "trust": "A",
       "kmpl_empty": 3.888,
       "kmpl_laden": 2.808,
-      "fetched_at": "2026-08-13T06:25:23.106Z"
+      "fetched_at": "2026-08-13T07:18:49.326Z"
     },
     "grade": "D",
     "verifiable": false,
