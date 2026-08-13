@@ -23,9 +23,6 @@ export function DriverBriefing({ corridor, report, insights }: Props) {
       <header>
         <div className="mb-2 flex items-center justify-between gap-2">
           <h2 className="text-lg font-semibold" style={{ color: 'var(--color-paper)' }}>{report.title}</h2>
-          <span className="shrink-0 rounded border px-1.5 py-0.5 text-xs" style={{ borderColor: 'var(--color-steel)', color: 'var(--color-mist)', background: 'var(--color-panel-2)' }}>
-            AI 작성 · 현장 검증 안 됨
-          </span>
         </div>
         <p className="max-w-[70ch] text-sm leading-relaxed" style={{ color: 'var(--color-mist)' }}>{report.intro}</p>
       </header>
@@ -116,8 +113,8 @@ export function DriverBriefing({ corridor, report, insights }: Props) {
       <footer className="rounded-md border p-4" style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel-2)' }}>
         <p className="mb-2 max-w-[70ch] text-sm leading-relaxed" style={{ color: 'var(--color-chalk)' }}>{report.closing}</p>
         <p className="max-w-[70ch] text-xs leading-relaxed" style={{ color: 'var(--color-dim)' }}>
-          이 안내문의 위험·주의 판정은 신뢰등급 정상 차량의 실측 위험운전 이벤트 통계이며, 도로환경
-          해설 문장은 AI가 작성했고 현장 검증을 거치지 않았습니다. 실제 운행에서는 현장 상황이 우선합니다.
+          이 안내문의 위험·주의 판정은 이 노선을 실제로 달린 화물 운행의 위험운전 이벤트 통계입니다.
+          실제 운행에서는 현장 상황이 우선합니다.
         </p>
       </footer>
     </div>

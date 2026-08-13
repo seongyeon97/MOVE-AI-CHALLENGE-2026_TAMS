@@ -263,6 +263,14 @@
     { date: '2026-07-10', title: '여름철 장거리 운행 안전 수칙', body: '2시간 이상 연속 운행 시 반드시 휴게소에서 휴식을 취해 주세요. 졸음운전은 대형 사고로 이어질 수 있습니다.', read: false }
   ];
 
+  /* 회사뷰(S&E Driving Platform)에서 발송한 공지 + 위 기본 공지를 합쳐 최신순으로 돌려준다.
+     회사 공지는 se-notice-bridge.js가 localStorage로 실어 오고, 여기서 "확인"을 누르면
+     회사뷰 Safe 화면의 공지 확인 열이 즉시 바뀐다. 브리지가 없으면 기본 공지만 뜬다. */
+  function noticeList() {
+    var fromCompany = window.SENotices ? window.SENotices.listForUI() : [];
+    return fromCompany.concat(NOTICES);
+  }
+
   /* ---------------------------------------------------------
      자가 점검 제출 이력 (mock — 실제로는 서버에 제출된 이력을 조회해야 함).
      "제출하기"를 누르면 오늘 날짜로 done:true 항목이 추가/갱신됨.
@@ -531,7 +539,7 @@
   function maybeShowNotice() {
     var today = new Date().toISOString().slice(0, 10);
     if (localStorage.getItem('se_notice_hide_until') === today) return;
-    openNoticeModal(NOTICES[0], true);
+    openNoticeModal(noticeList()[0], true);
   }
 
   /* ---------------------------------------------------------
@@ -1029,7 +1037,7 @@
 
   function renderNotificationsContent() {
     var today = new Date().toISOString().slice(0, 10);
-    var rows = NOTICES.map(function (n, i) {
+    var rows = noticeList().map(function (n, i) {
       var unread = n.date === today || !n.read;
       return '<tr data-notice-idx="' + i + '" class="' + (unread ? 'unread' : '') + '"><td class="notice-date">' + fmtDot(n.date) + '</td><td class="notice-title">' + n.title + '</td></tr>';
     }).join('');
@@ -1386,11 +1394,14 @@
 
     if ((t = e.target.closest('[data-notice-idx]'))) {
       var noticeIdx = Number(t.dataset.noticeIdx);
-      NOTICES[noticeIdx].read = true;
+      var notice = noticeList()[noticeIdx];
+      // 회사 공지는 브리지로 확인 처리한다 — 회사뷰 Safe의 "공지 확인" 열이 이 호출로 바뀐다.
+      if (notice.from_company && window.SENotices) window.SENotices.acknowledge(notice.id);
+      else notice.read = true;
       if (currentMainView === 'notifications') {
         document.getElementById('app-content').innerHTML = renderNotificationsContent();
       }
-      openNoticeModal(NOTICES[noticeIdx], false);
+      openNoticeModal(notice, false);
       return;
     }
     if ((t = e.target.closest('[data-action="trip-detail"]'))) { toast('운행 상세 기능은 준비 중입니다.'); return; }
@@ -1575,4 +1586,13 @@
   });
   applyTheme();
   showAuth('screen-login');
+
+  // 회사뷰에서 공지를 발송하면(다른 창) 알림 목록을 다시 그린다 — 새로고침 없이 뜨게.
+  if (window.SENotices) {
+    window.SENotices.subscribe(function () {
+      if (currentMainView === 'notifications') {
+        document.getElementById('app-content').innerHTML = renderNotificationsContent();
+      }
+    });
+  }
 })();

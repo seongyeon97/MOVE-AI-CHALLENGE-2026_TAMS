@@ -26,6 +26,13 @@ function segKey(routeId: string, seg: CorridorSegment): string {
   return `${routeId}-${seg.segment_no}`;
 }
 
+/** "급감속 68%" — 이 구간이 무엇 위주의 위험인지 한 조각으로 */
+function dominantLabel(seg: CorridorSegment): string | null {
+  if (!seg.dominant_type) return null;
+  const share = seg.dominant_share;
+  return share == null ? seg.dominant_type : `${seg.dominant_type} ${Math.round(share * 100)}%`;
+}
+
 let sdkLoading: Promise<void> | null = null;
 function loadKakaoSdk(): Promise<void> {
   const key = (import.meta.env.VITE_KAKAO_KEY as string | undefined) || undefined;
@@ -41,6 +48,60 @@ function loadKakaoSdk(): Promise<void> {
     setTimeout(() => reject(new Error('kakao sdk load timeout')), 6000); // §CLAUDE.md 6초
   });
   return sdkLoading;
+}
+
+/**
+ * 위험·주의 구간 마커 DOM. 등급색 점 + "무엇 위주인가" 라벨을 한 덩어리로 만든다.
+ * 카카오 CustomOverlay는 CSS 클래스가 아니라 노드를 받으므로 여기서 직접 조립한다.
+ */
+function markerNode(
+  seg: CorridorSegment,
+  color: string,
+  isSelected: boolean,
+  onClick: () => void,
+): HTMLElement {
+  // 크기 0인 앵커 박스를 구간 좌표에 놓고, 점만 그 위에 정확히 겹치게 한다.
+  // flex 한 줄로 만들면 점이 라벨 폭만큼 왼쪽으로 밀려 도로에서 벗어난다.
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'position:relative;width:0;height:0;cursor:pointer;white-space:nowrap;';
+
+  const dot = document.createElement('span');
+  const size = isSelected ? 18 : 13;
+  dot.style.cssText =
+    `position:absolute;left:0;top:0;transform:translate(-50%,-50%);` +
+    `width:${size}px;height:${size}px;border-radius:9999px;background:${color};` +
+    `border:2px solid var(--color-paper);` +
+    `box-shadow:0 0 0 4px color-mix(in srgb, ${color} 35%, transparent);`;
+  wrap.appendChild(dot);
+
+  const pill = document.createElement('span');
+  // 라벨은 점 오른쪽 위로 비켜 세운다 — 도로 위에 겹쳐 앉으면 경로가 가려진다.
+  pill.style.cssText =
+    `position:absolute;left:${size / 2 + 8}px;top:0;transform:translateY(-140%);` +
+    'display:flex;align-items:center;gap:4px;padding:2px 6px;border-radius:4px;' +
+    `border:1px solid ${color};background:var(--color-panel);color:var(--color-paper);` +
+    `font-size:11px;line-height:1.3;box-shadow:0 1px 4px rgb(0 0 0 / 0.4);`;
+  const grade = document.createElement('b');
+  grade.textContent = seg.grade_label;
+  grade.style.color = color;
+  pill.appendChild(grade);
+  const label = dominantLabel(seg);
+  if (label) {
+    const t = document.createElement('span');
+    t.textContent = `· ${label}`;
+    pill.appendChild(t);
+  }
+  const rate = document.createElement('span');
+  rate.textContent = `· ${seg.rate_per_trip.toFixed(2)}건/trip`;
+  rate.style.color = 'var(--color-slate)';
+  pill.appendChild(rate);
+  wrap.appendChild(pill);
+
+  wrap.addEventListener('click', (e) => {
+    e.stopPropagation();
+    onClick();
+  });
+  return wrap;
 }
 
 export function CorridorMap({ routes, selectedKey, onSelect }: Props) {
@@ -86,29 +147,30 @@ export function CorridorMap({ routes, selectedKey, onSelect }: Props) {
         // 양호: 옅은 선 / 주의·위험: 굵은 선 + 중심점
         const line = new kakao.maps.Polyline({
           path,
-          strokeWeight: seg.tone === 'ok' ? 3 : 6,
+          strokeWeight: seg.tone === 'ok' ? 6 : 12,
           strokeColor: color,
-          strokeOpacity: seg.tone === 'ok' ? 0.35 : 0.9,
+          strokeOpacity: seg.tone === 'ok' ? 0.55 : 0.95,
           strokeStyle: 'solid',
         });
         line.setMap(map);
         overlaysRef.current.push(line);
 
         if (seg.tone !== 'ok') {
-          const dot = new kakao.maps.Circle({
-            center: new kakao.maps.LatLng(seg.centroid[0], seg.centroid[1]),
-            radius: isSelected ? 450 : 300,
-            strokeWeight: 2,
-            strokeColor: color,
-            strokeOpacity: 1,
-            fillColor: color,
-            fillOpacity: isSelected ? 0.75 : 0.45,
+          // Circle은 반지름이 미터 단위라 195km 전체 보기에서 2px로 사라진다.
+          // 축척과 무관하게 같은 크기로 보이도록 픽셀 단위 CustomOverlay를 쓴다.
+          const marker = new kakao.maps.CustomOverlay({
+            position: new kakao.maps.LatLng(seg.centroid[0], seg.centroid[1]),
+            content: markerNode(seg, color, isSelected, () =>
+              onSelect(isSelected ? null : segKey(route.route_id, seg)),
+            ),
+            // 콘텐츠가 0x0 앵커 박스이므로 앵커는 0 — 점이 좌표 위에 정확히 놓인다
+            yAnchor: 0,
+            xAnchor: 0,
+            zIndex: isSelected ? 30 : seg.tone === 'dead' ? 20 : 10,
+            clickable: true,
           });
-          dot.setMap(map);
-          kakao.maps.event.addListener(dot, 'click', () => {
-            onSelect(isSelected ? null : segKey(route.route_id, seg));
-          });
-          overlaysRef.current.push(dot);
+          marker.setMap(map);
+          overlaysRef.current.push(marker);
         }
       }
     }
@@ -198,8 +260,8 @@ function SvgFallbackMap({ routes, selectedKey, onSelect }: Props) {
               d={d}
               fill="none"
               stroke={`var(${TONE_VAR[seg.tone]})`}
-              strokeWidth={seg.tone === 'ok' ? 2 : 5}
-              strokeOpacity={seg.tone === 'ok' ? 0.3 : 0.9}
+              strokeWidth={seg.tone === 'ok' ? 4 : 9}
+              strokeOpacity={seg.tone === 'ok' ? 0.5 : 0.95}
               strokeLinecap="round"
             />
           );
@@ -212,21 +274,31 @@ function SvgFallbackMap({ routes, selectedKey, onSelect }: Props) {
             const key = segKey(route.route_id, seg);
             const [cx, cy] = px(seg.centroid);
             const isSelected = selectedKey === key;
+            const label = dominantLabel(seg);
             return (
-              <circle
-                key={key}
-                cx={cx}
-                cy={cy}
-                r={isSelected ? 11 : 7}
-                fill={`var(${TONE_VAR[seg.tone]})`}
-                fillOpacity={isSelected ? 0.95 : 0.7}
-                stroke="var(--color-paper)"
-                strokeWidth={isSelected ? 2 : 0}
-                style={{ cursor: 'pointer' }}
-                onClick={() => onSelect(isSelected ? null : key)}
-              >
-                <title>{`${route.route_name} ${seg.km_from}~${seg.km_to}km · ${seg.grade_label} · ${seg.event_count}건`}</title>
-              </circle>
+              <g key={key} style={{ cursor: 'pointer' }} onClick={() => onSelect(isSelected ? null : key)}>
+                <circle
+                  cx={cx}
+                  cy={cy}
+                  r={isSelected ? 15 : 10}
+                  fill={`var(${TONE_VAR[seg.tone]})`}
+                  fillOpacity={isSelected ? 0.95 : 0.8}
+                  stroke="var(--color-paper)"
+                  strokeWidth={2}
+                >
+                  <title>{`${route.route_name} ${seg.km_from}~${seg.km_to}km · ${seg.grade_label} · ${seg.event_count}건`}</title>
+                </circle>
+                <text
+                  x={cx + (isSelected ? 20 : 15)}
+                  y={cy + 4}
+                  fontSize={13}
+                  fill="var(--color-paper)"
+                  style={{ paintOrder: 'stroke', stroke: 'var(--color-panel-2)', strokeWidth: 4 }}
+                >
+                  {seg.grade_label}
+                  {label ? ` · ${label}` : ''}
+                </text>
+              </g>
             );
           }),
       )}

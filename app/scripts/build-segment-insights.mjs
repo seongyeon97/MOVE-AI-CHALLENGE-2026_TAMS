@@ -12,20 +12,18 @@ import { existsSync, readFileSync, mkdirSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readCsv, writeJson } from './lib/csv.mjs';
+import { writeJson } from './lib/csv.mjs';
+import { loadEnv, bearingDeg, toEpoch, r2 } from './lib/corridorShared.mjs';
 import {
-  loadEnv,
-  loadLegIndex,
-  loadTracks,
-  bearingDeg,
-  toEpoch,
-  toRouteKm,
-  r2,
-} from './lib/corridorShared.mjs';
+  hasSource,
+  readSrcCsv,
+  loadTripTracks,
+  loadTripRouteIds,
+  routeKmAt,
+} from './lib/heatmapSource.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const FILES2 = join(ROOT, 'files2');
 const DATA_OUT = join(ROOT, 'public', 'data');
 const CAPTURE_DIR = join(ROOT, 'public', 'segment_captures');
 const OUT_PATH = join(DATA_OUT, 'segment_insights.json');
@@ -104,99 +102,65 @@ function geometryOf(polyline) {
   return { total_turn_deg: Math.round(total), max_turn_deg: Math.round(max), shape };
 }
 
-/* ── 실측 근거: 속도·시간대 — §2-2와 동일한 선형 참조 (같은 자리를 가리켜야 한다) ── */
+/* ── 실측 근거: 속도·시간대 — build-heatmap.mjs 와 동일한 선형 참조 (같은 자리를 가리켜야 한다) ── */
 
-function buildEvidence() {
-  const certsPath = join(DATA_OUT, 'certificates.json');
-  if (!existsSync(certsPath) || !existsSync(join(FILES2, 'event.csv'))) return null;
-  const certs = JSON.parse(readFileSync(certsPath, 'utf-8'));
-  const certList = Array.isArray(certs) ? certs : certs.certificates ?? [];
-  const trustedTripIds = new Set(certList.filter((c) => c.verifiable).map((c) => c.trip_id));
-  const legIndex = loadLegIndex(FILES2);
-  return { trustedTripIds, legIndex };
-}
+/**
+ * 대상 구간별 속도 분포와 이벤트 시간대를 모은다.
+ * 원천·배정 로직은 build-heatmap.mjs 와 공유한다(lib/heatmapSource.mjs) —
+ * 두 스크립트가 다른 자리를 가리키면 해설이 엉뚱한 구간을 설명하게 된다.
+ */
+function collectSpeedAndHours(corridor, targets) {
+  if (!hasSource(ROOT)) return new Map();
 
-async function collectSpeedAndHours(corridor, targets) {
-  const base = buildEvidence();
-  if (!base) return new Map();
-  const { trustedTripIds, legIndex } = base;
-  const tracks = await loadTracks(FILES2, trustedTripIds);
-  if (!tracks) return new Map();
-
-  const routeByKey = new Map();
-  for (const route of corridor.routes) routeByKey.set(route.route_id, route);
+  const tripRouteIds = loadTripRouteIds(ROOT);
+  const tracks = loadTripTracks(ROOT);
   const totalKmByRouteId = new Map(
     corridor.routes.map((r) => [r.route_id, r.segments[r.segments.length - 1]?.km_to ?? 0]),
   );
-  const routeIdByTrip = new Map();
-  {
-    // corridor.json 노선명 ↔ leg.csv 노선키 매칭
-    const idByRouteKey = new Map();
-    for (const route of corridor.routes) {
-      const [o, d] = route.route_name.split(' — ');
-      idByRouteKey.set(`${o}|${d}`, route.route_id);
-    }
-    for (const [tripId, key] of legIndex.routeKeyByTrip) {
-      const id = idByRouteKey.get(key);
-      if (id) routeIdByTrip.set(tripId, id);
-    }
+
+  const targetsByRoute = new Map();
+  for (const t of targets) {
+    if (!targetsByRoute.has(t.route_id)) targetsByRoute.set(t.route_id, []);
+    targetsByRoute.get(t.route_id).push(t);
   }
 
-  // 궤적 점 → routeKm → 대상 구간이면 속도 수집
   const speedBySeg = new Map(); // key → number[]
-  for (const [trackKey, points] of tracks.byKey) {
-    const tripId = trackKey.split('|')[0];
-    const routeId = routeIdByTrip.get(tripId);
-    if (!routeId) continue;
+  const hoursBySeg = new Map(); // key → Map<hour, count>
+
+  const hit = (routeId, routeKm) => {
+    for (const t of targetsByRoute.get(routeId) ?? []) {
+      if (routeKm >= t.seg.km_from && routeKm < t.seg.km_to) return `${t.route_id}-${t.seg.segment_no}`;
+    }
+    return null;
+  };
+
+  // ① 궤적 점 → routeKm → 대상 구간이면 속도 수집
+  for (const [tripId, points] of tracks) {
+    const routeId = tripRouteIds.get(tripId);
+    if (!routeId || !targetsByRoute.has(routeId)) continue;
     const totalKm = totalKmByRouteId.get(routeId) ?? 0;
     for (const p of points) {
-      const legNo = tracks.perLeg ? trackKey.split('|')[1] : inferLegNo(legIndex, tripId, points, p, totalKm);
-      const routeKm = toRouteKm({
-        tracks,
-        legByKey: legIndex.legByKey,
-        tripId,
-        legNo,
-        epoch: p.t,
-        totalKm,
-      });
+      const routeKm = routeKmAt(points, p.t, totalKm);
       if (routeKm == null) continue;
-      for (const t of targets) {
-        if (t.route_id !== routeId) continue;
-        if (routeKm >= t.seg.km_from && routeKm < t.seg.km_to) {
-          const key = `${t.route_id}-${t.seg.segment_no}`;
-          if (!speedBySeg.has(key)) speedBySeg.set(key, []);
-          speedBySeg.get(key).push(p.speed);
-        }
-      }
+      const key = hit(routeId, routeKm);
+      if (!key) continue;
+      if (!speedBySeg.has(key)) speedBySeg.set(key, []);
+      speedBySeg.get(key).push(p.speed);
     }
   }
 
-  // 이벤트 시간대 — 동일 선형 참조로 재배정
-  const hoursBySeg = new Map(); // key → Map<hour, count>
-  const events = readCsv(join(FILES2, 'event.csv'));
-  for (const e of events) {
-    if (!trustedTripIds.has(e.trip_id)) continue;
-    const routeId = routeIdByTrip.get(e.trip_id);
-    if (!routeId) continue;
-    const totalKm = totalKmByRouteId.get(routeId) ?? 0;
-    const routeKm = toRouteKm({
-      tracks,
-      legByKey: legIndex.legByKey,
-      tripId: e.trip_id,
-      legNo: e.leg_no,
-      epoch: toEpoch(e.occurred_at),
-      totalKm,
-    });
+  // ② 이벤트 시간대 — 동일 선형 참조로 재배정
+  for (const e of readSrcCsv(ROOT, 'event.csv')) {
+    const routeId = tripRouteIds.get(e.trip_id);
+    if (!routeId || !targetsByRoute.has(routeId)) continue;
+    const epoch = toEpoch(e.occurred_at);
+    const routeKm = routeKmAt(tracks.get(e.trip_id), epoch, totalKmByRouteId.get(routeId) ?? 0);
     if (routeKm == null) continue;
-    for (const t of targets) {
-      if (t.route_id !== routeId) continue;
-      if (routeKm >= t.seg.km_from && routeKm < t.seg.km_to) {
-        const key = `${t.route_id}-${t.seg.segment_no}`;
-        if (!hoursBySeg.has(key)) hoursBySeg.set(key, new Map());
-        const hour = new Date(toEpoch(e.occurred_at) * 1000).getHours();
-        hoursBySeg.get(key).set(hour, (hoursBySeg.get(key).get(hour) ?? 0) + 1);
-      }
-    }
+    const key = hit(routeId, routeKm);
+    if (!key) continue;
+    if (!hoursBySeg.has(key)) hoursBySeg.set(key, new Map());
+    const hour = new Date(epoch * 1000).getHours();
+    hoursBySeg.get(key).set(hour, (hoursBySeg.get(key).get(hour) ?? 0) + 1);
   }
 
   const out = new Map();
@@ -227,12 +191,6 @@ async function collectSpeedAndHours(corridor, targets) {
     out.set(key, { speed, hours });
   }
   return out;
-}
-
-/** trip 단위 궤적(레그 구분 없음)에서 점의 leg_no 추정 — odo 상대거리가 노선길이 넘으면 IN(2) */
-function inferLegNo(legIndex, tripId, points, p, totalKm) {
-  const odoRel = p.odo - points[0].odo;
-  return odoRel > totalKm ? '2' : '1';
 }
 
 /* ── 헤드리스 캡처 ─────────────────────────────────────────────────── */
@@ -541,7 +499,7 @@ async function main() {
   console.log(`대상 구간 ${targets.length}개 (주의·위험)`);
 
   // ① 실측 근거 수집
-  const speedHours = await collectSpeedAndHours(corridor, targets);
+  const speedHours = collectSpeedAndHours(corridor, targets);
   const evidences = new Map();
   for (const t of targets) {
     const key = `${t.route_id}-${t.seg.segment_no}`;
@@ -590,6 +548,21 @@ async function main() {
   const { GoogleGenAI } = await import('@google/genai');
   const ai = new GoogleGenAI({ apiKey: GEMINI });
 
+  // 직전 실행 결과 — 이번에 실패한 구간은 예전 해설을 살려 둔다.
+  // Gemini 504가 매 실행 몇 건씩 나는데(재시도는 §4에 따라 안 한다) 실패분을 버리면
+  // 다시 돌릴 때마다 성공 구간이 뒤바뀌어 영영 8개가 안 찬다.
+  const previousByKey = new Map();
+  let previousDriverReport = null;
+  if (existsSync(OUT_PATH)) {
+    try {
+      const prevBundle = JSON.parse(readFileSync(OUT_PATH, 'utf-8'));
+      for (const p of prevBundle.insights ?? []) previousByKey.set(p.key, p);
+      previousDriverReport = prevBundle.driver_report ?? null;
+    } catch {
+      /* 깨진 기존 파일은 무시 */
+    }
+  }
+
   const insights = [];
   for (const t of targets) {
     const key = `${t.route_id}-${t.seg.segment_no}`;
@@ -620,7 +593,14 @@ async function main() {
         report,
       });
     } catch (err) {
-      console.error(`  ${key} 해설 실패: ${err.message} — 이 구간만 건너뜀`);
+      const prev = previousByKey.get(key);
+      if (prev) {
+        // 근거(주소·POI·속도·캡처)는 이번 실측으로 갱신하고, 문장만 직전 것을 재사용한다.
+        insights.push({ ...prev, address: ex.address, region: ex.region, pois: ex.pois, captures });
+        console.warn(`  ${key} 해설 실패: ${err.message} — 직전 실행의 해설을 유지`);
+      } else {
+        console.error(`  ${key} 해설 실패: ${err.message} — 이 구간만 건너뜀`);
+      }
     }
   }
 
@@ -656,7 +636,12 @@ async function main() {
       thinking: 4096,
     });
   } catch (err) {
-    console.error(`차주 리포트 실패: ${err.message} — 구간 해설만 저장`);
+    // 구간 해설과 같은 이유로 직전 리포트를 살린다 — 한 번 만들어진 문서가 재실행으로 사라지면 안 된다.
+    driverReport = previousDriverReport;
+    console.error(
+      `차주 리포트 실패: ${err.message} — ` +
+        (driverReport ? '직전 실행의 리포트를 유지' : '구간 해설만 저장'),
+    );
   }
 
   const bundle = {
