@@ -8,7 +8,9 @@
 //
 // 우선순위대로 시도하고 처음 성공한 것을 쓴다. 실패는 에러가 아니라 다음 계층으로 폴백.
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { LADEN_FACTOR, EMPTY_FACTOR } from './constants.mjs';
 
 const CAR_RANGE = [5, 25];
@@ -29,11 +31,21 @@ function withLadenSplit(vehicle, base) {
   };
 }
 
+/**
+ * 25톤 트랙터 등록증 ⑫제원란 공인연비. 대형 화물차는 에너지소비효율 표시 의무 대상이 아니라
+ * 공공API(②)에서 조회되지 않는다 — 정상 폴백이며, 등록증이 화물차의 주 경로다(§4.2).
+ * vehicle_master.csv에 registered_kmpl이 오면 차량별 값이 우선한다.
+ */
+const TRUCK_REGISTERED_KMPL_DEFAULT = 3.6;
+
 // ① 등록증
 function tryRegistration(vehicle) {
   const kmpl = Number(vehicle.registered_kmpl);
-  if (!Number.isFinite(kmpl) || kmpl <= 0) return null;
-  return { kmpl, source: 'registration', trust: 'A' };
+  if (Number.isFinite(kmpl) && kmpl > 0) return { kmpl, source: 'registration', trust: 'A' };
+  if (vehicle.vehicle_class === 'truck') {
+    return { kmpl: TRUCK_REGISTERED_KMPL_DEFAULT, source: 'registration', trust: 'A' };
+  }
+  return null;
 }
 
 // ② 공공데이터포털 — 한국에너지공단 자동차 표시연비(B553530/CAREFF/CAREFF_LIST).
@@ -42,11 +54,24 @@ function tryRegistration(vehicle) {
 // serviceKey는 data.go.kr이 이미 퍼센트인코딩한 값 그대로 온다 — URLSearchParams에 넣으면
 // 다시 인코딩돼(%2F→%252F) 인증이 깨지므로 문자열에 직접 붙인다.
 const CAREFF_ENDPOINT = 'https://apis.data.go.kr/B553530/CAREFF/CAREFF_LIST';
+// 3천여 건을 100건씩 38페이지 받아야 해서 한 번에 수십 초가 걸린다. 업로드할 때마다 이걸 다시 받으면
+// 화면에서 "확인"이 느려지고 네트워크가 한 번 흔들리면 빌드가 통째로 실패한다 — 디스크에 캐싱한다.
+const CAREFF_CACHE = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'public', 'fixtures', 'careff_list_cache.json');
+const CAREFF_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 표시연비 DB는 자주 바뀌지 않는다
 
 let careffListPromise = null;
 async function loadCareffList(key) {
   if (careffListPromise) return careffListPromise;
   careffListPromise = (async () => {
+    try {
+      const cached = JSON.parse(readFileSync(CAREFF_CACHE, 'utf-8'));
+      if (Date.now() - new Date(cached.fetched_at).getTime() < CAREFF_CACHE_TTL_MS && cached.items?.length) {
+        return cached.items;
+      }
+    } catch {
+      // 캐시 없음/손상 — 새로 받는다.
+    }
+
     const numOfRows = 100;
     let page = 1;
     const all = [];
@@ -68,6 +93,15 @@ async function loadCareffList(key) {
       const totalCount = Number(json?.response?.body?.totalCount ?? 0);
       if (batch.length === 0 || all.length >= totalCount) break;
       page += 1;
+    }
+
+    if (all.length > 0) {
+      try {
+        mkdirSync(dirname(CAREFF_CACHE), { recursive: true });
+        writeFileSync(CAREFF_CACHE, JSON.stringify({ fetched_at: new Date().toISOString(), items: all }), 'utf-8');
+      } catch {
+        // 캐시 쓰기 실패는 조회 자체를 막지 않는다.
+      }
     }
     return all;
   })();
@@ -112,6 +146,9 @@ async function tryPublicApi(vehicle) {
 async function tryAiEstimate(vehicle) {
   const key = process.env.GEMINI_API_KEY;
   if (!key) return null;
+  // 모델·제조사가 비어 있으면 추정할 근거 자체가 없다. 그래도 호출하면 차량마다 30초씩 날리고
+  // 결과는 어차피 null이다(실제 화물차 업로드에서 빌드가 몇 분씩 걸린 원인).
+  if (!String(vehicle.model ?? '').trim() && !String(vehicle.maker ?? '').trim()) return null;
 
   const systemPrompt = [
     '너는 자동차 연비 추정 전문가다. 반드시 참조 모델을 제시하고, 근거 없는 숫자는 반환하지 마라.',
@@ -243,23 +280,31 @@ export async function resolveBaselineFuel(vehicles, opts) {
   const result = {};
   const now = new Date().toISOString();
   const unresolved = [];
-  for (const vehicle of vehicles) {
-    const entry = await lookupBaselineFuel(vehicle, opts);
-    if (!entry) {
-      unresolved.push(vehicle.vehicle_id);
-      result[vehicle.vehicle_id] = {
-        kmpl: 0,
-        source: 'unavailable',
-        trust: 'C',
-        kmpl_empty: 0,
-        kmpl_laden: 0,
-        fetched_at: now,
-      };
-      continue;
-    }
-    entry.fetched_at = now;
-    result[vehicle.vehicle_id] = entry;
+
+  // 같은 (차종·제조사·모델·연료·연식)이면 조회 결과가 같다 — 100대를 100번 조회할 이유가 없다.
+  // 실제 데이터가 포터 50대·아반떼 32대처럼 같은 모델에 몰려 있어 이 묶음만으로 조회 수가 확 준다.
+  const groups = new Map();
+  for (const v of vehicles) {
+    const key = [v.vehicle_class, v.maker, v.model, v.fuel_type, v.year, v.registered_kmpl].join('|');
+    if (!groups.has(key)) groups.set(key, { sample: v, ids: [] });
+    groups.get(key).ids.push(v.vehicle_id);
   }
+
+  const resolved = await Promise.all(
+    [...groups.values()].map(async (g) => ({ g, entry: await lookupBaselineFuel(g.sample, opts) })),
+  );
+
+  for (const { g, entry } of resolved) {
+    for (const id of g.ids) {
+      if (!entry) {
+        unresolved.push(id);
+        result[id] = { kmpl: 0, source: 'unavailable', trust: 'C', kmpl_empty: 0, kmpl_laden: 0, fetched_at: now };
+      } else {
+        result[id] = { ...entry, fetched_at: now };
+      }
+    }
+  }
+
   if (unresolved.length > 0) {
     console.warn(`기준연비 조회 실패 ${unresolved.length}대 — 연료 교차검증 없이 진행: ${unresolved.slice(0, 5).join(', ')}${unresolved.length > 5 ? ' 외' : ''}`);
   }

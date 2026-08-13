@@ -119,12 +119,12 @@ export function EcoScreen() {
         </button>
       </div>
 
-      {/* ① 상단 요약 — Scope 1과 Scope 3은 합산하지 않는다(§3.2). 지금은 전부 자가운송(Scope 1) 가정. */}
-      <div className="num flex flex-wrap gap-6 text-sm" style={{ color: 'var(--color-paper)' }}>
-        <span>총 배출량 {(summary.totalCo2Kg / 1000).toFixed(2)} tCO₂e</span>
-        <span>1차 데이터 비율 {summary.primaryDataPct.toFixed(1)}%</span>
-        <span>Tier 분포 · Tier3 {summary.tierCounts[3] ?? 0}대 / Tier1 {summary.tierCounts[1] ?? 0}대</span>
-        <span style={{ color: 'var(--color-slate)' }}>({range.from} ~ {range.to} 기준)</span>
+      {/* ① 상단 요약 — 차종별로 나눠 쓴다. Scope 1과 Scope 3은 합산하지 않고(§3.2),
+          승용차는 톤킬로가 없어 원단위 단위 자체가 달라 한 줄에 합치면 의미가 깨진다. */}
+      <div className="flex flex-wrap items-center gap-3">
+        <EcoHeadline title="승용차" rows={rows.filter((r) => r.vehicle_class === 'car')} isTruck={false} />
+        <EcoHeadline title="화물차" rows={rows.filter((r) => r.vehicle_class === 'truck')} isTruck />
+        <span className="num text-xs" style={{ color: 'var(--color-slate)' }}>({range.from} ~ {range.to} 기준)</span>
       </div>
 
       {/* ② 차량별 표 — 100대 가까이 되므로 박스 안에서만 스크롤시킨다. */}
@@ -169,7 +169,7 @@ export function EcoScreen() {
                   {r.g_co2_per_km !== null && `${r.g_co2_per_km.toFixed(1)} gCO₂/km`}
                   {r.g_co2_per_tonkm === null && r.g_co2_per_km === null && '—'}
                 </td>
-                <td className="py-2 pr-2">{r.reduction_headroom_kg.toFixed(1)}</td>
+                <td className="py-2 pr-2">{r.reduction_headroom_kg !== null ? r.reduction_headroom_kg.toFixed(1) : "—"}</td>
               </tr>
             );
           })}
@@ -186,6 +186,28 @@ export function EcoScreen() {
   );
 }
 
+/** 헤드라인 한 줄 — 차종별 총 배출량·1차데이터 비율·원단위. 단위가 다르므로 합치지 않는다. */
+function EcoHeadline({ title, rows, isTruck }: { title: string; rows: EcoRow[]; isTruck: boolean }) {
+  if (rows.length === 0) return null;
+  const co2Kg = rows.reduce((s, r) => s + r.co2_kg, 0);
+  const tier3Co2 = rows.filter((r) => r.tier === 3).reduce((s, r) => s + r.co2_kg, 0);
+  const primaryPct = co2Kg > 0 ? (tier3Co2 / co2Kg) * 100 : 0;
+  const tonKm = rows.reduce((s, r) => s + (r.ton_km ?? 0), 0);
+  const distanceKm = rows.reduce((s, r) => s + r.distance_km, 0);
+  const intensity = isTruck
+    ? (tonKm > 0 ? (co2Kg * 1000) / tonKm : null)
+    : (distanceKm > 0 ? (co2Kg * 1000) / distanceKm : null);
+
+  return (
+    <span className="num text-sm" style={{ color: 'var(--color-paper)' }}>
+      <span style={{ color: 'var(--color-slate)' }}>{title} {rows.length}대</span>
+      {' · '}{(co2Kg / 1000).toFixed(2)} tCO₂e
+      {' · 1차데이터 '}{primaryPct.toFixed(0)}%
+      {intensity !== null && ` · ${intensity.toFixed(1)} ${isTruck ? 'gCO₂/ton-km' : 'gCO₂/km'}`}
+    </span>
+  );
+}
+
 /**
  * 차종별 배출 요약 전광판.
  * 원단위는 대수 평균이 아니라 총 CO₂ ÷ 총 톤킬로(또는 총 거리) — 대수 평균은 소형·대형이 같은 무게로 섞인다.
@@ -196,7 +218,7 @@ function EcoScoreboard({ title, rows, isTruck }: { title: string; rows: EcoRow[]
   const distanceKm = rows.reduce((s, r) => s + r.distance_km, 0);
   const tonKm = rows.reduce((s, r) => s + (r.ton_km ?? 0), 0);
   const fuelL = rows.reduce((s, r) => s + r.fuel_l, 0);
-  const headroomKg = rows.reduce((s, r) => s + r.reduction_headroom_kg, 0);
+  const headroomKg = rows.reduce((s, r) => s + (r.reduction_headroom_kg ?? 0), 0);
   const tier3 = rows.filter((r) => r.tier === 3).length;
 
   const intensity = isTruck

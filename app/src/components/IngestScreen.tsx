@@ -222,10 +222,6 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
     setCommitting(true);
     const outcomes: { fileName: string; ok: boolean; message: string }[] = [];
     for (const r of Object.values(results)) {
-      if (r.vehicleClass !== 'car') {
-        outcomes.push({ fileName: r.fileName, ok: false, message: '화물차 원시 로그 반영은 아직 지원되지 않습니다 — 매핑만 검토했습니다.' });
-        continue;
-      }
       try {
         const rows = buildMappedObjects(r);
         const res = await fetch('/api/ingest-commit', {

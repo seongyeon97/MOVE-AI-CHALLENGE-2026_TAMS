@@ -4,7 +4,7 @@ const MENU: { screen: Screen; label: string; hint: string }[] = [
   { screen: 'safe', label: 'Safe', hint: '안전운전 진단·검증 + 차량 관리' },
   { screen: 'eco', label: 'Eco', hint: '연비 기반 탄소 관리' },
   { screen: 'heatmap', label: 'Heat-map', hint: '구간 위험도' },
-  { screen: 'certificate', label: '증명서 발급', hint: '대외 제출 문서' },
+  { screen: 'certificate', label: 'S&E 증명서 발급', hint: '대외 제출 문서' },
 ];
 
 type SidebarProps = {
@@ -18,7 +18,7 @@ export function Sidebar({ active, onNavigate, onSwitchToDriver, hasUnreadSafeAle
   return (
     <nav className="flex h-full w-56 flex-col border-r px-3 py-4" style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel)' }}>
       <div className="px-2 pb-6 text-sm font-semibold tracking-wide" style={{ color: 'var(--color-chalk)' }}>
-        S&E Driving
+        S&E Driving Platform
       </div>
 
       <ul className="flex flex-col gap-1">

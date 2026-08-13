@@ -42,8 +42,12 @@ export function computeEco(bucket, baseline, vehicleClass) {
   const baseline_co2_kg = isTruck && ton_km > 0 ? (ton_km * BASELINE_G_CO2_PER_TONKM) / 1000 : null;
   const measurement_gap_kg = baseline_co2_kg !== null ? co2_kg - baseline_co2_kg : null; // 계측 오차
 
-  const excessFuelL = Math.max(0, drive_fuel_l - baseline_fuel_l);
-  const reduction_headroom_kg = excessFuelL * CO2_KG_PER_L; // 감축 여지(상한)
+  // 기준연비가 없으면 "얼마나 더 썼는지"를 잴 수 없다. baseline_fuel_l=0을 그대로 빼면
+  // 연료 전량이 감축 여지로 잡혀 "이 연료를 다 없앨 수 있다"는 뜻이 된다 — null로 둔다.
+  const has_baseline = baseline_fuel_l > 0;
+  const reduction_headroom_kg = has_baseline
+    ? Math.max(0, drive_fuel_l - baseline_fuel_l) * CO2_KG_PER_L // 감축 여지(상한)
+    : null;
 
   const empty_share = distance_km > 0 ? bucket.empty.km / distance_km : 0;
 

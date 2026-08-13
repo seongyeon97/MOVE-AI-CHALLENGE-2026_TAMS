@@ -100,18 +100,105 @@ function aggregateCarRows(rows) {
   return { vehicleMasterRows, dailySummaryRows, skippedCount: skipped.length };
 }
 
-/** vehicle_id 기준으로 새 행이 기존 행을 덮어쓴다(같은 차량 재업로드 시 최신 매핑으로 갱신). */
+/**
+ * 화물차 원천(일자 1건=1행)을 daily_summary 병합용 행으로 만든다.
+ * 2분 간격 DTG 원시 로그가 아니라 승용차와 같은 일자별 집계다 — 운행(driving_events)과
+ * 유류(fuel)가 별도 파일로 오므로, 이 함수는 "그 파일에 있는 필드만" 담아 낸다.
+ * 없는 필드를 0으로 채우면 나중에 올린 파일이 먼저 올린 값을 0으로 덮어쓴다.
+ */
+function aggregateTruckRows(rows) {
+  const vehicleIds = new Set();
+  const daily = new Map(); // `${vehicle_id}|${date}` -> partial row
+  const skipped = [];
+
+  for (const row of rows) {
+    const vehicle_id = String(row.vehicle_id ?? '').trim();
+    const date = extractDate(row.date);
+    if (!vehicle_id || !date) {
+      skipped.push(row);
+      continue;
+    }
+    vehicleIds.add(vehicle_id);
+
+    const key = `${vehicle_id}|${date}`;
+    if (!daily.has(key)) daily.set(key, { vehicle_id, date, laden: 'false' });
+    const acc = daily.get(key);
+
+    // 적재상태: 실제 파일은 unknown이 대부분 — 적차로 단정하지 않고 공차(false)로 둔다.
+    if (row.laden !== undefined && row.laden !== '') {
+      const v = String(row.laden).toLowerCase();
+      if (v === 'true' || v === 'laden' || v === '적차') acc.laden = 'true';
+    }
+
+    const add = (field, value) => {
+      if (value === undefined || value === '') return;
+      acc[field] = num(acc[field]) + num(value);
+    };
+    add('reported_km', row.distance_km);
+    add('event_accel', row.hard_accel);
+    add('event_start', row.hard_start);
+    add('event_decel', row.hard_decel);
+    add('event_stop', row.hard_stop);
+    add('event_speeding', row.speeding_count);
+    add('fuel_l', row.fuel_l);
+    add('idle_sec', row.idle_sec);
+  }
+
+  const vehicleMasterRows = [...vehicleIds].map((vehicle_id) => ({
+    vehicle_id,
+    vehicle_class: 'truck',
+    device_model: '',
+    maker: '',
+    model: '',
+    year: '',
+    gross_weight_kg: '',
+    displacement_cc: '',
+    fuel_type: '경유',
+    registered_kmpl: '',
+  }));
+
+  return { vehicleMasterRows, dailySummaryRows: [...daily.values()], skippedCount: skipped.length };
+}
+
+/** vehicle_id 기준 병합 — 기존 값이 있으면 유지하고, 새 파일이 채운 필드만 덮어쓴다. */
 function upsertByVehicleId(existing, incoming) {
   const byId = new Map(existing.map((r) => [r.vehicle_id, r]));
-  for (const r of incoming) byId.set(r.vehicle_id, r);
+  for (const r of incoming) {
+    const prev = byId.get(r.vehicle_id);
+    if (!prev) {
+      byId.set(r.vehicle_id, r);
+      continue;
+    }
+    // 빈 값으로 기존 정보를 지우지 않는다 — 운행 파일엔 모델명이 없고 유류 파일엔 있을 수 있다.
+    const merged = { ...prev };
+    for (const [k, v] of Object.entries(r)) {
+      if (v !== undefined && v !== '') merged[k] = v;
+    }
+    byId.set(r.vehicle_id, merged);
+  }
   return [...byId.values()];
 }
 
-/** (vehicle_id, date, laden) 기준으로 기존 행을 새 집계로 교체한다(같은 파일 재업로드 시 이중 합산 방지). */
-function replaceByVehicleDateLaden(existing, incoming) {
-  const incomingKeys = new Set(incoming.map((r) => `${r.vehicle_id}|${r.date}|${r.laden}`));
-  const kept = existing.filter((r) => !incomingKeys.has(`${r.vehicle_id}|${r.date}|${r.laden}`));
-  return [...kept, ...incoming];
+/**
+ * (vehicle_id, date, laden) 기준 병합.
+ * 행을 통째로 갈아끼우지 않고 필드 단위로 합친다 — 운행 파일과 유류 파일이 따로 올라오는데
+ * 행 교체로 처리하면 나중에 올린 유류 파일이 먼저 올린 이벤트 값을 날려버린다.
+ * 같은 필드가 다시 오면 새 값으로 덮어쓴다(같은 파일 재업로드 시 이중 합산 방지).
+ */
+function mergeByVehicleDateLaden(existing, incoming) {
+  const byKey = new Map(existing.map((r) => [`${r.vehicle_id}|${r.date}|${r.laden}`, { ...r }]));
+  for (const r of incoming) {
+    const key = `${r.vehicle_id}|${r.date}|${r.laden}`;
+    const prev = byKey.get(key);
+    if (!prev) {
+      byKey.set(key, r);
+      continue;
+    }
+    for (const [k, v] of Object.entries(r)) {
+      if (v !== undefined && v !== '') prev[k] = v;
+    }
+  }
+  return [...byKey.values()];
 }
 
 export function ingestCommitPlugin() {
@@ -144,17 +231,19 @@ export function ingestCommitPlugin() {
 
         res.setHeader('Content-Type', 'application/json');
 
-        if (body.vehicleClass !== 'car') {
-          res.statusCode = 501;
-          res.end(JSON.stringify({ error: 'truck_not_supported', message: '화물차 원시 로그(2분 간격 DTG) 반영은 아직 구현되지 않았습니다.' }));
-          return;
-        }
-
         try {
-          const { vehicleMasterRows, dailySummaryRows, skippedCount } = aggregateCarRows(body.rows ?? []);
+          const isTruck = body.vehicleClass === 'truck';
+          const { vehicleMasterRows, dailySummaryRows, skippedCount } = isTruck
+            ? aggregateTruckRows(body.rows ?? [])
+            : aggregateCarRows(body.rows ?? []);
           if (vehicleMasterRows.length === 0) {
             res.statusCode = 400;
-            res.end(JSON.stringify({ error: 'no_valid_rows', message: 'vehicle_id·주행시작시각·주행거리가 있는 행이 하나도 없습니다.' }));
+            res.end(JSON.stringify({
+              error: 'no_valid_rows',
+              message: isTruck
+                ? 'vehicle_id·일자가 있는 행이 하나도 없습니다 — 매핑 검토표에서 두 필드가 매핑됐는지 확인하세요.'
+                : 'vehicle_id·주행시작시각·주행거리가 있는 행이 하나도 없습니다.',
+            }));
             return;
           }
 
@@ -162,7 +251,7 @@ export function ingestCommitPlugin() {
           const dailySummaryPath = join(FILES2, 'daily_summary.csv');
 
           const mergedVehicleMaster = upsertByVehicleId(readCsvIfExists(vehicleMasterPath), vehicleMasterRows);
-          const mergedDailySummary = replaceByVehicleDateLaden(readCsvIfExists(dailySummaryPath), dailySummaryRows);
+          const mergedDailySummary = mergeByVehicleDateLaden(readCsvIfExists(dailySummaryPath), dailySummaryRows);
 
           writeCsv(vehicleMasterPath, VEHICLE_MASTER_HEADER, mergedVehicleMaster);
           writeCsv(dailySummaryPath, DAILY_SUMMARY_HEADER, mergedDailySummary);

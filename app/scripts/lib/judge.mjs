@@ -60,14 +60,18 @@ export function computeMetrics(bucket, baseline, vehicleClass) {
   let fuel_per_100km = null;
   let fuel_excess_pct = null;
 
-  if (has_fuel_data) {
-    const baseline_fuel_l =
-      (baseline.kmpl_empty > 0 ? bucket.empty.km / baseline.kmpl_empty : 0) +
-      (baseline.kmpl_laden > 0 ? bucket.laden.km / baseline.kmpl_laden : 0);
+  // 기준연비가 없으면(조회 실패) 연료를 얼마나 더 썼는지 잴 자가 없다 — 연료 신호는 "없음"이다.
+  // 0으로 두면 "연료로 봐도 완벽"으로 읽혀 계측 실패가 우수 운전으로 뒤바뀐다.
+  const baseline_fuel_l =
+    (baseline.kmpl_empty > 0 ? bucket.empty.km / baseline.kmpl_empty : 0) +
+    (baseline.kmpl_laden > 0 ? bucket.laden.km / baseline.kmpl_laden : 0);
+  const has_baseline = baseline_fuel_l > 0;
+
+  if (has_fuel_data && has_baseline) {
     const idle_fuel_l = (idle_sec / 3600) * idleLperHourOf(vehicleClass);
     const drive_fuel_l = fuel_l - idle_fuel_l;
 
-    const fuel_excess = baseline_fuel_l > 0 ? drive_fuel_l / baseline_fuel_l - 1 : 0;
+    const fuel_excess = drive_fuel_l / baseline_fuel_l - 1;
     const fuel_penalty = 1 - 1 / (1 + fuel_excess);
     fuel_implied_rate = Math.max(0, (fuel_penalty / FUEL_PENALTY_MAX) * FUEL_PENALTY_RATE_SCALE);
     fuel_per_100km = reported_km > 0 ? (drive_fuel_l / reported_km) * 100 : null;
@@ -81,7 +85,15 @@ export function computeMetrics(bucket, baseline, vehicleClass) {
     stop: bucket.empty.stop + bucket.laden.stop,
   };
 
-  return { reported_km, core_events, events_by_type, rate, fuel_l, has_fuel_data, fuel_implied_rate, fuel_per_100km, fuel_excess_pct };
+  // has_fuel_data는 "연료 신호를 쓸 수 있는가"의 뜻으로 화면·순위가 쓴다 —
+  // 연료 실적이 있어도 기준연비가 없으면 비교가 성립하지 않으므로 false다.
+  return {
+    reported_km, core_events, events_by_type, rate, fuel_l,
+    has_fuel_data: has_fuel_data && has_baseline,
+    has_fuel_record: has_fuel_data,
+    has_baseline,
+    fuel_implied_rate, fuel_per_100km, fuel_excess_pct,
+  };
 }
 
 /**

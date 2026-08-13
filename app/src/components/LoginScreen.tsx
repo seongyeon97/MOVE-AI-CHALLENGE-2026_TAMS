@@ -39,7 +39,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
         style={{ borderColor: 'var(--color-line)', background: 'var(--color-panel)' }}
       >
         <h1 className="mb-6 text-lg font-semibold" style={{ color: 'var(--color-paper)' }}>
-          S&E Driving
+          S&E Driving Platform
         </h1>
 
         {step === 'role' && (

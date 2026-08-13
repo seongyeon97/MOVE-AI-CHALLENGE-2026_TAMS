@@ -68,7 +68,7 @@ export function CertificateScreen() {
 
   return (
     <div className="flex flex-col gap-4 p-6">
-      <h1 className="text-sm font-medium" style={{ color: 'var(--color-paper)' }}>증명서 발급</h1>
+      <h1 className="text-sm font-medium" style={{ color: 'var(--color-paper)' }}>S&E 증명서 발급</h1>
       <p className="text-xs" style={{ color: 'var(--color-dim)' }}>
         화물차(트랙터)만 발급 대상입니다 — 승용차는 화물 운송을 하지 않으므로 대상이 아닙니다.
       </p>

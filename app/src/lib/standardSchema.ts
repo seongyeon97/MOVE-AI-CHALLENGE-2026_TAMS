@@ -12,21 +12,23 @@ export type StandardField = {
   missing_impact: string;
 };
 
-/** 화물차 — DTG 원시 로그(2분 간격 GPS 핑 + 개별 위험운전 이벤트) 기준. */
+/**
+ * 화물차 — 일자별 집계 기준(통합단말기 월간 집계 + 유류 배분).
+ * 원래 2분 간격 DTG 원시 로그를 전제로 짰지만, 실제 받은 파일은 승용차와 같은 일자별 집계였다.
+ * 운행(driving_events)과 유류(fuel)가 별도 파일로 오며 vehicle_id + date로 합쳐진다.
+ */
 export const TRUCK_SCHEMA: StandardField[] = [
-  { key: 'timestamp', label: '타임스탬프', type: 'timestamp', missing_impact: '시계열 정렬 불가 — 이벤트·궤적 순서를 재구성할 수 없음' },
   { key: 'vehicle_id', label: '차량ID', type: 'string', missing_impact: '차량 식별 불가 — 이 파일 전체가 매칭 대상에서 제외됨' },
-  { key: 'lat', label: '위도', type: 'number', missing_impact: '지오펜스 구간귀속·Heat-map 불가' },
-  { key: 'lon', label: '경도', type: 'number', missing_impact: '지오펜스 구간귀속·Heat-map 불가' },
-  { key: 'location_text', label: '위치명(텍스트)', type: 'string', missing_impact: '지오코딩 실패 시 위치 표시를 좌표로만 대체' },
-  { key: 'speed_kmh', label: '속도(km/h)', type: 'number', missing_impact: '물리 정합성(평균속도) 검사 불가' },
-  { key: 'rpm', label: 'RPM', type: 'number', missing_impact: '구간 복제 등 시퀀스 이상 탐지 정확도 저하' },
-  { key: 'odo_km', label: '누적거리(km)', type: 'number', missing_impact: '주행거리·발생률 산정 불가 — 등급판정 자체가 안 됨' },
-  { key: 'laden', label: '적재상태', type: 'boolean', missing_impact: '공차/적차 구분 불가 — 연료 교차검증이 부정확해짐' },
-  { key: 'gps_status', label: 'GPS 상태', type: 'string', missing_impact: '위치 신뢰도 판단 불가' },
-  { key: 'event_type', label: '이벤트 유형', type: 'enum', missing_impact: '위험운전 발생률 산정 불가' },
-  { key: 'accel_raw', label: '가속도 원시값', type: 'number', missing_impact: '이벤트 임계값 재검증 불가' },
-  { key: 'fuel_l', label: '연료(L)', type: 'number', missing_impact: '연료 교차검증·Eco 배출량 산정 불가' },
+  { key: 'date', label: '일자', type: 'timestamp', missing_impact: '기간 집계 불가 — 조회기간을 잘라 볼 수 없음' },
+  { key: 'distance_km', label: '주행거리(km)', type: 'number', missing_impact: '발생률 산정 불가 — 등급판정 자체가 안 됨' },
+  { key: 'driving_min', label: '운행시간(분)', type: 'number', missing_impact: '평균속도 기반 물리 정합성 검사 불가' },
+  { key: 'laden', label: '적재상태', type: 'string', missing_impact: '공차/적차 구분 불가 — 적재상태 보정 없이 기준연비를 그대로 적용' },
+  { key: 'hard_accel', label: '급가속 횟수', type: 'number', missing_impact: '위험운전 발생률 산정 불가' },
+  { key: 'hard_start', label: '급출발 횟수', type: 'number', missing_impact: '위험운전 발생률 산정 불가' },
+  { key: 'hard_decel', label: '급감속 횟수', type: 'number', missing_impact: '위험운전 발생률 산정 불가' },
+  { key: 'hard_stop', label: '급정지 횟수', type: 'number', missing_impact: '위험운전 발생률 산정 불가' },
+  { key: 'speeding_count', label: '과속 건수', type: 'number', missing_impact: '과속 경향 파악 불가(발생률에는 미포함 — 산출기준서 §1-1)' },
+  { key: 'fuel_l', label: '연료(L)', type: 'number', missing_impact: '연료 교차검증·Eco 배출량 산정 불가 — 운행거리만으로 판단' },
   { key: 'idle_sec', label: '공회전시간(초)', type: 'number', missing_impact: '공회전 연료 보정 불가 — 연료초과율이 과대산정될 수 있음' },
   { key: 'driver_id', label: '기사ID', type: 'string', missing_impact: '기사뷰 개인화 불가(차량 단위로만 표시)' },
 ];

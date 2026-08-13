@@ -162,7 +162,8 @@ export type EcoRow = {
   g_co2_per_tonkm: number | null;
   g_co2_per_km: number | null;
   measurement_gap_kg: number | null;
-  reduction_headroom_kg: number;
+  /** 기준연비가 없으면 null — 0은 "초과 없음"이라 뜻이 다르다. */
+  reduction_headroom_kg: number | null;
   empty_share: number;
 };
 
