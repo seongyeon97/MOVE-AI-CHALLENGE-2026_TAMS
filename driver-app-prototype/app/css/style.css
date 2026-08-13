@@ -1185,11 +1185,11 @@ html[data-theme="dark"] .notice-table { border-color: rgba(45,212,191,0.14); }
 
 /* ---------- Tire detail: always-on wheel labels + steering wheel ---------- */
 #tire-truck-stage {
-  height: 56vh;
-  min-height: 320px;
-  max-height: 540px;
+  width: 100%;
+  aspect-ratio: 941 / 1672; /* reference/*_truck_*wheel_topdown.png 실제 비율 — 크롭 없이 전체가 보이도록 */
+  height: auto;
 }
-#tire-truck-stage img { width: 100%; height: 100%; object-fit: cover; object-position: top center; opacity: 0.45; }
+#tire-truck-stage img { width: 100%; height: 100%; object-fit: contain; object-position: center; opacity: 0.45; }
 
 /* Sized to sit exactly over #tire-truck-stage (matches .truck-card's own
    padding) but rendered as a sibling so overflow:hidden on the stage never

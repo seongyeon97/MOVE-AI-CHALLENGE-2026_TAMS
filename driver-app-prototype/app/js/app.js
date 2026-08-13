@@ -469,7 +469,7 @@
     if (el) el.style.display = 'block';
   }
 
-  function runRegPhotoParse() {
+  function runRegPhotoParse(file) {
     var statusEl = document.getElementById('reg-parse-status');
     var hintEl = document.getElementById('reg-parse-hint');
     if (hintEl) hintEl.style.display = 'none';
@@ -477,20 +477,40 @@
     statusEl.className = 'parse-status parsing';
     statusEl.innerHTML = '<span class="spinner"></span>사진에서 정보를 인식하는 중...';
 
+    function fillFail() {
+      revealRegFields();
+      ['su-plate', 'su-vin', 'su-reg-mileage', 'su-last-inspection'].forEach(function (id) { document.getElementById(id).value = ''; });
+      statusEl.className = 'parse-status fail';
+      statusEl.innerHTML = icon('alert', 14) + '사진에서 정보를 정확히 인식하지 못했습니다. 아래 항목을 직접 입력해주세요.';
+    }
+    function fillSuccess(d) {
+      revealRegFields();
+      if (d.plate) document.getElementById('su-plate').value = d.plate;
+      if (d.vin) document.getElementById('su-vin').value = d.vin;
+      if (d.regMileage != null) document.getElementById('su-reg-mileage').value = d.regMileage;
+      if (d.lastInspectionDate) document.getElementById('su-last-inspection').value = d.lastInspectionDate;
+      if (d.vehicleType === '6' || d.vehicleType === '8') document.getElementById('su-type').value = d.vehicleType;
+      if (d.currentMileage != null) document.getElementById('su-mileage').value = comma(Number(d.currentMileage));
+      statusEl.className = 'parse-status success';
+      statusEl.innerHTML = icon('check', 14) + '사진에서 정보를 자동으로 인식했어요. 확인 후 필요하면 수정하세요.';
+    }
+
+    var hasGemini = !!(window.SE_CONFIG && window.SE_CONFIG.GEMINI_API_KEY && window.SE_OCR);
+    if (file && hasGemini) {
+      window.SE_OCR.recognize(file).then(function (d) {
+        if (!d || (!d.plate && !d.vin && !d.regMileage && !d.lastInspectionDate)) fillFail();
+        else fillSuccess(d);
+      }).catch(fillFail);
+      return;
+    }
+
+    // Gemini 키 미설정 시 기존 mock 인식으로 대체 (화면은 항상 동작)
     setTimeout(function () {
       var success = Math.random() < 0.7;
-      revealRegFields();
       if (success) {
-        document.getElementById('su-plate').value = MOCK_REG_PARSE.plate;
-        document.getElementById('su-vin').value = MOCK_REG_PARSE.vin;
-        document.getElementById('su-reg-mileage').value = MOCK_REG_PARSE.mileage;
-        document.getElementById('su-last-inspection').value = MOCK_REG_PARSE.lastInspection;
-        statusEl.className = 'parse-status success';
-        statusEl.innerHTML = icon('check', 14) + '사진에서 정보를 자동으로 인식했어요. 확인 후 필요하면 수정하세요.';
+        fillSuccess({ plate: MOCK_REG_PARSE.plate, vin: MOCK_REG_PARSE.vin, regMileage: MOCK_REG_PARSE.mileage, lastInspectionDate: MOCK_REG_PARSE.lastInspection });
       } else {
-        ['su-plate', 'su-vin', 'su-reg-mileage', 'su-last-inspection'].forEach(function (id) { document.getElementById(id).value = ''; });
-        statusEl.className = 'parse-status fail';
-        statusEl.innerHTML = icon('alert', 14) + '사진에서 정보를 정확히 인식하지 못했습니다. 아래 항목을 직접 입력해주세요.';
+        fillFail();
       }
     }, 1100);
   }
@@ -593,6 +613,7 @@
      Nearby service centers (mock data — demo only, not a real
      Kakao Map integration; phone numbers are fictional).
   --------------------------------------------------------- */
+  // Kakao Map 로드/검색 실패 시 대체용 mock 정비소 (실 연동 성공하면 displayedShops가 교체됨)
   var SHOPS = [
     { name: '서울중앙 화물차정비센터', dist: '0.6km', addr: '서울 금천구 시흥대로 120', phone: '02-1234-5678', x: 34, y: 38 },
     { name: '강남 대형트럭 서비스', dist: '1.2km', addr: '서울 강남구 테헤란로 210', phone: '02-2345-6789', x: 62, y: 28 },
@@ -600,6 +621,7 @@
     { name: '튼튼 정비공업사', dist: '2.4km', addr: '서울 영등포구 국회대로 55', phone: '02-4567-8901', x: 74, y: 62 },
     { name: '굿모닝 트럭타이어', dist: '3.1km', addr: '서울 양천구 목동로 15', phone: '010-5678-9012', x: 50, y: 80 }
   ];
+  var displayedShops = SHOPS;
   var selectedShop = null;
 
   /* ---------------------------------------------------------
@@ -1108,11 +1130,8 @@
     );
   }
 
-  function renderReserveListContent() {
-    var pins = SHOPS.map(function (s, i) {
-      return '<span class="map-pin" style="left:' + s.x + '%;top:' + s.y + '%;" data-book-shop="' + i + '">' + icon('pin', 26) + '</span>';
-    }).join('');
-    var rows = SHOPS.map(function (s, i) {
+  function shopRowsHtml(shops) {
+    return shops.map(function (s, i) {
       return (
         '<div class="shop-row">' +
         '<div class="shop-row-top">' +
@@ -1123,18 +1142,43 @@
         '</div>'
       );
     }).join('');
+  }
+
+  function renderReserveListContent() {
+    displayedShops = SHOPS;
+    var pins = SHOPS.map(function (s, i) {
+      return '<span class="map-pin" style="left:' + s.x + '%;top:' + s.y + '%;" data-book-shop="' + i + '">' + icon('pin', 26) + '</span>';
+    }).join('');
 
     return (
       '<div class="fade-in">' +
-      '<div class="map-mock">' +
+      '<div class="map-mock" id="reserve-map">' +
       '<span class="map-pin me" style="left:46%;top:50%;">' + icon('pin', 22) + '</span>' +
       pins +
-      '<span class="map-note">데모 지도 · 카카오맵 SDK 연동 예정</span>' +
+      '<span class="map-note" id="reserve-map-note">지도를 불러오는 중...</span>' +
       '</div>' +
-      '<div class="section-heading">현재 위치 기준 가까운 정비소 ' + SHOPS.length + '곳</div>' +
-      rows +
+      '<div class="section-heading">현재 위치 기준 가까운 정비소 <span id="reserve-shop-count">' + SHOPS.length + '</span>곳</div>' +
+      '<div id="reserve-shop-rows">' + shopRowsHtml(SHOPS) + '</div>' +
       '</div>'
     );
+  }
+
+  function mountReserveMap() {
+    var mapEl = document.getElementById('reserve-map');
+    if (!mapEl || !window.SE_KakaoMap) return;
+    window.SE_KakaoMap.mount(mapEl, {
+      onReady: function (shops) {
+        displayedShops = shops;
+        var rowsEl = document.getElementById('reserve-shop-rows');
+        var countEl = document.getElementById('reserve-shop-count');
+        if (rowsEl) rowsEl.innerHTML = shopRowsHtml(shops);
+        if (countEl) countEl.textContent = shops.length;
+      },
+      onError: function () {
+        var noteEl = document.getElementById('reserve-map-note');
+        if (noteEl) noteEl.textContent = '데모 지도 · 카카오맵 연동 실패(mock으로 표시)';
+      }
+    });
   }
 
   function renderCallConfirmContent() {
@@ -1227,6 +1271,10 @@
       mountHomeWeather();
     } else if (weatherUnmount) {
       weatherUnmount(); weatherUnmount = null;
+    }
+
+    if (view === 'reserve-list') {
+      mountReserveMap();
     }
   }
 
@@ -1367,7 +1415,7 @@
     }
 
     if ((t = e.target.closest('[data-book-shop]'))) {
-      var shop = SHOPS[Number(t.dataset.bookShop)];
+      var shop = displayedShops[Number(t.dataset.bookShop)];
       selectedShop = shop;
       state.vehicle.reservations = [{ shopName: shop.name, status: '예약 접수' }];
       navigateMain('call-confirm');
@@ -1403,7 +1451,7 @@
       var regFile = e.target.files && e.target.files[0];
       regNameEl.textContent = regFile ? regFile.name : '선택된 파일 없음';
       if (regZoneEl) regZoneEl.classList.toggle('has-file', !!regFile);
-      if (regFile) runRegPhotoParse();
+      if (regFile) runRegPhotoParse(regFile);
     }
     if (e.target.id === 'oil-receipt') {
       var nameEl = document.getElementById('oil-receipt-name');
