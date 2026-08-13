@@ -376,7 +376,7 @@ export function IngestScreen({ onBack }: { onBack: () => void }) {
                 onClick={handleConfirm}
                 className="tone-ok-bg tone-ok-fg w-fit rounded-md px-3 py-1.5 text-xs font-medium disabled:opacity-40"
               >
-                {committing ? '반영 중…' : '확인 — files2/에 반영'}
+                {committing ? '반영 중…' : '확인 완료 — Safe 화면으로 →'}
               </button>
               {anyDuplicate && (
                 <p className="text-xs" style={{ color: 'var(--color-rose)' }}>같은 표준필드에 컬럼 2개 이상 매핑됨 — 중복을 해소하세요.</p>

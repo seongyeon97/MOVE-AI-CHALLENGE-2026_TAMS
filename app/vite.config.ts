@@ -23,12 +23,13 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), tailwindcss(), mapSchemaPlugin(env), ingestCommitPlugin()],
-    // Vite는 public/ 안이 바뀌면 브라우저를 통째로 새로고침한다(정적 자산 갱신용 기본 동작).
-    // ingest-commit이 public/data/*.json을 직접 써서 반영하는데, 그때마다 강제 새로고침이 걸려서
-    // "확인 눌렀더니 로그인 화면으로 돌아간다"처럼 보였다 — 이 경로만 감시 대상에서 뺀다.
+    // Vite dev 서버는 프로젝트 안 파일이 바뀌면(모듈 그래프 밖이라도) 브라우저를 통째로 새로고침한다.
+    // ingest-commit이 매 "확인" 클릭마다 public/data/*.json과 files2/*.csv를 직접 쓰는데, 둘 다
+    // 이 감시에 걸려서 "확인 눌렀더니 로그인 화면으로 돌아간다"가 났다. public/data만 빼고 files2를
+    // 빼먹은 게 1차 수정의 구멍이었다 — HMR 웹소켓으로 직접 재현해서 확인.
     server: {
       watch: {
-        ignored: ['**/public/data/**'],
+        ignored: ['**/public/data/**', '**/files2/**'],
       },
     },
   }
