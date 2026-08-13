@@ -138,9 +138,10 @@ function CertificateDocument({ aggregate }: { aggregate: NonNullable<ReturnType<
       <div>
         <p className="text-sm font-medium" style={{ color: 'var(--color-paper)' }}>운송 안전·친환경 증명서</p>
         <p className="num mt-1 text-xs" style={{ color: 'var(--color-slate)' }}>
-          {first.origin_site} ↔ {first.destination_site} ·
+          {first.origin_site} → {first.destination_site} ·
           {' '}{basis.date_from} ~ {basis.date_to} ·
-          {' '}운송건 {trips.length}건 · 신뢰등급 배지 {[...new Set(trips.map((t) => t.grade))].join('/')}
+          {' '}운송 {trips.length}회 · 차량 {new Set(trips.map((t) => t.vehicle_id)).size}대
+          {' · '}신뢰등급 {[...new Set(trips.map((t) => t.grade))].join('/')}
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--color-dim)' }}>
           데이터 tier — A(교차검증) {data_tier_counts.A}건 · B(단일출처) {data_tier_counts.B}건
@@ -212,6 +213,12 @@ function CertificateDocument({ aggregate }: { aggregate: NonNullable<ReturnType<
           <li>발생률 = 건수 ÷ 주행거리(km) × 100 → {eco.distance_km > 0 ? ((safety.core_events / eco.distance_km) * 100).toFixed(1) : '—'}건/100km
             {' '}({safety.core_events}건 ÷ {eco.distance_km.toLocaleString('ko-KR')}km)</li>
           <li>과속은 발생률에서 제외 — 전 차량 0으로만 보고돼 미수집 상태로 판단(산출기준서 §1-1)</li>
+          {basis.attribution_method === 'address' && (
+            <li>
+              운송 1회 = 사업장 간 편도 이동 1건(구내 이동 제외). 원자료의 이벤트·연료는 일자 합계로만 오므로
+              각 운송건에 <b>주행거리 비율로 배분</b>했습니다 — 운송건별 실측이 아닙니다.
+            </li>
+          )}
           <li>연속운전 한도 {Math.round(safety.limit_sec / 3600)}시간({safety.limit_sec.toLocaleString('ko-KR')}초) — 설정값</li>
           <li>신뢰등급은 발생률과 연료 신호의 대조로 판정 — 0건이라고 만점을 주지 않는다(§5.2)</li>
         </ul>
