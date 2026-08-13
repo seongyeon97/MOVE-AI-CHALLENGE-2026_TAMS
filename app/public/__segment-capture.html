@@ -1,0 +1,85 @@
+<!doctype html>
+<!-- __segment-capture.html — build-segment-insights.mjs 전용 헤드리스 캡처 페이지.
+     앱 라우팅과 무관한 독립 정적 HTML. 어떤 화면도 이 파일을 부르지 않는다(__ 접두사가 표식).
+     쿼리: key(SDK키) / mode(map|sky|roadview) / lat / lon / pan(로드뷰 시선 방위각)
+           / path("lat,lon;lat,lon;…" 구간 폴리라인)
+     완료 신호: window.__capture = { state: 'ready'|'nopano'|'error', message? } -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    html, body { margin: 0; height: 100%; }
+    #target { width: 100vw; height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="target"></div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const mode = q.get('mode') || 'map';
+    const lat = Number(q.get('lat'));
+    const lon = Number(q.get('lon'));
+    const pan = Number(q.get('pan') || 0);
+    const path = (q.get('path') || '')
+      .split(';').filter(Boolean)
+      .map((p) => p.split(',').map(Number));
+
+    function done(state, message) {
+      window.__capture = { state, message: message || '' };
+    }
+    // 6초(지도)/15초(로드뷰) 안전망 — 어떤 경우에도 신호는 나간다
+    setTimeout(() => { if (!window.__capture) done('error', 'timeout'); }, mode === 'roadview' ? 15000 : 6000);
+
+    const script = document.createElement('script');
+    script.src = 'https://dapi.kakao.com/v2/maps/sdk.js?appkey=' + q.get('key') + '&autoload=false';
+    script.onerror = () => done('error', 'sdk load failed');
+    script.onload = () => kakao.maps.load(init);
+    document.head.appendChild(script);
+
+    function init() {
+      const el = document.getElementById('target');
+      if (mode === 'roadview') {
+        const rv = new kakao.maps.Roadview(el);
+        const rvClient = new kakao.maps.RoadviewClient();
+        const pos = new kakao.maps.LatLng(lat, lon);
+        // 고속도로 본선은 촬영점이 드물다 — 반경을 넓혀가며 재시도
+        const radii = [50, 150, 400, 1000];
+        (function tryPano(i) {
+          if (i >= radii.length) { done('nopano'); return; }
+          rvClient.getNearestPanoId(pos, radii[i], (panoId) => {
+            if (panoId === null) { tryPano(i + 1); return; }
+            kakao.maps.event.addListener(rv, 'init', () => {
+              rv.setViewpoint({ pan, tilt: 0, zoom: 0 }); // 진행 방향을 보게
+              setTimeout(() => done('ready'), 900);
+            });
+            rv.setPanoId(panoId, pos);
+          });
+        })(0);
+        return;
+      }
+
+      const map = new kakao.maps.Map(el, {
+        center: new kakao.maps.LatLng(lat, lon),
+        level: 5,
+        mapTypeId: mode === 'sky' ? kakao.maps.MapTypeId.HYBRID : kakao.maps.MapTypeId.ROADMAP,
+      });
+      if (path.length >= 2) {
+        const line = new kakao.maps.Polyline({
+          path: path.map(([a, b]) => new kakao.maps.LatLng(a, b)),
+          strokeWeight: 7,
+          strokeColor: '#e8556d',
+          strokeOpacity: 0.95,
+        });
+        line.setMap(map);
+        const bounds = new kakao.maps.LatLngBounds();
+        path.forEach(([a, b]) => bounds.extend(new kakao.maps.LatLng(a, b)));
+        // 여백 크게 — 구간만 꽉 채우면 앞뒤 도로 맥락(진입 IC·분기)이 잘린다
+        map.setBounds(bounds, 120, 120, 120, 120);
+      }
+      kakao.maps.event.addListener(map, 'tilesloaded', () => {
+        setTimeout(() => done('ready'), 350); // 350ms 대기 — 회색 화면 방지
+      });
+    }
+  </script>
+</body>
+</html>
