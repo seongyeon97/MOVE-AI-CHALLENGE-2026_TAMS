@@ -65,7 +65,7 @@ async function main() {
         empty: { km: 0, accel: 0, start: 0, decel: 0, stop: 0, fuel: 0, idle: 0 },
         laden: { km: 0, accel: 0, start: 0, decel: 0, stop: 0, fuel: 0, idle: 0 },
       };
-      const metrics = computeMetrics(bucket, baseline);
+      const metrics = computeMetrics(bucket, baseline, vehicle.vehicle_class);
       metricsByMonth.get(month).set(vehicle.vehicle_id, metrics);
     }
   }

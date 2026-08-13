@@ -169,7 +169,7 @@ export function aggregateRange(bundle: DailyBundle, from: string, to: string): V
   const totalMetrics = new Map<string, Metrics>();
   for (const master of bundle.vehicles) {
     const split = totalSplit.get(master.vehicle_id) ?? blankSplit();
-    totalMetrics.set(master.vehicle_id, computeMetrics(split, master.baseline) as Metrics);
+    totalMetrics.set(master.vehicle_id, computeMetrics(split, master.baseline, master.vehicle_class) as Metrics);
   }
   judge(totalMetrics);
 
@@ -180,7 +180,7 @@ export function aggregateRange(bundle: DailyBundle, from: string, to: string): V
     const byVehicle = new Map<string, Metrics>();
     for (const master of bundle.vehicles) {
       const split = monthSplit.get(month)?.get(master.vehicle_id) ?? blankSplit();
-      byVehicle.set(master.vehicle_id, computeMetrics(split, master.baseline) as Metrics);
+      byVehicle.set(master.vehicle_id, computeMetrics(split, master.baseline, master.vehicle_class) as Metrics);
     }
     judge(byVehicle);
     monthMetrics.set(month, byVehicle);

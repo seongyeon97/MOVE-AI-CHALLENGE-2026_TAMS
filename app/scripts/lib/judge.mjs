@@ -5,7 +5,7 @@
 // 등급을 다시 계산하면 "새 판정 체계를 만들지 않는다"(§CLAUDE.md)가 깨진다 — 그래서 한 곳에 둔다.
 
 import {
-  IDLE_L_PER_HOUR,
+  idleLperHourOf,
   FUEL_PENALTY_MAX,
   FUEL_PENALTY_RATE_SCALE,
   FAINT_RATIO_THRESHOLD,
@@ -45,7 +45,7 @@ function toNum(v) {
  * 유류데이터가 없으면(fuel_l===0) fuel_implied_rate를 0이 아니라 null로 낸다 —
  * "연료로 봐도 문제없음"과 "연료 자체가 없어 대체 신호가 없음"은 다르다.
  */
-export function computeMetrics(bucket, baseline) {
+export function computeMetrics(bucket, baseline, vehicleClass) {
   const reported_km = bucket.empty.km + bucket.laden.km;
   const core_events =
     bucket.empty.accel + bucket.empty.start + bucket.empty.decel + bucket.empty.stop +
@@ -64,7 +64,7 @@ export function computeMetrics(bucket, baseline) {
     const baseline_fuel_l =
       (baseline.kmpl_empty > 0 ? bucket.empty.km / baseline.kmpl_empty : 0) +
       (baseline.kmpl_laden > 0 ? bucket.laden.km / baseline.kmpl_laden : 0);
-    const idle_fuel_l = (idle_sec / 3600) * IDLE_L_PER_HOUR;
+    const idle_fuel_l = (idle_sec / 3600) * idleLperHourOf(vehicleClass);
     const drive_fuel_l = fuel_l - idle_fuel_l;
 
     const fuel_excess = baseline_fuel_l > 0 ? drive_fuel_l / baseline_fuel_l - 1 : 0;

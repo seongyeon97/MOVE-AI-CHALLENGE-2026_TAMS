@@ -11,7 +11,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4214.5999999999985,
@@ -24,12 +24,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 190.488,
-      "drive_fuel_l": 220.31200000000007,
+      "idle_fuel_l": 71.433,
+      "drive_fuel_l": 339.3670000000001,
       "baseline_fuel_l": 468.2888888888887,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -46,7 +46,7 @@
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 8931.299999999997,
@@ -56,15 +56,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 748.2187139610141,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 1712.2693682500046,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 1364.628,
-      "drive_fuel_l": 1199.6720000000016,
+      "idle_fuel_l": 511.73550000000006,
+      "drive_fuel_l": 2052.5645000000013,
       "baseline_fuel_l": 1395.5156249999995,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -81,7 +81,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 7847.900000000002,
@@ -94,12 +94,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 752.36,
-      "drive_fuel_l": 194.33999999999958,
+      "idle_fuel_l": 282.13500000000005,
+      "drive_fuel_l": 664.5649999999996,
       "baseline_fuel_l": 871.9888888888892,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -116,7 +116,7 @@
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2012.2000000000003,
@@ -126,15 +126,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 942.7032104164596,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 457.2533205000001,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 634.7520000000001,
-      "drive_fuel_l": 93.14800000000002,
+      "idle_fuel_l": 238.032,
+      "drive_fuel_l": 489.86800000000005,
       "baseline_fuel_l": 314.40625,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -151,7 +151,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 6676.9,
@@ -164,12 +164,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 113.336,
-      "drive_fuel_l": 333.5640000000001,
+      "idle_fuel_l": 42.501000000000005,
+      "drive_fuel_l": 404.3990000000001,
       "baseline_fuel_l": 542.8373983739837,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -178,15 +178,15 @@
     "vehicle_id": "815러1522",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 1355.3000000000004,
@@ -199,12 +199,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 307.168,
-      "drive_fuel_l": -61.56800000000001,
+      "idle_fuel_l": 115.188,
+      "drive_fuel_l": 130.41199999999998,
       "baseline_fuel_l": 150.58888888888893,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -221,7 +221,7 @@
       "trust": "A",
       "kmpl_empty": 12.7,
       "kmpl_laden": 12.7,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3912.3,
@@ -234,12 +234,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 246.152,
-      "drive_fuel_l": 121.64799999999985,
+      "idle_fuel_l": 92.307,
+      "drive_fuel_l": 275.4929999999998,
       "baseline_fuel_l": 308.05511811023626,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -256,7 +256,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 1146.6000000000004,
@@ -269,12 +269,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 117.81199999999998,
-      "drive_fuel_l": 24.388000000000034,
+      "idle_fuel_l": 44.1795,
+      "drive_fuel_l": 98.02050000000003,
       "baseline_fuel_l": 127.40000000000003,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -291,7 +291,7 @@
       "trust": "A",
       "kmpl_empty": 2.8,
       "kmpl_laden": 2.8,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 1,
     "distance_km": 3957.8000000000006,
@@ -309,7 +309,7 @@
       "baseline_fuel_l": 1413.5000000000002,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -318,15 +318,15 @@
     "vehicle_id": "84어5948",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 5592.7,
@@ -339,12 +339,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 508.67599999999993,
-      "drive_fuel_l": 114.02400000000023,
+      "idle_fuel_l": 190.7535,
+      "drive_fuel_l": 431.9465000000001,
       "baseline_fuel_l": 621.411111111111,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -361,7 +361,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 9599,
@@ -374,12 +374,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 432.504,
-      "drive_fuel_l": 561.596,
+      "idle_fuel_l": 162.18900000000002,
+      "drive_fuel_l": 831.9110000000001,
       "baseline_fuel_l": 1066.5555555555557,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -388,15 +388,15 @@
     "vehicle_id": "07버0446",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 14.1,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 14.1,
       "kmpl_laden": 14.1,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 1462.1,
@@ -409,12 +409,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 418.97599999999994,
-      "drive_fuel_l": -198.87599999999992,
+      "idle_fuel_l": 157.11599999999999,
+      "drive_fuel_l": 62.98400000000004,
       "baseline_fuel_l": 103.6950354609929,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -423,15 +423,15 @@
     "vehicle_id": "28도8142",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4839.300000000001,
@@ -441,15 +441,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 334.89789845638813,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 58.21406743902388,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 549.66,
-      "drive_fuel_l": 72.2399999999999,
+      "idle_fuel_l": 206.1225,
+      "drive_fuel_l": 415.77749999999986,
       "baseline_fuel_l": 393.43902439024396,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -466,7 +466,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3582.9,
@@ -479,12 +479,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 141.32399999999998,
-      "drive_fuel_l": 278.476,
+      "idle_fuel_l": 52.9965,
+      "drive_fuel_l": 366.8035,
       "baseline_fuel_l": 398.1,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -501,7 +501,7 @@
       "trust": "A",
       "kmpl_empty": 11.8,
       "kmpl_laden": 11.8,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 5184.700000000004,
@@ -514,12 +514,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 250.60399999999998,
-      "drive_fuel_l": 193.49599999999998,
+      "idle_fuel_l": 93.9765,
+      "drive_fuel_l": 350.1235,
       "baseline_fuel_l": 439.38135593220375,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -536,7 +536,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 9360.299999999997,
@@ -549,12 +549,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 464.372,
-      "drive_fuel_l": 461.5280000000002,
+      "idle_fuel_l": 174.13950000000003,
+      "drive_fuel_l": 751.7605000000002,
       "baseline_fuel_l": 1040.033333333333,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -571,7 +571,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3475.6000000000004,
@@ -584,12 +584,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 159.04399999999998,
-      "drive_fuel_l": 200.25599999999986,
+      "idle_fuel_l": 59.6415,
+      "drive_fuel_l": 299.65849999999983,
       "baseline_fuel_l": 386.1777777777778,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -606,7 +606,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 6377.999999999996,
@@ -619,12 +619,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 81.40400000000001,
-      "drive_fuel_l": 368.196,
+      "idle_fuel_l": 30.526500000000002,
+      "drive_fuel_l": 419.0735,
       "baseline_fuel_l": 518.5365853658533,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -633,15 +633,15 @@
     "vehicle_id": "806무1508",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3894.399999999999,
@@ -651,15 +651,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 581.5721548890714,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 200.10692199999977,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 490.168,
-      "drive_fuel_l": 378.9319999999998,
+      "idle_fuel_l": 183.81300000000002,
+      "drive_fuel_l": 685.2869999999998,
       "baseline_fuel_l": 608.4999999999999,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -676,7 +676,7 @@
       "trust": "A",
       "kmpl_empty": 17.8,
       "kmpl_laden": 17.8,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3480.4999999999995,
@@ -689,12 +689,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 187.428,
-      "drive_fuel_l": 60.871999999999986,
+      "idle_fuel_l": 70.2855,
+      "drive_fuel_l": 178.0145,
       "baseline_fuel_l": 195.5337078651685,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -703,15 +703,15 @@
     "vehicle_id": "82서0541",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3676.0999999999985,
@@ -724,12 +724,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 1028.028,
-      "drive_fuel_l": -318.92800000000034,
+      "idle_fuel_l": 385.51050000000004,
+      "drive_fuel_l": 323.58949999999965,
       "baseline_fuel_l": 408.4555555555554,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -746,7 +746,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3193.500000000001,
@@ -759,12 +759,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 280.08799999999997,
-      "drive_fuel_l": 75.31199999999984,
+      "idle_fuel_l": 105.033,
+      "drive_fuel_l": 250.3669999999998,
       "baseline_fuel_l": 354.8333333333334,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -781,7 +781,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3510.9,
@@ -794,12 +794,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 318.24399999999997,
-      "drive_fuel_l": 102.0559999999997,
+      "idle_fuel_l": 119.3415,
+      "drive_fuel_l": 300.9584999999997,
       "baseline_fuel_l": 390.1,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -816,7 +816,7 @@
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 8133.9,
@@ -826,15 +826,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 471.96284685083407,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 205.5759387499997,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 328.78000000000003,
-      "drive_fuel_l": 1144.3199999999997,
+      "idle_fuel_l": 123.2925,
+      "drive_fuel_l": 1349.8074999999997,
       "baseline_fuel_l": 1270.9218749999998,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -843,15 +843,15 @@
     "vehicle_id": "811거1208",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2513.4999999999995,
@@ -861,15 +861,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 588.3847224985082,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 227.1418917500002,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 233.612,
-      "drive_fuel_l": 333.88800000000003,
+      "idle_fuel_l": 87.6045,
+      "drive_fuel_l": 479.89549999999997,
       "baseline_fuel_l": 392.7343749999999,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -878,15 +878,15 @@
     "vehicle_id": "821구5816",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3391.1000000000004,
@@ -899,12 +899,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 1050.684,
-      "drive_fuel_l": -351.88399999999956,
+      "idle_fuel_l": 394.0065,
+      "drive_fuel_l": 304.7935000000004,
       "baseline_fuel_l": 376.78888888888895,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -913,15 +913,15 @@
     "vehicle_id": "85우9242",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 1696.1999999999996,
@@ -931,15 +931,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 468.1335927367058,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 102.93526266666704,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 204.624,
-      "drive_fuel_l": 100.0760000000001,
+      "idle_fuel_l": 76.73400000000001,
+      "drive_fuel_l": 227.9660000000001,
       "baseline_fuel_l": 188.4666666666666,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -948,15 +948,15 @@
     "vehicle_id": "84모9146",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2242.8,
@@ -966,15 +966,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 423.06251114678076,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 32.05379999999995,
+    "reduction_headroom_kg": 199.16354999999996,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 102.6,
-      "drive_fuel_l": 261.5,
+      "idle_fuel_l": 38.475,
+      "drive_fuel_l": 325.625,
       "baseline_fuel_l": 249.20000000000002,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -991,7 +991,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 244.1,
@@ -1004,12 +1004,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 3.5999999999999996,
-      "drive_fuel_l": 17.300000000000004,
+      "idle_fuel_l": 1.35,
+      "drive_fuel_l": 19.55,
       "baseline_fuel_l": 27.12222222222222,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1026,7 +1026,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 9128.699999999997,
@@ -1039,12 +1039,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 431.74,
-      "drive_fuel_l": 354.2600000000001,
+      "idle_fuel_l": 161.9025,
+      "drive_fuel_l": 624.0975000000001,
       "baseline_fuel_l": 1014.2999999999997,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1061,7 +1061,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 17258.50000000001,
@@ -1074,12 +1074,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 487.336,
-      "drive_fuel_l": 1199.1639999999995,
+      "idle_fuel_l": 182.751,
+      "drive_fuel_l": 1503.7489999999996,
       "baseline_fuel_l": 1917.6111111111122,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1096,7 +1096,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4544.6,
@@ -1109,12 +1109,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 186.70000000000002,
-      "drive_fuel_l": 295.0000000000001,
+      "idle_fuel_l": 70.0125,
+      "drive_fuel_l": 411.6875000000001,
       "baseline_fuel_l": 504.9555555555556,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1123,15 +1123,15 @@
     "vehicle_id": "821구5814",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3755.9999999999995,
@@ -1144,12 +1144,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 929.512,
-      "drive_fuel_l": -215.41200000000015,
+      "idle_fuel_l": 348.567,
+      "drive_fuel_l": 365.5329999999998,
       "baseline_fuel_l": 417.33333333333326,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1158,15 +1158,15 @@
     "vehicle_id": "817더2910",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2231.6000000000004,
@@ -1176,15 +1176,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 850.4883491665175,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 513.2282460000005,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 487.12399999999997,
-      "drive_fuel_l": 241.17600000000033,
+      "idle_fuel_l": 182.6715,
+      "drive_fuel_l": 545.6285000000003,
       "baseline_fuel_l": 348.68750000000006,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1201,7 +1201,7 @@
       "trust": "A",
       "kmpl_empty": 12.2,
       "kmpl_laden": 12.2,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 9237.900000000003,
@@ -1214,12 +1214,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 176.536,
-      "drive_fuel_l": 401.7640000000002,
+      "idle_fuel_l": 66.20100000000001,
+      "drive_fuel_l": 512.0990000000002,
       "baseline_fuel_l": 757.2049180327872,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1236,7 +1236,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3071.700000000001,
@@ -1249,12 +1249,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 9.66,
-      "drive_fuel_l": 134.04000000000005,
+      "idle_fuel_l": 3.6225000000000005,
+      "drive_fuel_l": 140.07750000000004,
       "baseline_fuel_l": 289.7830188679246,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1271,7 +1271,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3725.299999999999,
@@ -1281,15 +1281,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 350.33012106407557,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 20.96729688888954,
+    "reduction_headroom_kg": 149.3649168888895,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 78.832,
-      "drive_fuel_l": 421.96800000000013,
+      "idle_fuel_l": 29.561999999999998,
+      "drive_fuel_l": 471.2380000000001,
       "baseline_fuel_l": 413.9222222222221,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1306,7 +1306,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 7051.400000000001,
@@ -1319,12 +1319,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 128.968,
-      "drive_fuel_l": 309.7320000000001,
+      "idle_fuel_l": 48.363,
+      "drive_fuel_l": 390.33700000000005,
       "baseline_fuel_l": 573.2845528455284,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1341,7 +1341,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 8139.199999999998,
@@ -1354,12 +1354,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 331.636,
-      "drive_fuel_l": 361.7640000000002,
+      "idle_fuel_l": 124.3635,
+      "drive_fuel_l": 569.0365000000002,
       "baseline_fuel_l": 904.3555555555554,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1368,15 +1368,15 @@
     "vehicle_id": "827무7454",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 5308.100000000001,
@@ -1389,12 +1389,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 537.236,
-      "drive_fuel_l": 122.96400000000006,
+      "idle_fuel_l": 201.4635,
+      "drive_fuel_l": 458.73650000000004,
       "baseline_fuel_l": 589.788888888889,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1411,7 +1411,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4505.899999999998,
@@ -1424,12 +1424,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 349.772,
-      "drive_fuel_l": 138.12799999999993,
+      "idle_fuel_l": 131.1645,
+      "drive_fuel_l": 356.7354999999999,
       "baseline_fuel_l": 500.65555555555534,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1446,7 +1446,7 @@
       "trust": "A",
       "kmpl_empty": 12.2,
       "kmpl_laden": 12.2,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 8073.100000000003,
@@ -1459,12 +1459,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 134.416,
-      "drive_fuel_l": 426.484,
+      "idle_fuel_l": 50.406,
+      "drive_fuel_l": 510.49399999999997,
       "baseline_fuel_l": 661.7295081967216,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1473,15 +1473,15 @@
     "vehicle_id": "87로7532",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2771.999999999999,
@@ -1491,15 +1491,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 386.8575036075038,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 88.62875700000045,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 185.30800000000002,
-      "drive_fuel_l": 226.19200000000004,
+      "idle_fuel_l": 69.49050000000001,
+      "drive_fuel_l": 342.00950000000006,
       "baseline_fuel_l": 307.9999999999999,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1516,7 +1516,7 @@
       "trust": "A",
       "kmpl_empty": 13.6,
       "kmpl_laden": 13.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 11382.399999999998,
@@ -1529,12 +1529,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 110.79599999999999,
-      "drive_fuel_l": 693.104,
+      "idle_fuel_l": 41.5485,
+      "drive_fuel_l": 762.3515,
       "baseline_fuel_l": 836.9411764705881,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1551,7 +1551,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 6259.999999999999,
@@ -1564,12 +1564,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 404.40799999999996,
-      "drive_fuel_l": 260.292,
+      "idle_fuel_l": 151.653,
+      "drive_fuel_l": 513.0469999999999,
       "baseline_fuel_l": 695.5555555555554,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1586,7 +1586,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 8850.100000000002,
@@ -1599,12 +1599,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 192.732,
-      "drive_fuel_l": 379.66799999999967,
+      "idle_fuel_l": 72.2745,
+      "drive_fuel_l": 500.12549999999965,
       "baseline_fuel_l": 719.5203252032521,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1613,15 +1613,15 @@
     "vehicle_id": "87도0164",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2633.7,
@@ -1634,12 +1634,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 361.13599999999997,
-      "drive_fuel_l": -14.835999999999956,
+      "idle_fuel_l": 135.426,
+      "drive_fuel_l": 210.87400000000002,
       "baseline_fuel_l": 292.6333333333333,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1656,7 +1656,7 @@
       "trust": "A",
       "kmpl_empty": 11,
       "kmpl_laden": 11,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 1909.6000000000008,
@@ -1666,15 +1666,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 372.5586510263928,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 20.841484999999782,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 243.74,
-      "drive_fuel_l": 29.25999999999999,
+      "idle_fuel_l": 91.4025,
+      "drive_fuel_l": 181.5975,
       "baseline_fuel_l": 173.60000000000008,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1683,15 +1683,15 @@
     "vehicle_id": "82조0889",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3538.1,
@@ -1704,12 +1704,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 805.0999999999999,
-      "drive_fuel_l": -162.6999999999997,
+      "idle_fuel_l": 301.91249999999997,
+      "drive_fuel_l": 340.48750000000024,
       "baseline_fuel_l": 393.1222222222222,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1726,7 +1726,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4752.300000000001,
@@ -1739,12 +1739,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 100.968,
-      "drive_fuel_l": 360.93199999999985,
+      "idle_fuel_l": 37.863,
+      "drive_fuel_l": 424.03699999999986,
       "baseline_fuel_l": 528.0333333333334,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1761,7 +1761,7 @@
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2216.8,
@@ -1774,12 +1774,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 58.396,
-      "drive_fuel_l": 268.50399999999996,
+      "idle_fuel_l": 21.898500000000002,
+      "drive_fuel_l": 305.00149999999996,
       "baseline_fuel_l": 346.375,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1796,7 +1796,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 6183.200000000001,
@@ -1809,12 +1809,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 188.408,
-      "drive_fuel_l": 385.1919999999999,
+      "idle_fuel_l": 70.653,
+      "drive_fuel_l": 502.9469999999999,
       "baseline_fuel_l": 687.0222222222224,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1831,7 +1831,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 1204.6000000000006,
@@ -1841,15 +1841,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 501.68636891914286,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 99.97412277777738,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 159.18,
-      "drive_fuel_l": 72.71999999999991,
+      "idle_fuel_l": 59.6925,
+      "drive_fuel_l": 172.20749999999992,
       "baseline_fuel_l": 133.84444444444452,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1866,7 +1866,7 @@
       "trust": "A",
       "kmpl_empty": 19.3,
       "kmpl_laden": 19.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3059.4000000000005,
@@ -1876,15 +1876,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 230.32699222069687,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 166.52695793264266,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 127.948,
-      "drive_fuel_l": 142.4520000000001,
+      "idle_fuel_l": 47.9805,
+      "drive_fuel_l": 222.41950000000008,
       "baseline_fuel_l": 158.51813471502592,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1893,15 +1893,15 @@
     "vehicle_id": "192하7049",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 12.3,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2913.299999999999,
@@ -1914,12 +1914,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 133.568,
-      "drive_fuel_l": 119.9319999999999,
+      "idle_fuel_l": 50.088,
+      "drive_fuel_l": 203.41199999999992,
       "baseline_fuel_l": 236.85365853658524,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1936,7 +1936,7 @@
       "trust": "A",
       "kmpl_empty": 12.2,
       "kmpl_laden": 12.2,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 7375.8,
@@ -1949,12 +1949,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 132.34,
-      "drive_fuel_l": 381.8599999999999,
+      "idle_fuel_l": 49.6275,
+      "drive_fuel_l": 464.57249999999993,
       "baseline_fuel_l": 604.5737704918033,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -1971,7 +1971,7 @@
       "trust": "A",
       "kmpl_empty": 13.6,
       "kmpl_laden": 13.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 7382.4,
@@ -1984,12 +1984,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 96.388,
-      "drive_fuel_l": 451.4119999999999,
+      "idle_fuel_l": 36.145500000000006,
+      "drive_fuel_l": 511.6544999999999,
       "baseline_fuel_l": 542.8235294117646,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2006,7 +2006,7 @@
       "trust": "A",
       "kmpl_empty": 10.5,
       "kmpl_laden": 10.5,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4223.700000000001,
@@ -2019,12 +2019,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 132.26399999999998,
-      "drive_fuel_l": 235.33600000000015,
+      "idle_fuel_l": 49.599000000000004,
+      "drive_fuel_l": 318.00100000000015,
       "baseline_fuel_l": 402.2571428571429,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2041,7 +2041,7 @@
       "trust": "A",
       "kmpl_empty": 11.8,
       "kmpl_laden": 11.8,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 12624.999999999995,
@@ -2054,12 +2054,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 681.156,
-      "drive_fuel_l": 560.8439999999998,
+      "idle_fuel_l": 255.4335,
+      "drive_fuel_l": 986.5664999999998,
       "baseline_fuel_l": 1069.9152542372876,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2068,15 +2068,15 @@
     "vehicle_id": "84노4496",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3700.700000000001,
@@ -2089,12 +2089,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 501.55199999999996,
-      "drive_fuel_l": -8.752000000000237,
+      "idle_fuel_l": 188.082,
+      "drive_fuel_l": 304.71799999999973,
       "baseline_fuel_l": 411.18888888888904,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2111,7 +2111,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 5555.200000000001,
@@ -2124,12 +2124,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 17.508,
-      "drive_fuel_l": 261.39200000000005,
+      "idle_fuel_l": 6.5655,
+      "drive_fuel_l": 272.33450000000005,
       "baseline_fuel_l": 524.0754716981133,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2146,7 +2146,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 6095.400000000001,
@@ -2159,12 +2159,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 71.076,
-      "drive_fuel_l": 377.9240000000001,
+      "idle_fuel_l": 26.653499999999998,
+      "drive_fuel_l": 422.34650000000005,
       "baseline_fuel_l": 575.0377358490567,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2181,7 +2181,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2917.2,
@@ -2194,12 +2194,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 80.04,
-      "drive_fuel_l": 188.66000000000008,
+      "idle_fuel_l": 30.015,
+      "drive_fuel_l": 238.68500000000012,
       "baseline_fuel_l": 324.1333333333333,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2216,7 +2216,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3542.8,
@@ -2229,12 +2229,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 47.5,
-      "drive_fuel_l": 227.39999999999992,
+      "idle_fuel_l": 17.8125,
+      "drive_fuel_l": 257.0874999999999,
       "baseline_fuel_l": 334.22641509433964,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2243,15 +2243,15 @@
     "vehicle_id": "71부8321",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 11,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 11,
       "kmpl_laden": 11,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 7012.900000000001,
@@ -2264,12 +2264,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 630.6,
-      "drive_fuel_l": 241.80000000000018,
+      "idle_fuel_l": 236.475,
+      "drive_fuel_l": 635.9250000000002,
       "baseline_fuel_l": 637.5363636363637,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2286,7 +2286,7 @@
       "trust": "A",
       "kmpl_empty": 14.7,
       "kmpl_laden": 14.7,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 1546,
@@ -2299,12 +2299,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 41.556000000000004,
-      "drive_fuel_l": 64.44399999999999,
+      "idle_fuel_l": 15.5835,
+      "drive_fuel_l": 90.41649999999998,
       "baseline_fuel_l": 105.17006802721089,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2321,7 +2321,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 8326.6,
@@ -2334,12 +2334,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 232.98399999999998,
-      "drive_fuel_l": 532.9160000000002,
+      "idle_fuel_l": 87.369,
+      "drive_fuel_l": 678.5310000000001,
       "baseline_fuel_l": 785.5283018867925,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2356,7 +2356,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 9539.599999999999,
@@ -2369,12 +2369,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 12.784,
-      "drive_fuel_l": 418.116,
+      "idle_fuel_l": 4.7940000000000005,
+      "drive_fuel_l": 426.106,
       "baseline_fuel_l": 899.9622641509433,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2383,15 +2383,15 @@
     "vehicle_id": "88거5454",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 995.6999999999996,
@@ -2401,15 +2401,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 344.6923772220549,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 18.801421333333423,
+    "reduction_headroom_kg": 41.36286633333342,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 13.851999999999999,
-      "drive_fuel_l": 117.84799999999998,
+      "idle_fuel_l": 5.1945,
+      "drive_fuel_l": 126.50549999999998,
       "baseline_fuel_l": 110.63333333333328,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2426,7 +2426,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 1517.2,
@@ -2439,12 +2439,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 36.876,
-      "drive_fuel_l": 79.22399999999999,
+      "idle_fuel_l": 13.8285,
+      "drive_fuel_l": 102.27149999999999,
       "baseline_fuel_l": 123.34959349593495,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2461,7 +2461,7 @@
       "trust": "A",
       "kmpl_empty": 3.7,
       "kmpl_laden": 3.7,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 1,
     "distance_km": 2581.1,
@@ -2479,7 +2479,7 @@
       "baseline_fuel_l": 697.5945945945946,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2496,7 +2496,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 5773.199999999998,
@@ -2509,12 +2509,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 110.064,
-      "drive_fuel_l": 255.73599999999996,
+      "idle_fuel_l": 41.274,
+      "drive_fuel_l": 324.52599999999995,
       "baseline_fuel_l": 469.3658536585364,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2531,7 +2531,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 5154.400000000001,
@@ -2544,12 +2544,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 110.89599999999999,
-      "drive_fuel_l": 242.40400000000008,
+      "idle_fuel_l": 41.586,
+      "drive_fuel_l": 311.71400000000006,
       "baseline_fuel_l": 419.0569105691057,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2566,7 +2566,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2908.2000000000007,
@@ -2579,12 +2579,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 58.836,
-      "drive_fuel_l": 120.76400000000002,
+      "idle_fuel_l": 22.0635,
+      "drive_fuel_l": 157.53650000000002,
       "baseline_fuel_l": 236.43902439024396,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2601,7 +2601,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4289.199999999999,
@@ -2614,12 +2614,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 82.952,
-      "drive_fuel_l": 206.44799999999998,
+      "idle_fuel_l": 31.107,
+      "drive_fuel_l": 258.293,
       "baseline_fuel_l": 348.71544715447146,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2636,7 +2636,7 @@
       "trust": "A",
       "kmpl_empty": 12.2,
       "kmpl_laden": 12.2,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3542.5999999999995,
@@ -2649,12 +2649,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 131.908,
-      "drive_fuel_l": 185.49199999999988,
+      "idle_fuel_l": 49.4655,
+      "drive_fuel_l": 267.93449999999984,
       "baseline_fuel_l": 290.37704918032784,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2671,7 +2671,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 10234.5,
@@ -2684,12 +2684,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 556.26,
-      "drive_fuel_l": 443.24000000000024,
+      "idle_fuel_l": 208.5975,
+      "drive_fuel_l": 790.9025000000003,
       "baseline_fuel_l": 1137.1666666666667,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2706,7 +2706,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 8290.9,
@@ -2719,12 +2719,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 122.916,
-      "drive_fuel_l": 400.48399999999987,
+      "idle_fuel_l": 46.093500000000006,
+      "drive_fuel_l": 477.30649999999986,
       "baseline_fuel_l": 674.0569105691056,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2741,7 +2741,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 5147.2,
@@ -2754,12 +2754,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 243.256,
-      "drive_fuel_l": 133.8440000000002,
+      "idle_fuel_l": 91.221,
+      "drive_fuel_l": 285.8790000000002,
       "baseline_fuel_l": 418.4715447154471,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2776,7 +2776,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4816.700000000003,
@@ -2789,12 +2789,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 16.548,
-      "drive_fuel_l": 236.45199999999997,
+      "idle_fuel_l": 6.2055,
+      "drive_fuel_l": 246.79449999999997,
       "baseline_fuel_l": 454.40566037735874,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2811,7 +2811,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 8141.799999999999,
@@ -2824,12 +2824,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 201.37199999999999,
-      "drive_fuel_l": 556.9279999999995,
+      "idle_fuel_l": 75.5145,
+      "drive_fuel_l": 682.7854999999995,
       "baseline_fuel_l": 768.0943396226414,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2846,7 +2846,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 13512.9,
@@ -2859,12 +2859,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 613.2719999999999,
-      "drive_fuel_l": 769.5280000000005,
+      "idle_fuel_l": 229.977,
+      "drive_fuel_l": 1152.8230000000003,
       "baseline_fuel_l": 1501.4333333333334,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2881,7 +2881,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 11729.999999999995,
@@ -2894,12 +2894,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 21.636,
-      "drive_fuel_l": 528.2640000000001,
+      "idle_fuel_l": 8.1135,
+      "drive_fuel_l": 541.7865,
       "baseline_fuel_l": 1106.6037735849052,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2916,7 +2916,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4503.799999999999,
@@ -2929,12 +2929,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 52.988,
-      "drive_fuel_l": 212.61199999999997,
+      "idle_fuel_l": 19.8705,
+      "drive_fuel_l": 245.72949999999997,
       "baseline_fuel_l": 366.16260162601617,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2951,7 +2951,7 @@
       "trust": "A",
       "kmpl_empty": 2.8,
       "kmpl_laden": 2.8,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 1,
     "distance_km": 2724.4,
@@ -2969,7 +2969,7 @@
       "baseline_fuel_l": 973.0000000000001,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -2978,15 +2978,15 @@
     "vehicle_id": "802나6294",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 592.6,
@@ -2996,15 +2996,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 459.5460681741477,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 19.753624777777716,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 82.86800000000001,
-      "drive_fuel_l": 21.631999999999977,
+      "idle_fuel_l": 31.0755,
+      "drive_fuel_l": 73.42449999999998,
       "baseline_fuel_l": 65.84444444444445,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3021,7 +3021,7 @@
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4203.000000000001,
@@ -3034,12 +3034,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 210.304,
-      "drive_fuel_l": 170.5960000000001,
+      "idle_fuel_l": 78.864,
+      "drive_fuel_l": 302.03600000000006,
       "baseline_fuel_l": 467.0000000000001,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3056,7 +3056,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3448.5000000000005,
@@ -3069,12 +3069,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 63.467999999999996,
-      "drive_fuel_l": 175.13200000000006,
+      "idle_fuel_l": 23.8005,
+      "drive_fuel_l": 214.79950000000005,
       "baseline_fuel_l": 280.3658536585366,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3091,7 +3091,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2685.099999999999,
@@ -3104,12 +3104,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 72.52799999999999,
-      "drive_fuel_l": 120.072,
+      "idle_fuel_l": 27.198,
+      "drive_fuel_l": 165.402,
       "baseline_fuel_l": 218.30081300812998,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3126,7 +3126,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3567.2999999999997,
@@ -3139,12 +3139,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 58.61599999999999,
-      "drive_fuel_l": 236.58399999999983,
+      "idle_fuel_l": 21.980999999999998,
+      "drive_fuel_l": 273.2189999999998,
       "baseline_fuel_l": 336.5377358490566,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3161,7 +3161,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 3247.6000000000004,
@@ -3174,12 +3174,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 37.284,
-      "drive_fuel_l": 214.71600000000004,
+      "idle_fuel_l": 13.9815,
+      "drive_fuel_l": 238.01850000000002,
       "baseline_fuel_l": 306.3773584905661,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3196,7 +3196,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 1773.3,
@@ -3209,12 +3209,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 40.844,
-      "drive_fuel_l": 99.85600000000002,
+      "idle_fuel_l": 15.316500000000001,
+      "drive_fuel_l": 125.38350000000001,
       "baseline_fuel_l": 167.2924528301887,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3231,7 +3231,7 @@
       "trust": "A",
       "kmpl_empty": 10.6,
       "kmpl_laden": 10.6,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 4357.0999999999985,
@@ -3244,12 +3244,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 109.43199999999999,
-      "drive_fuel_l": 283.9680000000001,
+      "idle_fuel_l": 41.037,
+      "drive_fuel_l": 352.36300000000006,
       "baseline_fuel_l": 411.04716981132066,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3258,15 +3258,15 @@
     "vehicle_id": "96구2903",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "B",
-    "tone": "caution",
+    "grade": "정상",
+    "tone": "ok",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2363.6,
@@ -3279,12 +3279,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 221.476,
-      "drive_fuel_l": 1.523999999999944,
+      "idle_fuel_l": 83.0535,
+      "drive_fuel_l": 139.94649999999996,
       "baseline_fuel_l": 262.6222222222222,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3301,7 +3301,7 @@
       "trust": "A",
       "kmpl_empty": 12.2,
       "kmpl_laden": 12.2,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 5362.699999999999,
@@ -3314,12 +3314,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 47.38,
-      "drive_fuel_l": 295.72,
+      "idle_fuel_l": 17.767500000000002,
+      "drive_fuel_l": 325.33250000000004,
       "baseline_fuel_l": 439.56557377049177,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3336,7 +3336,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 6196.400000000001,
@@ -3349,12 +3349,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 89.32000000000001,
-      "drive_fuel_l": 300.5800000000001,
+      "idle_fuel_l": 33.495000000000005,
+      "drive_fuel_l": 356.4050000000001,
       "baseline_fuel_l": 503.7723577235773,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3371,7 +3371,7 @@
       "trust": "A",
       "kmpl_empty": 12.3,
       "kmpl_laden": 12.3,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 2001.4,
@@ -3384,12 +3384,12 @@
     "reduction_headroom_kg": 0,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 17.468,
-      "drive_fuel_l": 90.63199999999999,
+      "idle_fuel_l": 6.5505,
+      "drive_fuel_l": 101.5495,
       "baseline_fuel_l": 162.71544715447155,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3398,15 +3398,15 @@
     "vehicle_id": "87조8140",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 9,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 9,
       "kmpl_laden": 9,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 675.0000000000001,
@@ -3416,15 +3416,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 491.4722962962962,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 31.032247999999928,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 107.712,
-      "drive_fuel_l": 19.587999999999994,
+      "idle_fuel_l": 40.392,
+      "drive_fuel_l": 86.90799999999999,
       "baseline_fuel_l": 75.00000000000001,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }
@@ -3433,15 +3433,15 @@
     "vehicle_id": "814소5575",
     "vehicle_class": "car",
     "scope": 1,
-    "grade": "정상",
-    "tone": "ok",
+    "grade": "B",
+    "tone": "caution",
     "baseline": {
       "kmpl": 6.4,
       "source": "public_api",
       "trust": "A",
       "kmpl_empty": 6.4,
       "kmpl_laden": 6.4,
-      "fetched_at": "2026-08-13T04:50:52.066Z"
+      "fetched_at": "2026-08-13T05:15:36.457Z"
     },
     "tier": 3,
     "distance_km": 34.7,
@@ -3451,15 +3451,15 @@
     "g_co2_per_tonkm": null,
     "g_co2_per_km": 690.9279538904898,
     "measurement_gap_kg": null,
-    "reduction_headroom_kg": 0,
+    "reduction_headroom_kg": 5.502894749999998,
     "empty_share": 1,
     "basis": {
-      "idle_fuel_l": 4.444,
-      "drive_fuel_l": 4.755999999999999,
+      "idle_fuel_l": 1.6664999999999999,
+      "drive_fuel_l": 7.533499999999999,
       "baseline_fuel_l": 5.421875,
       "baseline_co2_kg": null,
       "co2_factor": 2.606,
-      "idle_l_per_hour": 2.4,
+      "idle_l_per_hour": 0.9,
       "tonnage": null,
       "baseline_g_co2_per_tonkm": 62
     }

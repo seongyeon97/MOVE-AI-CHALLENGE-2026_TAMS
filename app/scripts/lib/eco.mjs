@@ -4,7 +4,7 @@
 // 표기 규칙(§CLAUDE.md 5-6) — 기본계수 대비 실측의 차이는 "감축량"이 아니라 계측 오차,
 // 기준연비 초과분은 실적이 아니라 감축 여지(상한). Tier와 신뢰등급은 별도 축이며 합산하지 않는다.
 
-import { CO2_KG_PER_L, IDLE_L_PER_HOUR, BASELINE_G_CO2_PER_TONKM } from './constants.mjs';
+import { CO2_KG_PER_L, idleLperHourOf, BASELINE_G_CO2_PER_TONKM } from './constants.mjs';
 
 // 트랙터 컨테이너 규격 가정 — vehicle_master에 규격 필드가 없어 40ft로 고정.
 export const TONNAGE_40FT = 30.5;
@@ -21,7 +21,8 @@ export function computeEco(bucket, baseline, vehicleClass) {
   const distance_km = bucket.empty.km + bucket.laden.km;
   const fuel_l = bucket.empty.fuel + bucket.laden.fuel;
   const idle_sec = bucket.empty.idle + bucket.laden.idle;
-  const idle_fuel_l = (idle_sec / 3600) * IDLE_L_PER_HOUR;
+  const idle_l_per_hour = idleLperHourOf(vehicleClass);
+  const idle_fuel_l = (idle_sec / 3600) * idle_l_per_hour;
   const drive_fuel_l = fuel_l - idle_fuel_l;
 
   const baseline_fuel_l =
@@ -58,6 +59,6 @@ export function computeEco(bucket, baseline, vehicleClass) {
     reduction_headroom_kg,
     empty_share,
     // 증명서 산출근거 표기에 쓰는 중간값 — 어떤 수로 어떻게 나왔는지 화면에서 그대로 보여준다.
-    basis: { idle_fuel_l, drive_fuel_l, baseline_fuel_l, baseline_co2_kg, co2_factor: CO2_KG_PER_L, idle_l_per_hour: IDLE_L_PER_HOUR, tonnage: isTruck ? TONNAGE_40FT : null, baseline_g_co2_per_tonkm: BASELINE_G_CO2_PER_TONKM },
+    basis: { idle_fuel_l, drive_fuel_l, baseline_fuel_l, baseline_co2_kg, co2_factor: CO2_KG_PER_L, idle_l_per_hour, tonnage: isTruck ? TONNAGE_40FT : null, baseline_g_co2_per_tonkm: BASELINE_G_CO2_PER_TONKM },
   };
 }

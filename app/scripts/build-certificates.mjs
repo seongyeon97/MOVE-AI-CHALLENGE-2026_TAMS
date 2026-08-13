@@ -6,7 +6,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 import { readCsv, readCsvIfExists, writeJson, num } from './lib/csv.mjs';
-import { CO2_KG_PER_L, CONTINUOUS_DRIVE_LIMIT_SEC, IDLE_L_PER_HOUR } from './lib/constants.mjs';
+import { CO2_KG_PER_L, CONTINUOUS_DRIVE_LIMIT_SEC, idleLperHourOf } from './lib/constants.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -127,7 +127,7 @@ function main() {
         distance_km: totalDistanceKm,
         ton_km: tonKm,
         fuel_l: totalFuelL,
-        idle_l: (totalIdleSec / 3600) * IDLE_L_PER_HOUR,
+        idle_l: (totalIdleSec / 3600) * idleLperHourOf(vehicleMaster?.vehicle_class),
         co2_kg,
         g_co2_per_tonkm,
         g_co2_per_km,

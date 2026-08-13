@@ -210,7 +210,10 @@ function CertificateDocument({ aggregate }: { aggregate: NonNullable<ReturnType<
         <ul className="num mt-1 space-y-0.5 text-xs" style={{ color: 'var(--color-mist)' }}>
           <li>CO₂(kg) = 연료(L) × 2.606 → {eco.fuel_l.toFixed(1)}L × 2.606 = {eco.co2_kg.toFixed(1)}kg</li>
           <li>경유 CO₂ 배출계수 2.606 kg/L — 출처등급: 설정값(온실가스 배출계수 고시 확정값으로 교체 예정)</li>
-          <li>공회전 소모분 {eco.idle_l.toFixed(1)}L는 시간당 2.4 L/h로 환산 — 출처등급: 설정값</li>
+          <li>
+            공회전 소모분 {eco.idle_l.toFixed(1)}L는 시간당 {basis.idle_l_per_hour} L/h로 환산 — 출처등급: 설정값
+            {basis.idle_l_per_hour !== 2.4 && ' (승용차 계수. 화물차는 2.4 L/h)'}
+          </li>
           {eco.g_co2_per_tonkm !== null && (
             <li>
               원단위 = CO₂(g) ÷ 톤킬로 → {(eco.co2_kg * 1000).toFixed(0)}g ÷ {eco.ton_km.toLocaleString('ko-KR')}ton-km

@@ -107,7 +107,7 @@ export function ingestCommitPlugin() {
         try {
           writeCsv(join(FILES2, 'vehicle_master.csv'), VEHICLE_MASTER_HEADER, []);
           writeCsv(join(FILES2, 'daily_summary.csv'), DAILY_SUMMARY_HEADER, []);
-          for (const file of ['vehicles.json', 'eco.json', 'certificates.json', 'baseline_fuel.json']) {
+          for (const file of ['vehicles.json', 'eco.json', 'certificates.json', 'baseline_fuel.json', 'daily.json']) {
             rmSync(join(DATA_OUT, file), { force: true });
           }
           res.end(JSON.stringify({ ok: true }));

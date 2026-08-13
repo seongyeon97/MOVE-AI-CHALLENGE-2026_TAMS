@@ -1,7 +1,18 @@
 // constants.mjs — 물리 상수 · 등급 메타. 소유자: A. 수정 필요하면 A에게.
 // FUEL_KMPL_EMPTY / FUEL_KMPL_LADEN은 여기 없다 — v2에서 삭제, 트랙1 조회 결과로 대체된다.
 
+// 공회전 시간당 연료 소모 — 출처 등급: 설정값 (미확정). §산출기준서 3-1.
+// 2.4 L/h는 25톤 트랙터(대배기량 디젤) 기준이라 승용차에 그대로 쓰면 공회전분이 과대 계산된다
+// (실측 승용차 데이터에서 실측연료의 절반 이상이 공회전분으로 빠져 주행연비가 40km/L로 튀었다).
+// 승용차는 별도 계수를 쓴다 — 소형 승용 공회전 소모 문헌 범위(0.6~1.2 L/h)의 중앙값.
 export const IDLE_L_PER_HOUR = 2.4;
+export const IDLE_L_PER_HOUR_CAR = 0.9;
+
+/** 차종별 공회전 계수. 화물차는 트랙터 기준값, 승용차는 별도값. */
+export function idleLperHourOf(vehicleClass) {
+  return vehicleClass === 'car' ? IDLE_L_PER_HOUR_CAR : IDLE_L_PER_HOUR;
+}
+
 export const CO2_KG_PER_L = 2.606;
 export const BASELINE_G_CO2_PER_TONKM = 62.0;
 export const CONTINUOUS_DRIVE_LIMIT_SEC = 14400;
