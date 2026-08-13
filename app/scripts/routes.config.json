@@ -1,0 +1,5 @@
+{
+  "note": "노선 기준선 생성 설정(build-routes.mjs). 노선 목록은 files2/leg.csv의 origin_site→destination_site 쌍에서 자동 도출된다. leg.csv가 아직 없으면 아래 routes 배열을 수동으로 채워도 된다. sites는 사업장명→좌표 override — 비워두면 카카오 키워드 검색 1위 결과를 쓰므로, 검색이 엉뚱한 곳을 잡으면 여기에 실좌표를 박아라.",
+  "sites": {},
+  "routes": []
+}

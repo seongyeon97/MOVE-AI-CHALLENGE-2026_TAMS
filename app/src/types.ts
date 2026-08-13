@@ -167,3 +167,92 @@ export type EcoRow = {
 export type Role = 'company' | 'driver';
 
 export type Screen = 'safe' | 'eco' | 'heatmap' | 'certificate' | 'settings' | 'ingest';
+
+/* ── Heat-map (트랙7) — corridor.json / segment_insights.json ─────────────
+   위험 판정은 100% 결정론적 통계(빌드 타임). AI는 확정된 구간의 도로환경 해설만 한다.
+   등급(tone)은 절대 임계값이 아니라 전 구간 발생률 상대 순위 — meta.criteria가 그 산식 공개용. */
+
+export type CorridorTone = 'ok' | 'warn' | 'dead';
+
+export interface CorridorSegment {
+  segment_no: number;
+  centroid: [number, number];
+  polyline: [number, number][];
+  km_from: number;
+  km_to: number;
+  event_count: number;
+  /** 유형별 내역 — 판정 근거 화면이 "무엇이 몰렸나"를 보여줄 때 쓴다 */
+  events_by_type: Record<string, number>;
+  rate_per_trip: number;
+  rank_global: number;
+  tone: CorridorTone;
+  grade_label: string;
+  dominant_type: string | null;
+}
+
+export interface CorridorRoute {
+  route_id: string;
+  route_name: string;
+  /** verifiable 운행 건수 = 발생률 분모 */
+  trips: number;
+  segments: CorridorSegment[];
+}
+
+export interface CorridorBundle {
+  meta: {
+    generated_from: string[];
+    note: string;
+    bin_km: number;
+    rose_top_n: number;
+    amber_top_n: number;
+    events_assigned: number;
+    events_skipped_no_track: number;
+    /** 등급 판정 산식을 화면에서 그대로 재현하기 위한 값 — 컷 값과 비교 기준 */
+    criteria: {
+      total_segments: number;
+      segments_with_events: number;
+      dead_min_rate: number;
+      warn_min_rate: number;
+      rate_mean: number;
+      rate_median: number;
+      rate_max: number;
+      verifiable_trips: number;
+    };
+  };
+  routes: CorridorRoute[];
+}
+
+export interface SegmentInsight {
+  key: string;
+  route_id: string;
+  segment_no: number;
+  address: string | null;
+  region: string | null;
+  pois: { name: string; category: string; distance_m: number }[];
+  geometry: { total_turn_deg: number; max_turn_deg: number; shape: string };
+  speed: { samples: number; mean_kmh: number; max_kmh: number; min_kmh: number; stdev_kmh: number } | null;
+  hours: { total: number; top_hours: { hour: number; count: number }[] } | null;
+  captures: string[];
+  /** LLM 응답 — 숫자 필드가 하나도 없다(스키마 레벨 강제) */
+  report: {
+    headline: string;
+    causes: { factor: string; evidence: string; confidence: '높음' | '보통' | '낮음' }[];
+    driver_advice: string;
+    visual_notes: string;
+  };
+}
+
+export interface DriverReport {
+  title: string;
+  intro: string;
+  key_rules: { rule: string; why: string }[];
+  route_notes: { route_id: string; summary: string }[];
+  spots: { key: string; nickname: string; when_to_watch: string; action: string }[];
+  closing: string;
+}
+
+export interface SegmentInsightBundle {
+  meta: { model: string; generated_at: string; segment_count: number; note: string };
+  insights: SegmentInsight[];
+  driver_report: DriverReport | null;
+}

@@ -16,3 +16,4 @@ run('build-vehicles.mjs');
 run('build-eco.mjs');
 run('build-certificates.mjs');
 run('build-attribution.mjs');
+run('build-corridor-hotspots.mjs'); // 트랙7 — verifiable 이벤트만 구간 집계(네트워크 불필요)

@@ -7,6 +7,7 @@ import { CertificateScreen } from './components/CertificateScreen';
 import { EcoScreen } from './components/EcoScreen';
 import { IngestScreen } from './components/IngestScreen';
 import { SettingsScreen } from './components/SettingsScreen';
+import { HeatmapScreen } from './components/HeatmapScreen';
 import { Placeholder } from './components/Placeholder';
 import { useAnyOpenDeviceRequest } from './lib/deviceRequests';
 
@@ -48,7 +49,7 @@ function CompanyShell({
       <main className="flex-1 overflow-auto">
         {screen === 'safe' && <SafeScreen onOpenIngest={() => setScreen('ingest')} />}
         {screen === 'eco' && <EcoScreen />}
-        {screen === 'heatmap' && <Placeholder title="Heat-map" />}
+        {screen === 'heatmap' && <HeatmapScreen />}
         {screen === 'certificate' && <CertificateScreen />}
         {screen === 'settings' && <SettingsScreen />}
         {screen === 'ingest' && <IngestScreen onBack={() => setScreen('safe')} />}

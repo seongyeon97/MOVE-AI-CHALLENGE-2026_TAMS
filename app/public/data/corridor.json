@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "generated_from": [],
+    "note": "집계 원천 없음(public/data/routes.json (node scripts/build-routes.mjs 로 생성), public/data/certificates.json (build:data 산출), files2/leg.csv, files2/event.csv, files2/dtg_track.csv) — 실측 CSV 투입 전 빈 상태. 에러 아님.",
+    "bin_km": 1,
+    "rose_top_n": 3,
+    "amber_top_n": 5,
+    "events_assigned": 0,
+    "events_skipped_no_track": 0,
+    "criteria": {
+      "total_segments": 0,
+      "segments_with_events": 0,
+      "dead_min_rate": 0,
+      "warn_min_rate": 0,
+      "rate_mean": 0,
+      "rate_median": 0,
+      "rate_max": 0,
+      "verifiable_trips": 0
+    }
+  },
+  "routes": []
+}

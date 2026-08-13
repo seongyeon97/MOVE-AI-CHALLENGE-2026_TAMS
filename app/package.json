@@ -8,7 +8,11 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "build:data": "node scripts/build-all.mjs"
+    "build:data": "node scripts/build-all.mjs",
+    "//build:data:routes": "수동 실행 — KAKAO_REST_API_KEY 필요. leg.csv의 노선을 카카오 길찾기로 기준선화 → public/data/routes.json (커밋 대상)",
+    "build:data:routes": "node scripts/build-routes.mjs",
+    "//build:data:insights": "수동 실행 전용 — build:data 파이프라인에 안 낀다. KAKAO_REST_API_KEY·VITE_KAKAO_MAP_KEY·GEMINI_API_KEY 필요. 결과 public/data/segment_insights.json + public/segment_captures/*.jpg 는 커밋 대상. 캡처 재촬영은 -- --force.",
+    "build:data:insights": "node scripts/build-segment-insights.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",
@@ -16,6 +20,7 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@google/genai": "^2.17.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.17",
@@ -23,6 +28,7 @@
     "@vitejs/plugin-react": "^6.0.4",
     "autoprefixer": "^10.5.4",
     "oxlint": "^1.75.0",
+    "playwright-core": "^1.62.1",
     "postcss": "^8.5.26",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",
